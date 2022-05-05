@@ -22,5 +22,23 @@ public class Citizen {
         this.school = school;
     }
 
-    
+    public int getId() {
+        return id;
+    }
+
+    public String getfName() {
+        return fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public int getSchool() {
+        return school;
+    }
+
+    public int getGeneralInfo() {
+        return generalInfo;
+    }
 }

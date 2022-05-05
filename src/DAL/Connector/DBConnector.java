@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class DBConnector {
 
-    private static final String CONFIG_FILE_NAME = "src/MyLoginFile.cfg";
+    private static final String CONFIG_FILE_NAME = "src/LoginConfig.cfg";
 
     private SQLServerDataSource dataSource;
 

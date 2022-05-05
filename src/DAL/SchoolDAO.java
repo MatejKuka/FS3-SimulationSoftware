@@ -92,6 +92,6 @@ public class SchoolDAO {
             preparedStatement.setString(1, school.getName());
             preparedStatement.setString(2, school.getCity());
             preparedStatement.executeUpdate();
-        } 
+        }
     }
 }

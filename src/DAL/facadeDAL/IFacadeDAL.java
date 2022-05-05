@@ -1,4 +1,4 @@
-package DAL.FacadeDAL;
+package DAL.facadeDAL;
 
 public interface IFacadeDAL {
 }

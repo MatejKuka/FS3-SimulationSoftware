@@ -38,7 +38,7 @@ public class SchoolDAO {
     public School createSchool(String name, String city) throws Exception {
         School school = null;
         int id = 0;
-        String query = "INSERT INTO School VALUES(?, ?, ?)";
+        String query = "INSERT INTO School VALUES(?, ?)";
 
         try(Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -54,8 +54,31 @@ public class SchoolDAO {
             if (created != 0){
                 school = new School(id, name, city);
             }
-
         }
         return school;
+    }
+
+    //when deleting school also delete Users, Fictive citizens connections with school
+    public void deleteSchool(School school) throws Exception {
+        String querySchool = "DELETE FROM School WHERE Id = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(querySchool);
+            preparedStatement.setInt(1, school.getId());
+            preparedStatement.executeUpdate();
+        }
+
+        String querySchoolUsers = "DELETE FROM User_School WHERE School = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(querySchoolUsers);
+            preparedStatement.setInt(1, school.getId());
+            preparedStatement.executeUpdate();
+        }
+
+        String querySchoolCitizens = "DELETE FROM Citizens WHERE School = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(querySchoolCitizens);
+            preparedStatement.setInt(1, school.getId());
+            preparedStatement.executeUpdate();
+        }
     }
 }

@@ -81,4 +81,17 @@ public class SchoolDAO {
             preparedStatement.executeUpdate();
         }
     }
+
+    public void updateSchool(School school) throws Exception {
+        String query =  "UPDATE School " +
+                        "SET SchName = ?, City = ?" +
+                        "WHERE Id = ?";
+        try (Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(3, school.getId());
+            preparedStatement.setString(1, school.getName());
+            preparedStatement.setString(2, school.getCity());
+            preparedStatement.executeUpdate();
+        } 
+    }
 }

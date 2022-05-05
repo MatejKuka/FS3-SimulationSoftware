@@ -1,17 +1,25 @@
 package BE;
 
 public class School {
-    String name;
+    private final int id;
+    private String name;
+    private String city;
 
-    public School(String name) {
+    public School(int id, String name, String city) {
+        this.id = id;
         this.name = name;
+        this.city = city;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getCity() {
+        return city;
     }
 }

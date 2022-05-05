@@ -4,16 +4,23 @@ public abstract class User {
     private int userID;
     private String firstName;
     private String lastName;
-    private String mail;
     private String loginName;
     private String password;
     private int roleID;
 
-    public User(int UserID, String loginName, String password, String mail, int roleID) {
+    public User(int UserID, String loginName, String password, int roleID) {
         this.loginName = loginName;
         this.password = password;
-        this.mail=mail;
         this.userID = userID;
+        this.roleID = roleID;
+    }
+
+    public User(int userID, String firstName, String lastName, String loginName, String password, int roleID) {
+        this.userID = userID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.loginName = loginName;
+        this.password = password;
         this.roleID = roleID;
     }
 
@@ -39,14 +46,6 @@ public abstract class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
     }
 
     public String getLoginName() {

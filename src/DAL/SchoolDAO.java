@@ -67,14 +67,14 @@ public class SchoolDAO {
             preparedStatement.executeUpdate();
         }
 
-        String querySchoolUsers = "DELETE FROM User_School WHERE School = ?";
+        String querySchoolUsers = "DELETE FROM Users_School WHERE School = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(querySchoolUsers);
             preparedStatement.setInt(1, school.getId());
             preparedStatement.executeUpdate();
         }
 
-        String querySchoolCitizens = "DELETE FROM Citizens WHERE School = ?";
+        String querySchoolCitizens = "DELETE FROM Citizen WHERE School = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(querySchoolCitizens);
             preparedStatement.setInt(1, school.getId());
@@ -83,14 +83,12 @@ public class SchoolDAO {
     }
 
     public void updateSchool(School school) throws Exception {
-        String query =  "UPDATE School " +
-                        "SET SchName = ?, City = ?" +
-                        "WHERE Id = ?";
+        String query =  "UPDATE School SET SchName = ?, City = ? WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(3, school.getId());
             preparedStatement.setString(1, school.getName());
             preparedStatement.setString(2, school.getCity());
+            preparedStatement.setInt(3, school.getId());
             preparedStatement.executeUpdate();
         }
     }

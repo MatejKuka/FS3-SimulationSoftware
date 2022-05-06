@@ -8,7 +8,7 @@ import javafx.stage.Stage;
     public class Main extends Application {
         @Override
         public void start(Stage primaryStage) throws Exception{
-            Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/MainView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/LoginView.fxml"));
             primaryStage.setTitle("MovieCollection");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();

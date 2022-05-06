@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane prefHeight="378.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.StudentsController">
+<Pane prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.StudentsController">
    <children>
-      <HBox prefHeight="378.0" prefWidth="538.0" spacing="30.0">
+      <HBox prefWidth="800.0" spacing="30.0">
          <children>
             <VBox prefWidth="450.0">
                <children>

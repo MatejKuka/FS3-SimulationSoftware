@@ -3,12 +3,10 @@ package DAL;
 import BE.GeneralInfo;
 import BE.School;
 import DAL.Connector.DBConnector;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class GeneralInformationDAO {
     DBConnector dbConnector;
@@ -80,5 +78,37 @@ public class GeneralInformationDAO {
             preparedStatement.setString(11, generalInfo.getNetwork());
             preparedStatement.executeUpdate();
         }
+    }
+
+    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
+        GeneralInfo generalInfo = null;
+        String query =  "SELECT * FROM General_Information WHERE Id = ?";
+
+        try (Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, idGeneralInfo);
+            preparedStatement.executeUpdate();
+
+            ResultSet resultSet = preparedStatement.getResultSet();
+            if (resultSet.next()){
+                String mastery = resultSet.getString("Mastery");
+                String motivation = resultSet.getString("Motivation");
+                String resources = resultSet.getString("Ressources");
+                String roller = resultSet.getString("Roller");
+                String habits = resultSet.getString("Habits");
+                String educationJob = resultSet.getString("EducationJob");
+                String lifeStory = resultSet.getString("LifeStory");
+                String healthInfo = resultSet.getString("HealthInfo");
+                String assistiveDevices = resultSet.getString("AssistiveDevices");
+                String interiorOfDwelling = resultSet.getString("InteriorOfDwelling");
+                String network = resultSet.getString("Networ");
+
+
+                generalInfo = new GeneralInfo(idGeneralInfo, mastery, motivation, resources, roller, habits,
+                        educationJob, lifeStory, healthInfo, assistiveDevices,
+                        interiorOfDwelling, network);
+            }
+        }
+        return generalInfo;
     }
 }

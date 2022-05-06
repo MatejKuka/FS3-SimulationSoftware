@@ -83,4 +83,4 @@ public class User {
                 ", roleID=" + roleID +
                 '}';
     }
-} // User should be abstract class
+}

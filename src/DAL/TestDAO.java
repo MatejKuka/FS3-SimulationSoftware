@@ -17,7 +17,7 @@ public class TestDAO {
 //        schoolDAO.getAllCustomers();
 
         UserDAO userDAO = new UserDAO();
-        System.out.println(userDAO.compareLogins("adm", "ad"));
+        System.out.println(userDAO.compareLogins("ad", "ad"));
 
 
 

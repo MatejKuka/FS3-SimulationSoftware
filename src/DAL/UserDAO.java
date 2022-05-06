@@ -2,11 +2,10 @@ package DAL;
 
 import BE.*;
 import DAL.Connector.DBConnector;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -142,5 +141,107 @@ public class UserDAO {
         }
     }
 
+    public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
+        User admin = null;
+        int type = 1;
+        int id = 0;
+        String query = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
 
+        try(Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, loginName);
+            preparedStatement.setString(4, password);
+            preparedStatement.setInt(5, type);
+            int created = preparedStatement.executeUpdate();
+
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+            if (resultSet.next()){
+                id = resultSet.getInt(1);
+            }
+            if (created != 0){
+                admin = new Admin(id,firstName, lastName, loginName, password, type);
+            }
+        }
+        return admin;
+    }
+
+    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
+        User teacher = null;
+        int type = 2;
+        int id = 0;
+        String query = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
+
+        try(Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, loginName);
+            preparedStatement.setString(4, password);
+            preparedStatement.setInt(5, type);
+            int created = preparedStatement.executeUpdate();
+
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+            if (resultSet.next()){
+                id = resultSet.getInt(1);
+            }
+            if (created != 0){
+                teacher = new Admin(id,firstName, lastName, loginName, password, type);
+            }
+        }
+        return teacher;
+    }
+
+    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
+        User student = null;
+        int type = 3;
+        int id = 0;
+        String query = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
+
+        try(Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, loginName);
+            preparedStatement.setString(4, password);
+            preparedStatement.setInt(5, type);
+            int created = preparedStatement.executeUpdate();
+
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+            if (resultSet.next()){
+                id = resultSet.getInt(1);
+            }
+            if (created != 0){
+                student = new Admin(id,firstName, lastName, loginName, password, type);;
+            }
+        }
+        return student;
+    }
+
+    // TODO more deletes needed probably(teacher with student, user with school)
+    public void deleteUser(User user) throws Exception {
+        String query = "DELETE FROM Users WHERE Id = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, user.getUserID());
+            preparedStatement.executeUpdate();
+        }
+    }
+
+    public void updateUser(User user) throws Exception {
+        String query =  "UPDATE Users SET FName = ?, LName = ?, UserName = ?, UPassword = ? WHERE Id = ?";
+        try (Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
+            preparedStatement.setString(3, user.getLoginName());
+            preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setInt(5, user.getUserID());
+            preparedStatement.executeUpdate();
+        }
+    }
 }

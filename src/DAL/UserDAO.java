@@ -48,14 +48,6 @@ public class UserDAO {
         return user;
     } // TODO Matej - this method needs to be changed
 
-    private int userID;
-    private String firstName;
-    private String lastName;
-    private String mail;
-    private String loginName;
-    private String password;
-    private int roleID;
-
     public List<User> getAllUsers() throws Exception {
         User user = null;
         List<User> allUsers = new ArrayList<>();

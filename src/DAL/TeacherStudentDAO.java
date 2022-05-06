@@ -37,7 +37,7 @@ public class TeacherStudentDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, student.getUserID());
             preparedStatement.setInt(2, teacher.getUserID());
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         }
     }
 }

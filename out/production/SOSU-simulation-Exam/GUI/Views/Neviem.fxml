@@ -28,7 +28,7 @@
             <VBox prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#handleHome" prefHeight="38.0" prefWidth="200.0" text="Home" />
-                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="200.0" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#handleAbout" prefHeight="38.0" prefWidth="200.0" text="About" />
                   <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="200.0" text="Button" />
                   <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="200.0" text="Button" />
                   <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="200.0" text="Button" />

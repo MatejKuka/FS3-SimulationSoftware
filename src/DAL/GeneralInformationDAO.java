@@ -17,7 +17,7 @@ public class GeneralInformationDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public GeneralInfo createSchool(String mastery,
+    public GeneralInfo createGeneralInfo(String mastery,
                                     String motivation,
                                     String resources,
                                     String roller,
@@ -59,5 +59,26 @@ public class GeneralInformationDAO {
             }
         }
         return generalInfo;
+    }
+
+    public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
+        String query =  "UPDATE General_Information SET Mastery = ?, Motivation = ?, Ressources = ?, Roller = ?, " +
+                        "Habits = ?, EducationJob = ?, LifeStory = ?, HealthInfo = ?, AssistiveDevices = ?," +
+                        " InteriorOfDwelling = ?, Networ = ? WHERE Id = ?";
+        try (Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, generalInfo.getMastery());
+            preparedStatement.setString(2, generalInfo.getMotivation());
+            preparedStatement.setString(3, generalInfo.getResources());
+            preparedStatement.setString(4, generalInfo.getRoller());
+            preparedStatement.setString(5, generalInfo.getHabits());
+            preparedStatement.setString(6, generalInfo.getEducationJob());
+            preparedStatement.setString(7, generalInfo.getLifeStory());
+            preparedStatement.setString(8, generalInfo.getHealthInfo());
+            preparedStatement.setString(9, generalInfo.getAssistiveDevices());
+            preparedStatement.setString(10, generalInfo.getInteriorOfDwelling());
+            preparedStatement.setString(11, generalInfo.getNetwork());
+            preparedStatement.executeUpdate();
+        }
     }
 }

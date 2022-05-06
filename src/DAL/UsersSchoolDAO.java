@@ -17,9 +17,9 @@ public class UsersSchoolDAO {
     }
 
     public void addUserToSchool(User user, School school) throws Exception {
-        String sql = "INSERT INTO Users_School VALUES (?,?)";
+        String query = "INSERT INTO Users_School VALUES (?,?)";
         try (Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, user.getUserID());
             preparedStatement.setInt(2, school.getId());
             preparedStatement.executeUpdate();
@@ -32,7 +32,7 @@ public class UsersSchoolDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, user.getUserID());
             preparedStatement.setInt(2, school.getId());
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         }
     }
 }

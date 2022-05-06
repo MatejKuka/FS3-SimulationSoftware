@@ -14,14 +14,14 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class NeviemComntroller implements Initializable {
+public class TeacherController implements Initializable {
     @FXML
     private StackPane contentArea;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            Parent fxml = FXMLLoader.load(getClass().getResource("../Views/Home.fxml"));
+            Parent fxml = FXMLLoader.load(getClass().getResource("../Views/Students.fxml"));
             contentArea.getChildren().removeAll();
             contentArea.getChildren().setAll(fxml);
 
@@ -30,13 +30,13 @@ public class NeviemComntroller implements Initializable {
         }
     }
 
-    public void handleHome(ActionEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("../Views/Home.fxml"));
+    public void handleStudents(ActionEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("../Views/Students.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
 
-    public void handleAbout(ActionEvent event) throws IOException {
+    public void handleClasses(ActionEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("../Views/About.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);

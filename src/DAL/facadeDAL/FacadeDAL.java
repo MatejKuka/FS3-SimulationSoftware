@@ -22,22 +22,22 @@ public class FacadeDAL implements IFacadeDAL{
 
     @Override
     public List<User> getAllUsers() throws Exception {
-        return null;
+        return userDAO.getAllUsers();
     }
 
     @Override
     public List<User> getAllAdmins() throws Exception {
-        return null;
+        return userDAO.getAllAdmins();
     }
 
     @Override
     public List<User> getAllStudents() throws Exception {
-        return null;
+        return userDAO.getAllStudents();
     }
 
     @Override
     public List<User> getAllTeacher() throws Exception {
-        return null;
+        return userDAO.getAllTeacher();
     }
 
     @Override

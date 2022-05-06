@@ -4,10 +4,15 @@ import BE.User;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -26,8 +31,6 @@ public class LoginController {
 
     @FXML
     private TextField textFieldUsername;
-
-
 
     String errorMessage = "Your username or password is wrong";
 
@@ -70,6 +73,22 @@ public class LoginController {
 
     private void startAdminPage() {
         System.out.println("admin page");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/MAdminStudentView.fxml"));
+        setScene(textFieldPassword, loader);
+    }
+
+    public void setScene(Node node, FXMLLoader loader) {
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage primaryStage = (Stage) node.getScene().getWindow();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

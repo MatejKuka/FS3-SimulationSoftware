@@ -10,7 +10,7 @@ public class TestMain extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/TeacherView.fxml"));
 
-        primaryStage.setScene(new Scene(root, 788, 555));
+        primaryStage.setScene(new Scene(root, 1000, 600));
         primaryStage.show();
     }
 }

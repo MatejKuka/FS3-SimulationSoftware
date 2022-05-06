@@ -7,18 +7,18 @@ public class Citizen {
     private int school;
     private int generalInfo;
 
-    public Citizen(int id, String fName, String lNAme, int school, int generalInfo) {
+    public Citizen(int id, String fName, String lName, int school, int generalInfo) {
         this.id = id;
         this.fName = fName;
-        this.lName = lNAme;
+        this.lName = lName;
         this.school = school;
         this.generalInfo = generalInfo;
     }
 
-    public Citizen(int id, String fName, String lNAme, int school) {
+    public Citizen(int id, String fName, String lName, int school) {
         this.id = id;
         this.fName = fName;
-        this.lName = lNAme;
+        this.lName = lName;
         this.school = school;
     }
 

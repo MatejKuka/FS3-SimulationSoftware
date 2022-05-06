@@ -18,7 +18,6 @@ public class UserDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-//public User(int userID, String firstName, String lastName, String loginName, String password, int roleID)
     public User compareLogins(String username, String password) throws Exception
     {
         User user = null;

@@ -2,15 +2,22 @@ package DAL.facadeDAL;
 
 import BE.School;
 import BE.User;
+import DAL.UserDAO;
 
+import java.io.IOException;
 import java.util.List;
 
 public class FacadeDAL implements IFacadeDAL{
+    UserDAO userDAO;
+
+    public FacadeDAL() throws IOException {
+        userDAO = new UserDAO();
+    }
 
 
     @Override
     public User compareLogins(String username, String password) throws Exception {
-        return null;
+        return userDAO.compareLogins(username, password);
     }
 
     @Override

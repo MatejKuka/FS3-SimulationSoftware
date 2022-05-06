@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane prefHeight="574.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.MAdminStudentViewController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.MAdminStudentViewController">
    <children>
-      <BorderPane fx:id="borderPane" layoutX="-6.0" prefHeight="574.0" prefWidth="834.0" style="-fx-background-color: #ababaa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="borderPane" layoutX="-6.0" prefHeight="677.0" prefWidth="1000.0" style="-fx-background-color: #ababaa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox alignment="CENTER" prefHeight="574.0" prefWidth="153.0" style="-fx-background-color: #bada55;" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="700.0" prefWidth="160.0" style="-fx-background-color: #bada55;" BorderPane.alignment="CENTER">
                <children>
                   <Button mnemonicParsing="false" onAction="#toStudentsPage" text="Students" textAlignment="CENTER">
                      <padding>

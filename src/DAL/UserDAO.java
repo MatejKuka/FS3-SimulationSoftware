@@ -214,17 +214,30 @@ public class UserDAO {
                 id = resultSet.getInt(1);
             }
             if (created != 0){
-                student = new Admin(id,firstName, lastName, loginName, password, type);;
+                student = new Admin(id,firstName, lastName, loginName, password, type);
             }
         }
         return student;
     }
 
-    // TODO more deletes needed probably(teacher with student, user with school)
     public void deleteUser(User user) throws Exception {
         String query = "DELETE FROM Users WHERE Id = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, user.getUserID());
+            preparedStatement.executeUpdate();
+        }
+
+        String queryUserSchool = "DELETE FROM Users_School WHERE Users = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(queryUserSchool);
+            preparedStatement.setInt(1, user.getUserID());
+            preparedStatement.executeUpdate();
+        }
+
+        String queryTeacherStudent = "DELETE FROM Teacher_Student WHERE Teacher = ? OR Student = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(queryTeacherStudent);
             preparedStatement.setInt(1, user.getUserID());
             preparedStatement.executeUpdate();
         }

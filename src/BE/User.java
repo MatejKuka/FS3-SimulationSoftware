@@ -1,6 +1,6 @@
 package BE;
 
-public abstract class User {
+public class User {
     private int userID;
     private String firstName;
     private String lastName;
@@ -8,7 +8,7 @@ public abstract class User {
     private String password;
     private int roleID;
 
-    public User(int UserID, String loginName, String password, int roleID) {
+    public User(int userID, String loginName, String password, int roleID) {
         this.loginName = loginName;
         this.password = password;
         this.userID = userID;
@@ -70,5 +70,17 @@ public abstract class User {
 
     public void setRoleID(int roleID) {
         this.roleID = roleID;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userID=" + userID +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", loginName='" + loginName + '\'' +
+                ", password='" + password + '\'' +
+                ", roleID=" + roleID +
+                '}';
     }
 } // User should be abstract class

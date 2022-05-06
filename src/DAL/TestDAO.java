@@ -15,5 +15,11 @@ public class TestDAO {
 //        schoolDAO.updateSchool(school);
 //        schoolDAO.deleteSchool(school);
 //        schoolDAO.getAllCustomers();
+
+        UserDAO userDAO = new UserDAO();
+        System.out.println(userDAO.compareLogins("adm", "ad"));
+
+
+
     }
 }

@@ -18,12 +18,13 @@ public class UserDAO {
         dbConnector = DBConnector.getInstance();
     }
 
+//public User(int userID, String firstName, String lastName, String loginName, String password, int roleID)
     public User compareLogins(String username, String password) throws Exception
     {
         User user = null;
 
         try (Connection con = dbConnector.getConnection()) {
-            String sql ="SELECT [loginName],[password],[email],[roleID],[userID] FROM LoginUser WHERE [loginName] = ? AND [password] = ?";
+            String sql ="SELECT * FROM Users WHERE [UserName] = ? AND [UPassword] = ?";
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1,username);
             pstmt.setString(2,password);
@@ -31,12 +32,13 @@ public class UserDAO {
 
             while(rs.next())
             {
-                int userID = rs.getInt("userID");
-                String loginName = rs.getString("loginName");
-                String email = rs.getString("email");
-                int roleID = rs.getInt("roleID");
+                int userID = rs.getInt("Id");
+                String loginName = rs.getString("UserName");
+                String firstName = rs.getString("FName");
+                String lastName = rs.getString("LName");
+                int roleID = rs.getInt("Type_Of_User");
 
-                user = null; // change this
+                user = new User(userID, firstName, lastName, loginName, password, roleID);
             }
         }
         catch (Exception e)

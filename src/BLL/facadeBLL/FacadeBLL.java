@@ -13,6 +13,6 @@ public class FacadeBLL implements IFacadeBLL{
 
     @Override
     public User compareLogins(String username, String password) throws Exception {
-        return userManager;
+        return userManager.compareLogins(username, password);
     }
 }

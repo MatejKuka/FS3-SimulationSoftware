@@ -119,7 +119,7 @@ public class UserDAO {
         }
     }
 
-    public List<User> getAllTeacher() throws Exception {
+    public List<User> getAllTeachers() throws Exception {
         List<User> allTeachers = new ArrayList<>();
         try (Connection connection = dbConnector.getConnection()) {
             String query = "SELECT * FROM Users WHERE Type_Of_User = 2";
@@ -240,6 +240,7 @@ public class UserDAO {
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryTeacherStudent);
             preparedStatement.setInt(1, user.getUserID());
+            preparedStatement.setInt(2, user.getUserID());
             preparedStatement.executeUpdate();
         }
     }

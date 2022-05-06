@@ -21,7 +21,7 @@ public class TeacherStudentDAO {
             System.out.println("One user needs to be student, another needs to be teacher, can not assign selected users together!");
         }
         else {
-            String query = "INSERT INTO Users_School VALUES (?,?)";
+            String query = "INSERT INTO Teacher_Student VALUES (?,?)";
             try (Connection connection = dbConnector.getConnection()) {
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setInt(1, student.getUserID());
@@ -32,7 +32,7 @@ public class TeacherStudentDAO {
     }
 
     public void removeStudentFromTeacher(User student, User teacher) throws Exception {
-        String query = "DELETE from Users_School WHERE Users = ? AND School = ?";
+        String query = "DELETE from Teacher_Student WHERE Teacher = ? AND Student = ?";
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, student.getUserID());

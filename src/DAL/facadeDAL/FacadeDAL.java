@@ -37,7 +37,7 @@ public class FacadeDAL implements IFacadeDAL{
 
     @Override
     public List<User> getAllTeacher() throws Exception {
-        return userDAO.getAllTeacher();
+        return userDAO.getAllTeachers();
     }
 
     @Override

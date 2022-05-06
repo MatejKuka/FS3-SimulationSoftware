@@ -1,5 +1,6 @@
 package DAL;
 
+import BE.School;
 import BE.Student;
 import BE.Teacher;
 import BE.User;
@@ -9,7 +10,7 @@ public class TestDAO {
 
 //        SchoolDAO schoolDAO = new SchoolDAO();
 
-//        School school = new School(2,"SOSU", "Copenhagen");
+//        School school = new School(1,"SOSU", "Copenhagen");
 
 //        schoolDAO.createSchool(school.getName(), school.getCity());
 //        schoolDAO.updateSchool(school);
@@ -36,6 +37,9 @@ public class TestDAO {
 //        teacherStudentDAO.addStudentToTeacher(student, teacher);
 //        teacherStudentDAO.removeStudentFromTeacher(student, teacher);
 
+//        UsersSchoolDAO usersSchoolDAO = new UsersSchoolDAO();
 
+//        usersSchoolDAO.addUserToSchool(student, school);
+//        usersSchoolDAO.removeUserFromSchool(student, school);
     }
 }

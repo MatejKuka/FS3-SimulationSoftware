@@ -20,8 +20,9 @@ public class UsersSchoolDAO {
         String query = "INSERT INTO Users_School VALUES (?,?)";
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, user.getUserID());
-            preparedStatement.setInt(2, school.getId());
+            preparedStatement.setInt(1, school.getId());
+            preparedStatement.setInt(2, user.getUserID());
+
             preparedStatement.executeUpdate();
         }
     }

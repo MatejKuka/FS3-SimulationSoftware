@@ -220,5 +220,26 @@ public class UserDAO {
         return student;
     }
 
+    // TODO more deletes needed probably(teacher with student, user with school)
+    public void deleteUser(User user) throws Exception {
+        String query = "DELETE FROM Users WHERE Id = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, user.getUserID());
+            preparedStatement.executeUpdate();
+        }
+    }
 
+    public void updateUser(User user) throws Exception {
+        String query =  "UPDATE Users SET FName = ?, LName = ?, UserName = ?, UPassword = ? WHERE Id = ?";
+        try (Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
+            preparedStatement.setString(3, user.getLoginName());
+            preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setInt(5, user.getUserID());
+            preparedStatement.executeUpdate();
+        }
+    }
 }

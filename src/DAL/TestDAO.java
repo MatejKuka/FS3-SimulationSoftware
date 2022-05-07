@@ -1,9 +1,6 @@
 package DAL;
 
-import BE.School;
-import BE.Student;
-import BE.Teacher;
-import BE.User;
+import BE.*;
 
 public class TestDAO {
     public static void main(String[] args) throws Exception {
@@ -41,5 +38,19 @@ public class TestDAO {
 
 //        usersSchoolDAO.addUserToSchool(student, school);
 //        usersSchoolDAO.removeUserFromSchool(student, school);
+
+        GeneralInformationDAO generalInformationDAO = new GeneralInformationDAO();
+
+//        GeneralInfo generalInfo = new GeneralInfo(1,"Metju Kuka", "Mastery","Mastery","Mastery","Mastery","Mastery","Mastery",
+//                                "Mastery","Mastery","Mastery", "Mastery");
+
+//        Citizen citizen = new Citizen(4, "Loptos", "Heteracik", 2, 1);
+
+//        generalInformationDAO.createGeneralInfo("Mastery", "Mastery","Mastery","Mastery","Mastery","Mastery","Mastery",
+//                "Mastery","Mastery","Mastery", "Mastery");
+
+//        generalInformationDAO.updateGeneralInfo(generalInfo);
+//        generalInformationDAO.getGeneralInfo(generalInfo.getId());
+//        generalInformationDAO.getGeneralInfo(citizen.getGeneralInfo());
     }
 }

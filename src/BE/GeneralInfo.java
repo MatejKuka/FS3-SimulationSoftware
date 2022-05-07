@@ -78,4 +78,21 @@ public class GeneralInfo {
     public String getNetwork() {
         return network;
     }
+
+    @Override
+    public String toString() {
+        return "GeneralInfo " +
+                "id=" + id +
+                ", mastery='" + mastery +
+                ", motivation='" + motivation +
+                ", resources='" + resources +
+                ", roller='" + roller +
+                ", habits='" + habits +
+                ", educationJob='" + educationJob +
+                ", lifeStory='" + lifeStory +
+                ", healthInfo='" + healthInfo +
+                ", assistiveDevices='" + assistiveDevices +
+                ", interiorOfDwelling='" + interiorOfDwelling +
+                ", network='" + network;
+    }
 }

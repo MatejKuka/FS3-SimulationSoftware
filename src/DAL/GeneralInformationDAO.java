@@ -76,6 +76,8 @@ public class GeneralInformationDAO {
             preparedStatement.setString(9, generalInfo.getAssistiveDevices());
             preparedStatement.setString(10, generalInfo.getInteriorOfDwelling());
             preparedStatement.setString(11, generalInfo.getNetwork());
+            preparedStatement.setInt(12, generalInfo.getId());
+
             preparedStatement.executeUpdate();
         }
     }
@@ -87,7 +89,7 @@ public class GeneralInformationDAO {
         try (Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, idGeneralInfo);
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
 
             ResultSet resultSet = preparedStatement.getResultSet();
             if (resultSet.next()){
@@ -107,6 +109,7 @@ public class GeneralInformationDAO {
                 generalInfo = new GeneralInfo(idGeneralInfo, mastery, motivation, resources, roller, habits,
                         educationJob, lifeStory, healthInfo, assistiveDevices,
                         interiorOfDwelling, network);
+                System.out.println(generalInfo);
             }
         }
         return generalInfo;

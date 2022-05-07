@@ -1,6 +1,6 @@
 package BE;
 
-public class HealthConditionsAnsw {
+public class HealthConditions {
     private int id;
     private String SaveAs;
     private String ProfessNote;
@@ -11,7 +11,7 @@ public class HealthConditionsAnsw {
     private int TypeOfCase;
     private int Citizen;
 
-    public HealthConditionsAnsw(int id, String saveAs, String professNote, String currAssess, String expectedLvl, String follUpDate, String observNote, int typeOfCase, int citizen) {
+    public HealthConditions(int id, String saveAs, String professNote, String currAssess, String expectedLvl, String follUpDate, String observNote, int typeOfCase, int citizen) {
         this.id = id;
         SaveAs = saveAs;
         ProfessNote = professNote;

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,5 +88,30 @@ public class CitizenDAO {
             preparedStatement.setInt(1, citizen.getId());
             preparedStatement.executeUpdate();
         }
+    }
+
+    public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
+        Citizen citizen = null;
+        int id = 0;
+        String query = "INSERT INTO Citizen VALUES(?, ?, ?, ?)";
+
+        try(Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, fName);
+            preparedStatement.setString(2, lName);
+            preparedStatement.setInt(3, school);
+            preparedStatement.setInt(4, generalInfo);
+            int created = preparedStatement.executeUpdate();
+
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+            if (resultSet.next()){
+                id = resultSet.getInt(1);
+            }
+            if (created != 0){
+                citizen = new Citizen(id, fName, lName, school, generalInfo);
+            }
+        }
+        return citizen;
     }
 }

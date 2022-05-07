@@ -1,9 +1,11 @@
 package BLL.facadeBLL;
 import BE.User;
+import BLL.utils.UserManager;
+
 import java.io.IOException;
 import java.util.List;
 
-public class FacadeBLL implements IFacadeBLL{
+public class FacadeBLL implements IFacadeBLL {
     UserManager userManager;
 
     public FacadeBLL() throws IOException {

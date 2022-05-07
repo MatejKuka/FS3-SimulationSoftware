@@ -57,13 +57,11 @@ public class MainModel {
             else if (idRole == 2) userObservableList.setAll(getAllTeacher());
             else if (idRole == 3)userObservableList.setAll(getAllStudents());
 
-        System.out.println(userObservableList);
         return userObservableList;
     }
 
     public void changeRoleId(int number){
         idRole = number;
-        System.out.println("static roleID changed to " + idRole);
     }
 
     public int getRoleId(){

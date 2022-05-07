@@ -19,6 +19,7 @@ import java.io.IOException;
 public class LoginController {
 
     MainModel mainModel;
+    String errorMessage = "Your username or password is wrong";
 
     @FXML
     private Button buttonLogin;
@@ -32,7 +33,6 @@ public class LoginController {
     @FXML
     private TextField textFieldUsername;
 
-    String errorMessage = "Your username or password is wrong";
 
 
     public LoginController() throws IOException {

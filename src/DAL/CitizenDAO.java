@@ -51,4 +51,41 @@ public class CitizenDAO {
             preparedStatement.executeUpdate();
         }
     }
+
+    public void deleteCitizen(Citizen citizen) throws Exception {
+        String queryCitizen = "DELETE FROM Citizen WHERE Id = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(queryCitizen);
+            preparedStatement.setInt(1, citizen.getId());
+            preparedStatement.executeUpdate();
+        }
+
+        String queryGeneralInfo = "DELETE FROM General_Information WHERE Id = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(queryGeneralInfo);
+            preparedStatement.setInt(1, citizen.getId());
+            preparedStatement.executeUpdate();
+        }
+
+        String queryHealthConditions = "DELETE FROM Health_Condition_Answ WHERE Id = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(queryHealthConditions);
+            preparedStatement.setInt(1, citizen.getId());
+            preparedStatement.executeUpdate();
+        }
+
+        String queryCitizenAssessment = "DELETE FROM Citizens_Assessment WHERE Id = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(queryCitizenAssessment);
+            preparedStatement.setInt(1, citizen.getId());
+            preparedStatement.executeUpdate();
+        }
+
+        String queryFunctionalityState = "DELETE FROM Functionality_State_Answ WHERE Id = ?";
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(queryFunctionalityState);
+            preparedStatement.setInt(1, citizen.getId());
+            preparedStatement.executeUpdate();
+        }
+    }
 }

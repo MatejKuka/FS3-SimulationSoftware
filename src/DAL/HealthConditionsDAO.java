@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  * This is CASE
@@ -23,7 +24,7 @@ public class HealthConditionsDAO {
 
     public HealthConditions getHealthCondition(int idCitizen) throws Exception {
         HealthConditions healthConditions = null;
-        String query =  "SELECT * FROM Health WHERE Citizen = ?";
+        String query =  "SELECT * FROM Health_Condition_Answ WHERE Citizen = ?";
 
         try (Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -65,5 +66,43 @@ public class HealthConditionsDAO {
 
             preparedStatement.executeUpdate();
         }
+    }
+
+    public HealthConditions createHealthCondition(String SaveAs,
+                                                  String ProfessNote,
+                                                  String CurrAssess,
+                                                  String ExpectedLvl,
+                                                  String FollUpDate,
+                                                  String ObservNote,
+                                                  int TypeOfCase,
+                                                  int Citizen) throws Exception {
+        HealthConditions healthConditions = null;
+        int id = 0;
+        String query = "INSERT INTO Health_Condition_Answ VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try(Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, SaveAs);
+            preparedStatement.setString(2, ProfessNote);
+            preparedStatement.setString(3, CurrAssess);
+            preparedStatement.setString(4, ExpectedLvl);
+            preparedStatement.setString(5, FollUpDate);
+            preparedStatement.setString(6, ObservNote);
+            preparedStatement.setInt(7, TypeOfCase);
+            preparedStatement.setInt(8, Citizen);
+
+
+            int created = preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+            if (resultSet.next()){
+                id = resultSet.getInt(1);
+            }
+            if (created != 0){
+                healthConditions = new HealthConditions(id, SaveAs,ProfessNote, CurrAssess,
+                                                        ExpectedLvl, FollUpDate, ObservNote, TypeOfCase, Citizen);
+            }
+        }
+        return healthConditions;
     }
 }

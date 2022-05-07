@@ -39,7 +39,7 @@ public class TestDAO {
 //        usersSchoolDAO.addUserToSchool(student, school);
 //        usersSchoolDAO.removeUserFromSchool(student, school);
 
-        GeneralInformationDAO generalInformationDAO = new GeneralInformationDAO();
+//        GeneralInformationDAO generalInformationDAO = new GeneralInformationDAO();
 
 //        GeneralInfo generalInfo = new GeneralInfo(1,"Metju Kuka", "Mastery","Mastery","Mastery","Mastery","Mastery","Mastery",
 //                                "Mastery","Mastery","Mastery", "Mastery");

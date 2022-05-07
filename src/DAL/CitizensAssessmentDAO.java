@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class CitizensAssessmentDAO {
 
@@ -59,5 +60,40 @@ public class CitizensAssessmentDAO {
 
             preparedStatement.executeUpdate();
         }
+    }
+
+    public CitizensAssessment createCitizensAssessmentint(String Performance,
+                                                          String Importance,
+                                                          String CitizWishes,
+                                                          String FollUpDate,
+                                                          String ObservNote,
+                                                          int FunctionalityType,
+                                                          int Citizen) throws Exception {
+        CitizensAssessment citizensAssessment = null;
+        int id = 0;
+        String query = "INSERT INTO Citizens_Assessment VALUES(?, ?, ?, ?, ?, ?, ?)";
+
+        try(Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, Performance);
+            preparedStatement.setString(2, Importance);
+            preparedStatement.setString(3, CitizWishes);
+            preparedStatement.setString(4, FollUpDate);
+            preparedStatement.setString(5, ObservNote);
+            preparedStatement.setInt(6, FunctionalityType);
+            preparedStatement.setInt(7, Citizen);
+
+            int created = preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+            if (resultSet.next()){
+                id = resultSet.getInt(1);
+            }
+            if (created != 0){
+                citizensAssessment = new CitizensAssessment(id, Performance,Importance, CitizWishes,
+                        FollUpDate, ObservNote, FunctionalityType, Citizen);
+            }
+        }
+        return citizensAssessment;
     }
 }

@@ -1,7 +1,7 @@
-package BLL.facadeBLL;
+package BLL.utils;
 
 import BE.User;
-import BLL.facadeBLL.utils.LoginUserHelper;
+import BLL.utils.LoginUserHelper;
 import DAL.facadeDAL.FacadeDAL;
 
 import java.io.IOException;

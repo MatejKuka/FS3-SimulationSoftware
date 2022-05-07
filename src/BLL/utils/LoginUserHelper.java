@@ -1,4 +1,4 @@
-package BLL.facadeBLL.utils;
+package BLL.utils;
 
 import BE.User;
 

@@ -49,4 +49,21 @@ public class HealthConditionsDAO {
         }
         return healthConditions;
     }
+
+    public void updateHealthConditions(HealthConditions healthConditions) throws Exception {
+        String query =  "UPDATE Health_Condition_Answ SET SaveAs = ?, ProfessNote = ?, CurrAssess = ?, ExpectedLvl = ?, " +
+                        "FollUpDate = ?, ObservNote = ? WHERE Id = ?";
+        try (Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, healthConditions.getSaveAs());
+            preparedStatement.setString(2, healthConditions.getProfessNote());
+            preparedStatement.setString(3, healthConditions.getCurrAssess());
+            preparedStatement.setString(4, healthConditions.getExpectedLvl());
+            preparedStatement.setString(5, healthConditions.getFollUpDate());
+            preparedStatement.setString(6, healthConditions.getObservNote());
+            preparedStatement.setInt(7, healthConditions.getId());
+
+            preparedStatement.executeUpdate();
+        }
+    }
 }

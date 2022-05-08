@@ -91,8 +91,8 @@ public class CitizensAssessmentDAO {
                 id = resultSet.getInt(1);
             }
             if (created != 0){
-                citizensAssessment = new CitizensAssessment(id, Performance,Importance, CitizWishes,
-                        FollUpDate, ObservNote, FunctionalityType, Citizen);
+                citizensAssessment = new CitizensAssessment(id, performance,importance, citizWishes,
+                        follUpDate, observNote, functionalityType, citizen);
             }
         }
         return citizensAssessment;

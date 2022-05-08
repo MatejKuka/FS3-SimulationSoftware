@@ -37,6 +37,14 @@ public class UsersSchoolDAO {
             preparedStatement.setInt(2, school.getId());
             preparedStatement.executeUpdate();
         }
+
+        String queryTeacherStudent = "DELETE from Teacher_Student WHERE Teacher = ? OR Student = ?";
+        try (Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(queryTeacherStudent);
+            preparedStatement.setInt(1, user.getUserID());
+            preparedStatement.setInt(2, user.getUserID());
+            preparedStatement.executeUpdate();
+        }
     }
 
     //TEST THIS

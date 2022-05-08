@@ -58,7 +58,8 @@ public class SchoolDAO {
         return school;
     }
 
-    //when deleting school also delete Users, Fictive citizens connections with school
+    //when deleting school also delete Users, Fictive citizens connections with school,
+    //do we need also delete citizens GenInfo, HealthCon, CitizenAss and FunctiState??
     public void deleteSchool(School school) throws Exception {
         String querySchool = "DELETE FROM School WHERE Id = ?";
         try(Connection connection = dbConnector.getConnection()) {

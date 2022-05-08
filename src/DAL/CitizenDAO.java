@@ -55,7 +55,7 @@ public class CitizenDAO {
         }
     }
 
-    public void deleteCitizen(Citizen citizen) throws Exception {
+    public void deleteCitizen(Citizen citizen, int generalInfoOfCitizenId) throws Exception {
         String queryCitizen = "DELETE FROM Citizen WHERE Id = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryCitizen);
@@ -66,25 +66,25 @@ public class CitizenDAO {
         String queryGeneralInfo = "DELETE FROM General_Information WHERE Id = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryGeneralInfo);
-            preparedStatement.setInt(1, citizen.getId());
+            preparedStatement.setInt(1, generalInfoOfCitizenId);
             preparedStatement.executeUpdate();
         }
 
-        String queryHealthConditions = "DELETE FROM Health_Condition_Answ WHERE Id = ?";
+        String queryHealthConditions = "DELETE FROM Health_Condition_Answ WHERE Citizen = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryHealthConditions);
             preparedStatement.setInt(1, citizen.getId());
             preparedStatement.executeUpdate();
         }
 
-        String queryCitizenAssessment = "DELETE FROM Citizens_Assessment WHERE Id = ?";
+        String queryCitizenAssessment = "DELETE FROM Citizens_Assessment WHERE Citizen = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryCitizenAssessment);
             preparedStatement.setInt(1, citizen.getId());
             preparedStatement.executeUpdate();
         }
 
-        String queryFunctionalityState = "DELETE FROM Functionality_State_Answ WHERE Id = ?";
+        String queryFunctionalityState = "DELETE FROM Functionality_State_Answ WHERE Citizen = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryFunctionalityState);
             preparedStatement.setInt(1, citizen.getId());

@@ -41,4 +41,14 @@ public class Citizen {
     public int getGeneralInfo() {
         return generalInfo;
     }
+
+    @Override
+    public String toString() {
+        return
+                "id=" + id +
+                ", fName='" + fName +
+                ", lName='" + lName +
+                ", school=" + school +
+                ", generalInfo=" + generalInfo;
+    }
 }

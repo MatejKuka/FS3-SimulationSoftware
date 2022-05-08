@@ -45,10 +45,10 @@ public class CitizensController implements Initializable {
     }
 
     private void updateTableView() throws Exception {
-        tableColumnFName.setCellValueFactory(new PropertyValueFactory<>("fName"));
-        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lName"));
-        tableViewCitizens.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
+//        tableColumnFName.setCellValueFactory(new PropertyValueFactory<>("fName"));
+//        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
+//        tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lName"));
+//        tableViewCitizens.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
     }
 
     @FXML

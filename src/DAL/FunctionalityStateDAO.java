@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class FunctionalityStateDAO {
 
@@ -56,5 +57,37 @@ public class FunctionalityStateDAO {
 
             preparedStatement.executeUpdate();
         }
+    }
+
+    public FunctionalityState createFunctionalityState(int currLvl,
+                                                       int expectedLvl,
+                                                       String professNote,
+                                                       String follUpDate,
+                                                       int functionalityType,
+                                                       int citizen) throws Exception {
+        FunctionalityState functionalityState = null;
+        int id = 0;
+        String query = "INSERT INTO Functionality_State_Answ VALUES(?, ?, ?, ?, ?, ?)";
+
+        try(Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, currLvl);
+            preparedStatement.setString(2, expectedLvl);
+            preparedStatement.setString(3, professNote);
+            preparedStatement.setString(4, follUpDate);
+            preparedStatement.setString(5, functionalityType);
+            preparedStatement.setInt(6, citizen);
+
+            int created = preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+            if (resultSet.next()){
+                id = resultSet.getInt(1);
+            }
+            if (created != 0){
+                functionalityState = new FunctionalityState(id, currLvl, expectedLvl, professNote, follUpDate, functionalityType, citizen);
+            }
+        }
+        return functionalityState;
     }
 }

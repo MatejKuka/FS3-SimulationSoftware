@@ -63,26 +63,26 @@ public class CitizensAssessmentDAO {
         }
     }
 
-    public CitizensAssessment createCitizensAssessment(String Performance,
-                                                       String Importance,
-                                                       String CitizWishes,
-                                                       String FollUpDate,
-                                                       String ObservNote,
-                                                       int FunctionalityType,
-                                                       int Citizen) throws Exception {
+    public CitizensAssessment createCitizensAssessment(String performance,
+                                                       String importance,
+                                                       String citizWishes,
+                                                       String follUpDate,
+                                                       String observNote,
+                                                       int functionalityType,
+                                                       int citizen) throws Exception {
         CitizensAssessment citizensAssessment = null;
         int id = 0;
         String query = "INSERT INTO Citizens_Assessment VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, Performance);
-            preparedStatement.setString(2, Importance);
-            preparedStatement.setString(3, CitizWishes);
-            preparedStatement.setString(4, FollUpDate);
-            preparedStatement.setString(5, ObservNote);
-            preparedStatement.setInt(6, FunctionalityType);
-            preparedStatement.setInt(7, Citizen);
+            preparedStatement.setString(1, performance);
+            preparedStatement.setString(2, importance);
+            preparedStatement.setString(3, citizWishes);
+            preparedStatement.setString(4, follUpDate);
+            preparedStatement.setString(5, observNote);
+            preparedStatement.setInt(6, functionalityType);
+            preparedStatement.setInt(7, citizen);
 
             int created = preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();

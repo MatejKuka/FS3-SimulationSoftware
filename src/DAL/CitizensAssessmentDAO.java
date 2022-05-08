@@ -62,13 +62,13 @@ public class CitizensAssessmentDAO {
         }
     }
 
-    public CitizensAssessment createCitizensAssessmentint(String Performance,
-                                                          String Importance,
-                                                          String CitizWishes,
-                                                          String FollUpDate,
-                                                          String ObservNote,
-                                                          int FunctionalityType,
-                                                          int Citizen) throws Exception {
+    public CitizensAssessment createCitizensAssessment(String Performance,
+                                                       String Importance,
+                                                       String CitizWishes,
+                                                       String FollUpDate,
+                                                       String ObservNote,
+                                                       int FunctionalityType,
+                                                       int Citizen) throws Exception {
         CitizensAssessment citizensAssessment = null;
         int id = 0;
         String query = "INSERT INTO Citizens_Assessment VALUES(?, ?, ?, ?, ?, ?, ?)";

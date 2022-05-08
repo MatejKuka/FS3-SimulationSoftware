@@ -35,7 +35,7 @@ public class MAdminStudentViewController {
 
     @FXML
     void toCitizensPage(ActionEvent event) {
-
+        setScene("/GUI/Views/CitizensView.fxml");
     }
 
     @FXML

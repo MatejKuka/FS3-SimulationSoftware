@@ -1,4 +1,4 @@
-package BLL.utils;
+package BLL;
 
 import BE.User;
 import BLL.utils.LoginUserHelper;

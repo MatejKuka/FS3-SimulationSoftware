@@ -85,4 +85,6 @@ public class MainModel {
         citizensBySchool.setAll(manager.getAllCitizenFromOneSchool(schoolId));
         return citizensBySchool;
     }
+
+    // metóda sem 
 }

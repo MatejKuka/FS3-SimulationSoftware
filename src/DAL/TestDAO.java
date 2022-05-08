@@ -52,5 +52,10 @@ public class TestDAO {
 //        generalInformationDAO.updateGeneralInfo(generalInfo);
 //        generalInformationDAO.getGeneralInfo(generalInfo.getId());
 //        generalInformationDAO.getGeneralInfo(citizen.getGeneralInfo());
+
+        GeneralInformationDAO generalInformationDAO = new GeneralInformationDAO();
+        HealthConditionsDAO healthConditionsDAO = new HealthConditionsDAO();
+        CitizensAssessmentDAO citizensAssessmentDAO = new CitizensAssessmentDAO();
+        FunctionalityStateDAO functionalityStateDAO = new FunctionalityStateDAO();
     }
 }

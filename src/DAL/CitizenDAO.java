@@ -22,7 +22,7 @@ public class CitizenDAO {
     public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception {
         List<Citizen> allCitizensFromOneSchool = new ArrayList<>();
         try (Connection connection = dbConnector.getConnection()) {
-            String query = "SELECT * FROM School WHERE School = ?";
+            String query = "SELECT * FROM Citizen WHERE School = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, schoolId);
             preparedStatement.execute();

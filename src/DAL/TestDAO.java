@@ -5,11 +5,11 @@ import BE.*;
 public class TestDAO {
     public static void main(String[] args) throws Exception {
 
-//        SchoolDAO schoolDAO = new SchoolDAO();
+        //SchoolDAO schoolDAO = new SchoolDAO();
 
-//        School school = new School(1,"SOSU", "Copenhagen");
+        //School school = new School(2,"Test", "Zvolen");
 
-//        schoolDAO.createSchool(school.getName(), school.getCity());
+        //schoolDAO.createSchool(school.getName(), school.getCity());
 //        schoolDAO.updateSchool(school);
 //        schoolDAO.deleteSchool(school);
 //        schoolDAO.getAllCustomers();

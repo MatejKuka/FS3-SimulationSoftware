@@ -1,5 +1,6 @@
 package DAL.facadeDAL;
 
+import BE.Citizen;
 import BE.School;
 import BE.User;
 
@@ -39,6 +40,6 @@ public interface IFacadeDAL {
 
 
     //CitizenDAO
-
+    public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception;
 
 }

@@ -1,11 +1,13 @@
 package GUI.Models;
 
+import BE.Citizen;
 import BE.User;
 import BLL.facadeBLL.FacadeBLL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.IOException;
+import java.util.List;
 
 public class MainModel {
 
@@ -15,6 +17,7 @@ public class MainModel {
     ObservableList<User> teachers;
     ObservableList<User> admins;
     ObservableList<User> users;
+    ObservableList<Citizen> citizensBySchool;
     FacadeBLL manager;
 
     public MainModel() throws IOException {
@@ -23,7 +26,7 @@ public class MainModel {
         admins = FXCollections.observableArrayList();
         teachers = FXCollections.observableArrayList();
         users = FXCollections.observableArrayList();
-
+        citizensBySchool = FXCollections.observableArrayList();
     }
 
     public User compareLogins(String username, String password) throws Exception {
@@ -76,5 +79,10 @@ public class MainModel {
 
     public String getRoleName() {
         return nameRole;
+    }
+
+    public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception {
+        citizensBySchool.setAll(manager.getAllCitizenFromOneSchool(schoolId));
+        return citizensBySchool;
     }
 }

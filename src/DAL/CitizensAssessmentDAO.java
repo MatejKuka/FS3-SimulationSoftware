@@ -47,7 +47,7 @@ public class CitizensAssessmentDAO {
 
     public void updateCitizenAssessment(CitizensAssessment citizensAssessment) throws Exception {
         String query =  "UPDATE Citizens_Assessment SET Performance = ?, ProfessNote = ?, CitizWishes = ?, FollUpDate = ?, " +
-                        "ObservNote = ?, FunctionalityType = ?, Citizen = ?  WHERE Id = ?";
+                        "ObservNote = ?  WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, citizensAssessment.getPerformance());
@@ -55,9 +55,7 @@ public class CitizensAssessmentDAO {
             preparedStatement.setString(3, citizensAssessment.getCitizWishes());
             preparedStatement.setString(4, citizensAssessment.getFollUpDate());
             preparedStatement.setString(5, citizensAssessment.getObservNote());
-            preparedStatement.setInt(6, citizensAssessment.getFunctionalityType());
-            preparedStatement.setInt(7, citizensAssessment.getCitizen());
-            preparedStatement.setInt(8, citizensAssessment.getId());
+            preparedStatement.setInt(6, citizensAssessment.getId());
 
             preparedStatement.executeUpdate();
         }

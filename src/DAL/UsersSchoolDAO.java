@@ -1,5 +1,6 @@
 package DAL;
 
+import BE.CitizensAssessment;
 import BE.School;
 import BE.User;
 import DAL.Connector.DBConnector;
@@ -7,6 +8,7 @@ import DAL.Connector.DBConnector;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class UsersSchoolDAO {
 
@@ -35,5 +37,22 @@ public class UsersSchoolDAO {
             preparedStatement.setInt(2, school.getId());
             preparedStatement.executeUpdate();
         }
+    }
+
+    //TEST THIS
+    public int returnUsersSchoolID(User user) throws Exception {
+        int schoolId = 0;
+        String query = "SELECT School from Users_School WHERE Users = ?";
+        try (Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, user.getUserID());
+            preparedStatement.execute();
+
+            ResultSet resultSet = preparedStatement.getResultSet();
+            if (resultSet.next()){
+                schoolId = resultSet.getInt("School");
+            }
+        }
+        return schoolId;
     }
 }

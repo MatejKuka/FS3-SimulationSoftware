@@ -53,16 +53,20 @@ public class TestDAO {
 //        generalInformationDAO.getGeneralInfo(generalInfo.getId());
 //        generalInformationDAO.getGeneralInfo(citizen.getGeneralInfo());
 
-        CitizenDAO citizenDAO  = new CitizenDAO();
+//        CitizenDAO citizenDAO  = new CitizenDAO();
 
-        Citizen citizen = new Citizen(6, "Loptos", "Heteracik", 2, 1);
+//        Citizen citizen = new Citizen(6, "Loptos", "Heteracik", 2, 1);
 
 //        citizenDAO.createCitizen("Saman", "Lepros", 1, 1);
 //        citizenDAO.updateCitizen(citizen);
 //        citizenDAO.getAllCitizenFromOneSchool(1);
 //        citizenDAO.deleteCitizen(citizen);
 
-//        HealthConditionsDAO healthConditionsDAO = new HealthConditionsDAO();
+        HealthConditionsDAO healthConditionsDAO = new HealthConditionsDAO();
+
+        healthConditionsDAO.createHealthCondition();
+        healthConditionsDAO.updateHealthConditions();
+        healthConditionsDAO.getHealthCondition();
 //        CitizensAssessmentDAO citizensAssessmentDAO = new CitizensAssessmentDAO();
 //        FunctionalityStateDAO functionalityStateDAO = new FunctionalityStateDAO();
     }

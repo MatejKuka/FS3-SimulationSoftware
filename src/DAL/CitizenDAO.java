@@ -55,7 +55,8 @@ public class CitizenDAO {
         }
     }
 
-    public void deleteCitizen(Citizen citizen, int generalInfoOfCitizenId) throws Exception {
+    //you can get this int -> generalInfoIdOfCitizen by citizen.getGeneralInfo()
+    public void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception {
         String queryCitizen = "DELETE FROM Citizen WHERE Id = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryCitizen);
@@ -66,7 +67,7 @@ public class CitizenDAO {
         String queryGeneralInfo = "DELETE FROM General_Information WHERE Id = ?";
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryGeneralInfo);
-            preparedStatement.setInt(1, generalInfoOfCitizenId);
+            preparedStatement.setInt(1, generalInfoIdOfCitizen);
             preparedStatement.executeUpdate();
         }
 

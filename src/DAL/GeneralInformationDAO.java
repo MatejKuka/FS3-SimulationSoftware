@@ -93,6 +93,7 @@ public class GeneralInformationDAO {
 
             ResultSet resultSet = preparedStatement.getResultSet();
             if (resultSet.next()){
+                int id = resultSet.getInt("Id");
                 String mastery = resultSet.getString("Mastery");
                 String motivation = resultSet.getString("Motivation");
                 String resources = resultSet.getString("Ressources");
@@ -106,7 +107,7 @@ public class GeneralInformationDAO {
                 String network = resultSet.getString("Networ");
 
 
-                generalInfo = new GeneralInfo(idGeneralInfo, mastery, motivation, resources, roller, habits,
+                generalInfo = new GeneralInfo(id, mastery, motivation, resources, roller, habits,
                         educationJob, lifeStory, healthInfo, assistiveDevices,
                         interiorOfDwelling, network);
                 System.out.println(generalInfo);

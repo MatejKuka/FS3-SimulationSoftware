@@ -33,6 +33,7 @@ public class HealthConditionsDAO {
 
             ResultSet resultSet = preparedStatement.getResultSet();
             if (resultSet.next()){
+                int id = resultSet.getInt("Id");
                 String saveAs = resultSet.getString("SaveAs");
                 String professNote = resultSet.getString("ProfessNote");
                 String currAssess = resultSet.getString("CurrAssess");
@@ -43,7 +44,7 @@ public class HealthConditionsDAO {
                 int citizen = resultSet.getInt("Citizen");
 
 
-                healthConditions = new HealthConditions(idCitizen, saveAs, professNote, currAssess, expectedLvl, follUpDate,
+                healthConditions = new HealthConditions(id, saveAs, professNote, currAssess, expectedLvl, follUpDate,
                                                         observNote, typeOfCase, citizen);
                 System.out.println(healthConditions);
             }

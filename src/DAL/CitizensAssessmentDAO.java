@@ -29,6 +29,7 @@ public class CitizensAssessmentDAO {
 
             ResultSet resultSet = preparedStatement.getResultSet();
             if (resultSet.next()){
+                int id = resultSet.getInt("Id");
                 String performance = resultSet.getString("Performance");
                 String importance = resultSet.getString("Importance");
                 String citizWishes = resultSet.getString("CitizWishes");
@@ -37,7 +38,7 @@ public class CitizensAssessmentDAO {
                 int functionalityType = resultSet.getInt("FunctionalityType");
                 int citizen = resultSet.getInt("Citizen");
 
-                citizensAssessment = new CitizensAssessment(idCitizen,  performance, importance, citizWishes, follUpDate, observNote, functionalityType, citizen);
+                citizensAssessment = new CitizensAssessment(id,  performance, importance, citizWishes, follUpDate, observNote, functionalityType, citizen);
                 System.out.println(citizensAssessment);
             }
         }

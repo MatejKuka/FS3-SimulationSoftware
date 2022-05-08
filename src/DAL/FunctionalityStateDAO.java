@@ -43,4 +43,18 @@ public class FunctionalityStateDAO {
         }
         return functionalityState;
     }
+
+    public void updateFunctionalityState(FunctionalityState functionalityState) throws Exception {
+        String query =  "UPDATE Functionality_State_Answ SET CurrLvl = ?, ExpectedLvl = ?, ProfessNote = ?, FollUpDate = ? WHERE Id = ?";
+        try (Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, functionalityState.getCurrLvl());
+            preparedStatement.setInt(2, functionalityState.getExpectedLvl());
+            preparedStatement.setString(3, functionalityState.getProfessNote());
+            preparedStatement.setString(4, functionalityState.getFollUpDate());
+            preparedStatement.setInt(5, functionalityState.getId());
+
+            preparedStatement.executeUpdate();
+        }
+    }
 }

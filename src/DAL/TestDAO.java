@@ -62,12 +62,21 @@ public class TestDAO {
 //        citizenDAO.getAllCitizenFromOneSchool(1);
 //        citizenDAO.deleteCitizen(citizen);
 
-        HealthConditionsDAO healthConditionsDAO = new HealthConditionsDAO();
+//        HealthConditionsDAO healthConditionsDAO = new HealthConditionsDAO();
+//
+//        HealthConditions healthConditions = new HealthConditions(1,"Else", "else", "something", "something",
+//                                                "something", "something", 11, 2);
 
-        healthConditionsDAO.createHealthCondition();
-        healthConditionsDAO.updateHealthConditions();
-        healthConditionsDAO.getHealthCondition();
-//        CitizensAssessmentDAO citizensAssessmentDAO = new CitizensAssessmentDAO();
+//        healthConditionsDAO.createHealthCondition("something", "something", "something", "something",
+//                                                "something", "something", 10, 2);
+//        healthConditionsDAO.updateHealthConditions(healthConditions);
+//        healthConditionsDAO.getHealthCondition(2);
+
+        CitizensAssessmentDAO citizensAssessmentDAO = new CitizensAssessmentDAO();
+
+//        citizensAssessmentDAO.createCitizensAssessment();
+//        citizensAssessmentDAO.updateCitizenAssessment();
+//        citizensAssessmentDAO.getCitizenAssessment();
 //        FunctionalityStateDAO functionalityStateDAO = new FunctionalityStateDAO();
     }
 }

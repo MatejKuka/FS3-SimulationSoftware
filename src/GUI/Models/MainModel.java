@@ -12,6 +12,7 @@ import java.util.List;
 public class MainModel {
 
     private static int idRole;
+    public static User currrentUser;
     private static String nameRole;
     ObservableList<User> students;
     ObservableList<User> teachers;
@@ -86,5 +87,13 @@ public class MainModel {
         return citizensBySchool;
     }
 
-    // metóda sem 
+    public User setCurrentUser(User user){
+        currrentUser = user;
+        System.out.println(currrentUser);
+        return currrentUser;
+    }
+
+    public User getCurrentUser(){
+        return currrentUser;
+    }
 }

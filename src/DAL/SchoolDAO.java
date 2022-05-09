@@ -2,7 +2,6 @@ package DAL;
 
 import BE.School;
 import DAL.Connector.DBConnector;
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 
 import java.io.IOException;
 import java.sql.*;
@@ -16,7 +15,7 @@ public class SchoolDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public List<School> getAllCustomers() throws Exception {
+    public List<School> getAllSchools() throws Exception {
         List<School> allSchools = new ArrayList<>();
         try (Connection connection = dbConnector.getConnection()) {
             String query = "SELECT * FROM School";
@@ -59,7 +58,7 @@ public class SchoolDAO {
     }
 
     //when deleting school also delete Users, Fictive citizens connections with school,
-    //do we need also delete citizens GenInfo, HealthCon, CitizenAss and FunctiState??
+    //do we need also delete citizens GenInfo, HealthCon, CitizenAss and FunctionState??
     public void deleteSchool(School school) throws Exception {
         String querySchool = "DELETE FROM School WHERE Id = ?";
         try(Connection connection = dbConnector.getConnection()) {

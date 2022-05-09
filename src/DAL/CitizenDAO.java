@@ -1,7 +1,6 @@
 package DAL;
 
 import BE.Citizen;
-import BE.School;
 import DAL.Connector.DBConnector;
 
 import java.io.IOException;
@@ -48,8 +47,8 @@ public class CitizenDAO {
         String query =  "UPDATE Citizen SET FName = ?, LName = ? WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, citizen.getfName());
-            preparedStatement.setString(2, citizen.getlName());
+            preparedStatement.setString(1, citizen.getFirstName());
+            preparedStatement.setString(2, citizen.getLastName());
             preparedStatement.setInt(3, citizen.getId());
             preparedStatement.executeUpdate();
         }

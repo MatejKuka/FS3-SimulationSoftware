@@ -12,6 +12,7 @@ import java.util.List;
 public class MainModel {
 
     private static int idRole;
+    private static int currentSchoolId;
     public static User currrentUser;
     private static String nameRole;
     ObservableList<User> students;
@@ -89,11 +90,25 @@ public class MainModel {
 
     public User setCurrentUser(User user){
         currrentUser = user;
-        System.out.println(currrentUser);
+        System.out.println("Current user: " + currrentUser);
         return currrentUser;
     }
 
     public User getCurrentUser(){
         return currrentUser;
     }
+
+    public int setCurrentSchoolId(User user) throws Exception {
+        currentSchoolId = returnUsersSchoolID(user);
+        System.out.println("Id of the current school:" + currentSchoolId);
+        return currentSchoolId;
+    }
+
+    public int getCurrentSchoolId(){
+        return currentSchoolId;
+    }
+
+    public int returnUsersSchoolID(User user) throws Exception {
+        return manager.returnUsersSchoolID(user);
+    } // all these methods for setting something(school, currentUser,...) can be easily put in facade or in one method
 }

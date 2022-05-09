@@ -46,15 +46,17 @@ public class LoginController {
         if(user != null) {
             if (user.getRoleID() == 1) {
                 mainModel.setCurrentUser(user);
+                mainModel.setCurrentSchoolId(user);
                 startAdminPage();
             }
             else if (user.getRoleID()== 2) {
-                startTeacherPage();
                 mainModel.setCurrentUser(user);
-
+                mainModel.setCurrentSchoolId(user);
+                startTeacherPage();
             }
             else if (user.getRoleID()== 3) {
                 mainModel.setCurrentUser(user);
+                mainModel.setCurrentSchoolId(user);
                 startStudentPage();
             }
         } else labelBadInput.setText(errorMessage);

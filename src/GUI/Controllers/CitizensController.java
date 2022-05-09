@@ -1,6 +1,8 @@
 package GUI.Controllers;
 
 import BE.Citizen;
+import GUI.Models.MainModel;
+import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +21,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CitizensController implements Initializable {
+    MainModel mainModel;
+
+    public CitizensController() throws IOException {
+        mainModel = new MainModel();
+    }
 
     @FXML
     private Button btnEditFS, btnEditGI, btnSeeMoreFS, btnSeeMoreGI;
@@ -41,14 +48,18 @@ public class CitizensController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        try {
+            updateTableView();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void updateTableView() throws Exception {
-//        tableColumnFName.setCellValueFactory(new PropertyValueFactory<>("fName"));
-//        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-//        tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lName"));
-//        tableViewCitizens.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
+        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tableColumnFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        tableViewCitizens.getItems().setAll(mainModel.getAllCitizenFromOneSchool(mainModel.getCurrentSchoolId()));
     }
 
     @FXML

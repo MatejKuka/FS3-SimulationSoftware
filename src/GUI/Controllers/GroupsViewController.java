@@ -8,10 +8,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 
@@ -29,6 +26,8 @@ public class GroupsViewController implements Initializable {
     private TableColumn<User, String> firstNameCol, lastNameCol;
     @FXML
     private TableColumn<Group, String> groupsName, groupsStudentCount;
+    @FXML
+    private Button deleteGroupButton;
     private MainModel mainModel;
 
     @Override
@@ -85,6 +84,7 @@ public class GroupsViewController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
                     Group clickedRow = row.getItem();
+                    deleteGroupButton.setDisable(false);
                 }
             });
             return row;

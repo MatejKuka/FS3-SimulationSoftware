@@ -58,7 +58,7 @@
                      <children>
                         <BorderPane>
                            <center>
-                              <Button mnemonicParsing="false" text="Delete Group" BorderPane.alignment="CENTER" />
+                              <Button fx:id="deleteGroupButton" disable="true" mnemonicParsing="false" text="Delete Group" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <BorderPane>

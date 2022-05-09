@@ -58,7 +58,7 @@
                      <children>
                         <BorderPane>
                            <center>
-                              <Button fx:id="deleteGroupButton" mnemonicParsing="false" text="Delete Group" BorderPane.alignment="CENTER" />
+                              <Button fx:id="deleteGroupButton" disable="true" mnemonicParsing="false" text="Delete Group" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <BorderPane>
@@ -107,7 +107,7 @@
             <ListView prefHeight="200.0" prefWidth="200.0" />
             <TableView prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Students in the group" />
+                <TableColumn fx:id="groupsDetail" prefWidth="75.0" text="Students in the group" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

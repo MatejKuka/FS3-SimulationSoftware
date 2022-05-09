@@ -1,23 +1,34 @@
 package GUI.Controllers;
 
+import BE.Group;
 import BE.Student;
 import BE.User;
 import GUI.Models.MainModel;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class GroupsViewController implements Initializable {
     @FXML
     private TableView<User> studentsTableView;
     @FXML
+    private TableView<Group> groupsTableView;
+    @FXML
     private TableColumn<User, String> firstNameCol, lastNameCol;
+    @FXML
+    private TableColumn<Group, String> groupsName, groupsStudentCount;
     private MainModel mainModel;
 
     @Override
@@ -25,6 +36,7 @@ public class GroupsViewController implements Initializable {
         try {
             mainModel = new MainModel();
             setupStudentsTableView();
+            setupGroups();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -36,5 +48,46 @@ public class GroupsViewController implements Initializable {
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         studentsTableView.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
+    }
+    private void setupGroups() {
+//        int userID, String firstName, String lastName, String loginName, String password, int roleID
+        User u1 = new User(1, "Pavol", "Habera", "vlasatykokot", "roko", 2);
+        User u2 = new User(2, "Jozef", "Raz", "Zatmenie", "auto", 1);
+        User u3 = new User(3, "Kokot", "Kokotovic", "fico", "fico", 2);
+        User u4 = new User(4, "Marian", "Kocner", "kuco", "zajebat", 2);
+        User u5 = new User(5, "Mikulas", "Cernak", "tampa", "bay", 2);
+
+        ArrayList<User> al1 = new ArrayList<>();
+        al1.add(u1);
+        al1.add(u2);
+        ArrayList<User> al2 = new ArrayList<>();
+        al2.add(u5);
+        al2.add(u1);
+        al2.add(u2);
+        ArrayList<User> al3 = new ArrayList<>();
+        al3.add(u4);
+        al3.add(u3);
+        al3.add(u1);
+        al3.add(u2);
+
+
+        Group g1 = new Group("Gumkaci", al1);
+        Group g2 = new Group("Pelonidas", al2);
+        Group g3 = new Group("Špartakus", al3);
+
+        groupsName.setCellValueFactory(new PropertyValueFactory<>("groupName"));
+        groupsStudentCount.setCellValueFactory(param -> new SimpleStringProperty(String.valueOf(param.getValue().getStudentList().size())));
+
+        groupsTableView.getItems().setAll(g1, g2, g3);
+
+        groupsTableView.setRowFactory(tv -> {
+            TableRow<Group> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
+                    Group clickedRow = row.getItem();
+                }
+            });
+            return row;
+        });
     }
 }

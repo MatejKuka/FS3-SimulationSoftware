@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Group {
     private String groupName;
 
-    private ArrayList studentList;
+    private ArrayList<User> studentList;
 
-    public Group(String groupName) {
+    public Group(String groupName, ArrayList<User> studentList) {
         this.groupName = groupName;
-        this.studentList = new ArrayList();
+        this.studentList = studentList;
     }
 
     public String getGroupName() {
@@ -20,11 +20,11 @@ public class Group {
         this.groupName = groupName;
     }
 
-    public ArrayList getStudentList() {
+    public ArrayList<User> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(ArrayList studentList) {
+    public void setStudentList(ArrayList<User> studentList) {
         this.studentList = studentList;
     }
 

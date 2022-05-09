@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +23,7 @@ import java.util.logging.Logger;
 
 public class CitizensController implements Initializable {
     MainModel mainModel;
+    Citizen currentCitizen;
 
     public CitizensController() throws IOException {
         mainModel = new MainModel();
@@ -80,6 +82,17 @@ public class CitizensController implements Initializable {
     @FXML
     void toSeeMoreGI(ActionEvent event) {
 
+    }
+
+    @FXML
+    void toShowCurrentCitizen(MouseEvent event) throws Exception {
+        currentCitizen = tableViewCitizens.getSelectionModel().getSelectedItem();
+        /*labelSelfCare.setText(mainModel.getGeneralInfo(currentCitizen.getGeneralInfo()).getLifeStory());
+        labelWash;
+        labelMove;
+        labelDailyRoutine;
+        labelMobility.setText(mainModel.getCitizenFunctionalityState(currentCitizen.getId).get) ; */
+        labelLifeStory.setText(mainModel.getGeneralInfo(currentCitizen.getGeneralInfo()).getLifeStory());
     }
 
 }

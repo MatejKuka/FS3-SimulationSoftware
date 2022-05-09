@@ -43,7 +43,7 @@ public class FunctionalityStateDAO {
             }
         }
         return functionalityState;
-    }
+    } // TODO Oliver - change this
 
     public void updateFunctionalityState(FunctionalityState functionalityState) throws Exception {
         String query =  "UPDATE Functionality_State_Answ SET CurrLvl = ?, ExpectedLvl = ?, ProfessNote = ?, FollUpDate = ? WHERE Id = ?";

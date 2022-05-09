@@ -39,7 +39,7 @@ public class FunctionalityStateDAO {
 
 
                 functionalityState = new FunctionalityState(id, currLvl, expectedLvl, professNote, follUpDate, functionalityType, citizen);
-                System.out.println(functionalityType);
+                System.out.println(functionalityState);
             }
         }
         return functionalityState;

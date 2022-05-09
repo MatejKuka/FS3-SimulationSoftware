@@ -11,12 +11,22 @@ public class FacadeDAL implements IFacadeDAL{
     CitizenDAO citizenDAO;
     UsersSchoolDAO usersSchoolDAO;
     GeneralInformationDAO generalInformationDAO;
+    TeacherStudentDAO teacherStudentDAO;
+    SchoolDAO schoolDAO;
+    HealthConditionsDAO healthConditionsDAO;
+    FunctionalityStateDAO functionalityStateDAO;
+    CitizensAssessmentDAO citizensAssessmentDAO;
 
     public FacadeDAL() throws IOException {
         userDAO = new UserDAO();
         citizenDAO = new CitizenDAO();
         usersSchoolDAO = new UsersSchoolDAO();
         generalInformationDAO = new GeneralInformationDAO();
+        teacherStudentDAO = new TeacherStudentDAO();
+        schoolDAO = new SchoolDAO();
+        healthConditionsDAO = new HealthConditionsDAO();
+        functionalityStateDAO = new FunctionalityStateDAO();
+        citizensAssessmentDAO = new CitizensAssessmentDAO();
     }
 
 
@@ -27,7 +37,7 @@ public class FacadeDAL implements IFacadeDAL{
 
     @Override
     public void addUserToSchool(User user, School school) throws Exception {
-        
+
     }
 
     @Override

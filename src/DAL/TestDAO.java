@@ -82,8 +82,9 @@ public class TestDAO {
 
         FunctionalityStateDAO functionalityStateDAO = new FunctionalityStateDAO();
 
-//        functionalityStateDAO.createFunctionalityState();
-//        functionalityStateDAO.updateFunctionalityState();
+        FunctionalityState functionalityState = new FunctionalityState(1, 2, 3, "saman", "243", 2, 2);
+        functionalityStateDAO.createFunctionalityState(2, 3, "saman", "243", 2, 2);
+        functionalityStateDAO.updateFunctionalityState(functionalityState);
 //        functionalityStateDAO.getCitizenFunctionalityState();
     }
 }

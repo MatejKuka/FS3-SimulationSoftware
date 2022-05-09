@@ -25,17 +25,6 @@ public class Group {
         return studentList;
     }
 
-    public String getFullName(User user) {
-//         clickedRow.getStudentList().forEach(group -> {
-//                        AtomicReference<String> name = new AtomicReference<>("");
-//                        name.set(group.getFirstName() + " " + group.getLastName());
-//                        fullNames.add(String.valueOf(name));
-//                    });
-        AtomicReference<String> name = new AtomicReference<>("");
-        name.set(user.getFirstName() + " " + user.getLastName());
-        return String.valueOf(name);
-    }
-
     public void setStudentList(ArrayList<User> studentList) {
         this.studentList = studentList;
     }

@@ -29,27 +29,27 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Role" GridPane.rowIndex="3" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="4" />
-            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+            <BorderPane fx:id="firstNameBorderPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <center>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Placeholder" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <BorderPane fx:id="lastNameBorderPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <center>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Placeholder" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <BorderPane fx:id="usernameBorderPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <center>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Placeholder" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <BorderPane fx:id="roleBorderPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <center>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Placeholder" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <BorderPane fx:id="passwordBorderPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <center>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Placeholder" BorderPane.alignment="CENTER" />
                </center>

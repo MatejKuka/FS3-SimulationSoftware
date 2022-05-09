@@ -4,7 +4,9 @@ import BE.Citizen;
 import BE.School;
 import BE.User;
 import DAL.CitizenDAO;
+import DAL.TeacherStudentDAO;
 import DAL.UserDAO;
+import DAL.UsersSchoolDAO;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,12 +14,19 @@ import java.util.List;
 public class FacadeDAL implements IFacadeDAL{
     UserDAO userDAO;
     CitizenDAO citizenDAO;
+    UsersSchoolDAO usersSchoolDAO;
 
     public FacadeDAL() throws IOException {
         userDAO = new UserDAO();
         citizenDAO = new CitizenDAO();
+        usersSchoolDAO = new UsersSchoolDAO();
     }
 
+
+    @Override
+    public int returnUsersSchoolID(User user) throws Exception {
+        return usersSchoolDAO.returnUsersSchoolID(user);
+    }
 
     @Override
     public User compareLogins(String username, String password) throws Exception {

@@ -42,4 +42,8 @@ public class FacadeBLL implements IFacadeBLL {
     public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception {
         return citizenManager.getAllCitizenFromOneSchool(schoolId);
     }
+
+    public int returnUsersSchoolID(User user) throws Exception {
+        return userManager.returnUsersSchoolID(user);
+    }
 }

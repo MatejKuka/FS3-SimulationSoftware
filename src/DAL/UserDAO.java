@@ -46,7 +46,7 @@ public class UserDAO {
             e.printStackTrace();
         }
         return user;
-    } // TODO Matej - this method needs to be changed
+    }
 
     public List<User> getAllUsers() throws Exception {
         User user = null;

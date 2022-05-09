@@ -9,6 +9,7 @@ public interface IFacadeBLL {
 
     //UserManager
     public User compareLogins(String username, String password) throws Exception;
+    public int returnUsersSchoolID(User user) throws Exception;
 
 
     public List<User> getAllStudents() throws Exception;

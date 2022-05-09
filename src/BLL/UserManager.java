@@ -37,5 +37,8 @@ public class UserManager {
     public List<User> getAllTeacher() throws Exception {
         return facadeDAL.getAllTeacher();
     }
+    public int returnUsersSchoolID(User user) throws Exception {
+        return facadeDAL.returnUsersSchoolID(user);
+    }
 
 }

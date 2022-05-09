@@ -1,6 +1,7 @@
 package DAL.facadeDAL;
 
 import BE.Citizen;
+import BE.GeneralInfo;
 import BE.School;
 import BE.User;
 
@@ -31,7 +32,7 @@ public interface IFacadeDAL {
 
 
     //GeneralInformationDAO
-
+    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception;
 
     //FunctionalityStateDAO
 

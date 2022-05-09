@@ -18,7 +18,8 @@ public class EditProfileController implements Initializable {
     private BorderPane editBorderPane, deleteBorderPane, firstNameBorderPane, lastNameBorderPane, usernameBorderPane, roleBorderPane, passwordBorderPane;
 
     private User user;
-    private TextField firstNameTextField, lastNameTextField, usernameTextField,  passwordTextField;
+    private TextField firstNameTextField, lastNameTextField, usernameTextField, passwordTextField;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         user = new User(22, "Jozef", "Matus", "palenka", "tranzistor", 2);
@@ -51,17 +52,26 @@ public class EditProfileController implements Initializable {
             setupLabels();
             setupInitBorderPanes(editButton, deleteButton);
         });
+
+        saveChangesButton.setOnAction(event -> {
+            user = new User(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText(), user.getRoleID());
+            setupLabels();
+            cleanBorderPanes();
+            setupInitBorderPanes(editButton, deleteButton);
+        });
     }
 
     private void setupInitBorderPanes(Node editButton, Node deleteButton) {
         editBorderPane.setCenter(editButton);
         deleteBorderPane.setCenter(deleteButton);
     }
+
     // Clear border panes so we can add new ones
     private void cleanBorderPanes() {
         editBorderPane.getChildren().clear();
         deleteBorderPane.getChildren().clear();
     }
+
     private void cleanNodes() {
         firstNameBorderPane.getChildren().clear();
         lastNameBorderPane.getChildren().clear();
@@ -93,8 +103,12 @@ public class EditProfileController implements Initializable {
 
     private void initializeTextFields() {
         firstNameTextField = new TextField();
+        firstNameTextField.setText(user.getFirstName());
         lastNameTextField = new TextField();
+        lastNameTextField.setText(user.getLastName());
         usernameTextField = new TextField();
+        usernameTextField.setText(user.getLoginName());
         passwordTextField = new TextField();
+        passwordTextField.setText(user.getPassword());
     }
 }

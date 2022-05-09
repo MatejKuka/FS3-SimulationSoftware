@@ -1,6 +1,7 @@
 package GUI.Models;
 
 import BE.Citizen;
+import BE.GeneralInfo;
 import BE.User;
 import BLL.facadeBLL.FacadeBLL;
 import javafx.collections.FXCollections;
@@ -110,5 +111,9 @@ public class MainModel {
 
     public int returnUsersSchoolID(User user) throws Exception {
         return manager.returnUsersSchoolID(user);
-    } // all these methods for setting something(school, currentUser,...) can be easily put in facade or in one method
+    } // TODO Matej - all these methods for setting something(school, currentUser,...) can be easily put in facade or in one method
+
+    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
+        return manager.getGeneralInfo(idGeneralInfo);
+    }
 }

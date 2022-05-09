@@ -50,7 +50,7 @@ public class MAdminStudentViewController {
 
     @FXML
     void toMyProfilePage(ActionEvent event) {
-
+        setScene("/GUI/Views/EditProfile.fxml");
     }
 
     @FXML

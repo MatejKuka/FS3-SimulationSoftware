@@ -32,6 +32,8 @@ public class GroupsViewController implements Initializable {
     private TableColumn<User, String> detailCol;
     @FXML
     private Button deleteGroupButton;
+    @FXML
+    private TextArea studentsTextArea, groupTextArea;
     private MainModel mainModel;
 
     @Override
@@ -40,6 +42,7 @@ public class GroupsViewController implements Initializable {
             mainModel = new MainModel();
             setupStudentsTableView();
             setupGroups();
+            studentsTextArea.setText("test");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

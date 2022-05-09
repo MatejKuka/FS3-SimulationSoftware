@@ -24,11 +24,9 @@ public class GroupsViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             mainModel = new MainModel();
+            setupStudentsTableView();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        try {
-            setupStudentsTableView();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,6 +35,6 @@ public class GroupsViewController implements Initializable {
     private void setupStudentsTableView() throws Exception {
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        studentsTableView.setItems(mainModel.getUsersByRole(mainModel.getRoleId()));
+        studentsTableView.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
     }
 }

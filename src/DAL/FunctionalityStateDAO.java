@@ -47,7 +47,7 @@ public class FunctionalityStateDAO {
 
             }
         }
-        return functionalityState;
+        return functionalityStateList;
     } // TODO Oliver - change this
 
 

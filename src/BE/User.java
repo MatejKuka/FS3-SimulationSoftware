@@ -72,6 +72,10 @@ public class User {
         this.roleID = roleID;
     }
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
     @Override
     public String toString() {
         return "User{" +

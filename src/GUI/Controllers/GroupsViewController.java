@@ -1,11 +1,11 @@
 package GUI.Controllers;
 
 import BE.Group;
-import BE.Student;
 import BE.User;
 import GUI.Models.MainModel;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class GroupsViewController implements Initializable {
     @FXML
@@ -23,9 +24,13 @@ public class GroupsViewController implements Initializable {
     @FXML
     private TableView<Group> groupsTableView;
     @FXML
+    private TableView<User> groupsDetailTableView;
+    @FXML
     private TableColumn<User, String> firstNameCol, lastNameCol;
     @FXML
     private TableColumn<Group, String> groupsName, groupsStudentCount;
+    @FXML
+    private TableColumn<User, String> detailCol;
     @FXML
     private Button deleteGroupButton;
     private MainModel mainModel;
@@ -84,6 +89,12 @@ public class GroupsViewController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
                     Group clickedRow = row.getItem();
+                    ObservableList<User> ol = FXCollections.observableArrayList();
+                    ol.setAll(clickedRow.getStudentList());
+
+                    detailCol.setCellValueFactory(val -> new SimpleStringProperty(val.getValue().getFullName()));
+                    groupsDetailTableView.getItems().setAll(ol);
+
                     deleteGroupButton.setDisable(false);
                 }
             });

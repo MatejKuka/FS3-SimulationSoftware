@@ -38,11 +38,11 @@
                         </BorderPane>
                      </children>
                   </HBox>
-                  <TableView prefHeight="400.0" prefWidth="400.0">
+                  <TableView fx:id="studentsTableView" prefHeight="400.0" prefWidth="400.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="First Name" />
-                      <TableColumn prefWidth="75.0" text="Last Name" />
-                        <TableColumn prefWidth="75.0" text="Email" />
+                      <TableColumn fx:id="firstNameCol" prefWidth="75.0" text="First Name" />
+                      <TableColumn fx:id="lastNameCol" prefWidth="75.0" text="Last Name" />
+                        <TableColumn fx:id="emailCol" prefWidth="75.0" text="Email" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -81,7 +81,7 @@
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <TableView>
+                  <TableView fx:id="groupsTableView">
                     <columns>
                       <TableColumn prefWidth="75.0" text="Groups" />
                       <TableColumn prefWidth="75.0" text="No. Students" />

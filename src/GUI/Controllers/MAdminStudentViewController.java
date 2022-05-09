@@ -53,7 +53,7 @@ public class MAdminStudentViewController implements Initializable {
 
     @FXML
     void toGroup(ActionEvent event) {
-
+        setScene("/GUI/Views/GroupsView.fxml");
     }
 
     @FXML

@@ -1,6 +1,7 @@
 package BLL.facadeBLL;
 
 import BE.Citizen;
+import BE.GeneralInfo;
 import BE.User;
 
 import java.util.List;
@@ -20,4 +21,8 @@ public interface IFacadeBLL {
 
     //CitizenManager
     public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception;
+
+
+    //GeerInfoManager
+    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception;
 }

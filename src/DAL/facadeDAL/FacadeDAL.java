@@ -1,12 +1,10 @@
 package DAL.facadeDAL;
 
 import BE.Citizen;
+import BE.GeneralInfo;
 import BE.School;
 import BE.User;
-import DAL.CitizenDAO;
-import DAL.TeacherStudentDAO;
-import DAL.UserDAO;
-import DAL.UsersSchoolDAO;
+import DAL.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,11 +13,13 @@ public class FacadeDAL implements IFacadeDAL{
     UserDAO userDAO;
     CitizenDAO citizenDAO;
     UsersSchoolDAO usersSchoolDAO;
+    GeneralInformationDAO generalInformationDAO;
 
     public FacadeDAL() throws IOException {
         userDAO = new UserDAO();
         citizenDAO = new CitizenDAO();
         usersSchoolDAO = new UsersSchoolDAO();
+        generalInformationDAO = new GeneralInformationDAO();
     }
 
 
@@ -66,6 +66,11 @@ public class FacadeDAL implements IFacadeDAL{
     @Override
     public void deleteSchool(School school) throws Exception {
 
+    }
+
+    @Override
+    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
+        return generalInformationDAO.getGeneralInfo(idGeneralInfo);
     }
 
     @Override

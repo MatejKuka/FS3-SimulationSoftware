@@ -9,7 +9,7 @@ import java.util.List;
 public interface IFacadeDAL {
 
     //UsersSchoolDAO
-
+    public int returnUsersSchoolID(User user) throws Exception;
 
     //UserDAO
     public User compareLogins(String username, String password) throws Exception;

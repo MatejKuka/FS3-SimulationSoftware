@@ -46,4 +46,15 @@ public class FunctionalityState {
     public int getCitizen() {
         return Citizen;
     }
+
+    @Override
+    public String toString() {
+        return  "Id=" + Id +
+                ", CurrLvl=" + CurrLvl +
+                ", ExpectedLvl=" + ExpectedLvl +
+                ", ProfessNote='" + ProfessNote +
+                ", FollUpDate='" + FollUpDate +
+                ", FunctionalityType=" + FunctionalityType +
+                ", Citizen=" + Citizen;
+    }
 }

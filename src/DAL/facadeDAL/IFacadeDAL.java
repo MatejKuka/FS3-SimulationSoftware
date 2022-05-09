@@ -29,7 +29,7 @@ public interface IFacadeDAL {
 
 
     //SchoolDAO
-    List<School> getAllCustomers() throws Exception;
+    List<School> getAllSchools() throws Exception;
     School createSchool(String name, String city) throws Exception;
     void deleteSchool(School school) throws Exception;
     void updateSchool(School school) throws Exception;

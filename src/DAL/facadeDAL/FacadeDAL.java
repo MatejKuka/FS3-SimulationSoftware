@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class FacadeDAL implements IFacadeDAL{
+    private static FacadeDAL instance;
+
     UserDAO userDAO;
     CitizenDAO citizenDAO;
     UsersSchoolDAO usersSchoolDAO;
@@ -37,12 +39,12 @@ public class FacadeDAL implements IFacadeDAL{
 
     @Override
     public void addUserToSchool(User user, School school) throws Exception {
-
+        usersSchoolDAO.addUserToSchool(user, school);
     }
 
     @Override
     public void removeUserFromSchool(User user, School school) throws Exception {
-
+        usersSchoolDAO.removeUserFromSchool(user, school);
     }
 
     @Override
@@ -72,72 +74,72 @@ public class FacadeDAL implements IFacadeDAL{
 
     @Override
     public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
-        return null;
+        return userDAO.createAdmin(firstName, lastName, loginName,password);
     }
 
     @Override
     public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
-        return null;
+        return userDAO.createTeacher( firstName,  lastName,  loginName,  password);
     }
 
     @Override
     public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
-        return null;
+        return userDAO.createStudent(firstName,  lastName,  loginName,  password);
     }
 
     @Override
     public void deleteUser(User user) throws Exception {
-
+        userDAO.deleteUser(user);
     }
 
     @Override
     public void updateUser(User user) throws Exception {
-
+        userDAO.updateUser(user);
     }
 
     @Override
     public void addStudentToTeacher(User student, User teacher) throws Exception {
-
+        teacherStudentDAO.addStudentToTeacher(student, teacher);
     }
 
     @Override
     public void removeStudentFromTeacher(User student, User teacher) throws Exception {
-
+        teacherStudentDAO.removeStudentFromTeacher(student, teacher);
     }
 
     @Override
-    public List<School> getAllCustomers() throws Exception {
-        return null;
+    public List<School> getAllSchools() throws Exception {
+        return schoolDAO.getAllSchools();
     }
 
     @Override
     public School createSchool(String name, String city) throws Exception {
-        return null;
+        return schoolDAO.createSchool(name, city);
     }
 
     @Override
     public void deleteSchool(School school) throws Exception {
-
+        schoolDAO.deleteSchool(school);
     }
 
     @Override
     public void updateSchool(School school) throws Exception {
-
+        schoolDAO.updateSchool(school);
     }
 
     @Override
     public List<HealthConditions> getHealthCondition(int idCitizen) throws Exception {
-        return null;
+        return healthConditionsDAO.getHealthCondition(idCitizen);
     }
 
     @Override
     public void updateHealthConditions(HealthConditions healthConditions) throws Exception {
-
+        healthConditionsDAO.updateHealthConditions(healthConditions);
     }
 
     @Override
     public HealthConditions createHealthCondition(String SaveAs, String ProfessNote, String CurrAssess, String ExpectedLvl, String FollUpDate, String ObservNote, int TypeOfCase, int Citizen) throws Exception {
-        return null;
+        return healthConditionsDAO.createHealthCondition(SaveAs, ProfessNote, CurrAssess, ExpectedLvl, FollUpDate, ObservNote, TypeOfCase, Citizen);
     }
 
     @Override
@@ -147,42 +149,42 @@ public class FacadeDAL implements IFacadeDAL{
 
     @Override
     public GeneralInfo createGeneralInfo(String mastery, String motivation, String resources, String roller, String habits, String educationJob, String lifeStory, String healthInfo, String assistiveDevices, String interiorOfDwelling, String network) throws Exception {
-        return null;
+        return generalInformationDAO.createGeneralInfo(mastery, motivation, resources, roller, habits, educationJob, lifeStory, healthInfo, assistiveDevices, interiorOfDwelling, network);
     }
 
     @Override
     public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
-
+        generalInformationDAO.updateGeneralInfo(generalInfo);
     }
 
     @Override
     public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception {
-        return null;
+        return functionalityStateDAO.getCitizenFunctionalityState(idCitizen);
     }
 
     @Override
     public void updateFunctionalityState(FunctionalityState functionalityState) throws Exception {
-
+        functionalityStateDAO.updateFunctionalityState(functionalityState);
     }
 
     @Override
     public FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String follUpDate, int functionalityType, int citizen) throws Exception {
-        return null;
+        return functionalityStateDAO.createFunctionalityState(currLvl, expectedLvl, professNote, follUpDate, functionalityType, citizen);
     }
 
     @Override
     public List<CitizensAssessment> getCitizenAssessment(int idCitizen) throws Exception {
-        return null;
+        return citizensAssessmentDAO.getCitizenAssessment(idCitizen);
     }
 
     @Override
     public void updateCitizenAssessment(CitizensAssessment citizensAssessment) throws Exception {
-
+        citizensAssessmentDAO.updateCitizenAssessment(citizensAssessment);
     }
 
     @Override
     public CitizensAssessment createCitizensAssessment(String performance, String importance, String citizWishes, String follUpDate, String observNote, int functionalityType, int citizen) throws Exception {
-        return null;
+        return citizensAssessmentDAO.createCitizensAssessment(performance, importance, citizWishes, follUpDate, observNote, functionalityType, citizen);
     }
 
     @Override
@@ -192,17 +194,17 @@ public class FacadeDAL implements IFacadeDAL{
 
     @Override
     public void updateCitizen(Citizen citizen) throws Exception {
-
+        citizenDAO.updateCitizen(citizen);
     }
 
     @Override
     public void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception {
-
+        citizenDAO.deleteCitizen(citizen, generalInfoIdOfCitizen);
     }
 
     @Override
     public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
-        return null;
+        return citizenDAO.createCitizen(fName, lName, school, generalInfo);
     }
 
 

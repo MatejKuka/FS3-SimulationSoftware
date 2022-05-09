@@ -13,7 +13,7 @@ public class DBConnector {
 
     private SQLServerDataSource dataSource;
 
-    public DBConnector() throws IOException {
+    private DBConnector() throws IOException {
         Properties props = new Properties();
         props.load(new FileReader(CONFIG_FILE_NAME));
 

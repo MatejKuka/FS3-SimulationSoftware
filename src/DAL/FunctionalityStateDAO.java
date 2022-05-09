@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FunctionalityStateDAO {
 
@@ -18,7 +20,8 @@ public class FunctionalityStateDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public FunctionalityState getCitizenFunctionalityState(int idCitizen) throws Exception {
+    public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception {
+        List<FunctionalityState> functionalityStateList = new ArrayList<>();
         FunctionalityState functionalityState = null;
         String query =  "SELECT * FROM Functionality_State_Answ WHERE Citizen = ?";
 
@@ -28,7 +31,7 @@ public class FunctionalityStateDAO {
             preparedStatement.execute();
 
             ResultSet resultSet = preparedStatement.getResultSet();
-            if (resultSet.next()){
+            while (resultSet.next()){
                 int id = resultSet.getInt("Id");
                 int currLvl = resultSet.getInt("CurrLvl");
                 int expectedLvl = resultSet.getInt("ExpectedLvl");
@@ -40,9 +43,11 @@ public class FunctionalityStateDAO {
 
                 functionalityState = new FunctionalityState(id, currLvl, expectedLvl, professNote, follUpDate, functionalityType, citizen);
                 System.out.println(functionalityState);
+                functionalityStateList.add(functionalityState);
+
             }
         }
-        return functionalityState;
+        return functionalityStateList;
     }
 
     public void updateFunctionalityState(FunctionalityState functionalityState) throws Exception {

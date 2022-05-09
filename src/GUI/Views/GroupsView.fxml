@@ -98,13 +98,13 @@
       </HBox>
       <HBox maxHeight="220.0" minHeight="220.0" spacing="30.0">
          <children>
-            <ListView prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="studentsListView" prefHeight="200.0" prefWidth="200.0" />
             <BorderPane>
                <center>
                   <Button maxWidth="100.0" mnemonicParsing="false" text="Add Student to the group" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
-            <ListView prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="groupListView" prefHeight="200.0" prefWidth="200.0" />
             <TableView fx:id="groupsDetailTableView" prefHeight="200.0" prefWidth="200.0">
               <columns>
                 <TableColumn fx:id="detailCol" prefWidth="75.0" text="Students in the group" />

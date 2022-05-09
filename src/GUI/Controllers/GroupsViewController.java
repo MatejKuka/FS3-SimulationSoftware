@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class GroupsViewController implements Initializable {
     @FXML
@@ -52,7 +51,21 @@ public class GroupsViewController implements Initializable {
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         studentsTableView.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
+
+        studentsTableView.setRowFactory(tv -> {
+            TableRow<User> userTableRow = new TableRow<>();
+            userTableRow.setOnMouseClicked(event -> {
+                if (!userTableRow.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
+                    User clickedRow = userTableRow.getItem();
+                    System.out.println(clickedRow);
+                }
+            });
+            return userTableRow;
+        });
     }
+
+
+
     private void setupGroups() {
 //        int userID, String firstName, String lastName, String loginName, String password, int roleID
         User u1 = new User(1, "Pavol", "Habera", "vlasatykokot", "roko", 2);

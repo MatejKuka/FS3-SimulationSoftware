@@ -43,24 +43,22 @@ public class LoginController {
 
     public void toSubmitLogin(ActionEvent actionEvent) throws Exception{
         User user= mainModel.compareLogins(textFieldUsername.getText(), textFieldPassword.getText());
-        if(user != null)
-        {
+        if(user != null) {
             if (user.getRoleID() == 1) {
+                mainModel.setCurrentUser(user);
                 startAdminPage();
             }
-            else if (user.getRoleID()== 2)
-            {
+            else if (user.getRoleID()== 2) {
                 startTeacherPage();
+                mainModel.setCurrentUser(user);
+
             }
-            else if (user.getRoleID()== 3)
-            {
+            else if (user.getRoleID()== 3) {
+                mainModel.setCurrentUser(user);
                 startStudentPage();
             }
-        }
-        else
-        {
-            labelBadInput.setText(errorMessage);
-        }
+        } else labelBadInput.setText(errorMessage);
+
     }
 
     private void startStudentPage() {

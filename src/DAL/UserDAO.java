@@ -42,7 +42,7 @@ public class UserDAO {
         }
         catch (Exception e)
         {
-            user =null;
+            user = null;
             e.printStackTrace();
         }
         return user;

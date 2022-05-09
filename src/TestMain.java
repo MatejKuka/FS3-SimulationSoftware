@@ -5,12 +5,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class TestMain extends Application {
-    double x, y;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/TeacherView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/EditProfile.fxml"));
 
-        primaryStage.setScene(new Scene(root, 1000, 600));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 }

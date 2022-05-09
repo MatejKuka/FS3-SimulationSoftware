@@ -12,6 +12,7 @@ import java.util.List;
 public class MainModel {
 
     private static int idRole;
+    public static User currrentUser;
     private static String nameRole;
     ObservableList<User> students;
     ObservableList<User> teachers;
@@ -84,5 +85,15 @@ public class MainModel {
     public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception {
         citizensBySchool.setAll(manager.getAllCitizenFromOneSchool(schoolId));
         return citizensBySchool;
+    }
+
+    public User setCurrentUser(User user){
+        currrentUser = user;
+        System.out.println(currrentUser);
+        return currrentUser;
+    }
+
+    public User getCurrentUser(){
+        return currrentUser;
     }
 }

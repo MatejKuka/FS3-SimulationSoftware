@@ -42,7 +42,6 @@ public class GroupsViewController implements Initializable {
             mainModel = new MainModel();
             setupStudentsTableView();
             setupGroups();
-            studentsTextArea.setText("test");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -60,6 +59,7 @@ public class GroupsViewController implements Initializable {
             userTableRow.setOnMouseClicked(event -> {
                 if (!userTableRow.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
                     User clickedRow = userTableRow.getItem();
+                    studentsTextArea.setText("First Name: " + clickedRow.getFirstName() + "\n" + "Second Name: " + clickedRow.getLastName());
                     System.out.println(clickedRow);
                 }
             });
@@ -105,6 +105,7 @@ public class GroupsViewController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
                     Group clickedRow = row.getItem();
+                    groupTextArea.setText("Group: " + clickedRow.getGroupName());
                     ObservableList<User> ol = FXCollections.observableArrayList();
                     ol.setAll(clickedRow.getStudentList());
 

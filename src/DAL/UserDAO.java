@@ -48,6 +48,7 @@ public class UserDAO {
         return user;
     }
 
+    //TEST THIS
     public List<User> getAllUsers() throws Exception {
         User user = null;
         List<User> allUsers = new ArrayList<>();

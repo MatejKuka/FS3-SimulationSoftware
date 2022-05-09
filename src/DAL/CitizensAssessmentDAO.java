@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CitizensAssessmentDAO {
 
@@ -18,7 +20,8 @@ public class CitizensAssessmentDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public CitizensAssessment getCitizenAssessment(int idCitizen) throws Exception {
+    public List<CitizensAssessment> getCitizenAssessment(int idCitizen) throws Exception {
+        List<CitizensAssessment> citizensAssessmentList = new ArrayList<>();
         CitizensAssessment citizensAssessment = null;
         String query =  "SELECT * FROM Citizens_Assessment WHERE Citizen = ?";
 
@@ -28,7 +31,7 @@ public class CitizensAssessmentDAO {
             preparedStatement.execute();
 
             ResultSet resultSet = preparedStatement.getResultSet();
-            if (resultSet.next()){
+            while (resultSet.next()){
                 int id = resultSet.getInt("Id");
                 String performance = resultSet.getString("Performance");
                 String importance = resultSet.getString("Importance");
@@ -40,9 +43,10 @@ public class CitizensAssessmentDAO {
 
                 citizensAssessment = new CitizensAssessment(id,  performance, importance, citizWishes, follUpDate, observNote, functionalityType, citizen);
                 System.out.println(citizensAssessment);
+                citizensAssessmentList.add(citizensAssessment);
             }
         }
-        return citizensAssessment;
+        return citizensAssessmentList;
     }
 
     public void updateCitizenAssessment(CitizensAssessment citizensAssessment) throws Exception {

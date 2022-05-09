@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is CASE
@@ -22,7 +24,8 @@ public class HealthConditionsDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public HealthConditions getHealthCondition(int idCitizen) throws Exception {
+    public List<HealthConditions> getHealthCondition(int idCitizen) throws Exception {
+        List<HealthConditions> healthConditionsList = new ArrayList<>();
         HealthConditions healthConditions = null;
         String query =  "SELECT * FROM Health_Condition_Answ WHERE Citizen = ?";
 
@@ -32,7 +35,7 @@ public class HealthConditionsDAO {
             preparedStatement.execute();
 
             ResultSet resultSet = preparedStatement.getResultSet();
-            if (resultSet.next()){
+            while (resultSet.next()){
                 int id = resultSet.getInt("Id");
                 String saveAs = resultSet.getString("SaveAs");
                 String professNote = resultSet.getString("ProfessNote");
@@ -47,9 +50,10 @@ public class HealthConditionsDAO {
                 healthConditions = new HealthConditions(id, saveAs, professNote, currAssess, expectedLvl, follUpDate,
                                                         observNote, typeOfCase, citizen);
                 System.out.println(healthConditions);
+                healthConditionsList.add(healthConditions);
             }
         }
-        return healthConditions;
+        return healthConditionsList;
     }
 
     public void updateHealthConditions(HealthConditions healthConditions) throws Exception {

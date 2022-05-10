@@ -87,12 +87,14 @@ public class CitizensController implements Initializable {
     @FXML
     void toShowCurrentCitizen(MouseEvent event) throws Exception {
         currentCitizen = tableViewCitizens.getSelectionModel().getSelectedItem();
-        /*labelSelfCare.setText(mainModel.getGeneralInfo(currentCitizen.getGeneralInfo()).getLifeStory());
-        labelWash;
-        labelMove;
-        labelDailyRoutine;
-        labelMobility.setText(mainModel.getCitizenFunctionalityState(currentCitizen.getId).get) ; */
-        labelLifeStory.setText(mainModel.getGeneralInfo(currentCitizen.getGeneralInfo()).getLifeStory());
-    }
+        /*labelSelfCare.setText(String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 2)));
+        labelWash.setText(String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 1)));
+        labelMove.setText(String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 17)).toString());
+        labelDailyRoutine.setText(String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 11).toString()));
+        System.out.println(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).size());
+        labelMobility.setText(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(17).getProfessNote());
+        System.out.println("ahoj " + String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 17)));
+        labelLifeStory.setText(mainModel.getGeneralInfo(currentCitizen.getGeneralInfo()).getLifeStory());*/
+    }   // TODO Matej - does not work
 
 }

@@ -1,10 +1,12 @@
 package BLL.facadeBLL;
 import BE.Citizen;
+import BE.FunctionalityState;
 import BE.GeneralInfo;
 import BE.User;
 import BLL.CitizenManager;
 import BLL.GenerInfoManager;
 import BLL.UserManager;
+import DAL.facadeDAL.FacadeDAL;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,11 +15,13 @@ public class FacadeBLL implements IFacadeBLL {
     UserManager userManager;
     CitizenManager citizenManager;
     GenerInfoManager generInfoManager;
+    FacadeDAL facadeDAL;
 
     public FacadeBLL() throws IOException {
         userManager = new UserManager();
         citizenManager = new CitizenManager();
         generInfoManager = new GenerInfoManager();
+        facadeDAL = new FacadeDAL();
     }
 
     @Override
@@ -50,6 +54,11 @@ public class FacadeBLL implements IFacadeBLL {
     @Override
     public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
         return generInfoManager.getGeneralInfo(idGeneralInfo);
+    }
+
+    @Override
+    public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception {
+        return facadeDAL.getCitizenFunctionalityState(idCitizen);
     }
 
     public int returnUsersSchoolID(User user) throws Exception {

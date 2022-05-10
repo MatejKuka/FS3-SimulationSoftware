@@ -1,6 +1,7 @@
 package GUI.Models;
 
 import BE.Citizen;
+import BE.FunctionalityState;
 import BE.GeneralInfo;
 import BE.User;
 import BLL.facadeBLL.FacadeBLL;
@@ -20,8 +21,10 @@ public class MainModel {
     ObservableList<User> teachers;
     ObservableList<User> admins;
     ObservableList<User> users;
+    ObservableList<FunctionalityState> functionalityStates;
     ObservableList<Citizen> citizensBySchool;
     FacadeBLL manager;
+
 
     public MainModel() throws IOException {
         manager = new FacadeBLL();
@@ -30,6 +33,7 @@ public class MainModel {
         teachers = FXCollections.observableArrayList();
         users = FXCollections.observableArrayList();
         citizensBySchool = FXCollections.observableArrayList();
+        functionalityStates = FXCollections.observableArrayList();
     }
 
     public User compareLogins(String username, String password) throws Exception {
@@ -115,5 +119,10 @@ public class MainModel {
 
     public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
         return manager.getGeneralInfo(idGeneralInfo);
+    }
+
+    public ObservableList<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception{
+        functionalityStates.setAll(manager.getCitizenFunctionalityState(idCitizen));
+        return functionalityStates;
     }
 }

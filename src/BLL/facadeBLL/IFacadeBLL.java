@@ -1,6 +1,7 @@
 package BLL.facadeBLL;
 
 import BE.Citizen;
+import BE.FunctionalityState;
 import BE.GeneralInfo;
 import BE.User;
 
@@ -25,4 +26,6 @@ public interface IFacadeBLL {
 
     //GeerInfoManager
     public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception;
+
+    List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception;
 }

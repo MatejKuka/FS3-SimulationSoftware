@@ -73,7 +73,7 @@ public class GroupsViewController implements Initializable {
 //        int userID, String firstName, String lastName, String loginName, String password, int roleID
         User u1 = new User(1, "Pavol", "Habera", "vlasatykokot", "roko", 2);
         User u2 = new User(2, "Jozef", "Raz", "Zatmenie", "auto", 1);
-        User u3 = new User(3, "Kokot", "Kokotovic", "fico", "fico", 2);
+        User u3 = new User(3, "Jaromir", "Jagr", "fico", "fico", 2);
         User u4 = new User(4, "Marian", "Kocner", "kuco", "zajebat", 2);
         User u5 = new User(5, "Mikulas", "Cernak", "tampa", "bay", 2);
 

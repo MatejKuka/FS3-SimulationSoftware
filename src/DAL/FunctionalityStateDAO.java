@@ -42,11 +42,12 @@ public class FunctionalityStateDAO {
 
 
                 functionalityState = new FunctionalityState(id, currLvl, expectedLvl, professNote, follUpDate, functionalityType, citizen);
-                System.out.println(functionalityState);
+                System.out.println("gay " + functionalityState);
                 functionalityStateList.add(functionalityState);
 
             }
         }
+        System.out.println(functionalityStateList);
         return functionalityStateList;
     } // TODO Oliver - change this
 

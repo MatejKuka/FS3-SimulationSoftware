@@ -86,15 +86,21 @@ public class CitizensController implements Initializable {
 
     @FXML
     void toShowCurrentCitizen(MouseEvent event) throws Exception {
+        String textSelfCare = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
+        String textWash = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
+        String textMove = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
+        String textDailyRoutine = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
+        String textMobility = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
+        String textLifeStory = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
+
         currentCitizen = tableViewCitizens.getSelectionModel().getSelectedItem();
-        /*labelSelfCare.setText(String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 2)));
-        labelWash.setText(String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 1)));
-        labelMove.setText(String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 17)).toString());
-        labelDailyRoutine.setText(String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 11).toString()));
-        System.out.println(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).size());
-        labelMobility.setText(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(17).getProfessNote());
-        System.out.println("ahoj " + String.valueOf(mainModel.getCitizenFunctionalityState(currentCitizen.getId()).stream().filter(element -> element.getId() == 17)));
-        labelLifeStory.setText(mainModel.getGeneralInfo(currentCitizen.getGeneralInfo()).getLifeStory());*/
-    }   // TODO Matej - does not work
+        if (!textSelfCare.isEmpty()) labelSelfCare.setText(textSelfCare);
+        if (!textWash.isEmpty()) labelWash.setText(textWash);
+        if (!textMove.isEmpty()) labelMove.setText(textMove);
+        if (!textDailyRoutine.isEmpty()) labelDailyRoutine.setText(textDailyRoutine);
+        if (!textMobility.isEmpty()) labelMobility.setText(textMobility);
+        if (!textLifeStory.isEmpty()) labelLifeStory.setText(textLifeStory);
+
+    }
 
 }

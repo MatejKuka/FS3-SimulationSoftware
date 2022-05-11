@@ -64,4 +64,20 @@ public class FacadeBLL implements IFacadeBLL {
     public int returnUsersSchoolID(User user) throws Exception {
         return userManager.returnUsersSchoolID(user);
     }
+
+    @Override
+    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
+        return facadeDAL.createStudent(firstName, lastName, loginName, password);
+    }
+
+    @Override
+    public void deleteUser(User user) throws Exception {
+        facadeDAL.deleteUser(user);
+    }
+
+    @Override
+    public void updateUser(User user) throws Exception {
+        facadeDAL.deleteUser(user);
+    }
+
 }

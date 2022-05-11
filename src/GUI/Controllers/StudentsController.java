@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.User;
 import GUI.Models.MainModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -55,5 +56,20 @@ public class StudentsController implements Initializable {
         tableColFname.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tableColLname.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tableViewUsers.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
+    }
+
+    @FXML
+    void toCreateNewUser(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toDeleteCurUser(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toEditCurrentUser(ActionEvent event) {
+
     }
 }

@@ -17,9 +17,9 @@ public interface IFacadeDAL {
     List<User> getAllAdmins() throws Exception;
     List<User> getAllStudents() throws Exception;
     List<User> getAllTeacher() throws Exception;
-    User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;
-    User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
-    User createStudent(String firstName, String lastName, String loginName, String password) throws Exception;
+    public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;
+    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
+    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception;
     void deleteUser(User user) throws Exception;
     void updateUser(User user) throws Exception;
 

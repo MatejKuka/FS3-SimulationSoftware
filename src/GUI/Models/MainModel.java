@@ -125,4 +125,16 @@ public class MainModel {
         functionalityStates.setAll(manager.getCitizenFunctionalityState(idCitizen));
         return functionalityStates;
     }
+
+    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
+        return manager.createStudent(firstName, lastName, loginName, password);
+    }
+
+    void deleteUser(User user) throws Exception {
+        manager.deleteUser(user);
+    }
+
+    void updateUser(User user) throws Exception {
+        manager.updateUser(user);
+    }
 }

@@ -35,7 +35,6 @@ public class CitizenDAO {
                 int generalInfoId = rs.getInt("General_Information");
 
                 Citizen citizen = new Citizen(id, fName, lName, idOfSchool, generalInfoId);
-                System.out.println(citizen);
                 allCitizensFromOneSchool.add(citizen);
             }
             return allCitizensFromOneSchool;

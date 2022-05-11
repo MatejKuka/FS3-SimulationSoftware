@@ -130,11 +130,11 @@ public class MainModel {
         return manager.createStudent(firstName, lastName, loginName, password);
     }
 
-    void deleteUser(User user) throws Exception {
+    public void deleteUser(User user) throws Exception {
         manager.deleteUser(user);
     }
 
-    void updateUser(User user) throws Exception {
+    public void updateUser(User user) throws Exception {
         manager.updateUser(user);
     }
 }

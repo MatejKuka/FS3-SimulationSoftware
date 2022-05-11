@@ -72,7 +72,6 @@ public class LoginController {
     }
 
     private void startAdminPage() {
-        System.out.println("admin page");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/MAdminStudentView.fxml"));
         setScene(textFieldPassword, loader);

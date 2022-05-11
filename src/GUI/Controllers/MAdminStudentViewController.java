@@ -90,7 +90,7 @@ public class MAdminStudentViewController implements Initializable {
         setScene("/GUI/Views/Students.fxml");
     }
 
-    private void setScene(String pathOfView) {
+    public void setScene(String pathOfView) {
 
         Parent root = null;
         try {

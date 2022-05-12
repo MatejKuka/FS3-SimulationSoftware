@@ -22,7 +22,7 @@ public class NewUserController implements Initializable {
     private Button btnCancel, btnSave;
 
     @FXML
-    private ComboBox<?> comboBoxRole;
+    private ComboBox<String> comboBoxRole;
 
     @FXML
     private TextField txtFieldFName, txtFieldLName, txtFieldPass, txtFieldUName;
@@ -35,7 +35,7 @@ public class NewUserController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        setComboBoxRole();
     }
 
     @FXML
@@ -45,10 +45,20 @@ public class NewUserController implements Initializable {
     }
 
     @FXML
-    void toCreateNewUser(ActionEvent event) {
+    void toCreateNewUser(ActionEvent event) throws Exception {
+        if (comboBoxRole.getSelectionModel().getSelectedIndex() == 0) mainModel.createAdmin(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+        if (comboBoxRole.getSelectionModel().getSelectedIndex() == 1) mainModel.createTeacher(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+        if (comboBoxRole.getSelectionModel().getSelectedIndex() == 2) mainModel.createStudent(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+        
         System.out.println("user created by clicked on button CREATED");
-        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        Stage stage = (Stage) btnSave.getScene().getWindow();
         stage.close();
+    }
+
+    private void setComboBoxRole(){
+        comboBoxRole.getItems().add("Admin");
+        comboBoxRole.getItems().add("Teacher");
+        comboBoxRole.getItems().add("Student");
     }
 
 

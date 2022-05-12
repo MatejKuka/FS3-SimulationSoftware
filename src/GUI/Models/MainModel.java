@@ -74,7 +74,7 @@ public class MainModel {
     }
 
     public void deleteUser(User user) throws Exception {
-        manager.deleteUser(user);
+        //manager.deleteUser(user);
         userObservableList.remove(user);
         System.out.println("user is deleted: " + user);
         System.out.println(userObservableList);

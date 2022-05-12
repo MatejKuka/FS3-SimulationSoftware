@@ -59,7 +59,7 @@ public class EditUserController implements Initializable{
     void toCreateNewUser(ActionEvent event) throws Exception {
         User userCreated = new User(user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText(), user.getRoleID());
         mainModel.updateUser(userCreated);
-        studentsController.updateTableView();
+        //studentsController.updateTableView();
         System.out.println("User updated");
         Stage stage = (Stage) btnSave.getScene().getWindow();
         stage.close();

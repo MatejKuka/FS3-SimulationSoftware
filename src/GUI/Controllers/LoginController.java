@@ -68,7 +68,9 @@ public class LoginController {
     }
 
     private void startTeacherPage() {
-        System.out.println("teacher page");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/MTeacherStudentView.fxml"));
+        setScene(textFieldPassword,loader);
     }
 
     private void startAdminPage() {

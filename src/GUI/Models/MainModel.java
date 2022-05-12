@@ -64,16 +64,11 @@ public class MainModel {
     }
 
 
-
-
     public ObservableList<User> getUsersByRole(int roleID) throws Exception {
 
         if (roleID == 1) userObservableList.setAll(getAllAdmins());
             else if (roleID == 2) userObservableList.setAll(getAllTeacher());
             else if (roleID == 3) userObservableList.setAll(getAllStudents());
-        /*if (roleID == 1) userObservableList = getAllAdmins();
-        else if (roleID == 2) userObservableList = getAllTeacher();
-        else if (roleID == 3) userObservableList = getAllStudents();*/
 
         return userObservableList;
     }

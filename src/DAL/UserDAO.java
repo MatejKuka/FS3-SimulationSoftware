@@ -228,7 +228,7 @@ public class UserDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, user.getUserID());
             preparedStatement.executeUpdate();
-        } // TODO error
+        } // TODO Oliver - error
 
         String queryUserSchool = "DELETE FROM Users_School WHERE Users = ?";
         try(Connection connection = dbConnector.getConnection()) {

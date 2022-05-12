@@ -84,7 +84,7 @@ public class StudentsController implements Initializable {
         User userToDelete = tableViewUsers.getSelectionModel().getSelectedItem();
         System.out.println("User is about to be deleted: " + userToDelete);
         mainModel.deleteUser(userToDelete);
-        //updateTableView();
+        updateTableView();
         System.out.println("button to Delete user is clicked");
     }
 

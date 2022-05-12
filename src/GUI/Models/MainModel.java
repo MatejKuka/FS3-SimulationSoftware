@@ -24,6 +24,7 @@ public class MainModel {
     ObservableList<FunctionalityState> functionalityStates;
     ObservableList<Citizen> citizensBySchool;
     FacadeBLL manager;
+    ObservableList<User> userObservableList;
 
 
     public MainModel() throws IOException {
@@ -34,6 +35,8 @@ public class MainModel {
         users = FXCollections.observableArrayList();
         citizensBySchool = FXCollections.observableArrayList();
         functionalityStates = FXCollections.observableArrayList();
+        userObservableList = FXCollections.observableArrayList();
+
     }
 
     public User compareLogins(String username, String password) throws Exception {
@@ -60,15 +63,35 @@ public class MainModel {
         return teachers;
     }
 
+
+
+
     public ObservableList<User> getUsersByRole(int roleID) throws Exception {
-        ObservableList<User> userObservableList = FXCollections.observableArrayList();
 
         if (roleID == 1) userObservableList.setAll(getAllAdmins());
-            else if (idRole == 2) userObservableList.setAll(getAllTeacher());
-            else if (idRole == 3)userObservableList.setAll(getAllStudents());
+            else if (roleID == 2) userObservableList.setAll(getAllTeacher());
+            else if (roleID == 3) userObservableList.setAll(getAllStudents());
+        /*if (roleID == 1) userObservableList = getAllAdmins();
+        else if (roleID == 2) userObservableList = getAllTeacher();
+        else if (roleID == 3) userObservableList = getAllStudents();*/
 
         return userObservableList;
     }
+
+    public void deleteUser(User user) throws Exception {
+        manager.deleteUser(user);
+        userObservableList.remove(user);
+        System.out.println("user is deleted: " + user);
+        System.out.println(userObservableList);
+    }
+
+    public void updateUser(User user) throws Exception {
+        manager.updateUser(user);
+    }
+
+
+
+
 
     public void changeRoleId(int number){
         idRole = number;
@@ -80,8 +103,8 @@ public class MainModel {
 
     public void changeRoleName(int roleID){
         if (roleID == 1) nameRole = "Admins";
-        else if (idRole == 2) nameRole = "Teachers";
-        else if (idRole == 3) nameRole = "Students";
+        else if (roleID == 2) nameRole = "Teachers";
+        else if (roleID == 3) nameRole = "Students";
     }
 
     public String getRoleName() {
@@ -130,11 +153,12 @@ public class MainModel {
         return manager.createStudent(firstName, lastName, loginName, password);
     }
 
-    public void deleteUser(User user) throws Exception {
-        manager.deleteUser(user);
+
+    public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
+        return manager.createAdmin(firstName, lastName, loginName, password);
+    }
+    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
+        return manager.createTeacher(firstName, lastName, loginName, password);
     }
 
-    public void updateUser(User user) throws Exception {
-        manager.updateUser(user);
-    }
 } //TODO Matej - I need to delete a user from observable list

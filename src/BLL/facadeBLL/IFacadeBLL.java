@@ -15,6 +15,9 @@ public interface IFacadeBLL {
     User createStudent(String firstName, String lastName, String loginName, String password) throws Exception;
     void deleteUser(User user) throws Exception;
     void updateUser(User user) throws Exception;
+    public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;
+    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
+
 
     public List<User> getAllStudents() throws Exception;
     public List<User> getAllUsers() throws Exception;

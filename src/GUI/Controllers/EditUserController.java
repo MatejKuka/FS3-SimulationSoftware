@@ -14,11 +14,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditUserController implements Initializable {
+public class EditUserController implements Initializable{
 
     MAdminStudentViewController menuController;
     MainModel mainModel;
     User user;
+    StudentsController studentsController;
 
     @FXML
     private Button btnCancel, btnSave;
@@ -29,45 +30,50 @@ public class EditUserController implements Initializable {
     @FXML
     private TextField txtFieldFName, txtFieldLName, txtFieldPass, txtFieldUName;
 
-    public EditUserController(User userController) {
-        //this.user = user;
-        setFields(userController);
-        System.out.println(userController);
+    public EditUserController(User user) throws IOException {
+        this.user = user;
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         try {
-            menuController = new MAdminStudentViewController();
-            mainModel = new MainModel();
+            this.mainModel = new MainModel();
+            studentsController = new StudentsController();
         } catch (IOException e) {
             e.printStackTrace();
-            setFields(user);
         }
-
+        setFields(user);
     }
+
 
     @FXML
     void toCancelPage(ActionEvent event) {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
+
     }
 
     @FXML
-    void toCreateNewUser(ActionEvent event) {
-        System.out.println("user updated by clicked on button CREATED");
+    void toCreateNewUser(ActionEvent event) throws Exception {
+        User userCreated = new User(user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText(), user.getRoleID());
+        mainModel.updateUser(userCreated);
+        studentsController.updateTableView();
+        System.out.println("User updated");
         Stage stage = (Stage) btnSave.getScene().getWindow();
         stage.close();
+
     }
 
-    public void setFields(User userShow)
+    public void setFields(User userToShow)
     {
-        txtFieldFName.setText(userShow.getFirstName());
-        txtFieldLName.setText(userShow.getLastName());
-        txtFieldPass.setText(user.getPassword());
-        txtFieldUName.setText(userShow.getLoginName());
-
+        txtFieldPass.setText(userToShow.getPassword());
+        txtFieldFName.setText(userToShow.getFirstName());
+        txtFieldLName.setText(userToShow.getLastName());
+        txtFieldUName.setText(userToShow.getLoginName());
     }
 
 
-} // textFields cannot set text because  there is some mistake
+
+}

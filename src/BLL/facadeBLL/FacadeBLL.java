@@ -77,7 +77,17 @@ public class FacadeBLL implements IFacadeBLL {
 
     @Override
     public void updateUser(User user) throws Exception {
-        facadeDAL.deleteUser(user);
+        facadeDAL.updateUser(user);
+    }
+
+    @Override
+    public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
+        return facadeDAL.createAdmin(firstName, lastName, loginName, password);
+    }
+
+    @Override
+    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
+        return facadeDAL.createTeacher(firstName, lastName, loginName, password);
     }
 
 }

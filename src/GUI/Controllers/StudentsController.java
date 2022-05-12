@@ -65,7 +65,8 @@ public class StudentsController implements Initializable {
         labelNameView.setText(mainModel.getRoleName());
     }
 
-    private void updateTableView() throws Exception {
+    public void updateTableView() throws Exception {
+        tableViewUsers.getItems().clear();
         tableColFname.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tableColLname.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tableViewUsers.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
@@ -73,29 +74,28 @@ public class StudentsController implements Initializable {
 
     @FXML
     void toCreateNewUser(ActionEvent event) throws IOException {
-        //menuController.setScene("/GUI/Views/NewUserView.fxml");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/NewUserView.fxml"));
-        sceneSetter.setScene(btnEdit, loader);
+        sceneSetter.setScene(loader);
     }
 
     @FXML
     void toDeleteCurUser(ActionEvent event) throws Exception {
         User userToDelete = tableViewUsers.getSelectionModel().getSelectedItem();
-        //mainModel.deleteUser(userToDelete);
-        mainModel.getUsersByRole(mainModel.getRoleId()).remove(userToDelete);
-        System.out.println("clicked!");
+        System.out.println("User is about to be deleted: " + userToDelete);
+        mainModel.deleteUser(userToDelete);
+        //updateTableView();
+        System.out.println("button to Delete user is clicked");
     }
 
     @FXML
     void toEditCurrentUser(ActionEvent event) throws IOException {
-        System.out.println("click");
-        //menuController.setScene("/GUI/Views/EditUserView.fxml");
-        EditUserController editUserController = new EditUserController(userToShow); // TODO there is a mistake
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/GUI/Views/EditUserView.fxml"));
+        userToShow = tableViewUsers.getSelectionModel().getSelectedItem();
+        System.out.println("chosen user to edit: " + userToShow);
+        EditUserController editUserController = new EditUserController(userToShow);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditUserView.fxml"));
         loader.setController(editUserController);
-        sceneSetter.setScene(btnEdit, loader);
+        sceneSetter.setScene(loader);
     }
 
     @FXML
@@ -105,22 +105,5 @@ public class StudentsController implements Initializable {
         labelLastName.setText(userToShow.getLastName());
         labelUsername.setText(userToShow.getLoginName());
     }
-
-    public static void setScene(Node node, FXMLLoader loader) {
-
-        try {
-
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root,800,600);
-            Stage primaryStage = (Stage) node.getScene().getWindow();
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println(e);
-        }
-
-    } //TODO Matej - nefunguje načítavanie NewUserView a EditUserView. Má to problém načítať
 
 }

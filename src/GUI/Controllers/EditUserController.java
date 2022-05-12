@@ -1,7 +1,6 @@
 package GUI.Controllers;
 
 import GUI.Models.MainModel;
-import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NewUserController implements Initializable {
+public class EditUserController implements Initializable {
 
     MAdminStudentViewController menuController;
     MainModel mainModel;

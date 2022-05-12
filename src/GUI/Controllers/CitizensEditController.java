@@ -25,7 +25,7 @@ public class CitizensEditController {
 
     @FXML
     void toBasicInfo(ActionEvent event) {
-
+        setScene("/GUI/Views/CitizenBasicInfoView.fxml");
     }
 
     @FXML
@@ -35,7 +35,7 @@ public class CitizensEditController {
 
     @FXML
     void toGeneralInfo(ActionEvent event) {
-
+        setScene("/GUI/Views/CitizenGeneralInfoView.fxml");
     }
 
     public void setScene(String pathOfView) {

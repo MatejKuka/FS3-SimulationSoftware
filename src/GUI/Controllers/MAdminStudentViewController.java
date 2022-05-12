@@ -34,6 +34,7 @@ public class MAdminStudentViewController implements Initializable {
     private Label labelCurrentFName, labelCurrentLName;
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         labelCurrentFName.setText(mainModel.getCurrentUser().getFirstName());
@@ -115,4 +116,6 @@ public class MAdminStudentViewController implements Initializable {
         }
         this.borderPane.setCenter(root);
     }
+
+
 }

@@ -6,12 +6,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-
 <AnchorPane prefHeight="700.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.CitizensEditController">
    <children>
       <BorderPane layoutX="109.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <HBox alignment="CENTER" prefHeight="93.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="840.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="btnBasicInfo" mnemonicParsing="false" onAction="#toBasicInfo" prefHeight="36.0" prefWidth="129.0" text="Basic information">
                      <HBox.margin>
@@ -32,7 +31,7 @@
             </HBox>
          </top>
          <center>
-            <BorderPane fx:id="borderPaneContent" prefHeight="579.0" prefWidth="614.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER" />
+            <BorderPane fx:id="borderPaneContent" prefHeight="600.0" prefWidth="840.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

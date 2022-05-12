@@ -5,8 +5,10 @@ import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +18,8 @@ public class NewUserController implements Initializable {
 
     MAdminStudentViewController menuController;
     MainModel mainModel;
-
+    @FXML
+    private Button btnCancel, btnSave;
 
     @FXML
     private ComboBox<?> comboBoxRole;
@@ -37,13 +40,15 @@ public class NewUserController implements Initializable {
 
     @FXML
     void toCancelPage(ActionEvent event) {
-        menuController.setScene("/GUI/Views/Students.fxml");
+        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     void toCreateNewUser(ActionEvent event) {
         System.out.println("user created by clicked on button CREATED");
-        menuController.setScene("/GUI/Views/Students.fxml");
+        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        stage.close();
     }
 
 

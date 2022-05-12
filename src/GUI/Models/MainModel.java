@@ -137,4 +137,4 @@ public class MainModel {
     public void updateUser(User user) throws Exception {
         manager.updateUser(user);
     }
-}
+} //TODO Matej - I need to delete a user from observable list

@@ -20,6 +20,8 @@ public class EditProfileController implements Initializable {
     private User user;
     private TextField firstNameTextField, lastNameTextField, usernameTextField, passwordTextField;
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         user = new User(22, "Jozef", "Matus", "palenka", "tranzistor", 2);

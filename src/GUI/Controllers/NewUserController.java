@@ -49,8 +49,7 @@ public class NewUserController implements Initializable {
         if (comboBoxRole.getSelectionModel().getSelectedIndex() == 0) mainModel.createAdmin(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
         if (comboBoxRole.getSelectionModel().getSelectedIndex() == 1) mainModel.createTeacher(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
         if (comboBoxRole.getSelectionModel().getSelectedIndex() == 2) mainModel.createStudent(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
-        
-        System.out.println("user created by clicked on button CREATED");
+
         Stage stage = (Stage) btnSave.getScene().getWindow();
         stage.close();
     }

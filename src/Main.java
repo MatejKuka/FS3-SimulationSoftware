@@ -9,7 +9,7 @@ import javafx.stage.Stage;
         @Override
         public void start(Stage primaryStage) throws Exception{
             Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/LoginView.fxml"));
-            primaryStage.setTitle("MovieCollection");
+            primaryStage.setTitle("FS3 simulation");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
         }

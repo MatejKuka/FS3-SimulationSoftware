@@ -6,8 +6,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +25,10 @@ public class MAdminStudentViewController implements Initializable {
     }
 
     @FXML
-    private BorderPane borderPane;
+    private Button btnLogOut;
+
+    @FXML
+    public  BorderPane borderPane;
 
     @FXML
     private Label labelCurrentFName, labelCurrentLName;
@@ -39,6 +45,7 @@ public class MAdminStudentViewController implements Initializable {
         mainModel.changeRoleId(1);
         mainModel.changeRoleName(1);
         setScene("/GUI/Views/Students.fxml");
+
     }
 
     @FXML
@@ -57,8 +64,15 @@ public class MAdminStudentViewController implements Initializable {
     }
 
     @FXML
-    void toLogOut(ActionEvent event) {
-
+    void toLogOut(ActionEvent event) throws IOException {
+        Parent root;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/LoginView.fxml"));
+        root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+        Stage stageClose = (Stage) btnLogOut.getScene().getWindow();
+        stageClose.close();
     }
 
     @FXML
@@ -99,6 +113,6 @@ public class MAdminStudentViewController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        borderPane.setCenter(root);
+        this.borderPane.setCenter(root);
     }
 }

@@ -24,9 +24,11 @@ import java.util.logging.Logger;
 public class CitizensController implements Initializable {
     MainModel mainModel;
     Citizen currentCitizen;
+    MAdminStudentViewController adminStudentViewController;
 
     public CitizensController() throws IOException {
         mainModel = new MainModel();
+        adminStudentViewController = new MAdminStudentViewController();
     }
 
     @FXML
@@ -66,12 +68,12 @@ public class CitizensController implements Initializable {
 
     @FXML
     void toEditFS(ActionEvent event) {
-
+        adminStudentViewController.setScene("/GUI/Views/CitizensEditView.fxml");
     }
 
     @FXML
     void toEditGI(ActionEvent event) {
-
+        adminStudentViewController.setScene("/GUI/Views/CitizensEditView.fxml");
     }
 
     @FXML

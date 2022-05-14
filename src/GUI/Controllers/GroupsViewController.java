@@ -6,12 +6,12 @@ import GUI.Models.MainModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -36,6 +36,12 @@ public class GroupsViewController implements Initializable {
     private TextArea studentsTextArea, groupTextArea;
     private MainModel mainModel;
 
+    private Boolean isStudentsTableViewClicked = false;
+    private Boolean isGroupTableViewClicked = false;
+
+    private User user;
+    private Group group;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -59,8 +65,12 @@ public class GroupsViewController implements Initializable {
             userTableRow.setOnMouseClicked(event -> {
                 if (!userTableRow.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
                     User clickedRow = userTableRow.getItem();
+                    user = clickedRow;
                     studentsTextArea.setText("First Name: " + clickedRow.getFirstName() + "\n" + "Second Name: " + clickedRow.getLastName());
                     System.out.println(clickedRow);
+                    isStudentsTableViewClicked = true;
+                } else {
+                    isStudentsTableViewClicked = false;
                 }
             });
             return userTableRow;
@@ -105,6 +115,7 @@ public class GroupsViewController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
                     Group clickedRow = row.getItem();
+                    group = clickedRow;
                     groupTextArea.setText("Group: " + clickedRow.getGroupName());
                     ObservableList<User> ol = FXCollections.observableArrayList();
                     ol.setAll(clickedRow.getStudentList());
@@ -113,9 +124,32 @@ public class GroupsViewController implements Initializable {
                     groupsDetailTableView.getItems().setAll(ol);
 
                     deleteGroupButton.setDisable(false);
+                    isGroupTableViewClicked = true;
+                } else {
+                    isGroupTableViewClicked = false;
                 }
             });
             return row;
         });
+    }
+
+    public void addStudentToGroup(ActionEvent event) {
+        if (isGroupTableViewClicked && isStudentsTableViewClicked) {
+            group.getStudentList().add(user);
+            System.out.println(group.getStudentList());
+        }
+    }
+
+    private void updateAllTableViews() throws Exception {
+//        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
+//        tableColumnFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+//        tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+//        tableViewCitizens.getItems().setAll(mainModel.getAllCitizenFromOneSchool(mainModel.getCurrentSchoolId()));
+
+        firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        studentsTableView.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
+
+        //TODO Dokoncit ked bude group v db
     }
 }

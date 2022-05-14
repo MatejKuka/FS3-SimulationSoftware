@@ -101,7 +101,7 @@
             <TextArea fx:id="studentsTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" />
             <BorderPane>
                <center>
-                  <Button disable="true" maxWidth="100.0" mnemonicParsing="false" text="Add Student to the group" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
+                  <Button maxWidth="100.0" mnemonicParsing="false" onAction="#addStudentToGroup" text="Add Student to the group" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
             <TextArea fx:id="groupTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" />

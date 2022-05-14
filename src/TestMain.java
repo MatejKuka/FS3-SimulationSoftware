@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class TestMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/GroupsView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/CasesView.fxml"));
 
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

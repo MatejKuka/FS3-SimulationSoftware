@@ -24,7 +24,7 @@ public class CasesViewController implements Initializable {
     }
 
     public void handleBasicInformation(ActionEvent event) {
-        if (sidebar.getChildren() !== null)
+//        if (sidebar.getChildren() !== null)
     }
 
     public void handleGeneralInformation(ActionEvent event) {

@@ -225,13 +225,9 @@ public class UserDAO {
     public void deleteUser(User user) throws Exception {
         String query = "DELETE FROM Users WHERE Id = ?";
         String queryUserSchool = "DELETE FROM Users_School WHERE Users = ?";
-        String queryTeacherStudent = "DELETE FROM Teacher_Student WHERE Tea0her = ? OR Student = ?";
+        String queryTeacherStudent = "DELETE FROM Teacher_Student WHERE Teacher = ? OR Student = ?";
 
         try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement1 = connection.prepareStatement(query);
-            preparedStatement1.setInt(1, user.getUserID());
-            preparedStatement1.executeUpdate();
-
             PreparedStatement preparedStatement2 = connection.prepareStatement(queryUserSchool);
             preparedStatement2.setInt(1, user.getUserID());
             preparedStatement2.executeUpdate();
@@ -240,6 +236,10 @@ public class UserDAO {
             preparedStatement3.setInt(1, user.getUserID());
             preparedStatement3.setInt(2, user.getUserID());
             preparedStatement3.executeUpdate();
+
+            PreparedStatement preparedStatement1 = connection.prepareStatement(query);
+            preparedStatement1.setInt(1, user.getUserID());
+            preparedStatement1.executeUpdate();
         } // TODO Oliver - error
     }
 

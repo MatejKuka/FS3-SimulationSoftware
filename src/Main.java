@@ -11,9 +11,9 @@ import javafx.stage.Stage;
             Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/LoginView.fxml"));
             primaryStage.setTitle("FS3 simulation");
             primaryStage.setScene(new Scene(root));
+            primaryStage.setResizable(false);
             primaryStage.show();
         }
-
 
         public static void main(String[] args) {
             launch(args);

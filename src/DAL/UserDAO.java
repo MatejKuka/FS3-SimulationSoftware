@@ -189,7 +189,7 @@ public class UserDAO {
                 id = resultSet.getInt(1);
             }
             if (created != 0){
-                teacher = new Admin(id,firstName, lastName, loginName, password, type);
+                teacher = new Teacher(id,firstName, lastName, loginName, password, type);
             }
         }
         return teacher;
@@ -216,7 +216,7 @@ public class UserDAO {
                 id = resultSet.getInt(1);
             }
             if (created != 0){
-                student = new Admin(id,firstName, lastName, loginName, password, type);
+                student = new Student(id,firstName, lastName, loginName, password, type);
             }
         }
         return student;

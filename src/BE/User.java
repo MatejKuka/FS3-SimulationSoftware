@@ -1,5 +1,8 @@
 package BE;
 
+/**
+ * when finish with testing this class needs to be abstract !!
+ */
 public class User {
     private int userID;
     private String firstName;

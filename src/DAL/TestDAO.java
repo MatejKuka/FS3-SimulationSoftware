@@ -16,15 +16,15 @@ public class TestDAO {
 
         UserDAO userDAO = new UserDAO();
 
-        User user = new Student(5, "Lala", "Lochnes","UserName", "Pass", 3);
+//        User user = new Student(5, "Lala", "Lochnes","UserName", "Pass", 3);
 
 //        userDAO.createStudent("Saman", "Lochnes", "UserName", "Pass");
 //        userDAO.updateUser(user);
-//        userDAO.getAllUsers();
+        userDAO.getAllUsers();
 //        userDAO.getAllAdmins();
 //        userDAO.getAllStudents();
 //        userDAO.getAllTeachers();
-        userDAO.deleteUser(user);
+//        userDAO.deleteUser(user);
 
 //        TeacherStudentDAO teacherStudentDAO = new TeacherStudentDAO();
 

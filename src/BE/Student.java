@@ -6,4 +6,9 @@ public class Student extends User {
         super(userID, firstName, lastName, loginName, password, roleID);
 //        roleID = 3
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " STUDENT";
+    }
 }

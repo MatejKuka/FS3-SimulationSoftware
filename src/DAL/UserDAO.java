@@ -224,26 +224,23 @@ public class UserDAO {
 
     public void deleteUser(User user) throws Exception {
         String query = "DELETE FROM Users WHERE Id = ?";
-        try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, user.getUserID());
-            preparedStatement.executeUpdate();
-        } // TODO Oliver - error
-
         String queryUserSchool = "DELETE FROM Users_School WHERE Users = ?";
-        try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(queryUserSchool);
-            preparedStatement.setInt(1, user.getUserID());
-            preparedStatement.executeUpdate();
-        }
+        String queryTeacherStudent = "DELETE FROM Teacher_Student WHERE Tea0her = ? OR Student = ?";
 
-        String queryTeacherStudent = "DELETE FROM Teacher_Student WHERE Teacher = ? OR Student = ?";
         try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(queryTeacherStudent);
-            preparedStatement.setInt(1, user.getUserID());
-            preparedStatement.setInt(2, user.getUserID());
-            preparedStatement.executeUpdate();
-        }
+            PreparedStatement preparedStatement1 = connection.prepareStatement(query);
+            preparedStatement1.setInt(1, user.getUserID());
+            preparedStatement1.executeUpdate();
+
+            PreparedStatement preparedStatement2 = connection.prepareStatement(queryUserSchool);
+            preparedStatement2.setInt(1, user.getUserID());
+            preparedStatement2.executeUpdate();
+
+            PreparedStatement preparedStatement3 = connection.prepareStatement(queryTeacherStudent);
+            preparedStatement3.setInt(1, user.getUserID());
+            preparedStatement3.setInt(2, user.getUserID());
+            preparedStatement3.executeUpdate();
+        } // TODO Oliver - error
     }
 
     public void updateUser(User user) throws Exception {

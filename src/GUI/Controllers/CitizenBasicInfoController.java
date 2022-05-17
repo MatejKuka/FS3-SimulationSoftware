@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CitizenBasicInfoController implements Initializable {
@@ -71,6 +72,25 @@ public class CitizenBasicInfoController implements Initializable {
         buttonsContainer.getChildren().add(cancelButton);
 
         cancelButton.setOnAction(event -> {
+            setupInitialView();
+        });
+        saveButton.setOnAction(event -> {
+            if (Objects.equals(firstNameTextField.getText(), "")) {
+                firstNamePlaceholder.setText("-");
+            } else {
+                firstNamePlaceholder.setText(firstNameTextField.getText());
+            }
+            if (Objects.equals(lastNameTextField.getText(), "")) {
+                lastNamePlaceholder.setText("-");
+            } else {
+                lastNamePlaceholder.setText(lastNameTextField.getText());
+            }
+            if (Objects.equals(ageTextField.getText(), "")) {
+                agePlaceholder.setText("-");
+            } else {
+                agePlaceholder.setText(ageTextField.getText());
+            }
+
             setupInitialView();
         });
    }

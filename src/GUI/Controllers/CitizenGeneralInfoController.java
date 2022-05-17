@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -10,7 +11,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class CitizenGeneralInfoController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class CitizenGeneralInfoController implements Initializable {
 
     @FXML
     private Button btnAssistDevSec;
@@ -131,9 +135,7 @@ public class CitizenGeneralInfoController {
     }
 
     private void clearMainView() {
-        hBox.setSpacing(20);
-        hBox.getChildren().add(saveButton);
-        hBox.getChildren().add(cancelButton);
+
         mainView.getChildren().clear();
         mainView.getChildren().add(nameLabel);
         mainView.getChildren().add(descriptionLabel);
@@ -141,5 +143,12 @@ public class CitizenGeneralInfoController {
         mainView.getChildren().add(mainText);
         mainView.getChildren().add(buttonPane);
         buttonPane.getChildren().clear();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        hBox.setSpacing(20);
+        hBox.getChildren().add(cancelButton);
+        hBox.getChildren().add(saveButton);
     }
 }

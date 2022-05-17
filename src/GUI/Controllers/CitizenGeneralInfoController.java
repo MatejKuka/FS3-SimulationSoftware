@@ -90,22 +90,26 @@ public class CitizenGeneralInfoController {
 
     @FXML
     void toMotivationSec(ActionEvent event) {
-
+        clearMainView();
+        setNameLabel("Motivation");
     }
 
     @FXML
     void toNetworkSec(ActionEvent event) {
-
+        clearMainView();
+        setNameLabel("Network");
     }
 
     @FXML
     void toResourceSec(ActionEvent event) {
-
+        clearMainView();
+        setNameLabel("Resources");
     }
 
     @FXML
     void toRollerSec(ActionEvent event) {
-
+        clearMainView();
+        setNameLabel("Roller");
     }
 
     private void setupCancelButton(Button editButton) {

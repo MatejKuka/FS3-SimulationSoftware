@@ -47,27 +47,39 @@
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelFirstName" prefHeight="79.0" prefWidth="211.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelLastName" prefHeight="79.0" prefWidth="211.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelAge" prefHeight="79.0" prefWidth="211.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <HBox alignment="CENTER" prefHeight="52.0" prefWidth="249.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <HBox fx:id="buttonsContainer" alignment="CENTER" prefHeight="52.0" prefWidth="249.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
-                        <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#toEdit" prefHeight="45.0" prefWidth="64.0" text="Edit" />
+                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="45.0" prefWidth="64.0" text="Edit" />
                         <Button fx:id="btnBack" mnemonicParsing="false" onAction="#toBack" prefHeight="43.0" prefWidth="72.0" text="Back" />
                      </children>
                   </HBox>
+                  <BorderPane fx:id="firstNameContainer" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <center>
+                        <Label fx:id="labelFirstName" text="-" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </center>
+                  </BorderPane>
+                  <BorderPane fx:id="lastNameContainer" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <center>
+                        <Label fx:id="labelLastName" text="-" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </center>
+                  </BorderPane>
+                  <BorderPane fx:id="ageContainer" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <center>
+                        <Label fx:id="labelAge" text="-" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </center>
+                  </BorderPane>
                </children>
                <VBox.margin>
                   <Insets left="50.0" />

@@ -9,7 +9,7 @@ public class TestEditCitizen extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/CitizensEditView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/Views/CitizenGeneralInfoView.fxml"));
         primaryStage.setTitle("FS3 simulation");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

@@ -74,9 +74,9 @@
             </VBox>
          </left>
          <center>
-            <VBox spacing="30.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="mainView" spacing="30.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="labelName" text="Label">
+                  <Label text="Label">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
@@ -84,7 +84,7 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="labelExplanation" alignment="TOP_LEFT" text="---****--TOTO BY SOM UROBIL AKO LEN PLACEHOLDER ---***---">
+                  <Label alignment="TOP_LEFT" text="---****--TOTO BY SOM UROBIL AKO LEN PLACEHOLDER ---***---">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>

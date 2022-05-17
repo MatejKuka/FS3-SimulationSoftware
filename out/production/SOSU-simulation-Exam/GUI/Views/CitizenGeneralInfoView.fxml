@@ -74,27 +74,30 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="mainView" spacing="30.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="labelName" prefHeight="62.0" prefWidth="329.0" text="Label">
+                  <Label text="Label">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="40.0" />
+                        <Insets />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="labelExplanation" alignment="TOP_LEFT" prefHeight="138.0" prefWidth="564.0" text="Label">
+                  <Label alignment="TOP_LEFT" text="---****--TOTO BY SOM UROBIL AKO LEN PLACEHOLDER ---***---">
                      <VBox.margin>
-                        <Insets left="40.0" top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </Label>
-                  <TextArea fx:id="textArea" prefHeight="274.0" prefWidth="616.0">
+                  <TextArea fx:id="textArea" prefHeight="361.0" prefWidth="596.0" promptText="Len toto sa bude menit">
                      <VBox.margin>
-                        <Insets left="20.0" right="20.0" top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </TextArea>
                </children>
+               <BorderPane.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </BorderPane.margin>
             </VBox>
          </center>
       </BorderPane>

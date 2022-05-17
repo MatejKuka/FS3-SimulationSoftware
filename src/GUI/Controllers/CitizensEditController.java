@@ -30,7 +30,7 @@ public class CitizensEditController {
 
     @FXML
     void toFState(ActionEvent event) {
-
+        setScene("/GUI/Views/CitizenFunctionalityStateView.fxml");
     }
 
     @FXML

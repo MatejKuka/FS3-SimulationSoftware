@@ -47,33 +47,9 @@
                      </font>
                   </Label>
                   <HBox fx:id="buttonsContainer" alignment="CENTER" prefHeight="52.0" prefWidth="249.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <BorderPane fx:id="firstNameContainer" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <center>
-                        <Label fx:id="labelFirstName" text="-" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="lastNameContainer" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <center>
-                        <Label fx:id="labelLastName" text="-" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="ageContainer" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <center>
-                        <Label fx:id="labelAge" text="-" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
+                  <BorderPane fx:id="firstNameContainer" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <BorderPane fx:id="lastNameContainer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <BorderPane fx:id="ageContainer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
                <VBox.margin>
                   <Insets left="50.0" />

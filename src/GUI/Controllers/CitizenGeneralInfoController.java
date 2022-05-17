@@ -39,6 +39,14 @@ public class CitizenGeneralInfoController implements Initializable {
 
     HBox hBox = new HBox();
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        hBox.setSpacing(20);
+        hBox.getChildren().add(cancelButton);
+        hBox.getChildren().add(saveButton);
+    }
+
+
     @FXML
     void toAssistDevSec(ActionEvent event) {
         clearMainView();
@@ -143,12 +151,5 @@ public class CitizenGeneralInfoController implements Initializable {
         mainView.getChildren().add(mainText);
         mainView.getChildren().add(buttonPane);
         buttonPane.getChildren().clear();
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        hBox.setSpacing(20);
-        hBox.getChildren().add(cancelButton);
-        hBox.getChildren().add(saveButton);
     }
 }

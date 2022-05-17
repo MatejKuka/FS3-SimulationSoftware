@@ -14,33 +14,39 @@ import java.util.ResourceBundle;
 
 public class CitizenBasicInfoController implements Initializable {
     @FXML
-    private Label labelAge, labelFirstName, labelLastName;
-    @FXML
     private BorderPane firstNameContainer, lastNameContainer, ageContainer;
     @FXML
     private HBox buttonsContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        setupInitialView();
     }
 
-    @FXML
-    void toBack(ActionEvent event) {
-
-    }
-
-    public void handleEditButton(ActionEvent event) {
-        clearLabels();
+    private void setupInitialView() {
+        clear();
         clearButtons();
-        setupTextFields();
+        Label firstNamePlaceholder = new Label("-");
+        Label lastNamePlaceholder = new Label("-");
+        Label agePlaceholder = new Label("-");
+        Button editButton = new Button("Edit");
+        firstNameContainer.setCenter(firstNamePlaceholder);
+        lastNameContainer.setCenter(lastNamePlaceholder);
+        ageContainer.setCenter(agePlaceholder);
+        buttonsContainer.getChildren().add(editButton);
+        editButton.setOnAction(event -> {
+            clear();
+            clearButtons();
+            setupTextFields();
+            setupButtons();
+        });
     }
-
-    private void clearLabels() {
+    private void clear() {
         firstNameContainer.getChildren().clear();
         lastNameContainer.getChildren().clear();
         ageContainer.getChildren().clear();
     }
+
     private void clearButtons() {
         buttonsContainer.getChildren().clear();
     }
@@ -56,5 +62,12 @@ public class CitizenBasicInfoController implements Initializable {
    private void setupButtons() {
         Button saveButton = new Button("Save");
         Button cancelButton = new Button("Cancel");
+
+        buttonsContainer.getChildren().add(saveButton);
+        buttonsContainer.getChildren().add(cancelButton);
+
+        cancelButton.setOnAction(event -> {
+            setupInitialView();
+        });
    }
 }

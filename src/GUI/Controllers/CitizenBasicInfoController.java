@@ -18,6 +18,16 @@ public class CitizenBasicInfoController implements Initializable {
     @FXML
     private HBox buttonsContainer;
 
+    private final String placeholder = "-";
+
+    private Label firstNamePlaceholder = new Label(placeholder);
+    private Label lastNamePlaceholder = new Label(placeholder);
+    private Label agePlaceholder = new Label(placeholder);
+
+    private TextField firstNameTextField = new TextField();
+    private TextField lastNameTextField = new TextField();
+    private TextField ageTextField = new TextField();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setupInitialView();
@@ -26,9 +36,7 @@ public class CitizenBasicInfoController implements Initializable {
     private void setupInitialView() {
         clear();
         clearButtons();
-        Label firstNamePlaceholder = new Label("-");
-        Label lastNamePlaceholder = new Label("-");
-        Label agePlaceholder = new Label("-");
+
         Button editButton = new Button("Edit");
         firstNameContainer.setCenter(firstNamePlaceholder);
         lastNameContainer.setCenter(lastNamePlaceholder);
@@ -51,10 +59,6 @@ public class CitizenBasicInfoController implements Initializable {
         buttonsContainer.getChildren().clear();
     }
     private void setupTextFields() {
-        TextField firstNameTextField = new TextField();
-        TextField lastNameTextField = new TextField();
-        TextField ageTextField = new TextField();
-
         firstNameContainer.setCenter(firstNameTextField);
         lastNameContainer.setCenter(lastNameTextField);
         ageContainer.setCenter(ageTextField);

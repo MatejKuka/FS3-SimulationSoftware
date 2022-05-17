@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class CitizenGeneralInfoController {
@@ -27,9 +28,12 @@ public class CitizenGeneralInfoController {
             "Aliquam eget erat nunc. Sed hendrerit tincidunt euismod. Vivamus vehicula aliquet libero, et gravida erat tempor in. Morbi consequat libero vehicula nisl fermentum fermentum. Ut ex ex, eleifend eget elementum sed, viverra in libero. In sit amet metus posuere felis molestie dignissim sed sed metus. Cras ut faucibus risus, lobortis congue mauris. Suspendisse felis arcu, ornare sit amet lorem vehicula, ultricies luctus ipsum. Sed ut odio finibus, mollis arcu nec, congue enim. Cras aliquam venenatis maximus. Curabitur quis sodales arcu. Phasellus mauris ligula, feugiat ac volutpat quis, lacinia faucibus massa. Integer in sem et est cursus elementum ac ut sem. Nulla commodo, tortor ut aliquam tempor, nulla tortor feugiat nunc, nec condimentum mauris nunc id sem. Quisque nec posuere nibh, sit amet rhoncus arcu. In ac pretium nisi, id elementum nisi. ");
     private Button editButton;
     private Button cancelButton = new Button("Cancel");
+    private Button saveButton = new Button("Save");
     private TextArea textArea;
 
     private BorderPane buttonPane = new BorderPane();
+
+    HBox hBox = new HBox();
 
     @FXML
     void toAssistDevSec(ActionEvent event) {
@@ -83,7 +87,7 @@ public class CitizenGeneralInfoController {
             mainView.getChildren().set(2, textArea);
             buttonPane.getChildren().clear();
 
-            buttonPane.setRight(cancelButton);
+            buttonPane.setRight(hBox);
         });
         setupCancelButton(editButton);
     }
@@ -120,11 +124,16 @@ public class CitizenGeneralInfoController {
         });
     }
 
+    //TODO -> setupSaveButton()
+
     private void setNameLabel(String newTitle) {
         nameLabel.setText(newTitle);
     }
 
     private void clearMainView() {
+        hBox.setSpacing(20);
+        hBox.getChildren().add(saveButton);
+        hBox.getChildren().add(cancelButton);
         mainView.getChildren().clear();
         mainView.getChildren().add(nameLabel);
         mainView.getChildren().add(descriptionLabel);

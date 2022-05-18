@@ -69,4 +69,9 @@ public interface IFacadeDAL {
     void updateCitizen(Citizen citizen) throws Exception;
     void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception;
     Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception;
+
+    //StudentCitizenDAO
+    void addCitizenToStudent(Student student, Citizen citizen) throws Exception;
+    void removeCitizenFromStudent(User student, Citizen citizen) throws Exception;
+    List<Citizen> getStudentCitizens(int studentId) throws Exception;
 }

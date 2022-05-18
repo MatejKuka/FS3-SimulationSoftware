@@ -18,6 +18,7 @@ public class FacadeDAL implements IFacadeDAL{
     HealthConditionsDAO healthConditionsDAO;
     FunctionalityStateDAO functionalityStateDAO;
     CitizensAssessmentDAO citizensAssessmentDAO;
+    StudentCitizenDAO studentCitizenDAO;
 
     public FacadeDAL() throws IOException {
         userDAO = new UserDAO();
@@ -29,6 +30,7 @@ public class FacadeDAL implements IFacadeDAL{
         healthConditionsDAO = new HealthConditionsDAO();
         functionalityStateDAO = new FunctionalityStateDAO();
         citizensAssessmentDAO = new CitizensAssessmentDAO();
+        studentCitizenDAO = new StudentCitizenDAO();
     }
 
 
@@ -209,6 +211,19 @@ public class FacadeDAL implements IFacadeDAL{
     @Override
     public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
         return citizenDAO.createCitizen(fName, lName, school, generalInfo);
+    }
+
+
+    public void addCitizenToStudent(Student student, Citizen citizen) throws Exception{
+        studentCitizenDAO.addCitizenToStudent(student, citizen);
+    }
+
+    public void removeCitizenFromStudent(User student, Citizen citizen) throws Exception{
+        studentCitizenDAO.removeCitizenFromStudent(student, citizen);
+    }
+
+    public List<Citizen> getStudentCitizens(int studentId) throws Exception{
+        return studentCitizenDAO.getStudentCitizens(studentId);
     }
 
 

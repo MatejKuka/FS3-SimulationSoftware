@@ -44,7 +44,7 @@ public class MainModel {
     }
 
     public ObservableList<User> getAllStudents() throws Exception {
-        students.setAll(manager.getAllStudents());
+//        students.setAll(manager.getAllStudents());
         return students;
     }
 
@@ -54,12 +54,12 @@ public class MainModel {
     }
 
     public ObservableList<User> getAllAdmins() throws Exception {
-        admins.setAll(manager.getAllAdmins());
+//        admins.setAll(manager.getAllAdmins());
         return admins;
     }
 
     public ObservableList<User> getAllTeacher() throws Exception {
-        teachers.setAll(manager.getAllTeacher());
+//        teachers.setAll(manager.getAllTeacher());
         return teachers;
     }
 

@@ -24,7 +24,7 @@ public interface IFacadeDAL {
     void updateUser(User user) throws Exception;
 
     //TeacherStudentDAO
-    void addStudentToTeacher(User student, User teacher) throws Exception;
+    void addStudentToTeacher(Student student, Teacher teacher) throws Exception;
     void removeStudentFromTeacher(User student, User teacher) throws Exception;
 
 

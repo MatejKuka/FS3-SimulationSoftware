@@ -80,7 +80,8 @@ public class UserDAO {
 
     public List<User> getAllAdmins(int schoolId) throws Exception {
         List<User> allAdmins = new ArrayList<>();
-        String query =  "SELECT * FROM Users u " +
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
+                        " FROM Users u " +
                         "JOIN Users_School s ON s.Users = u.id " +
                         "WHERE u.Type_Of_User = 1 AND s.School = ?";
 
@@ -98,6 +99,7 @@ public class UserDAO {
                 int type = rs.getInt("Type_Of_User");
 
                 Admin admin = new Admin(id, fName, lName, userName, password, type);
+                System.out.println(admin);
                 allAdmins.add(admin);
             }
             return allAdmins;
@@ -106,7 +108,8 @@ public class UserDAO {
 
     public List<User> getAllStudents(int schoolId) throws Exception {
         List<User> allStudents = new ArrayList<>();
-        String query =  "SELECT * FROM Users u " +
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
+                        " FROM Users u " +
                         "JOIN Users_School s ON s.Users = u.id " +
                         "WHERE u.Type_Of_User = 3 AND s.School = ?";
 
@@ -132,7 +135,8 @@ public class UserDAO {
 
     public List<User> getAllTeachers(int schoolId) throws Exception {
         List<User> allTeachers = new ArrayList<>();
-        String query =  "SELECT * FROM Users u " +
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
+                        " FROM Users u " +
                         "JOIN Users_School s ON s.Users = u.id " +
                         "WHERE u.Type_Of_User = 2 AND s.School = ?";
 

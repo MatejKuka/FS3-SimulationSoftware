@@ -98,7 +98,7 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
-    public void addStudentToTeacher(User student, User teacher) throws Exception {
+    public void addStudentToTeacher(Student student, Teacher teacher) throws Exception {
         teacherStudentDAO.addStudentToTeacher(student, teacher);
     }
 

@@ -1,6 +1,8 @@
 package DAL;
 
 import BE.School;
+import BE.Student;
+import BE.Teacher;
 import BE.User;
 import DAL.Connector.DBConnector;
 
@@ -16,7 +18,7 @@ public class TeacherStudentDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public void addStudentToTeacher(User student, User teacher) throws Exception {
+    public void addStudentToTeacher(Student student, Teacher teacher) throws Exception {
         if (student.getRoleID() != 3 || teacher.getRoleID() != 2){
             System.out.println("One user needs to be student, another needs to be teacher, can not assign selected users together!");
         }

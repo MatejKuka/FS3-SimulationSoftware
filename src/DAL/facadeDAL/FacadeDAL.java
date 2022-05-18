@@ -107,6 +107,10 @@ public class FacadeDAL implements IFacadeDAL{
         teacherStudentDAO.removeStudentFromTeacher(student, teacher);
     }
 
+    public List<User> getTeacherStudents(int teacherId) throws Exception{
+        return teacherStudentDAO.getTeacherStudents(teacherId);
+    }
+
     @Override
     public List<School> getAllSchools() throws Exception {
         return schoolDAO.getAllSchools();

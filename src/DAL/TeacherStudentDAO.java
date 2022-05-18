@@ -9,6 +9,10 @@ import DAL.Connector.DBConnector;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TeacherStudentDAO {
 
@@ -40,6 +44,34 @@ public class TeacherStudentDAO {
             preparedStatement.setInt(1, student.getUserID());
             preparedStatement.setInt(2, teacher.getUserID());
             preparedStatement.executeUpdate();
+        }
+    }
+
+    public List<User> getTeacherStudents(int teacherId) throws Exception {
+        List<User> allStudents = new ArrayList<>();
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User " +
+                        "FROM Users u " +
+                        "JOIN Teacher_Student t ON t.Student = u.Id " +
+                        "WHERE t.Teacher = ?";
+
+        try (Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,teacherId);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("Id");
+                String fName = rs.getString("FName");
+                String lName = rs.getString("LName");
+                String userName = rs.getString("UserName");
+                String  password = rs.getString("UPassword");
+                int type = rs.getInt("Type_Of_User");
+
+                Student student = new Student(id, fName, lName, userName, password, type);
+                System.out.println(student);
+                allStudents.add(student);
+            }
+            return allStudents;
         }
     }
 }

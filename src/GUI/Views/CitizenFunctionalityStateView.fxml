@@ -89,6 +89,7 @@
                         <HBox fx:id="container8" prefWidth="200.0" />
                         <HBox fx:id="container9" prefWidth="200.0" />
                         <HBox fx:id="container10" prefWidth="200.0" />
+                        <HBox fx:id="container11" prefWidth="200.0" />
                      </children>
                       </VBox>
                </content>

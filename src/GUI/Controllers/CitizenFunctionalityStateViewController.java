@@ -3,7 +3,10 @@ package GUI.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -14,7 +17,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     @FXML
     private VBox mainView;
     @FXML
-    private Label label;
+    private Label label, label1;
 
     private String placeholder = "Label";
     private Label currentLevelData = new Label(placeholder);
@@ -27,7 +30,9 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private Label observationalNotes = new Label(placeholder);
     private Label relevantData = new Label(placeholder);
     @FXML
-    private HBox container1, container2, container3, container4, container5, container6;
+    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10;
+
+    private Button editButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -35,6 +40,13 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
     public void handleSelfCare(ActionEvent event) {
+        final ComboBox<String> currentBox = new ComboBox<>();
+        final ComboBox<String> expectedBox = new ComboBox<>();
+        final ComboBox<String> performanceBox = new ComboBox<>();
+        final ComboBox<String> importanceBox = new ComboBox<>();
+        final ComboBox<String> citizenWishesBox = new ComboBox<>();
+        final ComboBox<String> relevantBox = new ComboBox<>();
+
         clearMainView();
         container1.getChildren().add(createLabel("Current level"));
         container1.getChildren().add(currentLevelData);
@@ -45,7 +57,37 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container3.getChildren().add(createLabel("Professional note"));
         container3.getChildren().add(professionalNoteData);
 
+        container4.getChildren().add(label1);
 
+        container5.getChildren().add(createLabel("Performance"));
+        container5.getChildren().add(performanceData);
+
+        container6.getChildren().add(createLabel("Importance"));
+        container6.getChildren().add(importanceData);
+
+        container7.getChildren().add(createLabel("Citizen wishes"));
+        container7.getChildren().add(citizenWishesData);
+
+        container8.getChildren().add(createLabel("Follow-up date"));
+        container8.getChildren().add(followUpDateData);
+
+        container9.getChildren().add(createLabel("Observational notes"));
+        container9.getChildren().add(observationalNotes);
+
+        container10.getChildren().add(createLabel("Relevant"));
+        container10.getChildren().add(relevantData);
+
+        editButton = new Button("Edit button");
+        mainView.getChildren().add(editButton);
+
+        editButton.setOnAction(evt -> {
+            container1.getChildren().set(1, currentBox);
+            container2.getChildren().set(1, expectedBox);
+            container5.getChildren().set(1, performanceBox);
+            container6.getChildren().set(1, importanceBox);
+            container7.getChildren().set(1, citizenWishesBox);
+            container10.getChildren().set(1, relevantBox);
+        });
     }
 
     public void handleDrinking(ActionEvent event) {
@@ -80,19 +122,28 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
     private void addContainers() {
+        int spacing = 30;
         mainView.getChildren().add(container1);
         mainView.getChildren().add(container2);
         mainView.getChildren().add(container3);
         mainView.getChildren().add(container4);
         mainView.getChildren().add(container5);
-        mainView.getChildren().add(container6);
+        mainView.getChildren().add(container7);
+        mainView.getChildren().add(container8);
+        mainView.getChildren().add(container9);
+        mainView.getChildren().add(container10);
 
-        container1.setSpacing(30);
-        container2.setSpacing(30);
-        container3.setSpacing(30);
-        container4.setSpacing(30);
-        container5.setSpacing(30);
-        container6.setSpacing(30);
+        container1.setSpacing(spacing);
+        container2.setSpacing(spacing);
+        container3.setSpacing(spacing);
+        container4.setSpacing(spacing);
+        container5.setSpacing(spacing);
+        container6.setSpacing(spacing);
+        container7.setSpacing(spacing);
+        container8.setSpacing(spacing);
+        container9.setSpacing(spacing);
+        container10.setSpacing(spacing);
+
     }
 
     private void clearContainers() {
@@ -102,6 +153,10 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container4.getChildren().clear();
         container5.getChildren().clear();
         container6.getChildren().clear();
+        container7.getChildren().clear();
+        container8.getChildren().clear();
+        container9.getChildren().clear();
+        container10.getChildren().clear();
     }
 
     private Label createLabel(String title) {

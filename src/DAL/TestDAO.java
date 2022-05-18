@@ -14,7 +14,7 @@ public class TestDAO {
 //        schoolDAO.deleteSchool(school);
 //        schoolDAO.getAllCustomers();
 
-//        UserDAO userDAO = new UserDAO();
+        UserDAO userDAO = new UserDAO();
 
 //        User user = new Student(5, "Lala", "Lochnes","UserName", "Pass", 3);
 
@@ -25,6 +25,9 @@ public class TestDAO {
 //        userDAO.getAllStudents();
 //        userDAO.getAllTeachers();
 //        userDAO.deleteUser(user);
+
+        //After refactor////////////
+        userDAO.getAllAdmins(1);
 
 //        TeacherStudentDAO teacherStudentDAO = new TeacherStudentDAO();
 

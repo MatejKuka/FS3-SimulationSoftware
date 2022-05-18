@@ -10,27 +10,27 @@ import java.util.List;
 public interface IFacadeBLL {
 
     //UserManager
-    public User compareLogins(String username, String password) throws Exception;
-    public int returnUsersSchoolID(User user) throws Exception;
+    User compareLogins(String username, String password) throws Exception;
+    int returnUsersSchoolID(User user) throws Exception;
     User createStudent(String firstName, String lastName, String loginName, String password) throws Exception;
     void deleteUser(User user) throws Exception;
     void updateUser(User user) throws Exception;
-    public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;
-    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
+    User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;
+    User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
 
 
-    public List<User> getAllStudents() throws Exception;
-    public List<User> getAllUsers() throws Exception;
-    public List<User> getAllAdmins() throws Exception;
-    public List<User> getAllTeacher() throws Exception;
+    List<User> getAllStudents(int schoolId) throws Exception;
+    List<User> getAllUsers() throws Exception;
+    List<User> getAllAdmins(int schoolId) throws Exception;
+    List<User> getAllTeacher(int schoolId) throws Exception;
 
 
     //CitizenManager
-    public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception;
+    List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception;
 
 
     //GeerInfoManager
-    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception;
+    GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception;
 
     List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception;
 

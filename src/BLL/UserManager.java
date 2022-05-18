@@ -22,20 +22,20 @@ public class UserManager {
         else return null;
     }
 
-    public List<User> getAllStudents() throws Exception {
-        return facadeDAL.getAllStudents();
+    public List<User> getAllStudents(int schoolId) throws Exception {
+        return facadeDAL.getAllStudents(schoolId);
     }
 
     public List<User> getAllUsers() throws Exception {
         return facadeDAL.getAllUsers();
     }
 
-    public List<User> getAllAdmins() throws Exception {
-        return facadeDAL.getAllAdmins();
+    public List<User> getAllAdmins(int schoolId) throws Exception {
+        return facadeDAL.getAllAdmins(schoolId);
     }
 
-    public List<User> getAllTeacher() throws Exception {
-        return facadeDAL.getAllTeacher();
+    public List<User> getAllTeacher(int schoolId) throws Exception {
+        return facadeDAL.getAllTeacher(schoolId);
     }
     public int returnUsersSchoolID(User user) throws Exception {
         return facadeDAL.returnUsersSchoolID(user);

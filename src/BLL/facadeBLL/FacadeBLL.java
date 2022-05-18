@@ -30,20 +30,23 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public List<User> getAllStudents() throws Exception {
-            return userManager.getAllStudents();
+    public List<User> getAllStudents(int schoolId) throws Exception {
+            return userManager.getAllStudents(schoolId);
     }
 
+    @Override
     public List<User> getAllUsers() throws Exception {
         return userManager.getAllUsers();
     }
 
-    public List<User> getAllAdmins() throws Exception {
-        return userManager.getAllAdmins();
+    @Override
+    public List<User> getAllAdmins(int schoolId) throws Exception {
+        return userManager.getAllAdmins(schoolId);
     }
 
-    public List<User> getAllTeacher() throws Exception {
-        return userManager.getAllTeacher();
+    @Override
+    public List<User> getAllTeacher(int schoolId) throws Exception {
+        return userManager.getAllTeacher(schoolId);
     }
 
     @Override
@@ -61,6 +64,7 @@ public class FacadeBLL implements IFacadeBLL {
         return facadeDAL.getCitizenFunctionalityState(idCitizen);
     }
 
+    @Override
     public int returnUsersSchoolID(User user) throws Exception {
         return userManager.returnUsersSchoolID(user);
     }

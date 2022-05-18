@@ -78,13 +78,17 @@ public class UserDAO {
         }
     }
 
-    public List<User> getAllAdmins() throws Exception {
+    public List<User> getAllAdmins(int schoolId) throws Exception {
         List<User> allAdmins = new ArrayList<>();
+        String query =  "SELECT * FROM Users u " +
+                        "JOIN Users_School s ON s.Users = u.id " +
+                        "WHERE u.Type_Of_User = 1 AND s.School = ?";
+
         try (Connection connection = dbConnector.getConnection()) {
-            String query = "SELECT * FROM Users WHERE Type_Of_User = 1";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.execute();
-            ResultSet rs = preparedStatement.getResultSet();
+            preparedStatement.setInt(1,schoolId);
+            ResultSet rs = preparedStatement.executeQuery();
+
             while (rs.next()) {
                 int id = rs.getInt("Id");
                 String fName = rs.getString("FName");
@@ -92,6 +96,7 @@ public class UserDAO {
                 String userName = rs.getString("UserName");
                 String  password = rs.getString("UPassword");
                 int type = rs.getInt("Type_Of_User");
+
                 Admin admin = new Admin(id, fName, lName, userName, password, type);
                 allAdmins.add(admin);
             }
@@ -99,13 +104,17 @@ public class UserDAO {
         }
     }
 
-    public List<User> getAllStudents() throws Exception {
+    public List<User> getAllStudents(int schoolId) throws Exception {
         List<User> allStudents = new ArrayList<>();
+        String query =  "SELECT * FROM Users u " +
+                        "JOIN Users_School s ON s.Users = u.id " +
+                        "WHERE u.Type_Of_User = 3 AND s.School = ?";
+
         try (Connection connection = dbConnector.getConnection()) {
-            String query = "SELECT * FROM Users WHERE Type_Of_User = 3";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.execute();
-            ResultSet rs = preparedStatement.getResultSet();
+            preparedStatement.setInt(1,schoolId);
+            ResultSet rs = preparedStatement.executeQuery();
+
             while (rs.next()) {
                 int id = rs.getInt("Id");
                 String fName = rs.getString("FName");
@@ -113,6 +122,7 @@ public class UserDAO {
                 String userName = rs.getString("UserName");
                 String  password = rs.getString("UPassword");
                 int type = rs.getInt("Type_Of_User");
+
                 Student student = new Student(id, fName, lName, userName,password, type);
                 allStudents.add(student);
             }
@@ -120,13 +130,17 @@ public class UserDAO {
         }
     }
 
-    public List<User> getAllTeachers() throws Exception {
+    public List<User> getAllTeachers(int schoolId) throws Exception {
         List<User> allTeachers = new ArrayList<>();
+        String query =  "SELECT * FROM Users u " +
+                        "JOIN Users_School s ON s.Users = u.id " +
+                        "WHERE u.Type_Of_User = 2 AND s.School = ?";
+
         try (Connection connection = dbConnector.getConnection()) {
-            String query = "SELECT * FROM Users WHERE Type_Of_User = 2";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.execute();
-            ResultSet rs = preparedStatement.getResultSet();
+            preparedStatement.setInt(1,schoolId);
+            ResultSet rs = preparedStatement.executeQuery();
+
             while (rs.next()) {
                 int id = rs.getInt("Id");
                 String fName = rs.getString("FName");
@@ -134,6 +148,7 @@ public class UserDAO {
                 String userName = rs.getString("UserName");
                 String  password = rs.getString("UPassword");
                 int type = rs.getInt("Type_Of_User");
+
                 Teacher teacher = new Teacher(id, fName, lName, userName, password, type);
                 allTeachers.add(teacher);
             }

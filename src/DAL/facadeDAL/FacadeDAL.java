@@ -103,7 +103,7 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
-    public void removeStudentFromTeacher(User student, User teacher) throws Exception {
+    public void removeStudentFromTeacher(Student student, Teacher teacher) throws Exception {
         teacherStudentDAO.removeStudentFromTeacher(student, teacher);
     }
 

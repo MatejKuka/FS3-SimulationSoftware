@@ -90,5 +90,14 @@ public class TestDAO {
 //        functionalityStateDAO.createFunctionalityState(2, 3, "saman", "243", 2, 2);
 //        functionalityStateDAO.updateFunctionalityState(functionalityState);
 //        functionalityStateDAO.getCitizenFunctionalityState(2);
+
+//        StudentCitizenDAO studentCitizenDAO = new StudentCitizenDAO();
+//
+//        Student student = new Student(3, "Lala", "Lochnes","UserName", "Pass", 3);
+//        Citizen citizen = new Citizen(4, "Loptos", "Heteracik", 2, 1);
+
+//        studentCitizenDAO.getStudentCitizens(3);
+//        studentCitizenDAO.removeCitizenFromStudent(student, citizen);
+//        studentCitizenDAO.addCitizenToStudent(student, citizen);
     }
 }

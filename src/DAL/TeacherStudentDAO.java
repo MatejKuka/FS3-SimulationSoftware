@@ -23,26 +23,21 @@ public class TeacherStudentDAO {
     }
 
     public void addStudentToTeacher(Student student, Teacher teacher) throws Exception {
-        if (student.getRoleID() != 3 || teacher.getRoleID() != 2){
-            System.out.println("One user needs to be student, another needs to be teacher, can not assign selected users together!");
-        }
-        else {
-            String query = "INSERT INTO Teacher_Student VALUES (?,?)";
-            try (Connection connection = dbConnector.getConnection()) {
-                PreparedStatement preparedStatement = connection.prepareStatement(query);
-                preparedStatement.setInt(1, student.getUserID());
-                preparedStatement.setInt(2, teacher.getUserID());
-                preparedStatement.executeUpdate();
-            }
-        }
-    }
-
-    public void removeStudentFromTeacher(User student, User teacher) throws Exception {
-        String query = "DELETE from Teacher_Student WHERE Teacher = ? AND Student = ?";
+        String query = "INSERT INTO Teacher_Student VALUES (?,?)";
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, student.getUserID());
             preparedStatement.setInt(2, teacher.getUserID());
+            preparedStatement.executeUpdate();
+        }
+    }
+
+    public void removeStudentFromTeacher(Student student, Teacher teacher) throws Exception {
+        String query = "DELETE from Teacher_Student WHERE Teacher = ? AND Student = ?";
+        try (Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, teacher.getUserID());
+            preparedStatement.setInt(2, student.getUserID());
             preparedStatement.executeUpdate();
         }
     }
@@ -56,7 +51,7 @@ public class TeacherStudentDAO {
 
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,teacherId);
+            preparedStatement.setInt(1, teacherId);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
@@ -64,7 +59,7 @@ public class TeacherStudentDAO {
                 String fName = rs.getString("FName");
                 String lName = rs.getString("LName");
                 String userName = rs.getString("UserName");
-                String  password = rs.getString("UPassword");
+                String password = rs.getString("UPassword");
                 int type = rs.getInt("Type_Of_User");
 
                 Student student = new Student(id, fName, lName, userName, password, type);

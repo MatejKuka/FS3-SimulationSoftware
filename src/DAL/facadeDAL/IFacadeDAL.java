@@ -26,7 +26,7 @@ public interface IFacadeDAL {
     //TeacherStudentDAO
     void addStudentToTeacher(Student student, Teacher teacher) throws Exception;
     void removeStudentFromTeacher(User student, User teacher) throws Exception;
-    List<User> getTeacherStudents(int teacherId) throws Exception
+    List<User> getTeacherStudents(int teacherId) throws Exception;
 
 
     //SchoolDAO

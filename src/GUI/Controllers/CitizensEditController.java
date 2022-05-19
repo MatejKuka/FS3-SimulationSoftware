@@ -25,7 +25,8 @@ public class CitizensEditController {
 
     @FXML
     void toBasicInfo(ActionEvent event) {
-        setScene("/GUI/Views/CitizenBasicInfoViewNew.fxml");
+        //setScene("/GUI/Views/CitizenBasicInfoViewNew.fxml");
+        setScene("/GUI/Views/CitizenBasicInfoView.fxml");
     }
 
     @FXML

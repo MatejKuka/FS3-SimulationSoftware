@@ -29,7 +29,7 @@ public class CitizenBasicInfoController implements Initializable {
 
     private final String placeholder = "----";
 
-    private Label firstNamePlaceholder = new Label(model.getCurrentCitizen().getFirstName());
+    private Label firstNamePlaceholder = new Label(placeholder);
     private Label lastNamePlaceholder = new Label(placeholder);
     private Label agePlaceholder = new Label(placeholder);
 

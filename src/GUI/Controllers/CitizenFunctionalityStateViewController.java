@@ -91,7 +91,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         currentLevelData.setText(String.valueOf(functionalityState.getCurrLvl()));
         expectedLevelData.setText(String.valueOf(functionalityState.getExpectedLvl()));
         professionalNoteData.setText(functionalityState.getProfessNote());
-        followUpDateData.setText(functionalityState.getFollUpDate());
+//        followUpDateData.setText(functionalityState.getFollUpDate());
 
         editButton = new Button("Edit");
         saveButton = new Button("Save");
@@ -117,7 +117,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
             currentLevelData.setText(String.valueOf(newFunctionalityState.getCurrLvl()));
             expectedLevelData.setText(String.valueOf(newFunctionalityState.getExpectedLvl()));
             professionalNoteData.setText(newFunctionalityState.getProfessNote());
-            followUpDateData.setText(newFunctionalityState.getFollUpDate());
+//            followUpDateData.setText(newFunctionalityState.getFollUpDate());
 
             setInitSelfCare();
         });

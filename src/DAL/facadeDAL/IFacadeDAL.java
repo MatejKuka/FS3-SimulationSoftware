@@ -53,7 +53,7 @@ public interface IFacadeDAL {
     //FunctionalityStateDAO
     List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception;
     void updateFunctionalityState(FunctionalityState functionalityState) throws Exception;
-    FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String follUpDate,
+    FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String saveAs,
                                                 int functionalityType, int citizen) throws Exception;
 
 

@@ -174,8 +174,8 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
-    public FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String follUpDate, int functionalityType, int citizen) throws Exception {
-        return functionalityStateDAO.createFunctionalityState(currLvl, expectedLvl, professNote, follUpDate, functionalityType, citizen);
+    public FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String saveAs, int functionalityType, int citizen) throws Exception {
+        return functionalityStateDAO.createFunctionalityState(currLvl, expectedLvl, professNote, saveAs, functionalityType, citizen);
     }
 
     @Override

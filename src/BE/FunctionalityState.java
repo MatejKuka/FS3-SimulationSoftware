@@ -1,60 +1,60 @@
 package BE;
 
 public class FunctionalityState {
-    private int Id;
-    private int CurrLvl;
-    private int ExpectedLvl;
-    private String ProfessNote;
-    private String FollUpDate;
-    private int FunctionalityType;
-    private int Citizen;
+    private int id;
+    private int currLvl;
+    private int expectedLvl;
+    private String professNote;
+    private String saveAs;
+    private int functionalityType;
+    private int citizen;
 
-    public FunctionalityState(int id, int currLvl, int expectedLvl, String professNote, String follUpDate, int functionalityType, int citizen) {
-        Id = id;
-        CurrLvl = currLvl;
-        ExpectedLvl = expectedLvl;
-        ProfessNote = professNote;
-        FollUpDate = follUpDate;
-        FunctionalityType = functionalityType;
-        Citizen = citizen;
+    public FunctionalityState(int id, int currLvl, int expectedLvl, String professNote, String saveAs, int functionalityType, int citizen) {
+        this.id = id;
+        this.currLvl = currLvl;
+        this.expectedLvl = expectedLvl;
+        this.professNote = professNote;
+        this.saveAs = saveAs;
+        this.functionalityType = functionalityType;
+        this.citizen = citizen;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public int getCurrLvl() {
-        return CurrLvl;
+        return currLvl;
     }
 
     public int getExpectedLvl() {
-        return ExpectedLvl;
+        return expectedLvl;
     }
 
     public String getProfessNote() {
-        return ProfessNote;
+        return professNote;
     }
 
-    public String getFollUpDate() {
-        return FollUpDate;
+    public String getSaveAs() {
+        return saveAs;
     }
 
     public int getFunctionalityType() {
-        return FunctionalityType;
+        return functionalityType;
     }
 
     public int getCitizen() {
-        return Citizen;
+        return citizen;
     }
 
     @Override
     public String toString() {
-        return  "Id=" + Id +
-                ", CurrLvl=" + CurrLvl +
-                ", ExpectedLvl=" + ExpectedLvl +
-                ", ProfessNote='" + ProfessNote +
-                ", FollUpDate='" + FollUpDate +
-                ", FunctionalityType=" + FunctionalityType +
-                ", Citizen=" + Citizen;
+        return  "Id=" + id +
+                ", CurrLvl=" + currLvl +
+                ", ExpectedLvl=" + expectedLvl +
+                ", ProfessNote='" + professNote +
+                ", FollUpDate='" + saveAs +
+                ", FunctionalityType=" + functionalityType +
+                ", Citizen=" + citizen;
     }
 }

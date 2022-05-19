@@ -163,5 +163,16 @@ public class MainModel {
         return clickedCitizen;
     }
 
+    public void updateCitizen(Citizen citizen) throws Exception {
+        manager.updateCitizen(citizen);
+    }
+
+    public void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception {
+        citizensBySchool.remove(citizen);
+        manager.deleteCitizen(citizen, generalInfoIdOfCitizen);
+    }
+    public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
+        return manager.createCitizen(fName, lName, school, generalInfo);
+    }
 
 } //TODO Matej - I need to delete a user from observable list

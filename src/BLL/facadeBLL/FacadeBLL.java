@@ -65,6 +65,21 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public void updateCitizen(Citizen citizen) throws Exception {
+        facadeDAL.updateCitizen(citizen);
+    }
+
+    @Override
+    public void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception {
+        facadeDAL.deleteCitizen(citizen, generalInfoIdOfCitizen);
+    }
+
+    @Override
+    public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
+        return facadeDAL.createCitizen(fName, lName, school, generalInfo);
+    }
+
+    @Override
     public int returnUsersSchoolID(User user) throws Exception {
         return userManager.returnUsersSchoolID(user);
     }

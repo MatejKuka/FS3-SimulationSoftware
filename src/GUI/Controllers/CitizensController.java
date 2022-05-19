@@ -52,6 +52,15 @@ public class CitizensController implements Initializable {
     @FXML
     private TableView<Citizen> tableViewCitizens;
 
+    @FXML
+    private Button btnCreate;
+
+    @FXML
+    private Button btnDelete;
+
+    @FXML
+    private Button btnEdit;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -121,7 +130,24 @@ public class CitizensController implements Initializable {
         if (!textLifeStory.isEmpty()) labelLifeStory.setText(textLifeStory);
         else labelLifeStory.setText("empty");*/
 
-
     } // TODO Matej - needs to be changed because if the particular funcionality state is null, it will shows the error. I should create a method to check if it exists before I try to initialize.
 
+
+    @FXML
+    void toCreate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toDelete(ActionEvent event) throws Exception {
+        System.out.println("Citizen is about to delete: " + currentCitizen + " " + currentCitizen.getGeneralInfo());
+        //mainModel.deleteCitizen(currentCitizen, currentCitizen.getGeneralInfo());
+    } //TODO Error - this needs to be fixed (Matej)
+
+    @FXML
+    void toEdit(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
+        sceneSetter.setScene(loader);
+    }
 }

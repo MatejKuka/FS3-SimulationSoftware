@@ -34,5 +34,9 @@ public interface IFacadeBLL {
 
     List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception;
 
+    void updateCitizen(Citizen citizen) throws Exception;
+    void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception;
+    Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception;
+
 
 }

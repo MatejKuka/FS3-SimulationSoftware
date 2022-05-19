@@ -9,6 +9,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ResourceBundle;
 
 public class CitizenFunctionalityStateViewController implements Initializable {
@@ -16,6 +18,17 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private VBox mainView;
     @FXML
     private Label label, label1;
+
+    final ComboBox<String> currentBox = new ComboBox<>();
+    final ComboBox<String> expectedBox = new ComboBox<>();
+    final ComboBox<String> performanceBox = new ComboBox<>();
+    final ComboBox<String> importanceBox = new ComboBox<>();
+    final ComboBox<String> citizenWishesBox = new ComboBox<>();
+    final ComboBox<String> relevantBox = new ComboBox<>();
+
+    final TextArea professionalArea = new TextArea();
+    final TextArea observationalArea = new TextArea();
+    final DatePicker datePicker = new DatePicker();
 
     private String placeholder = "Label";
     private Label currentLevelData = new Label(placeholder);
@@ -74,25 +87,11 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     public void handleSelfCare(ActionEvent event) {
 //        public FunctionalityState(int id, int currLvl, int expectedLvl, String professNote, String follUpDate, int functionalityType, int citizen) {
 
-        final ComboBox<String> currentBox = new ComboBox<>();
-        currentBox.getItems().addAll("1", "2", "3");
-        final ComboBox<String> expectedBox = new ComboBox<>();
-        expectedBox.getItems().addAll("1", "2", "3");
-        final ComboBox<String> performanceBox = new ComboBox<>();
-        performanceBox.getItems().addAll("bad", "normal", "good");
-        final ComboBox<String> importanceBox = new ComboBox<>();
-        importanceBox.getItems().addAll("bad", "normal", "good");
-        final ComboBox<String> citizenWishesBox = new ComboBox<>();
-        citizenWishesBox.getItems().addAll("bad", "normal", "good");
-        final ComboBox<String> relevantBox = new ComboBox<>();
-        relevantBox.getItems().addAll("bad", "normal", "good");
-
-        final TextArea professionalArea = new TextArea();
-        final TextArea observationalArea = new TextArea();
-
-        final DatePicker datePicker = new DatePicker();
         FunctionalityState functionalityState = new FunctionalityState(1, 3, 2, "In good shape", "23/5/2022", 4, 22);
         currentLevelData.setText(String.valueOf(functionalityState.getCurrLvl()));
+        expectedLevelData.setText(String.valueOf(functionalityState.getExpectedLvl()));
+        professionalNoteData.setText(functionalityState.getProfessNote());
+        followUpDateData.setText(functionalityState.getFollUpDate());
 
         editButton = new Button("Edit");
         saveButton = new Button("Save");
@@ -101,30 +100,25 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         setInitSelfCare();
 
         editButton.setOnAction(evt -> {
-            observationalArea.setMaxWidth(400);
-            observationalArea.setMinHeight(150);
-            professionalArea.setMaxWidth(400);
-            professionalArea.setMinHeight(200);
-            container1.getChildren().set(1, currentBox);
-            container2.getChildren().set(1, expectedBox);
-            container5.getChildren().set(1, performanceBox);
-            container6.getChildren().set(1, importanceBox);
-            container7.getChildren().set(1, citizenWishesBox);
-            container10.getChildren().set(1, relevantBox);
-            container8.getChildren().set(1, datePicker);
-            container3.getChildren().set(1, professionalArea);
-            container9.getChildren().set(1, observationalArea);
-
-
-            clearButtons();
-
-            container11.getChildren().add(saveButton);
-            container11.getChildren().add(cancelButton);
+            setupSelfCareEditFields();
         });
 
         cancelButton.setOnAction(evt -> {
             clearButtons();
             clearMainView();
+            setInitSelfCare();
+        });
+
+        saveButton.setOnAction(evt -> {
+            String formattedDate = datePicker.getValue().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
+            FunctionalityState newFunctionalityState = new FunctionalityState(2, Integer.parseInt(currentBox.getValue()), Integer.parseInt(expectedBox.getValue()), professionalArea.getText(), formattedDate, 5, 22);
+
+
+            currentLevelData.setText(String.valueOf(newFunctionalityState.getCurrLvl()));
+            expectedLevelData.setText(String.valueOf(newFunctionalityState.getExpectedLvl()));
+            professionalNoteData.setText(newFunctionalityState.getProfessNote());
+            followUpDateData.setText(newFunctionalityState.getFollUpDate());
+
             setInitSelfCare();
         });
     }
@@ -151,6 +145,34 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
     public void handleEmotionalFunctions(ActionEvent event) {
+    }
+
+    private void setupSelfCareEditFields() {
+        importanceBox.getItems().addAll("bad", "normal", "good");
+        performanceBox.getItems().addAll("bad", "normal", "good");
+        currentBox.getItems().addAll("1", "2", "3");
+        citizenWishesBox.getItems().addAll("bad", "normal", "good");
+        relevantBox.getItems().addAll("bad", "normal", "good");
+        expectedBox.getItems().addAll("1", "2", "3");
+        observationalArea.setMaxWidth(400);
+        observationalArea.setMinHeight(150);
+        professionalArea.setMaxWidth(400);
+        professionalArea.setMinHeight(200);
+
+        container1.getChildren().set(1, currentBox);
+        container2.getChildren().set(1, expectedBox);
+        container5.getChildren().set(1, performanceBox);
+        container6.getChildren().set(1, importanceBox);
+        container7.getChildren().set(1, citizenWishesBox);
+        container10.getChildren().set(1, relevantBox);
+        container8.getChildren().set(1, datePicker);
+        container3.getChildren().set(1, professionalArea);
+        container9.getChildren().set(1, observationalArea);
+
+        clearButtons();
+
+        container11.getChildren().add(saveButton);
+        container11.getChildren().add(cancelButton);
     }
 
     private void clearMainView() {

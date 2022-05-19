@@ -1,5 +1,6 @@
 package GUI.Controllers;
 
+import BE.FunctionalityState;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -38,52 +39,60 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     private void setInitSelfCare() {
         clearMainView();
-        container1.getChildren().add(createLabel("Current level"));
+        container1.getChildren().add(createLabel("Current level:"));
         container1.getChildren().add(currentLevelData);
 
-        container2.getChildren().add(createLabel("Expected level"));
+        container2.getChildren().add(createLabel("Expected level:"));
         container2.getChildren().add(expectedLevelData);
 
-        container3.getChildren().add(createLabel("Professional note"));
+        container3.getChildren().add(createLabel("Professional note:"));
         container3.getChildren().add(professionalNoteData);
 
         container4.getChildren().add(label1);
 
-        container5.getChildren().add(createLabel("Performance"));
+        container5.getChildren().add(createLabel("Performance:"));
         container5.getChildren().add(performanceData);
 
-        container6.getChildren().add(createLabel("Importance"));
+        container6.getChildren().add(createLabel("Importance:"));
         container6.getChildren().add(importanceData);
 
-        container7.getChildren().add(createLabel("Citizen wishes"));
+        container7.getChildren().add(createLabel("Citizen wishes:"));
         container7.getChildren().add(citizenWishesData);
 
-        container8.getChildren().add(createLabel("Follow-up date"));
+        container8.getChildren().add(createLabel("Follow-up date:"));
         container8.getChildren().add(followUpDateData);
 
-        container9.getChildren().add(createLabel("Observational notes"));
+        container9.getChildren().add(createLabel("Observational notes:"));
         container9.getChildren().add(observationalNotes);
 
-        container10.getChildren().add(createLabel("Relevant"));
+        container10.getChildren().add(createLabel("Relevant:"));
         container10.getChildren().add(relevantData);
 
         container11.getChildren().add(editButton);
     }
 
     public void handleSelfCare(ActionEvent event) {
+//        public FunctionalityState(int id, int currLvl, int expectedLvl, String professNote, String follUpDate, int functionalityType, int citizen) {
+
         final ComboBox<String> currentBox = new ComboBox<>();
+        currentBox.getItems().addAll("1", "2", "3");
         final ComboBox<String> expectedBox = new ComboBox<>();
+        expectedBox.getItems().addAll("1", "2", "3");
         final ComboBox<String> performanceBox = new ComboBox<>();
+        performanceBox.getItems().addAll("bad", "normal", "good");
         final ComboBox<String> importanceBox = new ComboBox<>();
+        importanceBox.getItems().addAll("bad", "normal", "good");
         final ComboBox<String> citizenWishesBox = new ComboBox<>();
+        citizenWishesBox.getItems().addAll("bad", "normal", "good");
         final ComboBox<String> relevantBox = new ComboBox<>();
+        relevantBox.getItems().addAll("bad", "normal", "good");
 
         final TextArea professionalArea = new TextArea();
         final TextArea observationalArea = new TextArea();
 
         final DatePicker datePicker = new DatePicker();
-
-
+        FunctionalityState functionalityState = new FunctionalityState(1, 3, 2, "In good shape", "23/5/2022", 4, 22);
+        currentLevelData.setText(String.valueOf(functionalityState.getCurrLvl()));
 
         editButton = new Button("Edit");
         saveButton = new Button("Save");

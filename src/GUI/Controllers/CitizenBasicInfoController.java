@@ -1,5 +1,6 @@
 package GUI.Controllers;
 
+import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,25 +10,34 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CitizenBasicInfoController implements Initializable {
+    MainModel model;
+
     @FXML
     private BorderPane firstNameContainer, lastNameContainer, ageContainer;
     @FXML
     private HBox buttonsContainer;
 
-    private final String placeholder = "-";
+    public CitizenBasicInfoController() throws IOException {
+        model = new MainModel();
+    }
 
-    private Label firstNamePlaceholder = new Label(placeholder);
+    private final String placeholder = "----";
+
+    private Label firstNamePlaceholder = new Label(model.getCurrentCitizen().getFirstName());
     private Label lastNamePlaceholder = new Label(placeholder);
     private Label agePlaceholder = new Label(placeholder);
 
     private TextField firstNameTextField = new TextField();
     private TextField lastNameTextField = new TextField();
     private TextField ageTextField = new TextField();
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

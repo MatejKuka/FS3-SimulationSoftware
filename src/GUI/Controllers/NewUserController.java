@@ -61,4 +61,4 @@ public class NewUserController implements Initializable {
     }
 
 
-}
+} // TODO Matej - when Oliver put school Id in parameters for creating new Admin, new Student, ..., I should alter these current methods

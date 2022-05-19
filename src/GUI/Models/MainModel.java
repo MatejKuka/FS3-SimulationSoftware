@@ -16,6 +16,7 @@ public class MainModel {
     private static int idRole;
     private static int currentSchoolId;
     public static User currrentUser;
+    public static Citizen clickedCitizen;
     private static String nameRole;
     ObservableList<User> students;
     ObservableList<User> teachers;
@@ -44,7 +45,7 @@ public class MainModel {
     }
 
     public ObservableList<User> getAllStudents() throws Exception {
-//        students.setAll(manager.getAllStudents());
+        students.setAll(manager.getAllStudents(getCurrentSchoolId()));
         return students;
     }
 
@@ -54,12 +55,12 @@ public class MainModel {
     }
 
     public ObservableList<User> getAllAdmins() throws Exception {
-//        admins.setAll(manager.getAllAdmins());
+        admins.setAll(manager.getAllAdmins(getCurrentSchoolId()));
         return admins;
     }
 
     public ObservableList<User> getAllTeacher() throws Exception {
-//        teachers.setAll(manager.getAllTeacher());
+        teachers.setAll(manager.getAllTeacher(getCurrentSchoolId()));
         return teachers;
     }
 
@@ -74,19 +75,15 @@ public class MainModel {
     }
 
     public void deleteUser(User user) throws Exception {
-        //manager.deleteUser(user);
+        manager.deleteUser(user);
         userObservableList.remove(user);
         System.out.println("user is deleted: " + user);
-        System.out.println(userObservableList);
+        //System.out.println(userObservableList);
     }
 
     public void updateUser(User user) throws Exception {
         manager.updateUser(user);
     }
-
-
-
-
 
     public void changeRoleId(int number){
         idRole = number;
@@ -155,5 +152,16 @@ public class MainModel {
     public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
         return manager.createTeacher(firstName, lastName, loginName, password);
     }
+
+    public Citizen setCurrentCitizen(Citizen citizen){
+        clickedCitizen = citizen;
+        System.out.println("Current citizen: " + clickedCitizen);
+        return clickedCitizen;
+    }
+
+    public Citizen getCurrentCitizen(){
+        return clickedCitizen;
+    }
+
 
 } //TODO Matej - I need to delete a user from observable list

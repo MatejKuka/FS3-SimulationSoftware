@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.Citizen;
 import GUI.Models.MainModel;
+import GUI.Utils.SceneSetter;
 import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,10 +26,12 @@ public class CitizensController implements Initializable {
     MainModel mainModel;
     Citizen currentCitizen;
     MAdminStudentViewController adminStudentViewController;
+    SceneSetter sceneSetter;
 
     public CitizensController() throws IOException {
         mainModel = new MainModel();
         adminStudentViewController = new MAdminStudentViewController();
+        sceneSetter = new SceneSetter();
     }
 
     @FXML
@@ -68,27 +71,36 @@ public class CitizensController implements Initializable {
 
     @FXML
     void toEditFS(ActionEvent event) {
-        adminStudentViewController.setScene("/GUI/Views/CitizensEditView.fxml");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
+        sceneSetter.setScene(loader);
     }
 
     @FXML
     void toEditGI(ActionEvent event) {
-        adminStudentViewController.setScene("/GUI/Views/CitizensEditView.fxml");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
+        sceneSetter.setScene(loader);
     }
 
     @FXML
     void toSeeMoreFS(ActionEvent event) {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
+        sceneSetter.setScene(loader);
     }
 
     @FXML
     void toSeeMoreGI(ActionEvent event) {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
+        sceneSetter.setScene(loader);
     }
 
     @FXML
     void toShowCurrentCitizen(MouseEvent event) throws Exception {
         currentCitizen = tableViewCitizens.getSelectionModel().getSelectedItem();
+        mainModel.setCurrentCitizen(currentCitizen);
         String textSelfCare = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
         String textWash = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
         String textMove = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
@@ -96,7 +108,7 @@ public class CitizensController implements Initializable {
         String textMobility = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
         String textLifeStory = mainModel.getGeneralInfo(currentCitizen.getGeneralInfo()).getLifeStory();
 
-        if (!textSelfCare.isEmpty()) labelSelfCare.setText(textSelfCare);
+        /*if (!textSelfCare.isEmpty()) labelSelfCare.setText(textSelfCare);
         else labelSelfCare.setText("empty");
         if (!textWash.isEmpty()) labelWash.setText(textWash);
         else labelWash.setText("empty");
@@ -107,7 +119,9 @@ public class CitizensController implements Initializable {
         if (!textMobility.isEmpty()) labelMobility.setText(textMobility);
         else labelMobility.setText("empty");
         if (!textLifeStory.isEmpty()) labelLifeStory.setText(textLifeStory);
-        else labelLifeStory.setText("empty");
+        else labelLifeStory.setText("empty");*/
+
+
     } // TODO Matej - needs to be changed because if the particular funcionality state is null, it will shows the error. I should create a method to check if it exists before I try to initialize.
 
 }

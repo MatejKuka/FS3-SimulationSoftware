@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.User;
+import GUI.Models.MainModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -10,16 +11,23 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EditProfileController implements Initializable {
+    MainModel model;
+
+
     @FXML
     private BorderPane editBorderPane, deleteBorderPane, firstNameBorderPane, lastNameBorderPane, usernameBorderPane, roleBorderPane, passwordBorderPane;
 
     private User user;
     private TextField firstNameTextField, lastNameTextField, usernameTextField, passwordTextField;
 
+    public EditProfileController(User userToShow) throws IOException {
+        model = new MainModel();
+    }
 
 
     @Override
@@ -57,6 +65,11 @@ public class EditProfileController implements Initializable {
 
         saveChangesButton.setOnAction(event -> {
             user = new User(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText(), user.getRoleID());
+            try {
+                model.updateUser(user);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             setupLabels();
             cleanBorderPanes();
             setupInitBorderPanes(editButton, deleteButton);

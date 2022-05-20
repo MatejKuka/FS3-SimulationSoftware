@@ -141,17 +141,17 @@ public class MainModel {
         return functionalityStates;
     }
 
-    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
-        return manager.createStudent(firstName, lastName, loginName, password);
+    public User createStudent(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
+        return manager.createStudent(firstName, lastName, loginName, password, schoolId);
     }
 
 
     public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
         return manager.createAdmin(firstName, lastName, loginName, password);
     }
-    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
-        return manager.createTeacher(firstName, lastName, loginName, password);
-    }
+//    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
+//        return manager.createTeacher(firstName, lastName, loginName, password);
+//    }
 
     public Citizen setCurrentCitizen(Citizen citizen){
         clickedCitizen = citizen;

@@ -57,12 +57,15 @@ public class SchoolController implements Initializable {
 
     @FXML
     void toCreateNewSchool(ActionEvent event) {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CreateSchoolView.fxml"));
+        sceneSetter.setScene(loader);
     }
 
     @FXML
-    void toDeleteCurSchool(ActionEvent event) {
-
+    void toDeleteCurSchool(ActionEvent event) throws Exception {
+        mainModel.deleteSchool(clickedSchool);
+        System.out.println("school is about to delete: " + clickedSchool);
     }
 
     @FXML

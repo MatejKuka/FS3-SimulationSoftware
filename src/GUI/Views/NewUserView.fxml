@@ -66,6 +66,11 @@
                         <ComboBox fx:id="comboBoxRole" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
+                  <VBox alignment="CENTER" prefHeight="79.0" prefWidth="530.0">
+                     <children>
+                        <Label fx:id="labelMessage" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="265.0" text="Label" textFill="RED" />
+                     </children>
+                  </VBox>
                   <HBox alignment="CENTER" prefHeight="103.0" prefWidth="531.0">
                      <children>
                         <Button fx:id="btnSave" mnemonicParsing="false" onAction="#toCreateNewUser" prefHeight="36.0" prefWidth="76.0" text="Save">

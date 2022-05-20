@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -18,6 +19,10 @@ public class NewUserController implements Initializable {
 
     MAdminStudentViewController menuController;
     MainModel mainModel;
+
+    @FXML
+    private Label labelMessage;
+
     @FXML
     private Button btnCancel, btnSave;
 
@@ -32,6 +37,7 @@ public class NewUserController implements Initializable {
         try {
             menuController = new MAdminStudentViewController();
             mainModel = new MainModel();
+            labelMessage.setText(" ");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,12 +52,13 @@ public class NewUserController implements Initializable {
 
     @FXML
     void toCreateNewUser(ActionEvent event) throws Exception {
-        if (comboBoxRole.getSelectionModel().getSelectedIndex() == 0) mainModel.createAdmin(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
-        if (comboBoxRole.getSelectionModel().getSelectedIndex() == 1) mainModel.createTeacher(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
-        if (comboBoxRole.getSelectionModel().getSelectedIndex() == 2) mainModel.createStudent(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
-
-        Stage stage = (Stage) btnSave.getScene().getWindow();
-        stage.close();
+        if (comboBoxRole.getSelectionModel().getSelectedIndex() != -1 && !txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
+            if (comboBoxRole.getSelectionModel().getSelectedIndex() == 0) mainModel.createAdmin(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+            if (comboBoxRole.getSelectionModel().getSelectedIndex() == 1) mainModel.createTeacher(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+            if (comboBoxRole.getSelectionModel().getSelectedIndex() == 2) mainModel.createStudent(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+            Stage stage = (Stage) btnSave.getScene().getWindow();
+            stage.close();
+        } else labelMessage.setText("One of the input is empty");
     }
 
     private void setComboBoxRole(){

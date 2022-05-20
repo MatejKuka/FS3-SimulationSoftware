@@ -41,26 +41,16 @@ public class CitizensController implements Initializable {
     private Label labelDailyRoutine, labelLifeStory, labelMobility, labelMove, labelSelfCare, labelWash;
 
     @FXML
-    private TableColumn<Citizen, String> tableColumnFName;
+    private TableColumn<Citizen, String> tableColumnFName, tableColumnLName;
 
     @FXML
     private TableColumn<Citizen, Integer> tableColumnId;
 
     @FXML
-    private TableColumn<Citizen, String> tableColumnLName;
-
-    @FXML
     private TableView<Citizen> tableViewCitizens;
 
     @FXML
-    private Button btnCreate;
-
-    @FXML
-    private Button btnDelete;
-
-    @FXML
-    private Button btnEdit;
-
+    private Button btnCreate, btnDelete, btnEdit;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

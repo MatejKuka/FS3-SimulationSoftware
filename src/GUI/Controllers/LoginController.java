@@ -64,7 +64,9 @@ public class LoginController {
     }
 
     private void startStudentPage() {
-        System.out.println("student page");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/MStudentMenuView.fxml"));
+        setScene(textFieldPassword,loader);
     }
 
     private void startTeacherPage() {

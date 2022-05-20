@@ -56,38 +56,31 @@ public class CitizenDAO {
     //you can get this int -> generalInfoIdOfCitizen by citizen.getGeneralInfo()
     public void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception {
         String queryCitizen = "DELETE FROM Citizen WHERE Id = ?";
+        String queryGeneralInfo = "DELETE FROM General_Information WHERE Id = ?";
+        String queryHealthConditions = "DELETE FROM Health_Condition_Answ WHERE Citizen = ?";
+        String queryCitizenAssessment = "DELETE FROM Citizens_Assessment WHERE Citizen = ?";
+        String queryFunctionalityState = "DELETE FROM Functionality_State_Answ WHERE Citizen = ?";
+
         try(Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryCitizen);
             preparedStatement.setInt(1, citizen.getId());
             preparedStatement.executeUpdate();
-        }
 
-        String queryGeneralInfo = "DELETE FROM General_Information WHERE Id = ?";
-        try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(queryGeneralInfo);
-            preparedStatement.setInt(1, generalInfoIdOfCitizen);
-            preparedStatement.executeUpdate();
-        }
+            PreparedStatement preparedStatement1 = connection.prepareStatement(queryGeneralInfo);
+            preparedStatement1.setInt(1, generalInfoIdOfCitizen);
+            preparedStatement1.executeUpdate();
 
-        String queryHealthConditions = "DELETE FROM Health_Condition_Answ WHERE Citizen = ?";
-        try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(queryHealthConditions);
-            preparedStatement.setInt(1, citizen.getId());
-            preparedStatement.executeUpdate();
-        }
+            PreparedStatement preparedStatement2 = connection.prepareStatement(queryHealthConditions);
+            preparedStatement2.setInt(1, citizen.getId());
+            preparedStatement2.executeUpdate();
 
-        String queryCitizenAssessment = "DELETE FROM Citizens_Assessment WHERE Citizen = ?";
-        try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(queryCitizenAssessment);
-            preparedStatement.setInt(1, citizen.getId());
-            preparedStatement.executeUpdate();
-        }
+            PreparedStatement preparedStatement3 = connection.prepareStatement(queryCitizenAssessment);
+            preparedStatement3.setInt(1, citizen.getId());
+            preparedStatement3.executeUpdate();
 
-        String queryFunctionalityState = "DELETE FROM Functionality_State_Answ WHERE Citizen = ?";
-        try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(queryFunctionalityState);
-            preparedStatement.setInt(1, citizen.getId());
-            preparedStatement.executeUpdate();
+            PreparedStatement preparedStatement4 = connection.prepareStatement(queryFunctionalityState);
+            preparedStatement4.setInt(1, citizen.getId());
+            preparedStatement4.executeUpdate();
         }
     }
 

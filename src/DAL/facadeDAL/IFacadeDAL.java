@@ -14,7 +14,7 @@ public interface IFacadeDAL {
     //UserDAO
     User compareLogins(String username, String password) throws Exception;
     List<User> getAllUsers() throws Exception;
-    List<User> getAllAdmins(int schoolId) throws Exception;
+    List<User> getAllAdmins() throws Exception;
     List<User> getAllStudents(int schoolId) throws Exception;
     List<User> getAllTeacher(int schoolId) throws Exception;
     public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;

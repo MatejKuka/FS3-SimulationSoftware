@@ -78,17 +78,17 @@ public class UserDAO {
         }
     }
 
-    public List<User> getAllAdmins(int schoolId) throws Exception {
+    public List<User> getAllAdmins() throws Exception {
         List<User> allAdmins = new ArrayList<>();
         String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
                         " FROM Users u " +
                         "JOIN Users_School s ON s.Users = u.id " +
-                        "WHERE u.Type_Of_User = 1 AND s.School = ?";
+                        "WHERE u.Type_Of_User = 1";
 
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,schoolId);
-            ResultSet rs = preparedStatement.executeQuery();
+            preparedStatement.execute();
+            ResultSet rs = preparedStatement.getResultSet();
 
             while (rs.next()) {
                 int id = rs.getInt("Id");

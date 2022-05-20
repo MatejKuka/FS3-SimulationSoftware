@@ -55,7 +55,7 @@ public class MainModel {
     }
 
     public ObservableList<User> getAllAdmins() throws Exception {
-        admins.setAll(manager.getAllAdmins(getCurrentSchoolId()));
+        admins.setAll(manager.getAllAdmins());
         return admins;
     }
 

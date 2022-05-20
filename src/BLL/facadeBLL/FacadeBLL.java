@@ -40,8 +40,8 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public List<User> getAllAdmins(int schoolId) throws Exception {
-        return userManager.getAllAdmins(schoolId);
+    public List<User> getAllAdmins() throws Exception {
+        return userManager.getAllAdmins();
     }
 
     @Override

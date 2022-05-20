@@ -21,7 +21,7 @@ public interface IFacadeBLL {
 
     List<User> getAllStudents(int schoolId) throws Exception;
     List<User> getAllUsers() throws Exception;
-    List<User> getAllAdmins(int schoolId) throws Exception;
+    List<User> getAllAdmins() throws Exception;
     List<User> getAllTeacher(int schoolId) throws Exception;
 
 

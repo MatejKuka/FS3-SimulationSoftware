@@ -1,8 +1,5 @@
 package BLL.facadeBLL;
-import BE.Citizen;
-import BE.FunctionalityState;
-import BE.GeneralInfo;
-import BE.User;
+import BE.*;
 import BLL.CitizenManager;
 import BLL.GenerInfoManager;
 import BLL.UserManager;
@@ -77,6 +74,26 @@ public class FacadeBLL implements IFacadeBLL {
     @Override
     public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
         return facadeDAL.createCitizen(fName, lName, school, generalInfo);
+    }
+
+    @Override
+    public List<School> getAllSchools() throws Exception {
+        return facadeDAL.getAllSchools();
+    }
+
+    @Override
+    public School createSchool(String name, String city) throws Exception {
+        return facadeDAL.createSchool(name, city);
+    }
+
+    @Override
+    public void deleteSchool(School school) throws Exception {
+        facadeDAL.deleteSchool(school);
+    }
+
+    @Override
+    public void updateSchool(School school) throws Exception {
+        facadeDAL.updateSchool(school);
     }
 
     @Override

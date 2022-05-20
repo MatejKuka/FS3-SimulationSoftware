@@ -83,7 +83,7 @@ public class MAdminStudentViewController implements Initializable {
 
     @FXML
     void toSchoolsPage(ActionEvent event) {
-
+        setScene("/GUI/Views/SchoolView.fxml");
     }
 
     @FXML

@@ -1,9 +1,6 @@
 package BLL.facadeBLL;
 
-import BE.Citizen;
-import BE.FunctionalityState;
-import BE.GeneralInfo;
-import BE.User;
+import BE.*;
 
 import java.util.List;
 
@@ -37,6 +34,11 @@ public interface IFacadeBLL {
     void updateCitizen(Citizen citizen) throws Exception;
     void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception;
     Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception;
+
+    List<School> getAllSchools() throws Exception;
+    School createSchool(String name, String city) throws Exception;
+    void deleteSchool(School school) throws Exception;
+    void updateSchool(School school) throws Exception;
 
 
 }

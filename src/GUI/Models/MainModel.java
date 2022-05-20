@@ -1,9 +1,6 @@
 package GUI.Models;
 
-import BE.Citizen;
-import BE.FunctionalityState;
-import BE.GeneralInfo;
-import BE.User;
+import BE.*;
 import BLL.facadeBLL.FacadeBLL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +14,7 @@ public class MainModel {
     private static int currentSchoolId;
     public static User currrentUser;
     public static Citizen clickedCitizen;
+    public static School clickedSchool;
     private static String nameRole;
     ObservableList<User> students;
     ObservableList<User> teachers;
@@ -163,6 +161,15 @@ public class MainModel {
         return clickedCitizen;
     }
 
+    public School setCurrentSchool(School school){
+        clickedSchool = school;
+        return clickedSchool;
+    }
+
+    public School getCurrentSchool(){
+        return clickedSchool;
+    }
+
     public void updateCitizen(Citizen citizen) throws Exception {
         manager.updateCitizen(citizen);
     }
@@ -173,6 +180,22 @@ public class MainModel {
     }
     public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
         return manager.createCitizen(fName, lName, school, generalInfo);
+    }
+
+    public List<School> getAllSchools() throws Exception {
+        return manager.getAllSchools();
+    }
+
+    public School createSchool(String name, String city) throws Exception {
+        return manager.createSchool(name, city);
+    }
+
+    public void deleteSchool(School school) throws Exception {
+        manager.deleteSchool(school);
+    }
+
+    public void updateSchool(School school) throws Exception {
+        manager.updateSchool(school);
     }
 
 } //TODO Matej - I need to delete a user from observable list

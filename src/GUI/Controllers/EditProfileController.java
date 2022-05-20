@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EditProfileController implements Initializable {
-    MainModel model;
+    //MainModel model;
 
 
     @FXML
@@ -25,9 +25,9 @@ public class EditProfileController implements Initializable {
     private User user;
     private TextField firstNameTextField, lastNameTextField, usernameTextField, passwordTextField;
 
-    public EditProfileController(User userToShow) throws IOException {
+    /*public EditProfileController(User userToShow) throws IOException {
         model = new MainModel();
-    }
+    }*/
 
 
     @Override

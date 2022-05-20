@@ -82,9 +82,9 @@ public class CitizensAssessmentDAO {
             preparedStatement.setString(2, importance);
             preparedStatement.setString(3, citizWishes);
             preparedStatement.setString(4, follUpDate);
-            preparedStatement.setString(5, observNote);
-            preparedStatement.setInt(6, functionalityType);
-            preparedStatement.setInt(7, citizen);
+            preparedStatement.setInt(5, functionalityType);
+            preparedStatement.setInt(6, citizen);
+            preparedStatement.setString(7, observNote);
 
             int created = preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();

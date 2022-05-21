@@ -39,15 +39,15 @@ public class CitizenBasicInfoController implements Initializable {
     private TextField lastNameTextField = new TextField();
     private TextField ageTextField = new TextField();
 
-    CitizensEditController citizensEditController;
+    private CitizensEditController citizensEditController;
 
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
 
     public void getCitizen(Citizen citizen) {
-//        firstNamePlaceholder.setText(citizen.getFirstName());
         setupLabels(citizen);
+//        setupTextFields(citizen);
     }
 
     @Override
@@ -117,6 +117,9 @@ public class CitizenBasicInfoController implements Initializable {
    private void setupLabels(Citizen citizen) {
         firstNamePlaceholder.setText(citizen.getFirstName());
         lastNamePlaceholder.setText(citizen.getLastName());
-
    }
+//   private void setupTextFields(Citizen citizen) {
+//        firstNameTextField.setText(citizen.getFirstName());
+//        lastNameTextField.setText(citizen.getLastName());
+//   }
 }

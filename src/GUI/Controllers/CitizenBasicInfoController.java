@@ -44,7 +44,6 @@ public class CitizenBasicInfoController implements Initializable {
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
-
     public void getCitizen(Citizen citizen) {
         System.out.println(citizen);
 
@@ -52,9 +51,14 @@ public class CitizenBasicInfoController implements Initializable {
         setupTextFields(citizen);
 //        setupTextFields(citizen);
     }
-
+    private MainModel mainModel;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            mainModel = new MainModel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         setupInitialView();
     }
 

@@ -1,8 +1,5 @@
 package BLL.facadeBLL;
-import BE.Citizen;
-import BE.FunctionalityState;
-import BE.GeneralInfo;
-import BE.User;
+import BE.*;
 import BLL.CitizenManager;
 import BLL.GenerInfoManager;
 import BLL.UserManager;
@@ -40,8 +37,8 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public List<User> getAllAdmins(int schoolId) throws Exception {
-        return userManager.getAllAdmins(schoolId);
+    public List<User> getAllAdmins() throws Exception {
+        return userManager.getAllAdmins();
     }
 
     @Override
@@ -80,13 +77,33 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public List<School> getAllSchools() throws Exception {
+        return facadeDAL.getAllSchools();
+    }
+
+    @Override
+    public School createSchool(String name, String city) throws Exception {
+        return facadeDAL.createSchool(name, city);
+    }
+
+    @Override
+    public void deleteSchool(School school) throws Exception {
+        facadeDAL.deleteSchool(school);
+    }
+
+    @Override
+    public void updateSchool(School school) throws Exception {
+        facadeDAL.updateSchool(school);
+    }
+
+    @Override
     public int returnUsersSchoolID(User user) throws Exception {
         return userManager.returnUsersSchoolID(user);
     }
 
     @Override
-    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
-        return facadeDAL.createStudent(firstName, lastName, loginName, password);
+    public User createStudent(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
+        return facadeDAL.createStudent(firstName, lastName, loginName, password, schoolId);
     }
 
     @Override
@@ -105,8 +122,8 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
-        return facadeDAL.createTeacher(firstName, lastName, loginName, password);
+    public User createTeacher(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
+        return facadeDAL.createTeacher(firstName, lastName, loginName, password, schoolId);
     }
 
 }

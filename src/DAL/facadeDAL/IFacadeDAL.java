@@ -14,12 +14,12 @@ public interface IFacadeDAL {
     //UserDAO
     User compareLogins(String username, String password) throws Exception;
     List<User> getAllUsers() throws Exception;
-    List<User> getAllAdmins(int schoolId) throws Exception;
+    List<User> getAllAdmins() throws Exception;
     List<User> getAllStudents(int schoolId) throws Exception;
     List<User> getAllTeacher(int schoolId) throws Exception;
     public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;
-    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
-    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception;
+    public User createTeacher(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception;
+    public User createStudent(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception;
     void deleteUser(User user) throws Exception;
     void updateUser(User user) throws Exception;
 

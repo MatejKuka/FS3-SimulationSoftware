@@ -18,7 +18,6 @@ public class SceneSetter {
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println(e);
         }
 
     }

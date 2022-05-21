@@ -16,24 +16,24 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MAdminStudentViewController implements Initializable {
+public class MStudentMainController implements Initializable {
     MainModel mainModel;
 
-
-    public MAdminStudentViewController() throws IOException {
+    public MStudentMainController() throws IOException {
         mainModel = new MainModel();
     }
+
+    @FXML
+    private BorderPane borderPane;
 
     @FXML
     private Button btnLogOut;
 
     @FXML
-    public  BorderPane borderPane;
+    private Label labelCurrentFName;
 
     @FXML
-    private Label labelCurrentFName, labelCurrentLName;
-
-
+    private Label labelCurrentLName;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,26 +42,8 @@ public class MAdminStudentViewController implements Initializable {
     }
 
     @FXML
-    void toAdminsPage(ActionEvent event) {
-        mainModel.changeRoleId(1);
-        mainModel.changeRoleName(1);
-        setScene("/GUI/Views/Students.fxml");
-
-    }
-
-    @FXML
     void toCasesPage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void toCitizensPage(ActionEvent event) {
-        setScene("/GUI/Views/CitizensView.fxml");
-    }
-
-    @FXML
-    void toGroup(ActionEvent event) {
-        setScene("/GUI/Views/GroupsView.fxml");
+        setScene("/GUI/Views/StudentCaseView.fxml");
     }
 
     @FXML
@@ -81,30 +63,6 @@ public class MAdminStudentViewController implements Initializable {
         setScene("/GUI/Views/EditProfile.fxml");
     }
 
-    @FXML
-    void toSchoolsPage(ActionEvent event) {
-        setScene("/GUI/Views/SchoolView.fxml");
-    }
-
-    @FXML
-    void toStuAssignPage(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void toStudentsPage(ActionEvent event) throws Exception {
-        mainModel.changeRoleId(3);
-        mainModel.changeRoleName(3);
-        setScene("/GUI/Views/Students.fxml");
-    }
-
-    @FXML
-    void toTeachersPage(ActionEvent event) {
-        mainModel.changeRoleId(2);
-        mainModel.changeRoleName(2);
-        setScene("/GUI/Views/Students.fxml");
-    }
-
     public void setScene(String pathOfView) {
 
         Parent root = null;
@@ -116,6 +74,4 @@ public class MAdminStudentViewController implements Initializable {
         }
         this.borderPane.setCenter(root);
     }
-
-
 }

@@ -77,12 +77,12 @@ public class FunctionalityStateDAO {
 
         try(Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, professNote);
-            preparedStatement.setInt(2, functionalityType);
-            preparedStatement.setInt(3, citizen);
-            preparedStatement.setInt(4, currLvl);
-            preparedStatement.setInt(5, expectedLvl);
-            preparedStatement.setString(6, saveAs);
+            preparedStatement.setInt(1, functionalityType);
+            preparedStatement.setInt(2, citizen);
+            preparedStatement.setInt(3, currLvl);
+            preparedStatement.setInt(4, expectedLvl);
+            preparedStatement.setString(5, saveAs);
+            preparedStatement.setString(6, professNote);
 
             int created = preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();

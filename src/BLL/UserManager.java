@@ -30,8 +30,8 @@ public class UserManager {
         return facadeDAL.getAllUsers();
     }
 
-    public List<User> getAllAdmins(int schoolId) throws Exception {
-        return facadeDAL.getAllAdmins(schoolId);
+    public List<User> getAllAdmins() throws Exception {
+        return facadeDAL.getAllAdmins();
     }
 
     public List<User> getAllTeacher(int schoolId) throws Exception {

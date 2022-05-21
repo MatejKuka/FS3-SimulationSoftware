@@ -28,36 +28,27 @@
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" text="First name:" textAlignment="CENTER">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" text="Name:" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" text="Last name:" textAlignment="CENTER" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" text="Username:" textAlignment="CENTER" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" text="Password:" textAlignment="CENTER" GridPane.rowIndex="3">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" text="City:" textAlignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
                         <TextField fx:id="txtFieldFName" maxWidth="150.0" GridPane.columnIndex="1" />
                         <TextField fx:id="txtFieldLName" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtFieldUName" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtFieldPass" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
+                  <VBox alignment="CENTER" prefHeight="70.0" prefWidth="530.0">
+                     <children>
+                        <Label fx:id="labelMessage" alignment="CENTER" prefHeight="53.0" prefWidth="177.0" text="Label" textFill="RED" />
+                     </children>
+                  </VBox>
                   <HBox alignment="CENTER" prefHeight="103.0" prefWidth="531.0">
                      <children>
                         <Button fx:id="btnSave" mnemonicParsing="false" onAction="#toCreateNewUser" prefHeight="36.0" prefWidth="76.0" text="Save">

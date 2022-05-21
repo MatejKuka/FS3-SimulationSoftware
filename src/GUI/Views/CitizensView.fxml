@@ -28,7 +28,7 @@
                         <Insets bottom="10.0" left="10.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TableView fx:id="tableViewCitizens" onMouseClicked="#toShowCurrentCitizen" prefHeight="434.0" prefWidth="324.0">
+                  <TableView fx:id="tableViewCitizens" prefHeight="434.0" prefWidth="324.0">
                     <columns>
                       <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
                       <TableColumn fx:id="tableColumnFName" prefWidth="75.0" text="First name" />
@@ -98,7 +98,7 @@
                   </Pane>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="544.0">
                      <children>
-                        <Button fx:id="btnEditGI" mnemonicParsing="false" onAction="#toEditGI" text="Edit">
+                        <Button fx:id="btnEditGI" mnemonicParsing="false" onAction="#toEdit" text="Edit">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>

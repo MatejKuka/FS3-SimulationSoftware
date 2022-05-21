@@ -1,19 +1,22 @@
 package GUI.Controllers;
 
 import BE.Citizen;
+import BE.Group;
+import BE.User;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
 import com.sun.tools.javac.Main;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -55,6 +58,7 @@ public class CitizensController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            setupTableView();
             updateTableView();
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,31 +100,13 @@ public class CitizensController implements Initializable {
         sceneSetter.setScene(loader);
     }
 
-    @FXML
-    void toShowCurrentCitizen(MouseEvent event) throws Exception {
-        currentCitizen = tableViewCitizens.getSelectionModel().getSelectedItem();
-        mainModel.setCurrentCitizen(currentCitizen);
-        String textSelfCare = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
-        String textWash = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
-        String textMove = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
-        String textDailyRoutine = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
-        String textMobility = mainModel.getCitizenFunctionalityState(currentCitizen.getId()).get(2).getProfessNote();
-        String textLifeStory = mainModel.getGeneralInfo(currentCitizen.getGeneralInfo()).getLifeStory();
-
-        /*if (!textSelfCare.isEmpty()) labelSelfCare.setText(textSelfCare);
-        else labelSelfCare.setText("empty");
-        if (!textWash.isEmpty()) labelWash.setText(textWash);
-        else labelWash.setText("empty");
-        if (!textMove.isEmpty()) labelMove.setText(textMove);
-        else labelMove.setText("empty");
-        if (!textDailyRoutine.isEmpty()) labelDailyRoutine.setText(textDailyRoutine);
-        else labelDailyRoutine.setText("empty");
-        if (!textMobility.isEmpty()) labelMobility.setText(textMobility);
-        else labelMobility.setText("empty");
-        if (!textLifeStory.isEmpty()) labelLifeStory.setText(textLifeStory);
-        else labelLifeStory.setText("empty");*/
-
-    } // TODO Matej - needs to be changed because if the particular funcionality state is null, it will shows the error. I should create a method to check if it exists before I try to initialize.
+//    @FXML
+//    void toShowCurrentCitizen(MouseEvent event) throws Exception {
+//        currentCitizen = tableViewCitizens.getSelectionModel().getSelectedItem();
+//        System.out.println(currentCitizen);
+////        mainModel.setCurrentCitizen(currentCitizen);
+//
+//    } // TODO Matej - needs to be changed because if the particular funcionality state is null, it will shows the error. I should create a method to check if it exists before I try to initialize.
 
 
     @FXML
@@ -139,5 +125,16 @@ public class CitizensController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
         sceneSetter.setScene(loader);
+    }
+
+
+    private void setupTableView() {
+        TableRow<Citizen> row = new TableRow<>();
+        row.setOnMouseClicked(event -> {
+            if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
+                Citizen clickedRow = row.getItem();
+                System.out.println(clickedRow);
+            }
+        });
     }
 }

@@ -57,7 +57,7 @@ public class TestDAO {
 //        generalInformationDAO.getGeneralInfo(generalInfo.getId());
 //        generalInformationDAO.getGeneralInfo(citizen.getGeneralInfo());
 
-//        CitizenDAO citizenDAO  = new CitizenDAO();
+        CitizenDAO citizenDAO  = new CitizenDAO();
 
 //        Citizen citizen = new Citizen(7, "Loptos", "Heteracik", 2, 2);
 
@@ -65,6 +65,7 @@ public class TestDAO {
 //        citizenDAO.updateCitizen(citizen);
 //        citizenDAO.getAllCitizenFromOneSchool(1);
 //        citizenDAO.deleteCitizen(citizen, citizen.getGeneralInfo());
+        citizenDAO.getCitizenById(3);
 
 //        HealthConditionsDAO healthConditionsDAO = new HealthConditionsDAO();
 //

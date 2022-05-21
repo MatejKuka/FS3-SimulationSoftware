@@ -213,6 +213,11 @@ public class FacadeDAL implements IFacadeDAL{
         return citizenDAO.createCitizen(fName, lName, school, generalInfo);
     }
 
+    @Override
+    public Citizen getCitizenById(int citizenId) throws Exception {
+        return citizenDAO.getCitizenById(citizenId);
+    }
+
 
     public void addCitizenToStudent(Student student, Citizen citizen) throws Exception{
         studentCitizenDAO.addCitizenToStudent(student, citizen);

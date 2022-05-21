@@ -77,6 +77,11 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public Citizen getCitizenById(int citizenId) throws Exception {
+        return facadeDAL.getCitizenById(citizenId);
+    }
+
+    @Override
     public List<School> getAllSchools() throws Exception {
         return facadeDAL.getAllSchools();
     }

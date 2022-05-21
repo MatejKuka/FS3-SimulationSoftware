@@ -2,12 +2,10 @@ package DAL;
 
 import BE.Citizen;
 import DAL.Connector.DBConnector;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +24,13 @@ public class CitizenDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, schoolId);
             preparedStatement.execute();
-            ResultSet rs = preparedStatement.getResultSet();
-            while (rs.next()) {
-                int id = rs.getInt("Id");
-                String fName = rs.getString("FName");
-                String lName = rs.getString("LName");
-                int idOfSchool = rs.getInt("School");
-                int generalInfoId = rs.getInt("General_Information");
+            ResultSet resultSet = preparedStatement.getResultSet();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("Id");
+                String fName = resultSet.getString("FName");
+                String lName = resultSet.getString("LName");
+                int idOfSchool = resultSet.getInt("School");
+                int generalInfoId = resultSet.getInt("General_Information");
 
                 Citizen citizen = new Citizen(id, fName, lName, idOfSchool, generalInfoId);
                 allCitizensFromOneSchool.add(citizen);
@@ -43,8 +41,8 @@ public class CitizenDAO {
 
     //you can not change school and general info of the citizen
     public void updateCitizen(Citizen citizen) throws Exception {
-        String query =  "UPDATE Citizen SET FName = ?, LName = ? WHERE Id = ?";
-        try (Connection connection = dbConnector.getConnection()){
+        String query = "UPDATE Citizen SET FName = ?, LName = ? WHERE Id = ?";
+        try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, citizen.getFirstName());
             preparedStatement.setString(2, citizen.getLastName());
@@ -61,7 +59,7 @@ public class CitizenDAO {
         String queryCitizenAssessment = "DELETE FROM Citizens_Assessment WHERE Citizen = ?";
         String queryFunctionalityState = "DELETE FROM Functionality_State_Answ WHERE Citizen = ?";
 
-        try(Connection connection = dbConnector.getConnection()) {
+        try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(queryCitizen);
             preparedStatement.setInt(1, citizen.getId());
             preparedStatement.executeUpdate();
@@ -89,7 +87,7 @@ public class CitizenDAO {
         int id = 0;
         String query = "INSERT INTO Citizen VALUES(?, ?, ?, ?)";
 
-        try(Connection connection = dbConnector.getConnection()){
+        try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, fName);
             preparedStatement.setString(2, lName);
@@ -99,13 +97,43 @@ public class CitizenDAO {
 
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
 
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 id = resultSet.getInt(1);
             }
-            if (created != 0){
+            if (created != 0) {
                 citizen = new Citizen(id, fName, lName, school, generalInfo);
             }
         }
         return citizen;
     }
+
+    public Citizen getCitizenById(int citizenId) throws Exception {
+
+        Citizen citizen = null;
+        String query =  "SELECT * " +
+                        "FROM Citizen " +
+                        "WHERE Id = ?";
+
+        try (Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, citizenId);
+            preparedStatement.execute();
+
+            ResultSet resultSet = preparedStatement.getResultSet();
+            if (resultSet.next()) {
+                int id = resultSet.getInt("Id");
+                String fName = resultSet.getString("FName");
+                String lName = resultSet.getString("LName");
+                int idOfSchool = resultSet.getInt("School");
+                int generalInfoId = resultSet.getInt("General_Information");
+
+                citizen = new Citizen(id, fName, lName, idOfSchool, generalInfoId);
+
+                System.out.println(citizen);
+
+            }
+        }
+        return citizen;
+    }
+
 }

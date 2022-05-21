@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 import java.net.URL;
@@ -17,52 +16,12 @@ public class CitizensEditController implements Initializable {
     @FXML
     private BorderPane borderPaneContent;
 
-    @FXML
-    private Button btnBasicInfo;
-
-    @FXML
-    private Button btnFState;
-
-    @FXML
-    private Button btnGeneralInfo;
-
-//    @FXML
-//    void toBasicInfo(ActionEvent event) {
-//        //setScene("/GUI/Views/CitizenBasicInfoViewNew.fxml");
-//        setScene("/GUI/Views/CitizenBasicInfoView.fxml");
-//    }
-//
-//    @FXML
-//    void toFState(ActionEvent event) {
-//        setScene("/GUI/Views/CitizenFunctionalityStateView.fxml");
-//    }
-//
-//    @FXML
-//    void toGeneralInfo(ActionEvent event) {
-//        setScene("/GUI/Views/CitizenGeneralInfoView.fxml");
-//    }
-
-//    public void setScene(String pathOfView) {
-//
-//        Parent root = null;
-//        try {
-//            root = FXMLLoader.load(getClass().getResource(pathOfView));
-//
-//        } catch (IOException ex) {
-//            System.out.println(ex);
-//        }
-//        borderPaneContent.setCenter(root);
-//    }
-
-
-    CitizensController citizensController;
-
     private Citizen citizen;
+    private CitizensController citizensController;
 
     public void setCitizensController(CitizensController citizensController) {
         this.citizensController = citizensController;
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

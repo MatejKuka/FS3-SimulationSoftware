@@ -24,8 +24,6 @@ public class CitizensController implements Initializable {
     MAdminStudentViewController adminStudentViewController;
     SceneSetter sceneSetter;
 
-    CitizensEditController citizensEditController;
-
     public CitizensController() throws IOException {
         mainModel = new MainModel();
         adminStudentViewController = new MAdminStudentViewController();

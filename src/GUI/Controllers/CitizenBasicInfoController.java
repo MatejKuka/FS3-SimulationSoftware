@@ -47,6 +47,7 @@ public class CitizenBasicInfoController implements Initializable {
 
     public void getCitizen(Citizen citizen) {
 //        firstNamePlaceholder.setText(citizen.getFirstName());
+        setupLabels(citizen);
     }
 
     @Override

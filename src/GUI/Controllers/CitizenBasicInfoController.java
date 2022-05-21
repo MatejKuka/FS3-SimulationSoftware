@@ -46,7 +46,10 @@ public class CitizenBasicInfoController implements Initializable {
     }
 
     public void getCitizen(Citizen citizen) {
+        System.out.println(citizen);
+
         setupLabels(citizen);
+        setupTextFields(citizen);
 //        setupTextFields(citizen);
     }
 
@@ -114,12 +117,12 @@ public class CitizenBasicInfoController implements Initializable {
             setupInitialView();
         });
    }
-   private void setupLabels(Citizen citizen) {
+   public void setupLabels(Citizen citizen) {
         firstNamePlaceholder.setText(citizen.getFirstName());
         lastNamePlaceholder.setText(citizen.getLastName());
    }
-//   private void setupTextFields(Citizen citizen) {
-//        firstNameTextField.setText(citizen.getFirstName());
-//        lastNameTextField.setText(citizen.getLastName());
-//   }
+   public void setupTextFields(Citizen citizen) {
+        firstNameTextField.setText(citizen.getFirstName());
+        lastNameTextField.setText(citizen.getLastName());
+   }
 }

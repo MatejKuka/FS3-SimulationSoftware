@@ -44,9 +44,9 @@ public class CitizenBasicInfoController implements Initializable {
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
+    private Citizen citizen;
     public void getCitizen(Citizen citizen) {
-        System.out.println(citizen);
-
+        this.citizen = citizen;
         setupLabels(citizen);
         setupTextFields(citizen);
 //        setupTextFields(citizen);
@@ -103,22 +103,29 @@ public class CitizenBasicInfoController implements Initializable {
             setupInitialView();
         });
         saveButton.setOnAction(event -> {
-            if (Objects.equals(firstNameTextField.getText(), "")) {
-                firstNamePlaceholder.setText("-");
-            } else {
-                firstNamePlaceholder.setText(firstNameTextField.getText());
-            }
-            if (Objects.equals(lastNameTextField.getText(), "")) {
-                lastNamePlaceholder.setText("-");
-            } else {
-                lastNamePlaceholder.setText(lastNameTextField.getText());
-            }
-            if (Objects.equals(ageTextField.getText(), "")) {
-                agePlaceholder.setText("-");
-            } else {
-                agePlaceholder.setText(ageTextField.getText());
+//            if (Objects.equals(firstNameTextField.getText(), "")) {
+//                firstNamePlaceholder.setText("-");
+//            } else {
+//                firstNamePlaceholder.setText(firstNameTextField.getText());
+//            }
+//            if (Objects.equals(lastNameTextField.getText(), "")) {
+//                lastNamePlaceholder.setText("-");
+//            } else {
+//                lastNamePlaceholder.setText(lastNameTextField.getText());
+//            }
+//            if (Objects.equals(ageTextField.getText(), "")) {
+//                agePlaceholder.setText("-");
+//            } else {
+//                agePlaceholder.setText(ageTextField.getText());
+//            }
+            Citizen newCitizen = new Citizen(citizen.getId(), firstNameTextField.getText(), lastNameTextField.getText(), citizen.getSchool(), citizen.getGeneralInfo());
+            try {
+                mainModel.updateCitizen(newCitizen);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             setupInitialView();
+
         });
    }
    public void setupLabels(Citizen citizen) {
@@ -129,4 +136,7 @@ public class CitizenBasicInfoController implements Initializable {
         firstNameTextField.setText(citizen.getFirstName());
         lastNameTextField.setText(citizen.getLastName());
    }
+    private Label createLabel(String title) {
+        return new Label(title);
+    }
 }

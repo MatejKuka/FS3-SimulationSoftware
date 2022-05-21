@@ -98,7 +98,7 @@
                   </Pane>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="544.0">
                      <children>
-                        <Button fx:id="btnEditGI" mnemonicParsing="false" onAction="#toEdit" text="Edit">
+                        <Button fx:id="btnEditGI" mnemonicParsing="false" onAction="#handleEditButton" text="Edit">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>

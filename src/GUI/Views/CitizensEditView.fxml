@@ -12,17 +12,17 @@
          <top>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="840.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnBasicInfo" mnemonicParsing="false" onAction="#toBasicInfo" prefHeight="36.0" prefWidth="129.0" text="Basic information">
+                  <Button fx:id="btnBasicInfo" mnemonicParsing="false" onAction="#handleBasicInformation" prefHeight="36.0" prefWidth="129.0" text="Basic information">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnGeneralInfo" mnemonicParsing="false" onAction="#toGeneralInfo" prefHeight="39.0" prefWidth="147.0" text="General information">
+                  <Button fx:id="btnGeneralInfo" mnemonicParsing="false" onAction="#handleGeneralInformation" prefHeight="39.0" prefWidth="147.0" text="General information">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnFState" mnemonicParsing="false" onAction="#toFState" prefHeight="39.0" prefWidth="145.0" text="Functionality state">
+                  <Button fx:id="btnFState" mnemonicParsing="false" onAction="#handleFunctionalityState" prefHeight="39.0" prefWidth="145.0" text="Functionality state">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>

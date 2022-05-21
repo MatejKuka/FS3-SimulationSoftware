@@ -1,35 +1,30 @@
 package GUI.Controllers;
 
 import BE.Citizen;
-import BE.Group;
-import BE.User;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
-import com.sun.tools.javac.Main;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class CitizensController implements Initializable {
     MainModel mainModel;
     Citizen currentCitizen;
     MAdminStudentViewController adminStudentViewController;
     SceneSetter sceneSetter;
+
+    CitizensEditController citizensEditController;
 
     public CitizensController() throws IOException {
         mainModel = new MainModel();
@@ -55,10 +50,12 @@ public class CitizensController implements Initializable {
     @FXML
     private Button btnCreate, btnDelete, btnEdit;
 
+    private Citizen citizen;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setupTableView();
         try {
-            setupTableView();
             updateTableView();
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,14 +75,6 @@ public class CitizensController implements Initializable {
         loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
         sceneSetter.setScene(loader);
     }
-
-    @FXML
-    void toEditGI(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
-        sceneSetter.setScene(loader);
-    }
-
     @FXML
     void toSeeMoreFS(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
@@ -124,17 +113,39 @@ public class CitizensController implements Initializable {
     void toEdit(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
+        CitizensEditController citizensEditController = loader.getController();
+        System.out.println(citizensEditController);
+//        citizensEditController.setCitizensController(this);
+//        citizensEditController.print(citizen);
+
         sceneSetter.setScene(loader);
     }
 
 
     private void setupTableView() {
-        TableRow<Citizen> row = new TableRow<>();
-        row.setOnMouseClicked(event -> {
-            if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
-                Citizen clickedRow = row.getItem();
-                System.out.println(clickedRow);
-            }
+        tableViewCitizens.setRowFactory(tv -> {
+            TableRow<Citizen> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
+                    citizen = row.getItem();
+                }
+            });
+            return row;
         });
+    }
+
+    public void handleEditButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
+        Parent root = loader.load();
+
+        CitizensEditController citizensEditController = loader.getController();
+        citizensEditController.setCitizensController(this);
+        citizensEditController.getCitizen(citizen);
+
+        Stage stage = new Stage();
+        stage.setTitle("New/Edit Event");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

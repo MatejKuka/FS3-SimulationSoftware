@@ -1,5 +1,6 @@
 package GUI.Controllers;
 
+import BE.Citizen;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +27,7 @@ public class CitizenBasicInfoController implements Initializable {
     public CitizenBasicInfoController() throws IOException {
         model = new MainModel();
     }
+//    private Citizen citizen;
 
     private final String placeholder = "----";
 
@@ -37,7 +39,15 @@ public class CitizenBasicInfoController implements Initializable {
     private TextField lastNameTextField = new TextField();
     private TextField ageTextField = new TextField();
 
+    CitizensEditController citizensEditController;
 
+    public void setCitizensEditController(CitizensEditController citizensEditController) {
+        this.citizensEditController = citizensEditController;
+    }
+
+    public void getCitizen(Citizen citizen) {
+//        firstNamePlaceholder.setText(citizen.getFirstName());
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -100,8 +110,12 @@ public class CitizenBasicInfoController implements Initializable {
             } else {
                 agePlaceholder.setText(ageTextField.getText());
             }
-
             setupInitialView();
         });
+   }
+   private void setupLabels(Citizen citizen) {
+        firstNamePlaceholder.setText(citizen.getFirstName());
+        lastNamePlaceholder.setText(citizen.getLastName());
+
    }
 }

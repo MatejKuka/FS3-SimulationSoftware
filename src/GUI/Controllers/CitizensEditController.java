@@ -31,7 +31,7 @@ public class CitizensEditController implements Initializable {
         this.citizen = citizen;
     }
 
-    public void handleBasicInformation(ActionEvent event) throws IOException {
+    public void handleBasicInformation(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenBasicInfoView.fxml"));
         Parent root = loader.load();

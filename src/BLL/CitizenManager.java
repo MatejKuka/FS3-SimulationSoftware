@@ -15,4 +15,7 @@ public class CitizenManager {
     public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception {
         return facadeDAL.getAllCitizenFromOneSchool(schoolId);
     }
+    public Citizen getCitizenById(int id) throws Exception {
+        return facadeDAL.getCitizenById(id);
+    }
 }

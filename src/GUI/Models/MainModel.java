@@ -197,5 +197,8 @@ public class MainModel {
     public void updateSchool(School school) throws Exception {
         manager.updateSchool(school);
     }
+    public Citizen getCitizenById(int id) throws Exception {
+        return manager.getCitizenById(id);
+    }
 
 } //TODO Matej - I need to delete a user from observable list

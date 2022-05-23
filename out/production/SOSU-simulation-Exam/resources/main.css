@@ -21,6 +21,7 @@
     -fx-text-fill: #0B5351;
     -fx-background-radius: 0;
     -fx-border-radius: 2px;
+    -fx-cursor: hand;
 }
 
 .bg-secondary {
@@ -30,4 +31,13 @@
     -fx-border-width: 2;
     -fx-border-color: #0B5351;
     -fx-border-radius: 5px;
+}
+.text-primary {
+    -fx-text-fill: #0B5351;
+}
+.padding {
+    -fx-padding: 7px 25px;
+}
+.margin {
+    -fx-border-insets: 10px;
 }

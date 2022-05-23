@@ -35,3 +35,9 @@
 .text-primary {
     -fx-text-fill: #0B5351;
 }
+.padding {
+    -fx-padding: 7px 25px;
+}
+.margin {
+    -fx-border-insets: 10px;
+}

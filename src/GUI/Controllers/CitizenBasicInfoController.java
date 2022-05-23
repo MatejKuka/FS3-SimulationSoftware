@@ -67,6 +67,8 @@ public class CitizenBasicInfoController implements Initializable {
         clearButtons();
 
         Button editButton = new Button("Edit");
+        editButton.getStyleClass().clear();
+        editButton.getStyleClass().addAll("btn-action", "padding");
         firstNameContainer.setCenter(firstNamePlaceholder);
         lastNameContainer.setCenter(lastNamePlaceholder);
         schoolContainer.setCenter(schoolPlaceholder);
@@ -94,7 +96,12 @@ public class CitizenBasicInfoController implements Initializable {
     }
    private void setupButtons() {
         Button saveButton = new Button("Save");
+        saveButton.getStyleClass().clear();
+        saveButton.getStyleClass().addAll("btn-action", "padding");
+
         Button cancelButton = new Button("Cancel");
+        cancelButton.getStyleClass().clear();
+        cancelButton.getStyleClass().addAll("btn-action", "padding", "margin");
 
         buttonsContainer.getChildren().add(saveButton);
         buttonsContainer.getChildren().add(cancelButton);

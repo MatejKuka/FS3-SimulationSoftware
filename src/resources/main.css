@@ -21,6 +21,7 @@
     -fx-text-fill: #0B5351;
     -fx-background-radius: 0;
     -fx-border-radius: 2px;
+    -fx-cursor: hand;
 }
 
 .bg-secondary {

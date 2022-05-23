@@ -187,12 +187,11 @@ public class UserDAO {
         return admin;
     }
 
-    public User createTeacher(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
+    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
         User teacher = null;
         int type = 2;
         int id = 0;
         String query = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
-        String querySchoolTeacher = "INSERT INTO Users_School VALUES (?,?)";
 
         try(Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -210,22 +209,16 @@ public class UserDAO {
             }
             if (created != 0){
                 teacher = new Teacher(id,firstName, lastName, loginName, password, type);
-
-                /*PreparedStatement preparedStatementSchoolTeacher = connection.prepareStatement(querySchoolTeacher);
-                preparedStatement.setInt(1, schoolId);
-                preparedStatement.setInt(2, teacher.getUserID());
-                preparedStatementSchoolTeacher.executeUpdate();*/
             }
         }
         return teacher;
     }
 
-    public User createStudent(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
+    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
         User student = null;
         int type = 3;
         int id = 0;
         String query = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
-        String querySchoolStudent = "INSERT INTO Users_School VALUES (?,?)";
 
         try(Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -244,11 +237,6 @@ public class UserDAO {
             if (created != 0){
                 student = new Student(id,firstName, lastName, loginName, password, type);
                 System.out.println(student);
-
-                /*PreparedStatement preparedStatementSchoolStudent = connection.prepareStatement(querySchoolStudent);
-                preparedStatement.setInt(1, schoolId);
-                preparedStatement.setInt(2, student.getUserID());
-                preparedStatementSchoolStudent.executeUpdate();*/
             }
         }
         return student;

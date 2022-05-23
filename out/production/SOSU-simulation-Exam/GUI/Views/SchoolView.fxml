@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="600.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.SchoolController">
+<Pane prefHeight="600.0" prefWidth="840.0" styleClass="bg-secondary" stylesheets="@../../resources/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.SchoolController">
    <children>
-      <HBox prefHeight="580.0" prefWidth="800.0" spacing="30.0">
+      <HBox prefHeight="600.0" prefWidth="840.0" spacing="50.0">
          <children>
-            <VBox prefWidth="450.0">
+            <VBox prefHeight="540.0" prefWidth="453.0">
                <children>
-                  <Label fx:id="labelNameView" prefHeight="36.0" prefWidth="124.0" text="Schools">
+                  <Label fx:id="labelNameView" styleClass="text-primary" text="Schools">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
@@ -24,7 +24,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TableView fx:id="tableViewSchools" onMouseClicked="#toShowUser" VBox.vgrow="ALWAYS">
+                  <TableView fx:id="tableViewSchools" onMouseClicked="#toShowUser" prefHeight="500.0" prefWidth="460.0" stylesheets="@../../resources/custom-tableview.css" VBox.vgrow="ALWAYS">
                     <columns>
                       <TableColumn fx:id="tableColName" prefWidth="94.0" text="Name" />
                       <TableColumn fx:id="tableColCity" prefWidth="108.0" text="City" />
@@ -35,24 +35,27 @@
                   </TableView>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="349.0" HBox.hgrow="ALWAYS">
+            <VBox prefWidth="266.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#toCreateNewSchool" prefHeight="50.0" prefWidth="100.0" text="Create">
+                  <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#toCreateNewSchool" prefWidth="300.0" styleClass="btn-primary" text="Create">
                      <VBox.margin>
-                        <Insets bottom="20.0" top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#toEditCurrentSchool" prefHeight="50.0" prefWidth="100.0" text="Edit">
+                  <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#toEditCurrentSchool" prefWidth="300.0" styleClass="btn-primary" text="Edit">
                      <VBox.margin>
-                        <Insets bottom="20.0" top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toDeleteCurSchool" prefHeight="50.0" prefWidth="100.0" text="Delete">
+                  <Button mnemonicParsing="false" onAction="#toDeleteCurSchool" prefWidth="300.0" styleClass="btn-primary" text="Delete">
                      <VBox.margin>
-                        <Insets bottom="20.0" top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
                </children>
+               <HBox.margin>
+                  <Insets top="40.0" />
+               </HBox.margin>
             </VBox>
          </children>
          <padding>

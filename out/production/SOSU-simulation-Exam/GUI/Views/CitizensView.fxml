@@ -102,7 +102,7 @@
                   </Pane>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="544.0">
                      <children>
-                        <Button fx:id="btnEditGI" mnemonicParsing="false" onAction="#handleEditButton" styleClass="btn-action" text="Edit">
+                        <Button fx:id="editButton" disable="true" mnemonicParsing="false" onAction="#handleEditButton" styleClass="btn-action" text="Edit">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

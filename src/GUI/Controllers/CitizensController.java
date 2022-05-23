@@ -23,7 +23,6 @@ public class CitizensController implements Initializable {
     Citizen currentCitizen;
     MAdminStudentViewController adminStudentViewController;
     SceneSetter sceneSetter;
-
     public CitizensController() throws IOException {
         mainModel = new MainModel();
         adminStudentViewController = new MAdminStudentViewController();
@@ -31,7 +30,7 @@ public class CitizensController implements Initializable {
     }
 
     @FXML
-    private Button btnEditFS, btnEditGI, btnSeeMoreFS, btnSeeMoreGI;
+    private Button generalEditButton, functionalityStateButton, btnSeeMoreFS, btnSeeMoreGI;
 
     @FXML
     private Label labelDailyRoutine, labelLifeStory, labelMobility, labelMove, labelSelfCare, labelWash;
@@ -126,6 +125,9 @@ public class CitizensController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
                     citizen = row.getItem();
+                    generalEditButton.setDisable(false);
+//                    functionalityStateButton.setDisable(false);
+                    //TODO -> implement the button functionality then uncomment
                 }
             });
             return row;

@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.IOException;
+import java.util.List;
 
 public class MainModel {
 
@@ -18,6 +19,7 @@ public class MainModel {
     ObservableList<User> students;
     ObservableList<User> teachers;
     ObservableList<User> admins;
+    ObservableList<User> adminsBySchool;
     ObservableList<User> users;
     ObservableList<School> schools;
     ObservableList<FunctionalityState> functionalityStates;
@@ -58,6 +60,12 @@ public class MainModel {
         return admins;
     }
 
+    public ObservableList<User> getAllAdminsFromOneSchool() throws Exception {
+        adminsBySchool.setAll(manager.getAllAdminsFromOneSchool(getCurrentSchoolId()));
+        return adminsBySchool;
+    }
+
+
     public ObservableList<User> getAllTeacher() throws Exception {
         teachers.setAll(manager.getAllTeacherFromOneSchool(getCurrentSchoolId()));
         return teachers;
@@ -66,7 +74,7 @@ public class MainModel {
 
     public ObservableList<User> getUsersByRole(int roleID) throws Exception {
 
-        if (roleID == 1) userObservableList.setAll(getAllAdmins());
+        if (roleID == 1) userObservableList.setAll(getAllAdminsFromOneSchool());
         else if (roleID == 2) userObservableList.setAll(getAllTeacher());
         else if (roleID == 3) userObservableList.setAll(getAllStudents());
 
@@ -74,6 +82,7 @@ public class MainModel {
     }
 
     public void deleteUser(User user) throws Exception {
+        removeUserFromSchool(user, getCurrentSchool());
         manager.deleteUser(user);
         userObservableList.remove(user);
         System.out.println("user is deleted: " + user);
@@ -151,7 +160,16 @@ public class MainModel {
     }
 
     public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
+        User adminNew = manager.createAdmin(firstName, lastName, loginName, password);
+        admins.add(adminNew);
         return manager.createAdmin(firstName, lastName, loginName, password);
+    }
+
+    public User createAdminInSchool(String firstName, String lastName, String loginName, String password) throws Exception {
+        User userAdmin = manager.createAdmin(firstName, lastName, loginName, password);
+        addUserToSchool(userAdmin, getSchoolById(getCurrentSchoolId()));
+        adminsBySchool.add(userAdmin);
+        return userAdmin;
     }
 
     public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {

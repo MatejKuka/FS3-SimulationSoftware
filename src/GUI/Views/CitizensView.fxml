@@ -66,20 +66,23 @@
                      <children>
                         <VBox prefHeight="200.0" prefWidth="544.0">
                            <children>
-                              <Label prefHeight="37.0" prefWidth="260.0" text="General information">
+                              <Label prefWidth="260.0" text="General information">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets left="30.0" />
+                                    <Insets left="30.0" top="15.0" />
                                  </VBox.margin>
                               </Label>
                               <HBox prefHeight="164.0" prefWidth="544.0">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="78.0" text="Life story:">
+                                    <Label alignment="CENTER_RIGHT" text="Life story:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <HBox.margin>
+                                          <Insets left="30.0" top="5.0" />
+                                       </HBox.margin>
                                     </Label>
                                     <Label fx:id="labelLifeStory" prefHeight="136.0" prefWidth="442.0" text="bla bla" />
                                  </children>
@@ -125,30 +128,45 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="154.0" text="Self care:" GridPane.rowIndex="1">
+                                    <Label prefHeight="37.0" prefWidth="154.0" text="Self care:" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="156.0" text="Wash:">
+                                    <Label prefHeight="37.0" prefWidth="156.0" text="Wash:">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="155.0" text="Mobility:" GridPane.rowIndex="4">
+                                    <Label prefHeight="37.0" prefWidth="155.0" text="Mobility:" GridPane.rowIndex="4">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="155.0" text="Daily routine:" GridPane.rowIndex="3">
+                                    <Label prefHeight="37.0" prefWidth="155.0" text="Daily routine:" GridPane.rowIndex="3">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="161.0" text="Move:" GridPane.rowIndex="2">
+                                    <Label prefHeight="37.0" prefWidth="161.0" text="Move:" GridPane.rowIndex="2">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
                                     <Label fx:id="labelWash" prefHeight="55.0" prefWidth="393.0" text="Label" GridPane.columnIndex="1" />
                                     <Label fx:id="labelSelfCare" prefHeight="63.0" prefWidth="581.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />

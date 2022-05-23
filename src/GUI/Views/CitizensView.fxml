@@ -28,7 +28,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TableView fx:id="tableViewCitizens" prefHeight="434.0" prefWidth="534.0">
+                  <TableView fx:id="tableViewCitizens" prefHeight="434.0" prefWidth="534.0" stylesheets="@../../resources/custom-tableview.css">
                     <columns>
                       <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
                       <TableColumn fx:id="tableColumnFName" prefWidth="75.0" text="First name" />

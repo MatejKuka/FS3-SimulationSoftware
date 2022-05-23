@@ -26,55 +26,55 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="First name:">
+            <Label prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="First name:">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="Last name:" GridPane.rowIndex="1">
+            <Label prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="Last name:" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="School:" GridPane.rowIndex="2">
+            <Label prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="School:" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
             <BorderPane GridPane.columnIndex="1">
                <center>
-                  <TextField BorderPane.alignment="CENTER">
+                  <TextField styleClass="custom-text-field" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
-                        <Insets left="30.0" />
+                        <Insets />
                      </BorderPane.margin>
                   </TextField>
                </center></BorderPane>
             <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                <center>
-                  <TextField BorderPane.alignment="CENTER">
+                  <TextField styleClass="custom-text-field" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
-                        <Insets left="30.0" />
+                        <Insets />
                      </BorderPane.margin>
                   </TextField>
                </center></BorderPane>
             <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="2">
                <center>
-                  <TextField BorderPane.alignment="CENTER">
+                  <TextField styleClass="custom-text-field" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
-                        <Insets left="30.0" />
+                        <Insets />
                      </BorderPane.margin>
                   </TextField>
                </center></BorderPane>
-            <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="General Info:" GridPane.rowIndex="3">
+            <Label prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="General Info:" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
             <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <center>
-                  <TextField BorderPane.alignment="CENTER">
+                  <TextField styleClass="custom-text-field" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
-                        <Insets left="30.0" />
+                        <Insets />
                      </BorderPane.margin>
                   </TextField>
                </center></BorderPane>

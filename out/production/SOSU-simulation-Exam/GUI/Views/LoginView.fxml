@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="484.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.LoginController">
+<AnchorPane prefHeight="484.0" prefWidth="746.0" styleClass="bg-secondary" stylesheets="@../../resources/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.LoginController">
    <children>
       <BorderPane prefHeight="126.0" prefWidth="746.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <Label alignment="CENTER" prefHeight="54.0" prefWidth="421.0" text="Simulation platform for FS3" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" prefHeight="54.0" prefWidth="421.0" styleClass="text-primary" text="Simulation platform for FS3" BorderPane.alignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
@@ -25,17 +26,40 @@
       </BorderPane>
       <BorderPane layoutY="137.0" prefHeight="340.0" prefWidth="746.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <center>
-            <VBox alignment="CENTER" prefHeight="160.0" prefWidth="523.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="160.0" prefWidth="523.0" BorderPane.alignment="CENTER_LEFT">
                <children>
-                  <Label prefHeight="18.0" prefWidth="158.0" text="Username" />
-                  <TextField fx:id="textFieldUsername" prefHeight="26.0" prefWidth="198.0">
+                  <BorderPane>
+                     <left>
+                        <Label styleClass="text-primary" text="Username" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" />
+                           </BorderPane.margin>
+                        </Label>
+                     </left>
+                  </BorderPane>
+                  <TextField fx:id="textFieldUsername" prefHeight="26.0" prefWidth="198.0" styleClass="custom-text-field">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label prefHeight="18.0" prefWidth="158.0" text="Password" />
-                  <PasswordField fx:id="textFieldPassword" />
-                  <Button fx:id="buttonLogin" mnemonicParsing="false" onAction="#toSubmitLogin" text="Login" />
+                  <BorderPane>
+                     <left>
+                        <Label styleClass="text-primary" text="Password" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" />
+                           </BorderPane.margin>
+                        </Label>
+                     </left>
+                  </BorderPane>
+                  <PasswordField fx:id="textFieldPassword" styleClass="custom-text-field" />
+                  <Button fx:id="buttonLogin" mnemonicParsing="false" onAction="#toSubmitLogin" text="Login">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <styleClass>
+                        <String fx:value="btn-action" />
+                        <String fx:value="padding" />
+                     </styleClass></Button>
                   <Label fx:id="labelBadInput" alignment="CENTER" prefHeight="18.0" prefWidth="205.0" textFill="#ef0000">
                      <VBox.margin>
                         <Insets top="20.0" />
@@ -51,12 +75,12 @@
                      <center>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label prefHeight="20.0" prefWidth="122.0" text="Forgot Password?">
+                              <Label prefHeight="20.0" prefWidth="122.0" styleClass="text-primary" text="Forgot Password?">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="BOTTOM_CENTER" text=" Contact an administrator of your school">
+                              <Label alignment="BOTTOM_CENTER" styleClass="text-primary" text=" Contact an administrator of your school">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

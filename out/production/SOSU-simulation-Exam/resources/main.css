@@ -26,7 +26,8 @@
 .btn-action:hover {
     -fx-background-color: #0B5351;
     -fx-text-fill: #F2F4F3;
-    -fx-border-width: 0;
+    -fx-background-radius: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
 }
 
 .bg-secondary {
@@ -43,11 +44,22 @@
 .padding {
     -fx-padding: 7px 25px;
 }
+.text-field-padding {
+    -fx-padding: 7px 10px;
+}
 .margin {
     -fx-border-insets: 10px;
 }
 .custom-text-field {
-    -fx-background-radius: 2px;
-    -fx-background-color: #0B5351;
-    -fx-text-fill: #F2F4F3;
+    -fx-border-width: 2;
+    -fx-border-color: #0B5351;
+    -fx-background-color: #e5f3eb;
+    -fx-text-fill: #0B5351;
+    -fx-border-radius: 3px;
+}
+.custom-text-field:focused {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+}
+.cursor-text {
+    -fx-cursor: text;
 }

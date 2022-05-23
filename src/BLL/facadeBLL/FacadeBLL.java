@@ -122,7 +122,6 @@ public class FacadeBLL implements IFacadeBLL {
     @Override
     public School getSchoolById(int schoolId) throws Exception {
         return facadeDAL.getSchoolById(schoolId);
-
     }
 
     @Override

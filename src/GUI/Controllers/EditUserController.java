@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditUserController implements Initializable{
+public class EditUserController implements Initializable {
 
     MAdminStudentViewController menuController;
     MainModel mainModel;
@@ -30,9 +31,11 @@ public class EditUserController implements Initializable{
     @FXML
     private TextField txtFieldFName, txtFieldLName, txtFieldPass, txtFieldUName;
 
+    @FXML
+    private Label labelMessage;
+
     public EditUserController(User user) throws IOException {
         this.user = user;
-
     }
 
     @Override
@@ -45,6 +48,7 @@ public class EditUserController implements Initializable{
             e.printStackTrace();
         }
         setFields(user);
+        labelMessage.setText(" ");
     }
 
 
@@ -57,23 +61,21 @@ public class EditUserController implements Initializable{
 
     @FXML
     void toCreateNewUser(ActionEvent event) throws Exception {
-        User userCreated = new User(user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText(), user.getRoleID());
-        mainModel.updateUser(userCreated);
-        //studentsController.updateTableView();
-        System.out.println("User updated");
-        Stage stage = (Stage) btnSave.getScene().getWindow();
-        stage.close();
-
+        if (!txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
+            User userCreated = new User(user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText(), user.getRoleID());
+            mainModel.updateUser(userCreated);
+            System.out.println("User updated");
+            Stage stage = (Stage) btnSave.getScene().getWindow();
+            stage.close();
+        } else labelMessage.setText("One of the input is empty");
     }
 
-    public void setFields(User userToShow)
-    {
+    public void setFields(User userToShow) {
         txtFieldPass.setText(userToShow.getPassword());
         txtFieldFName.setText(userToShow.getFirstName());
         txtFieldLName.setText(userToShow.getLastName());
         txtFieldUName.setText(userToShow.getLoginName());
     }
-
 
 
 }

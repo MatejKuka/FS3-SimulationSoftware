@@ -58,6 +58,11 @@
                         <TextField fx:id="txtFieldPass" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
+                  <VBox alignment="CENTER" prefHeight="63.0" prefWidth="530.0">
+                     <children>
+                        <Label fx:id="labelMessage" alignment="CENTER" prefHeight="39.0" prefWidth="278.0" text="Label" textFill="RED" />
+                     </children>
+                  </VBox>
                   <HBox alignment="CENTER" prefHeight="103.0" prefWidth="531.0">
                      <children>
                         <Button fx:id="btnSave" mnemonicParsing="false" onAction="#toCreateNewUser" prefHeight="36.0" prefWidth="76.0" text="Save">

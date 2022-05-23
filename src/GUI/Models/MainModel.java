@@ -143,7 +143,7 @@ public class MainModel {
     public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
         User studentNew = manager.createStudent(firstName, lastName, loginName, password);
         System.out.println(getCurrentSchool());
-        addUserToSchool(studentNew, getCurrentSchool()); // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+        addUserToSchool(studentNew, getSchoolById(getCurrentSchoolId())); // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
 
         students.add(studentNew);
         System.out.println("new student created: " + studentNew);
@@ -156,7 +156,7 @@ public class MainModel {
 
     public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
         User teacherNew = manager.createTeacher(firstName, lastName, loginName, password);
-        //addUserToSchool(teacherNew, getCurrentSchool()); // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+        addUserToSchool(teacherNew, getSchoolById(getCurrentSchoolId())); // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
         teachers.add(teacherNew);
         System.out.println("new teacher created: " + teacherNew);
         return teacherNew;
@@ -221,11 +221,15 @@ public class MainModel {
     }
 
     public void addUserToSchool(User user, School school) throws Exception {
-        manager.addUserToSchool(user, school);
+        manager.addUserToSchool(user, getSchoolById(getCurrentSchoolId()));
     } // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
 
     public void removeUserFromSchool(User user, School school) throws Exception {
-        manager.removeUserFromSchool(user, school);
+        manager.removeUserFromSchool(user, getSchoolById(getCurrentSchoolId()));
     } // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+
+    public School getSchoolById(int schoolId) throws Exception {
+        return manager.getSchoolById(schoolId);
+    }
 
 }

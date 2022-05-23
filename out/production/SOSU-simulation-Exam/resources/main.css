@@ -14,6 +14,20 @@
     -fx-cursor: hand;
 }
 
+.btn-action {
+    -fx-background-color: #e5f3eb;
+    -fx-border-width: 2;
+    -fx-border-color: #0B5351;
+    -fx-text-fill: #0B5351;
+    -fx-background-radius: 0;
+    -fx-border-radius: 2px;
+}
+
 .bg-secondary {
     -fx-background-color: #e5f3eb;
+}
+.pane-primary {
+    -fx-border-width: 2;
+    -fx-border-color: #0B5351;
+    -fx-border-radius: 5px;
 }

@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.CitizensController">
+<AnchorPane prefHeight="700.0" prefWidth="840.0" stylesheets="@../../resources/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.CitizensController">
    <children>
-      <HBox layoutX="61.0" layoutY="78.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox layoutX="61.0" layoutY="78.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" styleClass="bg-secondary" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox>
                <children>
@@ -25,7 +25,7 @@
                         <Font name="System Bold" size="26.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" top="20.0" />
+                        <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
                   <TableView fx:id="tableViewCitizens" prefHeight="434.0" prefWidth="534.0">
@@ -43,12 +43,12 @@
                   </TableView>
                   <HBox alignment="CENTER" prefHeight="61.0" prefWidth="297.0">
                      <children>
-                        <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#toCreate" prefHeight="30.0" prefWidth="60.0" text="Create">
+                        <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#toCreate" prefHeight="30.0" prefWidth="60.0" styleClass="btn-action" text="Create">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#toDelete" prefHeight="30.0" prefWidth="60.0" text="Delete">
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#toDelete" prefHeight="30.0" prefWidth="60.0" styleClass="btn-action" text="Delete">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
@@ -62,40 +62,46 @@
             </VBox>
             <VBox prefHeight="700.0" prefWidth="500.0">
                <children>
-                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;">
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="pane-primary">
                      <children>
                         <VBox prefHeight="200.0" prefWidth="544.0">
                            <children>
-                              <Label prefHeight="37.0" prefWidth="260.0" text="General information">
+                              <Label prefWidth="260.0" text="General information">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets left="30.0" />
+                                    <Insets left="25.0" top="25.0" />
                                  </VBox.margin>
                               </Label>
-                              <HBox prefHeight="164.0" prefWidth="544.0">
+                              <HBox>
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="78.0" text="Life story:">
+                                    <Label alignment="CENTER_RIGHT" text="Life story:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="5.0" />
+                                       </HBox.margin>
                                     </Label>
-                                    <Label fx:id="labelLifeStory" prefHeight="136.0" prefWidth="442.0" text="bla bla" />
+                                    <Label fx:id="labelLifeStory" text="bla bla">
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="7.0" />
+                                       </HBox.margin></Label>
                                  </children>
                               </HBox>
                            </children>
                         </VBox>
                      </children>
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets />
                      </VBox.margin>
                   </Pane>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="544.0">
                      <children>
-                        <Button fx:id="btnEditGI" mnemonicParsing="false" onAction="#handleEditButton" text="Edit">
+                        <Button fx:id="btnEditGI" mnemonicParsing="false" onAction="#handleEditButton" styleClass="btn-action" text="Edit">
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets />
                            </HBox.margin>
                         </Button>
                      </children>
@@ -125,30 +131,45 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="154.0" text="Self care:" GridPane.rowIndex="1">
+                                    <Label prefHeight="37.0" prefWidth="154.0" text="Self care:" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="156.0" text="Wash:">
+                                    <Label prefHeight="37.0" prefWidth="156.0" text="Wash:">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="155.0" text="Mobility:" GridPane.rowIndex="4">
+                                    <Label prefHeight="37.0" prefWidth="155.0" text="Mobility:" GridPane.rowIndex="4">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="155.0" text="Daily routine:" GridPane.rowIndex="3">
+                                    <Label prefHeight="37.0" prefWidth="155.0" text="Daily routine:" GridPane.rowIndex="3">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="161.0" text="Move:" GridPane.rowIndex="2">
+                                    <Label prefHeight="37.0" prefWidth="161.0" text="Move:" GridPane.rowIndex="2">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
                                     </Label>
                                     <Label fx:id="labelWash" prefHeight="55.0" prefWidth="393.0" text="Label" GridPane.columnIndex="1" />
                                     <Label fx:id="labelSelfCare" prefHeight="63.0" prefWidth="581.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -166,9 +187,9 @@
                   </Pane>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="544.0">
                      <children>
-                        <Button fx:id="btnEditFS" disable="true" mnemonicParsing="false" onAction="#toEditFS" text="Edit">
+                        <Button fx:id="btnEditFS" disable="true" mnemonicParsing="false" onAction="#toEditFS" styleClass="btn-action" text="Edit">
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets />
                            </HBox.margin>
                         </Button>
                      </children>
@@ -177,7 +198,7 @@
             </VBox>
          </children>
          <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </padding>
       </HBox>
    </children>

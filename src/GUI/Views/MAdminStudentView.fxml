@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../resources/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.MAdminStudentViewController">
    <children>
-      <BorderPane fx:id="borderPane" layoutX="-6.0" prefHeight="677.0" prefWidth="1000.0" style="-fx-background-color: #ababaa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="borderPane" layoutX="-6.0" prefHeight="677.0" prefWidth="1000.0" styleClass="bg-secondary" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
             <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="160.0" styleClass="bg-secondary" BorderPane.alignment="TOP_CENTER">
                <children>
@@ -56,19 +56,19 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toCitizensPage" prefHeight="37.0" prefWidth="200.0" styleClass="btn-primary" text="Citizen templates" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#toCitizensPage" styleClass="btn-primary" text="Citizen templates" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toStuAssignPage" prefHeight="37.0" prefWidth="200.0" styleClass="btn-primary" text="Student assignemnts" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#toStuAssignPage" prefHeight="72.0" prefWidth="160.0" styleClass="btn-primary" text="Student assignemnts" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#toMyProfilePage" prefHeight="37.0" prefWidth="200.0" styleClass="btn-primary" text="My profile" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets />
+                        <Insets top="120.0" />
                      </VBox.margin>
                   </Button>
                   <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#toLogOut" prefHeight="37.0" prefWidth="200.0" styleClass="btn-primary" text="Log out" textAlignment="CENTER">

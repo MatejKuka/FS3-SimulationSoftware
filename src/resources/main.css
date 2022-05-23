@@ -6,6 +6,7 @@
     -fx-background-color: #0B5351;
     -fx-text-fill: #F2F4F3;
     -fx-background-radius: 0;
+    -fx-font-size: 15pt;
 }
 .btn-primary:hover {
     -fx-border-width: 0 2 0 0;

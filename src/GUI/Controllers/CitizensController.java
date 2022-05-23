@@ -98,7 +98,9 @@ public class CitizensController implements Initializable {
 
     @FXML
     void toCreate(ActionEvent event) {
-
+        /*FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
+        sceneSetter.setScene(loader);*/
     }
 
     @FXML

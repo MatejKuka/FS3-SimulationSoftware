@@ -20,6 +20,7 @@ public class MainModel {
     ObservableList<User> teachers;
     ObservableList<User> admins;
     ObservableList<User> users;
+    ObservableList<School> schools;
     ObservableList<FunctionalityState> functionalityStates;
     ObservableList<Citizen> citizensBySchool;
     FacadeBLL manager;
@@ -30,6 +31,7 @@ public class MainModel {
         manager = new FacadeBLL();
         students = FXCollections.observableArrayList();
         admins = FXCollections.observableArrayList();
+        schools = FXCollections.observableArrayList();
         teachers = FXCollections.observableArrayList();
         users = FXCollections.observableArrayList();
         citizensBySchool = FXCollections.observableArrayList();
@@ -66,8 +68,8 @@ public class MainModel {
     public ObservableList<User> getUsersByRole(int roleID) throws Exception {
 
         if (roleID == 1) userObservableList.setAll(getAllAdmins());
-            else if (roleID == 2) userObservableList.setAll(getAllTeacher());
-            else if (roleID == 3) userObservableList.setAll(getAllStudents());
+        else if (roleID == 2) userObservableList.setAll(getAllTeacher());
+        else if (roleID == 3) userObservableList.setAll(getAllStudents());
 
         return userObservableList;
     }
@@ -76,22 +78,21 @@ public class MainModel {
         manager.deleteUser(user);
         userObservableList.remove(user);
         System.out.println("user is deleted: " + user);
-        //System.out.println(userObservableList);
     }
 
     public void updateUser(User user) throws Exception {
         manager.updateUser(user);
     }
 
-    public void changeRoleId(int number){
+    public void changeRoleId(int number) {
         idRole = number;
     }
 
-    public int getRoleId(){
+    public int getRoleId() {
         return idRole;
     }
 
-    public void changeRoleName(int roleID){
+    public void changeRoleName(int roleID) {
         if (roleID == 1) nameRole = "Admins";
         else if (roleID == 2) nameRole = "Teachers";
         else if (roleID == 3) nameRole = "Students";
@@ -101,18 +102,18 @@ public class MainModel {
         return nameRole;
     }
 
-    public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception {
+    public ObservableList<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception {
         citizensBySchool.setAll(manager.getAllCitizenFromOneSchool(schoolId));
         return citizensBySchool;
     }
 
-    public User setCurrentUser(User user){
+    public User setCurrentUser(User user) {
         currrentUser = user;
         System.out.println("Current user: " + currrentUser);
         return currrentUser;
     }
 
-    public User getCurrentUser(){
+    public User getCurrentUser() {
         return currrentUser;
     }
 
@@ -122,7 +123,7 @@ public class MainModel {
         return currentSchoolId;
     }
 
-    public int getCurrentSchoolId(){
+    public int getCurrentSchoolId() {
         return currentSchoolId;
     }
 
@@ -134,39 +135,42 @@ public class MainModel {
         return manager.getGeneralInfo(idGeneralInfo);
     }
 
-    public ObservableList<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception{
+    public ObservableList<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception {
         functionalityStates.setAll(manager.getCitizenFunctionalityState(idCitizen));
         return functionalityStates;
     }
 
     public User createStudent(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
-        return manager.createStudent(firstName, lastName, loginName, password, schoolId);
+        User studentNew = manager.createStudent(firstName, lastName, loginName, password, schoolId);
+        System.out.println("new student created: " + studentNew);
+        students.add(studentNew);
+        return studentNew;
     }
 
 
     public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
         return manager.createAdmin(firstName, lastName, loginName, password);
     }
-//    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
-//        return manager.createTeacher(firstName, lastName, loginName, password);
-//    }
+    public User createTeacher(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
+        return manager.createTeacher(firstName, lastName, loginName, password, schoolId);
+    }
 
-    public Citizen setCurrentCitizen(Citizen citizen){
+    public Citizen setCurrentCitizen(Citizen citizen) {
         clickedCitizen = citizen;
         System.out.println("Current citizen: " + clickedCitizen);
         return clickedCitizen;
     }
 
-    public Citizen getCurrentCitizen(){
+    public Citizen getCurrentCitizen() {
         return clickedCitizen;
     }
 
-    public School setCurrentSchool(School school){
+    public School setCurrentSchool(School school) {
         clickedSchool = school;
         return clickedSchool;
     }
 
-    public School getCurrentSchool(){
+    public School getCurrentSchool() {
         return clickedSchool;
     }
 
@@ -178,12 +182,18 @@ public class MainModel {
         citizensBySchool.remove(citizen);
         manager.deleteCitizen(citizen, generalInfoIdOfCitizen);
     }
+
     public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
-        return manager.createCitizen(fName, lName, school, generalInfo);
+        Citizen citizenBla = manager.createCitizen(fName, lName, school, generalInfo);
+        citizensBySchool.add(citizenBla);
+        System.out.println("Citizen added to observable: " + citizenBla);
+        return citizenBla;
     }
 
-    public List<School> getAllSchools() throws Exception {
-        return manager.getAllSchools();
+    public ObservableList<School> getAllSchools() throws Exception {
+        schools.setAll(manager.getAllSchools());
+        return schools;
+
     }
 
     public School createSchool(String name, String city) throws Exception {
@@ -197,6 +207,7 @@ public class MainModel {
     public void updateSchool(School school) throws Exception {
         manager.updateSchool(school);
     }
+
     public Citizen getCitizenById(int id) throws Exception {
         return manager.getCitizenById(id);
     }

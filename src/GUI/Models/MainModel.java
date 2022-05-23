@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.IOException;
-import java.util.List;
 
 public class MainModel {
 
@@ -45,7 +44,7 @@ public class MainModel {
     }
 
     public ObservableList<User> getAllStudents() throws Exception {
-        students.setAll(manager.getAllStudents(getCurrentSchoolId()));
+        students.setAll(manager.getAllStudentsFromOneSchool(getCurrentSchoolId()));
         return students;
     }
 
@@ -60,7 +59,7 @@ public class MainModel {
     }
 
     public ObservableList<User> getAllTeacher() throws Exception {
-        teachers.setAll(manager.getAllTeacher(getCurrentSchoolId()));
+        teachers.setAll(manager.getAllTeacherFromOneSchool(getCurrentSchoolId()));
         return teachers;
     }
 

@@ -78,6 +78,35 @@ public class UserDAO {
         }
     }
 
+
+    public List<User> getAllAdminsFromOneSchool(int schoolId) throws Exception {
+        List<User> allAdmins = new ArrayList<>();
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User " +
+                        "FROM Users u " +
+                        "JOIN Users_School s ON s.Users = u.id " +
+                        "WHERE u.Type_Of_User = 1 AND s.School = ?";
+
+        try (Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,schoolId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("Id");
+                String fName = resultSet.getString("FName");
+                String lName = resultSet.getString("LName");
+                String userName = resultSet.getString("UserName");
+                String  password = resultSet.getString("UPassword");
+                int type = resultSet.getInt("Type_Of_User");
+
+                Admin admin = new Admin(id, fName, lName, userName, password, type);
+                System.out.println(admin);
+                allAdmins.add(admin);
+            }
+            return allAdmins;
+        }
+    }
+
     public List<User> getAllAdmins() throws Exception {
         List<User> allAdmins = new ArrayList<>();
         String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
@@ -88,15 +117,15 @@ public class UserDAO {
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.execute();
-            ResultSet rs = preparedStatement.getResultSet();
+            ResultSet resultSet = preparedStatement.getResultSet();
 
-            while (rs.next()) {
-                int id = rs.getInt("Id");
-                String fName = rs.getString("FName");
-                String lName = rs.getString("LName");
-                String userName = rs.getString("UserName");
-                String  password = rs.getString("UPassword");
-                int type = rs.getInt("Type_Of_User");
+            while (resultSet.next()) {
+                int id = resultSet.getInt("Id");
+                String fName = resultSet.getString("FName");
+                String lName = resultSet.getString("LName");
+                String userName = resultSet.getString("UserName");
+                String  password = resultSet.getString("UPassword");
+                int type = resultSet.getInt("Type_Of_User");
 
                 Admin admin = new Admin(id, fName, lName, userName, password, type);
                 System.out.println(admin);
@@ -106,7 +135,7 @@ public class UserDAO {
         }
     }
 
-    public List<User> getAllStudents(int schoolId) throws Exception {
+    public List<User> getAllStudentsFromOneSchool(int schoolId) throws Exception {
         List<User> allStudents = new ArrayList<>();
         String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
                         " FROM Users u " +
@@ -116,15 +145,15 @@ public class UserDAO {
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1,schoolId);
-            ResultSet rs = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (rs.next()) {
-                int id = rs.getInt("Id");
-                String fName = rs.getString("FName");
-                String lName = rs.getString("LName");
-                String userName = rs.getString("UserName");
-                String  password = rs.getString("UPassword");
-                int type = rs.getInt("Type_Of_User");
+            while (resultSet.next()) {
+                int id = resultSet.getInt("Id");
+                String fName = resultSet.getString("FName");
+                String lName = resultSet.getString("LName");
+                String userName = resultSet.getString("UserName");
+                String  password = resultSet.getString("UPassword");
+                int type = resultSet.getInt("Type_Of_User");
 
                 Student student = new Student(id, fName, lName, userName,password, type);
                 allStudents.add(student);
@@ -133,7 +162,7 @@ public class UserDAO {
         }
     }
 
-    public List<User> getAllTeachers(int schoolId) throws Exception {
+    public List<User> getAllTeachersFromOneSchool(int schoolId) throws Exception {
         List<User> allTeachers = new ArrayList<>();
         String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
                         " FROM Users u " +

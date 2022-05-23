@@ -23,7 +23,7 @@ public class UserManager {
     }
 
     public List<User> getAllStudents(int schoolId) throws Exception {
-        return facadeDAL.getAllStudents(schoolId);
+        return facadeDAL.getAllStudentsFromOneSchool(schoolId);
     }
 
     public List<User> getAllUsers() throws Exception {
@@ -35,7 +35,7 @@ public class UserManager {
     }
 
     public List<User> getAllTeacher(int schoolId) throws Exception {
-        return facadeDAL.getAllTeacher(schoolId);
+        return facadeDAL.getAllTeacherFromOneSchool(schoolId);
     }
     public int returnUsersSchoolID(User user) throws Exception {
         return facadeDAL.returnUsersSchoolID(user);

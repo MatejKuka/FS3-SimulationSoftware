@@ -16,10 +16,11 @@ public interface IFacadeBLL {
     User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
 
 
-    List<User> getAllStudents(int schoolId) throws Exception;
+    List<User> getAllStudentsFromOneSchool(int schoolId) throws Exception;
     List<User> getAllUsers() throws Exception;
     List<User> getAllAdmins() throws Exception;
-    List<User> getAllTeacher(int schoolId) throws Exception;
+    List<User> getAllAdminsFromOneSchool(int schoolId) throws Exception;
+    List<User> getAllTeacherFromOneSchool(int schoolId) throws Exception;
 
 
     //CitizenManager

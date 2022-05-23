@@ -65,13 +65,18 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
-    public List<User> getAllStudents(int schoolId) throws Exception {
-        return userDAO.getAllStudents(schoolId);
+    public List<User> getAllAdminsFromOneSchool(int schoolId) throws Exception {
+        return userDAO.getAllAdminsFromOneSchool(schoolId);
     }
 
     @Override
-    public List<User> getAllTeacher(int schoolId) throws Exception {
-        return userDAO.getAllTeachers(schoolId);
+    public List<User> getAllStudentsFromOneSchool(int schoolId) throws Exception {
+        return userDAO.getAllStudentsFromOneSchool(schoolId);
+    }
+
+    @Override
+    public List<User> getAllTeacherFromOneSchool(int schoolId) throws Exception {
+        return userDAO.getAllTeachersFromOneSchool(schoolId);
     }
 
     @Override

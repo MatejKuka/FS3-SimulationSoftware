@@ -43,6 +43,10 @@ public interface IFacadeBLL {
     School createSchool(String name, String city) throws Exception;
     void deleteSchool(School school) throws Exception;
     void updateSchool(School school) throws Exception;
+
+    void addUserToSchool(User user, School school) throws Exception;
+    void removeUserFromSchool(User user, School school) throws Exception;
+
     School getSchoolById(int schoolId) throws Exception;
 
 }

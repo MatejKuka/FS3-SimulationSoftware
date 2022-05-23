@@ -1,0 +1,19 @@
+/* primary color: #0B5351 */
+/* secondary color: #e5f3eb */
+/* text color: #F2F4F3 */
+
+.btn-primary {
+    -fx-background-color: #0B5351;
+    -fx-text-fill: #F2F4F3;
+    -fx-background-radius: 0;
+    -fx-font-size: 15pt;
+}
+.btn-primary:hover {
+    -fx-border-width: 0 2 0 0;
+    -fx-border-color: #e5f3eb;
+    -fx-cursor: hand;
+}
+
+.bg-secondary {
+    -fx-background-color: #e5f3eb;
+}

@@ -9,11 +9,11 @@ public interface IFacadeBLL {
     //UserManager
     User compareLogins(String username, String password) throws Exception;
     int returnUsersSchoolID(User user) throws Exception;
-    User createStudent(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception;
+    User createStudent(String firstName, String lastName, String loginName, String password) throws Exception;
     void deleteUser(User user) throws Exception;
     void updateUser(User user) throws Exception;
     User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;
-    User createTeacher(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception;
+    User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
 
 
     List<User> getAllStudents(int schoolId) throws Exception;

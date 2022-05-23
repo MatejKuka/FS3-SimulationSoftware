@@ -54,8 +54,8 @@ public class NewUserController implements Initializable {
     void toCreateNewUser(ActionEvent event) throws Exception {
         if (comboBoxRole.getSelectionModel().getSelectedIndex() != -1 && !txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
             if (comboBoxRole.getSelectionModel().getSelectedIndex() == 0) mainModel.createAdmin(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
-//            if (comboBoxRole.getSelectionModel().getSelectedIndex() == 1) mainModel.createTeacher(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
-//            if (comboBoxRole.getSelectionModel().getSelectedIndex() == 2) mainModel.createStudent(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+            if (comboBoxRole.getSelectionModel().getSelectedIndex() == 1) mainModel.createTeacher(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+            if (comboBoxRole.getSelectionModel().getSelectedIndex() == 2) mainModel.createStudent(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
             Stage stage = (Stage) btnSave.getScene().getWindow();
             stage.close();
         } else labelMessage.setText("One of the input is empty");
@@ -68,4 +68,4 @@ public class NewUserController implements Initializable {
     }
 
 
-} // TODO Matej - when Oliver put school Id in parameters for creating new Admin, new Student, ..., I should alter these current methods
+}

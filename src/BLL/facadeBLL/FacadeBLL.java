@@ -107,8 +107,8 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public User createStudent(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
-        return facadeDAL.createStudent(firstName, lastName, loginName, password, schoolId);
+    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
+        return facadeDAL.createStudent(firstName, lastName, loginName, password);
     }
 
     @Override
@@ -127,8 +127,8 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public User createTeacher(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
-        return facadeDAL.createTeacher(firstName, lastName, loginName, password, schoolId);
+    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
+        return facadeDAL.createTeacher(firstName, lastName, loginName, password);
     }
 
 }

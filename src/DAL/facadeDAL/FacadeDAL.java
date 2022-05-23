@@ -80,13 +80,13 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
-    public User createTeacher(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
-        return userDAO.createTeacher( firstName,  lastName,  loginName,  password, schoolId);
+    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
+        return userDAO.createTeacher( firstName,  lastName,  loginName,  password);
     }
 
     @Override
-    public User createStudent(String firstName, String lastName, String loginName, String password, int schoolId) throws Exception {
-        return userDAO.createStudent(firstName,  lastName,  loginName,  password, schoolId);
+    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
+        return userDAO.createStudent(firstName,  lastName,  loginName,  password);
     }
 
     @Override

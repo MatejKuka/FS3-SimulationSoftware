@@ -26,84 +26,54 @@
                      </font>
                   </Label>
                   <Pane prefHeight="33.0" prefWidth="160.0" />
-                  <Button mnemonicParsing="false" onAction="#toStudentsPage" text="Students" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#toStudentsPage" prefHeight="37.0" prefWidth="200.0" text="Students" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toGroup" text="Groups" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#toGroup" prefHeight="37.0" prefWidth="200.0" text="Groups" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toAdminsPage" text="Admins" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#toAdminsPage" prefHeight="37.0" prefWidth="200.0" text="Admins" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toTeachersPage" text="Teachers" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#toTeachersPage" prefHeight="37.0" prefWidth="200.0" text="Teachers" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toSchoolsPage" text="Schools" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#toSchoolsPage" prefHeight="37.0" prefWidth="200.0" text="Schools" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toCasesPage" text="Cases" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#toCasesPage" prefHeight="37.0" prefWidth="200.0" text="Cases" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toCitizensPage" text="Citizen templates" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#toCitizensPage" prefHeight="37.0" prefWidth="200.0" text="Citizen templates" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toStuAssignPage" text="Student assignemnts" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#toStuAssignPage" prefHeight="37.0" prefWidth="200.0" text="Student assignemnts" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toMyProfilePage" text="My profile" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#toMyProfilePage" prefHeight="37.0" prefWidth="200.0" text="My profile" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#toLogOut" text="Log out" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
+                  <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#toLogOut" prefHeight="37.0" prefWidth="200.0" text="Log out" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
                </children>

@@ -31,3 +31,6 @@
     -fx-border-color: #0B5351;
     -fx-border-radius: 5px;
 }
+.text-primary {
+    -fx-text-fill: #0B5351;
+}

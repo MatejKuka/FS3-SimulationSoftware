@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.CitizenBasicInfoController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="840.0" style="-fx-background-color: white;" stylesheets="@../../resources/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.CitizenBasicInfoController">
    <left>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER" />
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="200.0" styleClass="bg-secondary" BorderPane.alignment="CENTER" />
    </left>
    <center>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT">
@@ -32,17 +32,17 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" text="First name:" GridPane.rowIndex="2">
+                  <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="First name:" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" text="Last name:" GridPane.rowIndex="3">
+                  <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="Last name:" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" text="School:" GridPane.rowIndex="4">
+                  <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="School:" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -51,7 +51,7 @@
                   <BorderPane fx:id="firstNameContainer" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <BorderPane fx:id="lastNameContainer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <BorderPane fx:id="schoolContainer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" text="General Info:" GridPane.rowIndex="5">
+                  <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="General Info:" GridPane.rowIndex="5">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>

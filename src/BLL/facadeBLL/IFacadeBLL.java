@@ -38,6 +38,7 @@ public interface IFacadeBLL {
     Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception;
     Citizen getCitizenById(int citizenId) throws Exception;
 
+    //School
     List<School> getAllSchools() throws Exception;
     School createSchool(String name, String city) throws Exception;
     void deleteSchool(School school) throws Exception;
@@ -45,4 +46,7 @@ public interface IFacadeBLL {
 
     void addUserToSchool(User user, School school) throws Exception;
     void removeUserFromSchool(User user, School school) throws Exception;
+
+    School getSchoolById(int schoolId) throws Exception;
+
 }

@@ -47,7 +47,6 @@ public class UsersSchoolDAO {
         }
     }
 
-    //TEST THIS
     public int returnUsersSchoolID(User user) throws Exception {
         int schoolId = 0;
         String query = "SELECT School from Users_School WHERE Users = ?";

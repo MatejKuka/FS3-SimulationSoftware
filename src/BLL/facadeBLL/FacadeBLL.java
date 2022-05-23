@@ -109,6 +109,7 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+
     public void addUserToSchool(User user, School school) throws Exception {
         facadeDAL.addUserToSchool(user, school);
     }
@@ -116,6 +117,12 @@ public class FacadeBLL implements IFacadeBLL {
     @Override
     public void removeUserFromSchool(User user, School school) throws Exception {
         facadeDAL.removeUserFromSchool(user, school);
+    }
+
+    @Override
+    public School getSchoolById(int schoolId) throws Exception {
+        return facadeDAL.getSchoolById(schoolId);
+
     }
 
     @Override

@@ -18,7 +18,7 @@
    <children>
       <HBox layoutX="61.0" layoutY="78.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="700.0" prefWidth="389.0">
+            <VBox>
                <children>
                   <Label text="Citizens">
                      <font>
@@ -28,14 +28,14 @@
                         <Insets bottom="10.0" left="10.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TableView fx:id="tableViewCitizens" prefHeight="434.0" prefWidth="324.0">
+                  <TableView fx:id="tableViewCitizens" prefHeight="434.0" prefWidth="534.0">
                     <columns>
                       <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
                       <TableColumn fx:id="tableColumnFName" prefWidth="75.0" text="First name" />
                         <TableColumn fx:id="tableColumnLName" prefWidth="75.0" text="Last name" />
                     </columns>
                      <VBox.margin>
-                        <Insets left="10.0" />
+                        <Insets />
                      </VBox.margin>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -44,11 +44,6 @@
                   <HBox alignment="CENTER" prefHeight="61.0" prefWidth="297.0">
                      <children>
                         <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#toCreate" prefHeight="30.0" prefWidth="60.0" text="Create">
-                           <HBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#toEdit" prefHeight="30.0" prefWidth="60.0" text="Edit">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
@@ -99,11 +94,6 @@
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="544.0">
                      <children>
                         <Button fx:id="btnEditGI" mnemonicParsing="false" onAction="#handleEditButton" text="Edit">
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="btnSeeMoreGI" mnemonicParsing="false" onAction="#toSeeMoreGI" text="See more">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -176,12 +166,7 @@
                   </Pane>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="544.0">
                      <children>
-                        <Button fx:id="btnEditFS" mnemonicParsing="false" onAction="#toEditFS" text="Edit">
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="btnSeeMoreFS" mnemonicParsing="false" onAction="#toSeeMoreFS" text="See more">
+                        <Button fx:id="btnEditFS" disable="true" mnemonicParsing="false" onAction="#toEditFS" text="Edit">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -191,6 +176,9 @@
                </children>
             </VBox>
          </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
       </HBox>
    </children>
 </AnchorPane>

@@ -14,11 +14,11 @@ public class TestDAO {
 //        schoolDAO.deleteSchool(school);
 //        schoolDAO.getAllCustomers();
 
-//        UserDAO userDAO = new UserDAO();
+//       UserDAO userDAO = new UserDAO();
 
 //        User user = new Student(7, "Lala", "Lochnes","UserName", "Pass", 3);
 
-//        userDAO.createStudent("Saman", "Lochnes", "UserName", "Pass");
+//        userDAO.createStudent("Samassn", "Lochnes", "UserName", "Pass", 1);
 //        userDAO.updateUser(user);
 //        userDAO.getAllUsers();
 //        userDAO.getAllAdmins();

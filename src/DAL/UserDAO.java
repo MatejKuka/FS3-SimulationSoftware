@@ -211,11 +211,10 @@ public class UserDAO {
             if (created != 0){
                 teacher = new Teacher(id,firstName, lastName, loginName, password, type);
 
-                PreparedStatement preparedStatementSchoolTeacher = connection.prepareStatement(querySchoolTeacher);
+                /*PreparedStatement preparedStatementSchoolTeacher = connection.prepareStatement(querySchoolTeacher);
                 preparedStatement.setInt(1, schoolId);
                 preparedStatement.setInt(2, teacher.getUserID());
-
-                preparedStatementSchoolTeacher.executeUpdate();
+                preparedStatementSchoolTeacher.executeUpdate();*/
             }
         }
         return teacher;
@@ -244,11 +243,12 @@ public class UserDAO {
             }
             if (created != 0){
                 student = new Student(id,firstName, lastName, loginName, password, type);
+                System.out.println(student);
 
-                PreparedStatement preparedStatementSchoolStudent = connection.prepareStatement(querySchoolStudent);
+                /*PreparedStatement preparedStatementSchoolStudent = connection.prepareStatement(querySchoolStudent);
                 preparedStatement.setInt(1, schoolId);
                 preparedStatement.setInt(2, student.getUserID());
-                preparedStatementSchoolStudent.executeUpdate();
+                preparedStatementSchoolStudent.executeUpdate();*/
             }
         }
         return student;

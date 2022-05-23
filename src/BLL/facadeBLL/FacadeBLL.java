@@ -1,46 +1,40 @@
 package BLL.facadeBLL;
 
 import BE.*;
-import BLL.CitizenManager;
-import BLL.GenerInfoManager;
-import BLL.UserManager;
+import BLL.LoginManager;
 import DAL.facadeDAL.FacadeDAL;
 
 import java.io.IOException;
 import java.util.List;
 
 public class FacadeBLL implements IFacadeBLL {
-    UserManager userManager;
-    CitizenManager citizenManager;
-    GenerInfoManager generInfoManager;
     FacadeDAL facadeDAL;
+    LoginManager loginManager;
 
     public FacadeBLL() throws IOException {
-        userManager = new UserManager();
-        citizenManager = new CitizenManager();
-        generInfoManager = new GenerInfoManager();
         facadeDAL = new FacadeDAL();
+        loginManager = new LoginManager();
     }
 
     @Override
     public User compareLogins(String username, String password) throws Exception {
-        return userManager.compareLogins(username, password);
+        return loginManager.compareLogins(username, password);
     }
 
     @Override
 
     public List<User> getAllStudentsFromOneSchool(int schoolId) throws Exception {
-        return userManager.getAllStudents(schoolId);
+        return facadeDAL.getAllStudentsFromOneSchool(schoolId);
     }
 
     @Override
     public List<User> getAllUsers() throws Exception {
-        return userManager.getAllUsers();
+        return facadeDAL.getAllUsers();
     }
 
     @Override
     public List<User> getAllAdmins() throws Exception {
-        return userManager.getAllAdmins();
+        return facadeDAL.getAllAdmins();
     }
 
     @Override
@@ -50,17 +44,17 @@ public class FacadeBLL implements IFacadeBLL {
 
     @Override
     public List<User> getAllTeacherFromOneSchool(int schoolId) throws Exception {
-        return userManager.getAllTeacher(schoolId);
+        return facadeDAL.getAllTeacherFromOneSchool(schoolId);
     }
 
     @Override
     public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception {
-        return citizenManager.getAllCitizenFromOneSchool(schoolId);
+        return facadeDAL.getAllCitizenFromOneSchool(schoolId);
     }
 
     @Override
     public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
-        return generInfoManager.getGeneralInfo(idGeneralInfo);
+        return facadeDAL.getGeneralInfo(idGeneralInfo);
     }
 
     @Override
@@ -126,7 +120,7 @@ public class FacadeBLL implements IFacadeBLL {
 
     @Override
     public int returnUsersSchoolID(User user) throws Exception {
-        return userManager.returnUsersSchoolID(user);
+        return facadeDAL.returnUsersSchoolID(user);
     }
 
     @Override

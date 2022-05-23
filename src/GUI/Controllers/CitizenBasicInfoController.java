@@ -43,6 +43,7 @@ public class CitizenBasicInfoController implements Initializable {
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
+
     private Citizen citizen;
 
     public void getCitizen(Citizen citizen) throws Exception {
@@ -51,7 +52,9 @@ public class CitizenBasicInfoController implements Initializable {
         setupLabels(citizen1);
         setupTextFields(citizen1);
     }
+
     private MainModel mainModel;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -82,6 +85,7 @@ public class CitizenBasicInfoController implements Initializable {
             setupButtons();
         });
     }
+
     private void clear() {
         firstNameContainer.getChildren().clear();
         lastNameContainer.getChildren().clear();
@@ -90,22 +94,25 @@ public class CitizenBasicInfoController implements Initializable {
     private void clearButtons() {
         buttonsContainer.getChildren().clear();
     }
+
     private void setupTextFields() {
         firstNameContainer.setCenter(firstNameTextField);
         lastNameContainer.setCenter(lastNameTextField);
     }
-   private void setupButtons() {
+
+    private void setupButtons() {
         Button saveButton = new Button("Save");
         saveButton.getStyleClass().clear();
         saveButton.getStyleClass().addAll("btn-action", "padding");
 
         Button cancelButton = new Button("Cancel");
+
         cancelButton.getStyleClass().clear();
-        cancelButton.getStyleClass().addAll("btn-action", "padding", "margin");
+        cancelButton.getStyleClass().addAll("btn-action", "padding");
 
         buttonsContainer.getChildren().add(saveButton);
         buttonsContainer.getChildren().add(cancelButton);
-
+        buttonsContainer.setSpacing(30);
         cancelButton.setOnAction(event -> {
             setupInitialView();
         });
@@ -122,17 +129,24 @@ public class CitizenBasicInfoController implements Initializable {
             lastNameContainer.getChildren().clear();
             lastNameContainer.setCenter(createLabel(newCitizen.getLastName()));
         });
-   }
-   public void setupLabels(Citizen citizen) {
+    }
+
+    public void setupLabels(Citizen citizen) {
         firstNamePlaceholder.setText(citizen.getFirstName());
         lastNamePlaceholder.setText(citizen.getLastName());
         schoolPlaceholder.setText(String.valueOf(citizen.getSchool()));
         generalInfoPlaceholder.setText(String.valueOf(citizen.getGeneralInfo()));
-   }
-   public void setupTextFields(Citizen citizen) {
+    }
+
+    public void setupTextFields(Citizen citizen) {
         firstNameTextField.setText(citizen.getFirstName());
+        firstNameTextField.getStyleClass().clear();
+        firstNameTextField.getStyleClass().addAll("custom-text-field", "text-field-padding", "cursor-text");
         lastNameTextField.setText(citizen.getLastName());
-   }
+        lastNameTextField.getStyleClass().clear();
+        lastNameTextField.getStyleClass().addAll("custom-text-field", "text-field-padding", "cursor-text");
+    }
+
     private Label createLabel(String title) {
         return new Label(title);
     }

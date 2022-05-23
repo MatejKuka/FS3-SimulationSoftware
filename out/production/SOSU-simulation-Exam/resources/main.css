@@ -44,6 +44,9 @@
 .padding {
     -fx-padding: 7px 25px;
 }
+.text-field-padding {
+    -fx-padding: 7px 10px;
+}
 .margin {
     -fx-border-insets: 10px;
 }
@@ -56,4 +59,11 @@
 }
 .custom-text-field:focused {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+
+}
+.custom-text-field:focused {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+}
+.cursor-text {
+    -fx-cursor: text;
 }

@@ -25,7 +25,7 @@
                         <Font name="System Bold" size="26.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" top="20.0" />
+                        <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
                   <TableView fx:id="tableViewCitizens" prefHeight="434.0" prefWidth="534.0">
@@ -91,7 +91,7 @@
                         </VBox>
                      </children>
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets />
                      </VBox.margin>
                   </Pane>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="544.0">

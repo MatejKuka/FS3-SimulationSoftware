@@ -27,7 +27,7 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public List<User> getAllStudents(int schoolId) throws Exception {
+    public List<User> getAllStudentsFromOneSchool(int schoolId) throws Exception {
             return userManager.getAllStudents(schoolId);
     }
 
@@ -42,7 +42,12 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public List<User> getAllTeacher(int schoolId) throws Exception {
+    public List<User> getAllAdminsFromOneSchool(int schoolId) throws Exception {
+        return facadeDAL.getAllAdminsFromOneSchool(schoolId);
+    }
+
+    @Override
+    public List<User> getAllTeacherFromOneSchool(int schoolId) throws Exception {
         return userManager.getAllTeacher(schoolId);
     }
 

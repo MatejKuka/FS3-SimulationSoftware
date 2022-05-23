@@ -160,7 +160,16 @@ public class MainModel {
     }
 
     public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
+        User adminNew = manager.createAdmin(firstName, lastName, loginName, password);
+        admins.add(adminNew);
         return manager.createAdmin(firstName, lastName, loginName, password);
+    }
+
+    public User createAdminInSchool(String firstName, String lastName, String loginName, String password) throws Exception {
+        User userAdmin = manager.createAdmin(firstName, lastName, loginName, password);
+        addUserToSchool(userAdmin, getSchoolById(getCurrentSchoolId()));
+        adminsBySchool.add(userAdmin);
+        return userAdmin;
     }
 
     public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {

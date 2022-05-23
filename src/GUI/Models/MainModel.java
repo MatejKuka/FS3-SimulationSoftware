@@ -139,19 +139,28 @@ public class MainModel {
         return functionalityStates;
     }
 
+
     public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
         User studentNew = manager.createStudent(firstName, lastName, loginName, password);
-        System.out.println("new student created: " + studentNew);
+        System.out.println(getCurrentSchool());
+        addUserToSchool(studentNew, getCurrentSchool()); // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+
         students.add(studentNew);
+        System.out.println("new student created: " + studentNew);
         return studentNew;
     }
-
 
     public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
         return manager.createAdmin(firstName, lastName, loginName, password);
     }
+
     public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
-        return manager.createTeacher(firstName, lastName, loginName, password);
+        User teacherNew = manager.createTeacher(firstName, lastName, loginName, password);
+        //addUserToSchool(teacherNew, getCurrentSchool()); // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+        teachers.add(teacherNew);
+        System.out.println("new teacher created: " + teacherNew);
+        return teacherNew;
+
     }
 
     public Citizen setCurrentCitizen(Citizen citizen) {
@@ -211,4 +220,12 @@ public class MainModel {
         return manager.getCitizenById(id);
     }
 
-} //TODO Matej - I need to delete a user from observable list
+    public void addUserToSchool(User user, School school) throws Exception {
+        manager.addUserToSchool(user, school);
+    } // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+
+    public void removeUserFromSchool(User user, School school) throws Exception {
+        manager.removeUserFromSchool(user, school);
+    } // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+
+}

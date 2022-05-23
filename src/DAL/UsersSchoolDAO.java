@@ -63,4 +63,4 @@ public class UsersSchoolDAO {
         }
         return schoolId;
     }
-} // TODO MAtej - check these methods and implements them
+} // TODO Matej - check these methods and implement them

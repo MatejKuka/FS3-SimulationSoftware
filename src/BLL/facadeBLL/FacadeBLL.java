@@ -1,4 +1,5 @@
 package BLL.facadeBLL;
+
 import BE.*;
 import BLL.CitizenManager;
 import BLL.GenerInfoManager;
@@ -27,8 +28,9 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+
     public List<User> getAllStudentsFromOneSchool(int schoolId) throws Exception {
-            return userManager.getAllStudents(schoolId);
+        return userManager.getAllStudents(schoolId);
     }
 
     @Override
@@ -104,6 +106,16 @@ public class FacadeBLL implements IFacadeBLL {
     @Override
     public void updateSchool(School school) throws Exception {
         facadeDAL.updateSchool(school);
+    }
+
+    @Override
+    public void addUserToSchool(User user, School school) throws Exception {
+        facadeDAL.addUserToSchool(user, school);
+    }
+
+    @Override
+    public void removeUserFromSchool(User user, School school) throws Exception {
+        facadeDAL.removeUserFromSchool(user, school);
     }
 
     @Override

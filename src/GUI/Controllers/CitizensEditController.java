@@ -42,9 +42,19 @@ public class CitizensEditController implements Initializable {
         borderPaneContent.setCenter(root);
     }
 
-    public void handleGeneralInformation(ActionEvent event) {
+    public void handleGeneralInformation(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizenGeneralInfoView.fxml"));
+        Parent root = loader.load();
+
+        borderPaneContent.setCenter(root);
     }
 
-    public void handleFunctionalityState(ActionEvent event) {
+    public void handleFunctionalityState(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizenFunctionalityStateView.fxml"));
+        Parent root = loader.load();
+
+        borderPaneContent.setCenter(root);
     }
 }

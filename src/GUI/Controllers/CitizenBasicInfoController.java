@@ -20,7 +20,7 @@ public class CitizenBasicInfoController implements Initializable {
     private MainModel model;
 
     @FXML
-    private BorderPane firstNameContainer, lastNameContainer, ageContainer;
+    private BorderPane firstNameContainer, lastNameContainer, schoolContainer, generalInfoContainer;
     @FXML
     private HBox buttonsContainer;
 
@@ -32,11 +32,11 @@ public class CitizenBasicInfoController implements Initializable {
 
     private Label firstNamePlaceholder = new Label(placeholder);
     private Label lastNamePlaceholder = new Label(placeholder);
-    private Label agePlaceholder = new Label(placeholder);
+    private Label schoolPlaceholder = new Label(placeholder);
+    private Label generalInfoPlaceholder = new Label(placeholder);
 
     private TextField firstNameTextField = new TextField();
     private TextField lastNameTextField = new TextField();
-    private TextField ageTextField = new TextField();
 
     private CitizensEditController citizensEditController;
 
@@ -69,7 +69,9 @@ public class CitizenBasicInfoController implements Initializable {
         Button editButton = new Button("Edit");
         firstNameContainer.setCenter(firstNamePlaceholder);
         lastNameContainer.setCenter(lastNamePlaceholder);
-        ageContainer.setCenter(agePlaceholder);
+        schoolContainer.setCenter(schoolPlaceholder);
+        generalInfoContainer.setCenter(generalInfoPlaceholder);
+
         buttonsContainer.getChildren().add(editButton);
         editButton.setOnAction(event -> {
             clear();
@@ -81,7 +83,6 @@ public class CitizenBasicInfoController implements Initializable {
     private void clear() {
         firstNameContainer.getChildren().clear();
         lastNameContainer.getChildren().clear();
-        ageContainer.getChildren().clear();
     }
 
     private void clearButtons() {
@@ -90,7 +91,6 @@ public class CitizenBasicInfoController implements Initializable {
     private void setupTextFields() {
         firstNameContainer.setCenter(firstNameTextField);
         lastNameContainer.setCenter(lastNameTextField);
-        ageContainer.setCenter(ageTextField);
     }
    private void setupButtons() {
         Button saveButton = new Button("Save");
@@ -119,6 +119,8 @@ public class CitizenBasicInfoController implements Initializable {
    public void setupLabels(Citizen citizen) {
         firstNamePlaceholder.setText(citizen.getFirstName());
         lastNamePlaceholder.setText(citizen.getLastName());
+        schoolPlaceholder.setText(String.valueOf(citizen.getSchool()));
+        generalInfoPlaceholder.setText(String.valueOf(citizen.getGeneralInfo()));
    }
    public void setupTextFields(Citizen citizen) {
         firstNameTextField.setText(citizen.getFirstName());

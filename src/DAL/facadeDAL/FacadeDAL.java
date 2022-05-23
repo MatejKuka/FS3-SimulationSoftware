@@ -139,6 +139,11 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
+    public School getSchoolById(int schoolId) throws Exception {
+        return schoolDAO.getSchoolById(schoolId);
+    }
+
+    @Override
     public List<HealthConditions> getHealthCondition(int idCitizen) throws Exception {
         return healthConditionsDAO.getHealthCondition(idCitizen);
     }

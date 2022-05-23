@@ -92,4 +92,24 @@ public class SchoolDAO {
             preparedStatement.executeUpdate();
         }
     }
+
+    public School getSchoolById(int schoolId) throws Exception {
+        School school = null;
+        String query = "SELECT * FROM School WHERE Id = ?";
+        try (Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,schoolId);
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()){
+                int id = resultSet.getInt("Id");
+                String schName = resultSet.getString("SchName");
+                String city = resultSet.getString("City");
+
+                school = new School(id, schName, city);
+            }
+        }
+        return school;
+    }
 }

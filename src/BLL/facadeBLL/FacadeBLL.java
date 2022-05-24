@@ -58,6 +58,11 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public GeneralInfo createGeneralInfo(String mastery, String motivation, String resources, String roller, String habits, String educationJob, String lifeStory, String healthInfo, String assistiveDevices, String interiorOfDwelling, String network, int citizenId) throws Exception {
+        return facadeDAL.createGeneralInfo(mastery, motivation, resources, roller, habits, educationJob, lifeStory, healthInfo, assistiveDevices, interiorOfDwelling, network, citizenId);
+    }
+
+    @Override
     public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception {
         return facadeDAL.getCitizenFunctionalityState(idCitizen);
     }
@@ -68,13 +73,13 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception {
-        facadeDAL.deleteCitizen(citizen, generalInfoIdOfCitizen);
+    public void deleteCitizen(Citizen citizen) throws Exception {
+        facadeDAL.deleteCitizen(citizen);
     }
 
     @Override
-    public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
-        return facadeDAL.createCitizen(fName, lName, school, generalInfo);
+    public Citizen createCitizen(String fName, String lName, int school) throws Exception {
+        return facadeDAL.createCitizen(fName, lName, school);
     }
 
     @Override

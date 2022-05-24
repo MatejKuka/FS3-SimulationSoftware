@@ -30,9 +30,8 @@ public class CitizenDAO {
                 String fName = resultSet.getString("FName");
                 String lName = resultSet.getString("LName");
                 int idOfSchool = resultSet.getInt("School");
-                int generalInfoId = resultSet.getInt("General_Information");
 
-                Citizen citizen = new Citizen(id, fName, lName, idOfSchool, generalInfoId);
+                Citizen citizen = new Citizen(id, fName, lName, idOfSchool);
                 allCitizensFromOneSchool.add(citizen);
             }
             return allCitizensFromOneSchool;
@@ -52,9 +51,9 @@ public class CitizenDAO {
     }
 
     //you can get this int -> generalInfoIdOfCitizen by citizen.getGeneralInfo()
-    public void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception {
+    public void deleteCitizen(Citizen citizen) throws Exception {
         String queryCitizen = "DELETE FROM Citizen WHERE Id = ?";
-        String queryGeneralInfo = "DELETE FROM General_Information WHERE Id = ?";
+        String queryGeneralInfo = "DELETE FROM General_Information WHERE Citizen = ?";
         String queryHealthConditions = "DELETE FROM Health_Condition_Answ WHERE Citizen = ?";
         String queryCitizenAssessment = "DELETE FROM Citizens_Assessment WHERE Citizen = ?";
         String queryFunctionalityState = "DELETE FROM Functionality_State_Answ WHERE Citizen = ?";
@@ -65,7 +64,7 @@ public class CitizenDAO {
             preparedStatement.executeUpdate();
 
             PreparedStatement preparedStatement1 = connection.prepareStatement(queryGeneralInfo);
-            preparedStatement1.setInt(1, generalInfoIdOfCitizen);
+            preparedStatement1.setInt(1, citizen.getId());
             preparedStatement1.executeUpdate();
 
             PreparedStatement preparedStatement2 = connection.prepareStatement(queryHealthConditions);
@@ -82,17 +81,16 @@ public class CitizenDAO {
         }
     }
 
-    public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
+    public Citizen createCitizen(String fName, String lName, int school) throws Exception {
         Citizen citizen = null;
         int id = 0;
-        String query = "INSERT INTO Citizen VALUES(?, ?, ?, ?)";
+        String query = "INSERT INTO Citizen VALUES(?, ?, ?)";
 
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, fName);
             preparedStatement.setString(2, lName);
             preparedStatement.setInt(3, school);
-            preparedStatement.setInt(4, generalInfo);
             int created = preparedStatement.executeUpdate();
 
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -101,7 +99,7 @@ public class CitizenDAO {
                 id = resultSet.getInt(1);
             }
             if (created != 0) {
-                citizen = new Citizen(id, fName, lName, school, generalInfo);
+                citizen = new Citizen(id, fName, lName, school);
             }
         }
         return citizen;
@@ -125,12 +123,10 @@ public class CitizenDAO {
                 String fName = resultSet.getString("FName");
                 String lName = resultSet.getString("LName");
                 int idOfSchool = resultSet.getInt("School");
-                int generalInfoId = resultSet.getInt("General_Information");
 
-                citizen = new Citizen(id, fName, lName, idOfSchool, generalInfoId);
+                citizen = new Citizen(id, fName, lName, idOfSchool);
 
                 System.out.println(citizen);
-
             }
         }
         return citizen;

@@ -16,19 +16,20 @@ public class GeneralInformationDAO {
     }
 
     public GeneralInfo createGeneralInfo(String mastery,
-                                    String motivation,
-                                    String resources,
-                                    String roller,
-                                    String habits,
-                                    String educationJob,
-                                    String lifeStory,
-                                    String healthInfo,
-                                    String assistiveDevices,
-                                    String interiorOfDwelling,
-                                    String network) throws Exception {
+                                        String motivation,
+                                        String resources,
+                                        String roller,
+                                        String habits,
+                                        String educationJob,
+                                        String lifeStory,
+                                        String healthInfo,
+                                        String assistiveDevices,
+                                        String interiorOfDwelling,
+                                        String network,
+                                         int citizenId) throws Exception {
         GeneralInfo generalInfo = null;
         int id = 0;
-        String query = "INSERT INTO General_Information VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO General_Information VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -43,6 +44,7 @@ public class GeneralInformationDAO {
             preparedStatement.setString(9, assistiveDevices);
             preparedStatement.setString(10, interiorOfDwelling);
             preparedStatement.setString(11, network);
+            preparedStatement.setInt(12,citizenId);
 
             int created = preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -53,7 +55,7 @@ public class GeneralInformationDAO {
             if (created != 0){
                 generalInfo = new GeneralInfo(id, mastery, motivation, resources, roller, habits,
                                               educationJob, lifeStory, healthInfo, assistiveDevices,
-                                              interiorOfDwelling, network);
+                                              interiorOfDwelling, network, citizenId);
             }
         }
         return generalInfo;
@@ -105,11 +107,12 @@ public class GeneralInformationDAO {
                 String assistiveDevices = resultSet.getString("AssistiveDevices");
                 String interiorOfDwelling = resultSet.getString("InteriorOfDwelling");
                 String network = resultSet.getString("Networ");
+                int citizenId = resultSet.getInt("Citizen");
 
 
                 generalInfo = new GeneralInfo(id, mastery, motivation, resources, roller, habits,
-                        educationJob, lifeStory, healthInfo, assistiveDevices,
-                        interiorOfDwelling, network);
+                            educationJob, lifeStory, healthInfo, assistiveDevices,
+                            interiorOfDwelling, network, citizenId);
                 System.out.println(generalInfo);
             }
         }

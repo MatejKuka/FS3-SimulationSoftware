@@ -204,13 +204,13 @@ public class MainModel {
         manager.updateCitizen(citizen);
     }
 
-    public void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception {
+    public void deleteCitizen(Citizen citizen) throws Exception {
         citizensBySchool.remove(citizen);
-        manager.deleteCitizen(citizen, generalInfoIdOfCitizen);
+        manager.deleteCitizen(citizen);
     }
 
-    public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
-        Citizen citizenBla = manager.createCitizen(fName, lName, school, generalInfo);
+    public Citizen createCitizen(String fName, String lName, int school) throws Exception {
+        Citizen citizenBla = manager.createCitizen(fName, lName, school);
         citizensBySchool.add(citizenBla);
         System.out.println("Citizen added to observable: " + citizenBla);
         return citizenBla;

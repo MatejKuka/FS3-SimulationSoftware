@@ -13,10 +13,11 @@ public class GeneralInfo {
     private String assistiveDevices;
     private String interiorOfDwelling;
     private String network;
+    private int citizen;
 
     public GeneralInfo(int id, String mastery, String motivation, String resources, String roller, String habits,
                        String educationJob, String lifeStory, String healthInfo, String assistiveDevices,
-                       String interiorOfDwelling, String network) {
+                       String interiorOfDwelling, String network, int citizen) {
         this.id = id;
         this.mastery = mastery;
         this.motivation = motivation;
@@ -29,6 +30,7 @@ public class GeneralInfo {
         this.assistiveDevices = assistiveDevices;
         this.interiorOfDwelling = interiorOfDwelling;
         this.network = network;
+        this.citizen = citizen;
     }
 
     public int getId() {
@@ -78,6 +80,8 @@ public class GeneralInfo {
     public String getNetwork() {
         return network;
     }
+
+    public int getCitizen() { return citizen;}
 
     @Override
     public String toString() {

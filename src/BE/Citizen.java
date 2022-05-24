@@ -5,14 +5,12 @@ public class Citizen {
     private String firstName;
     private String lastName;
     private int school;
-    private int generalInfo;
 
-    public Citizen(int id, String firstName, String lastName, int school, int generalInfo) {
+    public Citizen(int id, String firstName, String lastName, int school) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.school = school;
-        this.generalInfo = generalInfo;
     }
 //    String fName, String lName, int school, int generalInfo
 //    public Citizen(String firstName, String lastName, int school, int generalInfo) {
@@ -45,17 +43,12 @@ public class Citizen {
         return school;
     }
 
-    public int getGeneralInfo() {
-        return generalInfo;
-    }
-
     @Override
     public String toString() {
         return
                 "id=" + id +
                 ", fName='" + firstName +
                 ", lName='" + lastName +
-                ", school=" + school +
-                ", generalInfo=" + generalInfo;
+                ", school=" + school;
     }
 }

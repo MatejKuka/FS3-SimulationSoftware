@@ -164,8 +164,8 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
-    public GeneralInfo createGeneralInfo(String mastery, String motivation, String resources, String roller, String habits, String educationJob, String lifeStory, String healthInfo, String assistiveDevices, String interiorOfDwelling, String network) throws Exception {
-        return generalInformationDAO.createGeneralInfo(mastery, motivation, resources, roller, habits, educationJob, lifeStory, healthInfo, assistiveDevices, interiorOfDwelling, network);
+    public GeneralInfo createGeneralInfo(String mastery, String motivation, String resources, String roller, String habits, String educationJob, String lifeStory, String healthInfo, String assistiveDevices, String interiorOfDwelling, String network, int citizenId) throws Exception {
+        return generalInformationDAO.createGeneralInfo(mastery, motivation, resources, roller, habits, educationJob, lifeStory, healthInfo, assistiveDevices, interiorOfDwelling, network, citizenId);
     }
 
     @Override
@@ -214,13 +214,13 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
-    public void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception {
-        citizenDAO.deleteCitizen(citizen, generalInfoIdOfCitizen);
+    public void deleteCitizen(Citizen citizen) throws Exception {
+        citizenDAO.deleteCitizen(citizen);
     }
 
     @Override
-    public Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception {
-        return citizenDAO.createCitizen(fName, lName, school, generalInfo);
+    public Citizen createCitizen(String fName, String lName, int school) throws Exception {
+        return citizenDAO.createCitizen(fName, lName, school);
     }
 
     @Override

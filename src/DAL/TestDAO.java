@@ -5,11 +5,11 @@ import BE.*;
 public class TestDAO {
     public static void main(String[] args) throws Exception {
 
-        //SchoolDAO schoolDAO = new SchoolDAO();
+//        SchoolDAO schoolDAO = new SchoolDAO();
 
-        //School school = new School(2,"Test", "Zvolen");
+//        School school = new School(1,"Test", "Zvolen");
 
-        //schoolDAO.createSchool(school.getName(), school.getCity());
+//        schoolDAO.createSchool("SOSU Esbjerg", "Esbjerg");
 //        schoolDAO.updateSchool(school);
 //        schoolDAO.deleteSchool(school);
 //        schoolDAO.getAllCustomers();
@@ -18,7 +18,7 @@ public class TestDAO {
 
 //        User user = new Student(7, "Lala", "Lochnes","UserName", "Pass", 3);
 
-//        userDAO.createStudent("Samassn", "Lochnes", "UserName", "Pass", 1);
+//        userDAO.createStudent("Matej", "Kuka", "UserName", "Pass");
 //        userDAO.updateUser(user);
 //        userDAO.getAllUsers();
 //        userDAO.getAllAdmins();
@@ -31,7 +31,8 @@ public class TestDAO {
 
 //        TeacherStudentDAO teacherStudentDAO = new TeacherStudentDAO();
 
-//        User student = new Student(2, "Lala", "Lochnes","UserName", "Pass", 3);
+//        Student student = new Student(1, "Lala", "Lochnes","UserName", "Pass", 3);
+//        Student student2 = new Student(2, "Lala", "Lochnes","UserName", "Pass", 3);
 //        User teacher = new Teacher(11, "Saman", "Lochnes","UserName", "Pass", 2);
 
 //        teacherStudentDAO.getTeacherStudents(6);
@@ -40,7 +41,7 @@ public class TestDAO {
 
 //        UsersSchoolDAO usersSchoolDAO = new UsersSchoolDAO();
 
-//        usersSchoolDAO.addUserToSchool(student, school);
+//        usersSchoolDAO.addUserToSchool(student2, school);
 //        usersSchoolDAO.removeUserFromSchool(student, school);
 
 //        GeneralInformationDAO generalInformationDAO = new GeneralInformationDAO();
@@ -57,7 +58,7 @@ public class TestDAO {
 //        generalInformationDAO.getGeneralInfo(generalInfo.getId());
 //        generalInformationDAO.getGeneralInfo(citizen.getGeneralInfo());
 
-        CitizenDAO citizenDAO  = new CitizenDAO();
+//        CitizenDAO citizenDAO  = new CitizenDAO();
 
 //        Citizen citizen = new Citizen(7, "Loptos", "Heteracik", 2, 2);
 
@@ -65,7 +66,7 @@ public class TestDAO {
 //        citizenDAO.updateCitizen(citizen);
 //        citizenDAO.getAllCitizenFromOneSchool(1);
 //        citizenDAO.deleteCitizen(citizen, citizen.getGeneralInfo());
-        citizenDAO.getCitizenById(3);
+//        citizenDAO.getCitizenById(3);
 
 //        HealthConditionsDAO healthConditionsDAO = new HealthConditionsDAO();
 //
@@ -95,10 +96,10 @@ public class TestDAO {
 //        StudentCitizenDAO studentCitizenDAO = new StudentCitizenDAO();
 //
 //        Student student = new Student(3, "Lala", "Lochnes","UserName", "Pass", 3);
-//        Citizen citizen = new Citizen(4, "Loptos", "Heteracik", 2, 1);
+//        Citizen citizen = new Citizen(2, "Loptos", "Heteracik", 2, 1);
 
 //        studentCitizenDAO.getStudentCitizens(3);
 //        studentCitizenDAO.removeCitizenFromStudent(student, citizen);
-//        studentCitizenDAO.addCitizenToStudent(student, citizen);
+//        studentCitizenDAO.addCitizenToStudent(student2, citizen);
     }
 }

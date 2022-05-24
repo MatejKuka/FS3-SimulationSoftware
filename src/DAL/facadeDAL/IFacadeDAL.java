@@ -18,9 +18,9 @@ public interface IFacadeDAL {
     List<User> getAllAdminsFromOneSchool(int schoolId) throws Exception;
     List<User> getAllStudentsFromOneSchool(int schoolId) throws Exception;
     List<User> getAllTeacherFromOneSchool(int schoolId) throws Exception;
-    public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;
-    public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
-    public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception;
+    User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception;
+    User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception;
+    User createStudent(String firstName, String lastName, String loginName, String password) throws Exception;
     void deleteUser(User user) throws Exception;
     void updateUser(User user) throws Exception;
 
@@ -49,7 +49,7 @@ public interface IFacadeDAL {
     GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception;
     GeneralInfo createGeneralInfo(String mastery, String motivation, String resources, String roller, String habits,
                                   String educationJob, String lifeStory, String healthInfo, String assistiveDevices,
-                                  String interiorOfDwelling, String network) throws Exception;
+                                  String interiorOfDwelling, String network, int citizenId) throws Exception;
     void updateGeneralInfo(GeneralInfo generalInfo) throws Exception;
 
     //FunctionalityStateDAO
@@ -69,8 +69,8 @@ public interface IFacadeDAL {
     //CitizenDAO
     List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception;
     void updateCitizen(Citizen citizen) throws Exception;
-    void deleteCitizen(Citizen citizen, int generalInfoIdOfCitizen) throws Exception;
-    Citizen createCitizen(String fName, String lName, int school, int generalInfo) throws Exception;
+    void deleteCitizen(Citizen citizen) throws Exception;
+    Citizen createCitizen(String fName, String lName, int school) throws Exception;
     Citizen getCitizenById(int citizenId) throws Exception;
 
     //StudentCitizenDAO

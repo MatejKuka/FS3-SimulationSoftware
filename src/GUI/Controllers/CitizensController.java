@@ -118,7 +118,18 @@ public class CitizensController implements Initializable {
         citizensEditController.getCitizen(citizen);
 
         Stage stage = new Stage();
-        stage.setTitle("New/Edit Event");
+        stage.setTitle("Editing citizen");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void handleCreateButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CreateCitizen.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage();
+        stage.setTitle("Create new citizen");
         stage.setScene(new Scene(root));
         stage.show();
     }

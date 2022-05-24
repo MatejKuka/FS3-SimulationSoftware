@@ -59,7 +59,7 @@
                </center></BorderPane>
             <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="2">
                <center>
-                  <ComboBox minWidth="254.0" BorderPane.alignment="CENTER" />
+                  <ComboBox fx:id="comboBox" minWidth="254.0" BorderPane.alignment="CENTER" />
                </center></BorderPane>
             <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="3">
                <right>

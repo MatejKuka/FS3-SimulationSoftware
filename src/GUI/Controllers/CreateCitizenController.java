@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateBasicInfoViewController implements Initializable {
+public class CreateCitizenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

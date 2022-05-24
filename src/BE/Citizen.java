@@ -1,7 +1,7 @@
 package BE;
 
 public class Citizen {
-    private final int id;
+    private int id;
     private String firstName;
     private String lastName;
     private int school;
@@ -9,6 +9,13 @@ public class Citizen {
 
     public Citizen(int id, String firstName, String lastName, int school, int generalInfo) {
         this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.school = school;
+        this.generalInfo = generalInfo;
+    }
+//    String fName, String lName, int school, int generalInfo
+    public Citizen(String firstName, String lastName, int school, int generalInfo) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.school = school;

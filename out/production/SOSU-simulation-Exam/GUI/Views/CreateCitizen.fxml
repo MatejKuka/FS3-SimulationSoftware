@@ -43,7 +43,7 @@
             </Label>
             <BorderPane GridPane.columnIndex="1">
                <center>
-                  <TextField styleClass="custom-text-field" BorderPane.alignment="CENTER">
+                  <TextField fx:id="firstNameTextField" styleClass="custom-text-field" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets />
                      </BorderPane.margin>
@@ -51,7 +51,7 @@
                </center></BorderPane>
             <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                <center>
-                  <TextField styleClass="custom-text-field" BorderPane.alignment="CENTER">
+                  <TextField fx:id="lastNameTextField" styleClass="custom-text-field" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets />
                      </BorderPane.margin>
@@ -63,7 +63,7 @@
                </center></BorderPane>
             <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="3">
                <right>
-                  <Button mnemonicParsing="false" text="Next" BorderPane.alignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#handleSaveButton" text="Save" BorderPane.alignment="CENTER">
                      <styleClass>
                         <String fx:value="btn-action" />
                         <String fx:value="padding" />

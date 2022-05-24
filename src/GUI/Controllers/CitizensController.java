@@ -30,7 +30,7 @@ public class CitizensController implements Initializable {
     }
 
     @FXML
-    private Button generalEditButton, functionalityStateButton, btnSeeMoreFS, btnSeeMoreGI;
+    private Button generalEditButton, functionalityStateButton;
 
     @FXML
     private Label labelDailyRoutine, labelLifeStory, labelMobility, labelMove, labelSelfCare, labelWash;
@@ -43,9 +43,6 @@ public class CitizensController implements Initializable {
 
     @FXML
     private TableView<Citizen> tableViewCitizens;
-
-    @FXML
-    private Button btnCreate, btnDelete, btnEdit;
 
     private Citizen citizen;
 
@@ -72,29 +69,6 @@ public class CitizensController implements Initializable {
         loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
         sceneSetter.setScene(loader);
     }
-    @FXML
-    void toSeeMoreFS(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
-        sceneSetter.setScene(loader);
-    }
-
-    @FXML
-    void toSeeMoreGI(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
-        sceneSetter.setScene(loader);
-    }
-
-//    @FXML
-//    void toShowCurrentCitizen(MouseEvent event) throws Exception {
-//        currentCitizen = tableViewCitizens.getSelectionModel().getSelectedItem();
-//        System.out.println(currentCitizen);
-////        mainModel.setCurrentCitizen(currentCitizen);
-//
-//    } // TODO Matej - needs to be changed because if the particular funcionality state is null, it will shows the error. I should create a method to check if it exists before I try to initialize.
-
-
     @FXML
     void toCreate(ActionEvent event) {
 

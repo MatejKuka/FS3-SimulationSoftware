@@ -57,6 +57,11 @@
     -fx-text-fill: #0B5351;
     -fx-border-radius: 3px;
 }
+.custom-combobox-error {
+    -fx-border-width: 2;
+    -fx-border-color: #EF3054;
+    -fx-background-color: #e5f3eb;
+}
 
 .custom-text-field {
     -fx-border-width: 2;
@@ -67,7 +72,7 @@
 }
 .custom-text-field-error {
     -fx-border-width: 2;
-    -fx-border-color: red;
+    -fx-border-color: #EF3054;
     -fx-background-color: #e5f3eb;
     -fx-text-fill: black;
     -fx-border-radius: 3px;

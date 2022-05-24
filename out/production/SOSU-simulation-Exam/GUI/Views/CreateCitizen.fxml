@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
@@ -59,16 +60,30 @@
                </center></BorderPane>
             <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="2">
                <center>
-                  <ComboBox fx:id="comboBox" minWidth="254.0" BorderPane.alignment="CENTER" />
+                  <ComboBox fx:id="comboBox" minWidth="254.0" styleClass="custom-combobox" BorderPane.alignment="CENTER" />
                </center></BorderPane>
             <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="3">
                <right>
-                  <Button mnemonicParsing="false" onAction="#handleSaveButton" text="Save" BorderPane.alignment="CENTER">
-                     <styleClass>
-                        <String fx:value="btn-action" />
-                        <String fx:value="padding" />
-                     </styleClass>
-                  </Button>
+                  <BorderPane prefHeight="200.0" BorderPane.alignment="CENTER">
+                     <right>
+                        <HBox maxHeight="35.0" spacing="30.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel">
+                                 <styleClass>
+                                    <String fx:value="btn-action" />
+                                    <String fx:value="padding" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSaveButton" text="Save">
+                                 <styleClass>
+                                    <String fx:value="btn-action" />
+                                    <String fx:value="padding" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </right>
+                  </BorderPane>
                </right>
             </BorderPane>
          </children>

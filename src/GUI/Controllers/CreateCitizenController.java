@@ -6,8 +6,10 @@ import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -20,6 +22,8 @@ public class CreateCitizenController implements Initializable {
     private ComboBox<String> comboBox;
     @FXML
     private TextField firstNameTextField, lastNameTextField;
+    @FXML
+    private Button cancelButton, saveButton;
 
     private MainModel mainModel;
     private List<School> schoolList;
@@ -44,13 +48,18 @@ public class CreateCitizenController implements Initializable {
         if (firstNameTextField.getText().equals("") || lastNameTextField.getText().equals("") || selectedComboBoxItem == null) {
             if (firstNameTextField.getText().equals("")) firstNameTextField.getStyleClass().add("custom-text-field-error");
             if (lastNameTextField.getText().equals("")) lastNameTextField.getStyleClass().add("custom-text-field-error");
-
+            if (comboBox.getValue() == null) comboBox.getStyleClass().add("custom-combobox-error");
         } else {
 //            List<School> filteredSchoolList = schoolList.stream().filter(school -> Objects.equals(school.getName(), selectedComboBoxItem)).collect(Collectors.toList());
 //            mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), filteredSchoolList.get(0).getId(), 2);
+
+            Stage stage = (Stage) saveButton.getScene().getWindow();
+            stage.close();
         }
+    }
 
-
-//
+    public void handleCancelButton(ActionEvent event) {
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
     }
 }

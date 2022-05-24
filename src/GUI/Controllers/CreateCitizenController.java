@@ -1,6 +1,6 @@
 package GUI.Controllers;
 
-import BE.Citizen;
+;
 import BE.School;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Objects;
@@ -24,6 +23,7 @@ public class CreateCitizenController implements Initializable {
 
     private MainModel mainModel;
     private List<School> schoolList;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -41,7 +41,16 @@ public class CreateCitizenController implements Initializable {
 
     public void handleSaveButton(ActionEvent event) throws Exception {
         String selectedComboBoxItem = comboBox.getValue();
-        List<School> filteredSchoolList = schoolList.stream().filter(school -> Objects.equals(school.getName(), selectedComboBoxItem)).collect(Collectors.toList());
-        mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), filteredSchoolList.get(0).getId(), 2);
+        if (firstNameTextField.getText().equals("") || lastNameTextField.getText().equals("") || selectedComboBoxItem == null) {
+            if (firstNameTextField.getText().equals("")) firstNameTextField.getStyleClass().add("custom-text-field-error");
+            if (lastNameTextField.getText().equals("")) lastNameTextField.getStyleClass().add("custom-text-field-error");
+
+        } else {
+//            List<School> filteredSchoolList = schoolList.stream().filter(school -> Objects.equals(school.getName(), selectedComboBoxItem)).collect(Collectors.toList());
+//            mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), filteredSchoolList.get(0).getId(), 2);
+        }
+
+
+//
     }
 }

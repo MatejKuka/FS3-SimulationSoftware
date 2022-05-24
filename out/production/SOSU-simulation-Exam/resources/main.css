@@ -57,10 +57,14 @@
     -fx-text-fill: #0B5351;
     -fx-border-radius: 3px;
 }
-.custom-text-field:focused {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
-
+.custom-text-field-error {
+    -fx-border-width: 2;
+    -fx-border-color: red;
+    -fx-background-color: #e5f3eb;
+    -fx-text-fill: black;
+    -fx-border-radius: 3px;
 }
+
 .custom-text-field:focused {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
 }

@@ -15,12 +15,12 @@ public class Citizen {
         this.generalInfo = generalInfo;
     }
 //    String fName, String lName, int school, int generalInfo
-    public Citizen(String firstName, String lastName, int school, int generalInfo) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.school = school;
-        this.generalInfo = generalInfo;
-    }
+//    public Citizen(String firstName, String lastName, int school, int generalInfo) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.school = school;
+//        this.generalInfo = generalInfo;
+//    }
 
     /*public Citizen(int id, String fName, String lName, int school) {
         this.id = id;

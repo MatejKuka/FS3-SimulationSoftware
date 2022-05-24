@@ -39,9 +39,9 @@ public class CreateCitizenController implements Initializable {
 
     }
 
-    public void handleSaveButton(ActionEvent event) {
+    public void handleSaveButton(ActionEvent event) throws Exception {
         String selectedComboBoxItem = comboBox.getValue();
         List<School> filteredSchoolList = schoolList.stream().filter(school -> Objects.equals(school.getName(), selectedComboBoxItem)).collect(Collectors.toList());
-        Citizen newCitizen = new Citizen()
+        mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), filteredSchoolList.get(0).getId(), 2);
     }
 }

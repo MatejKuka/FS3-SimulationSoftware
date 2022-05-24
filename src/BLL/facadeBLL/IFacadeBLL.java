@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IFacadeBLL {
 
-    //UserManager
+    //LoginManager
     User compareLogins(String username, String password) throws Exception;
     int returnUsersSchoolID(User user) throws Exception;
     User createStudent(String firstName, String lastName, String loginName, String password) throws Exception;

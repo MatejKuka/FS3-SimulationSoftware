@@ -19,8 +19,6 @@ import java.util.stream.Collectors;
 
 public class CreateCitizenController implements Initializable {
     @FXML
-    private ComboBox<String> comboBox;
-    @FXML
     private TextField firstNameTextField, lastNameTextField;
     @FXML
     private Button cancelButton, saveButton;
@@ -33,25 +31,17 @@ public class CreateCitizenController implements Initializable {
         try {
             mainModel = new MainModel();
             schoolList = mainModel.getAllSchools();
-
-            schoolList.forEach(school -> {
-                comboBox.getItems().add(school.getName());
-            });
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void handleSaveButton(ActionEvent event) throws Exception {
-        String selectedComboBoxItem = comboBox.getValue();
-        if (firstNameTextField.getText().equals("") || lastNameTextField.getText().equals("") || selectedComboBoxItem == null) {
+        if (firstNameTextField.getText().equals("") || lastNameTextField.getText().equals("")) {
             if (firstNameTextField.getText().equals("")) firstNameTextField.getStyleClass().add("custom-text-field-error");
             if (lastNameTextField.getText().equals("")) lastNameTextField.getStyleClass().add("custom-text-field-error");
-            if (comboBox.getValue() == null) comboBox.getStyleClass().add("custom-combobox-error");
         } else {
-            List<School> filteredSchoolList = schoolList.stream().filter(school -> Objects.equals(school.getName(), selectedComboBoxItem)).collect(Collectors.toList());
-            mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), filteredSchoolList.get(0).getId());
+            mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), mainModel.getCurrentSchoolId());
 
             Stage stage = (Stage) saveButton.getScene().getWindow();
             stage.close();

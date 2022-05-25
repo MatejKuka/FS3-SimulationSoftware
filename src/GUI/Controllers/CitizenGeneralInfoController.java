@@ -1,5 +1,6 @@
 package GUI.Controllers;
 
+import BE.GeneralInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -36,7 +37,7 @@ public class CitizenGeneralInfoController implements Initializable {
     private TextArea textArea;
 
     private BorderPane buttonPane = new BorderPane();
-
+    private GeneralInfo generalInfo;
     HBox hBox = new HBox();
 
     @Override
@@ -44,6 +45,7 @@ public class CitizenGeneralInfoController implements Initializable {
         hBox.setSpacing(20);
         hBox.getChildren().add(cancelButton);
         hBox.getChildren().add(saveButton);
+        generalInfo = new GeneralInfo(1, "This is mastery", "This is motivation", "Those are resources", "That is roller", "Those are habits", "This is education job", "This is lifeStory", "this is health info", "this is assistive devices", "this is interior of dwelling", "this is network", 1);
     }
 
 
@@ -67,65 +69,42 @@ public class CitizenGeneralInfoController implements Initializable {
 
     @FXML
     void toHabitSec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Habits");
+        setupViewChange("Habits", generalInfo.getHabits());
     }
 
     @FXML
     void toHealthInfoSec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Health Info");
+        setupViewChange("Health Information", generalInfo.getHealthInfo());
     }
 
     @FXML
     void toLifeStorySec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Life story");
+        setupViewChange("Life Story", generalInfo.getLifeStory());
     }
 
     @FXML
     void toMasterySec(ActionEvent event) {
-        clearMainView();
-
-        textArea = new TextArea();
-        textArea.setMinHeight(360);
-
-        editButton = new Button("Edit");
-
-        buttonPane.setRight(editButton);
-        setNameLabel("Mastery");
-
-        editButton.setOnAction(evt -> {
-            mainView.getChildren().set(2, textArea);
-            buttonPane.getChildren().clear();
-
-            buttonPane.setRight(hBox);
-        });
-        setupCancelButton(editButton);
+       setupViewChange("Mastery", generalInfo.getMastery());
     }
 
     @FXML
     void toMotivationSec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Motivation");
+       setupViewChange("Motivation", generalInfo.getMotivation());
     }
 
     @FXML
     void toNetworkSec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Network");
+        setupViewChange("Network", generalInfo.getNetwork());
     }
 
     @FXML
     void toResourceSec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Resources");
+       setupViewChange("Resources", generalInfo.getResources());
     }
 
     @FXML
     void toRollerSec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Roller");
+        setupViewChange("Roller", generalInfo.getRoller());
     }
 
     private void setupCancelButton(Button editButton) {
@@ -143,7 +122,6 @@ public class CitizenGeneralInfoController implements Initializable {
     }
 
     private void clearMainView() {
-
         mainView.getChildren().clear();
         mainView.getChildren().add(nameLabel);
         mainView.getChildren().add(descriptionLabel);
@@ -152,4 +130,24 @@ public class CitizenGeneralInfoController implements Initializable {
         mainView.getChildren().add(buttonPane);
         buttonPane.getChildren().clear();
     }
+
+    private void setupViewChange(String label, String mainTextLabel) {
+        clearMainView();
+
+        textArea = new TextArea();
+        textArea.setMinHeight(360);
+        editButton = new Button("Edit");
+
+        buttonPane.setRight(editButton);
+        setNameLabel(label);
+
+        mainText.setText(mainTextLabel);
+        editButton.setOnAction(evt -> {
+            mainView.getChildren().set(2, textArea);
+            buttonPane.getChildren().clear();
+            buttonPane.setRight(hBox);
+        });
+        setupCancelButton(editButton);
+    }
+
 }

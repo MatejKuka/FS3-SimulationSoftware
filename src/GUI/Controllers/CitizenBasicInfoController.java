@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.Citizen;
+import BE.GeneralInfo;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +21,7 @@ public class CitizenBasicInfoController implements Initializable {
     private MainModel model;
 
     @FXML
-    private BorderPane firstNameContainer, lastNameContainer, schoolContainer, generalInfoContainer;
+    private BorderPane firstNameContainer, lastNameContainer, schoolContainer;
     @FXML
     private HBox buttonsContainer;
 
@@ -54,10 +55,23 @@ public class CitizenBasicInfoController implements Initializable {
 
     private MainModel mainModel;
 
+//this.mastery = mastery;
+//        this.motivation = motivation;
+//        this.resources = resources;
+//        this.roller = roller;
+//        this.habits = habits;
+//        this.educationJob = educationJob;
+//        this.lifeStory = lifeStory;
+//        this.healthInfo = healthInfo;
+//        this.assistiveDevices = assistiveDevices;
+//        this.interiorOfDwelling = interiorOfDwelling;
+//        this.network = network;
+//        this.citizen = citizen;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             mainModel = new MainModel();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

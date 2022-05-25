@@ -163,7 +163,7 @@ public class MainModel {
         User adminNew = manager.createAdmin(firstName, lastName, loginName, password);
         admins.add(adminNew);
         return manager.createAdmin(firstName, lastName, loginName, password);
-    }
+    } // This Method creates an admin without any assigned school
 
     public User createAdminInSchool(String firstName, String lastName, String loginName, String password) throws Exception {
         User userAdmin = manager.createAdmin(firstName, lastName, loginName, password);
@@ -189,12 +189,12 @@ public class MainModel {
 
     public Citizen getCurrentCitizen() {
         return clickedCitizen;
-    }
+    } // TODO Matej - This needs to be fixed because the name is confussing
 
     public School setCurrentSchool(School school) {
         clickedSchool = school;
         return clickedSchool;
-    }
+    } // TODO Matej - This needs to be fixed because the name is confussing
 
     public School getCurrentSchool() {
         return clickedSchool;

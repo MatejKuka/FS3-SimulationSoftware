@@ -42,7 +42,7 @@ public class CitizenGeneralInfoController implements Initializable {
     HBox hBox = new HBox();
 
     public void getCitizen(Citizen citizen) {
-        
+
     }
 
 

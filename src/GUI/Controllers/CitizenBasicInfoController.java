@@ -33,7 +33,6 @@ public class CitizenBasicInfoController implements Initializable {
     private Label firstNamePlaceholder = new Label(placeholder);
     private Label lastNamePlaceholder = new Label(placeholder);
     private Label schoolPlaceholder = new Label(placeholder);
-    private Label generalInfoPlaceholder = new Label(placeholder);
 
     private TextField firstNameTextField = new TextField();
     private TextField lastNameTextField = new TextField();
@@ -75,7 +74,6 @@ public class CitizenBasicInfoController implements Initializable {
         firstNameContainer.setCenter(firstNamePlaceholder);
         lastNameContainer.setCenter(lastNamePlaceholder);
         schoolContainer.setCenter(schoolPlaceholder);
-        generalInfoContainer.setCenter(generalInfoPlaceholder);
 
         buttonsContainer.getChildren().add(editButton);
         editButton.setOnAction(event -> {
@@ -117,7 +115,7 @@ public class CitizenBasicInfoController implements Initializable {
             setupInitialView();
         });
         saveButton.setOnAction(event -> {
-            Citizen newCitizen = new Citizen(citizen.getId(), firstNameTextField.getText(), lastNameTextField.getText(), citizen.getSchool(), citizen.getGeneralInfo());
+            Citizen newCitizen = new Citizen(citizen.getId(), firstNameTextField.getText(), lastNameTextField.getText(), citizen.getSchool());
             try {
                 mainModel.updateCitizen(newCitizen);
             } catch (Exception e) {
@@ -135,7 +133,6 @@ public class CitizenBasicInfoController implements Initializable {
         firstNamePlaceholder.setText(citizen.getFirstName());
         lastNamePlaceholder.setText(citizen.getLastName());
         schoolPlaceholder.setText(String.valueOf(citizen.getSchool()));
-        generalInfoPlaceholder.setText(String.valueOf(citizen.getGeneralInfo()));
     }
 
     public void setupTextFields(Citizen citizen) {

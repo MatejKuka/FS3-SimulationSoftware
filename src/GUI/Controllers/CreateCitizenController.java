@@ -50,8 +50,8 @@ public class CreateCitizenController implements Initializable {
             if (lastNameTextField.getText().equals("")) lastNameTextField.getStyleClass().add("custom-text-field-error");
             if (comboBox.getValue() == null) comboBox.getStyleClass().add("custom-combobox-error");
         } else {
-//            List<School> filteredSchoolList = schoolList.stream().filter(school -> Objects.equals(school.getName(), selectedComboBoxItem)).collect(Collectors.toList());
-//            mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), filteredSchoolList.get(0).getId(), 2);
+            List<School> filteredSchoolList = schoolList.stream().filter(school -> Objects.equals(school.getName(), selectedComboBoxItem)).collect(Collectors.toList());
+            mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), filteredSchoolList.get(0).getId());
 
             Stage stage = (Stage) saveButton.getScene().getWindow();
             stage.close();

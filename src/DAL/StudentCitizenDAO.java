@@ -58,10 +58,9 @@ public class StudentCitizenDAO {
                 String fName = rs.getString("FName");
                 String lName = rs.getString("LName");
                 int school = rs.getInt("School");
-                int genInfo = rs.getInt("General_information");
 
 
-                Citizen citizen = new Citizen(id, fName, lName, school, genInfo);
+                Citizen citizen = new Citizen(id, fName, lName, school);
                 System.out.println(citizen);
                 allCitizens.add(citizen);
             }

@@ -38,6 +38,8 @@ public class CitizenDAO {
         }
     }
 
+    
+
     //you can not change school and general info of the citizen
     public void updateCitizen(Citizen citizen) throws Exception {
         String query = "UPDATE Citizen SET FName = ?, LName = ? WHERE Id = ?";

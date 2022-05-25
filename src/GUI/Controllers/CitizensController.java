@@ -61,6 +61,7 @@ public class CitizensController implements Initializable {
         tableColumnFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tableViewCitizens.getItems().setAll(mainModel.getAllCitizenFromOneSchool(mainModel.getCurrentSchoolId()));
+        System.out.println(mainModel.getCurrentSchoolId());
     }
 
     @FXML
@@ -76,7 +77,7 @@ public class CitizensController implements Initializable {
 
     @FXML
     void toDelete(ActionEvent event) throws Exception {
-        System.out.println("Citizen is about to delete: " + currentCitizen + " " + currentCitizen.getGeneralInfo());
+        System.out.println("Citizen is about to delete: " + currentCitizen);
         //mainModel.deleteCitizen(currentCitizen, currentCitizen.getGeneralInfo());
     } //TODO Error - this needs to be fixed (Matej)
 

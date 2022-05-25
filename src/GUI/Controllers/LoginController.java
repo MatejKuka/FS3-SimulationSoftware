@@ -61,7 +61,7 @@ public class LoginController {
             }
         } else labelBadInput.setText(errorMessage);
 
-    }
+    } // TODO Matej - need to reset user because after log out, I cannot log in as different user
 
     private void startStudentPage() {
         FXMLLoader loader = new FXMLLoader();

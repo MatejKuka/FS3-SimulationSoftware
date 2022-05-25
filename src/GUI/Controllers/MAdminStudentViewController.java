@@ -51,7 +51,7 @@ public class MAdminStudentViewController implements Initializable {
 
     @FXML
     void toCasesPage(ActionEvent event) {
-
+        setScene("/GUI/Views/AssignCasesView.fxml");
     }
 
     @FXML

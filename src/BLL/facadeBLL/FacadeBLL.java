@@ -53,6 +53,21 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public void addCitizenToStudent(Student student, Citizen citizen) throws Exception {
+        facadeDAL.addCitizenToStudent(student, citizen);
+    }
+
+    @Override
+    public void removeCitizenFromStudent(User student, Citizen citizen) throws Exception {
+        facadeDAL.removeCitizenFromStudent(student, citizen);
+    }
+
+    @Override
+    public List<Citizen> getStudentCitizens(int studentId) throws Exception {
+        return facadeDAL.getStudentCitizens(studentId);
+    }
+
+    @Override
     public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
         return facadeDAL.getGeneralInfo(idGeneralInfo);
     }

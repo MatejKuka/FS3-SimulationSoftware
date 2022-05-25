@@ -44,7 +44,7 @@ public class MTeacherStudentController implements Initializable {
 
     @FXML
     void toCasesPage(ActionEvent event) {
-
+        setScene("/GUI/Views/AssignCasesView.fxml");
     }
 
     @FXML

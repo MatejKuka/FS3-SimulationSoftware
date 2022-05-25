@@ -26,8 +26,8 @@
                   </Label>
                   <TableView fx:id="tableViewCases" onMouseClicked="#selectedCase" prefHeight="519.0" prefWidth="400.0" stylesheets="@../../resources/custom-tableview.css">
                     <columns>
-                      <TableColumn fx:id="tableColId" prefWidth="37.600006103515625" text="Id" />
-                      <TableColumn fx:id="tableColFName" prefWidth="150.39996337890625" text="First name" />
+                      <TableColumn fx:id="tableColId" prefWidth="54.0" text="Id" />
+                      <TableColumn fx:id="tableColFName" prefWidth="197.0" text="First name" />
                         <TableColumn fx:id="tableColLName" prefWidth="132.0" text="Last name" />
                     </columns>
                      <VBox.margin>
@@ -39,11 +39,11 @@
                   </TableView>
                </children>
             </VBox>
-            <VBox prefWidth="396.0">
+            <VBox prefHeight="640.0" prefWidth="446.0">
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <HBox prefWidth="495.0">
+                        <HBox prefHeight="184.0" prefWidth="376.0">
                            <children>
                               <Label styleClass="text-primary" text="Life story">
                                  <font>
@@ -53,7 +53,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="labelLifeStory" text="Label">
+                              <Label fx:id="labelLifeStory" prefHeight="196.0" prefWidth="241.0" text="Label">
                                  <HBox.margin>
                                     <Insets left="25.0" top="5.0" />
                                  </HBox.margin></Label>
@@ -61,7 +61,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <HBox alignment="CENTER_RIGHT" spacing="30.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="376.0" spacing="30.0">
                      <children>
                         <Button fx:id="btnFillCase" mnemonicParsing="false" onAction="#toFIllCase" styleClass="btn-action" text="Fill the case">
                            <HBox.margin>

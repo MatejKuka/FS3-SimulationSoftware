@@ -259,4 +259,16 @@ public class MainModel {
         manager.updateGeneralInfo(generalInfo);
     }
 
+    public void addCitizenToStudent(Student student, Citizen citizen) throws Exception {
+        manager.addCitizenToStudent(student, citizen);
+    }
+
+    public void removeCitizenFromStudent(User student, Citizen citizen) throws Exception {
+        manager.removeCitizenFromStudent(student, citizen);
+    }
+
+    public List<Citizen> getStudentCitizens(int studentId) throws Exception {
+        return manager.getStudentCitizens(studentId);
+    }
+
 }

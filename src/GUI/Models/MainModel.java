@@ -209,13 +209,19 @@ public class MainModel {
         manager.deleteCitizen(citizen);
     }
 
+    public GeneralInfo createGeneralInfo(String mastery, String motivation, String resources, String roller, String habits, String educationJob, String lifeStory, String healthInfo, String assistiveDevices, String interiorOfDwelling, String network, int citizenId) throws Exception {
+        return manager.createGeneralInfo(mastery, motivation, resources, roller, habits, educationJob, lifeStory, healthInfo, assistiveDevices, interiorOfDwelling, network, citizenId);
+    }
+
     public Citizen createCitizen(String fName, String lName, int school) throws Exception {
         Citizen citizenBla = manager.createCitizen(fName, lName, school);
         citizensBySchool.add(citizenBla);
         System.out.println("Citizen added to observable: " + citizenBla);
         return citizenBla;
     }
-
+    public List<GeneralInfo> getAllGeneralInfo() throws Exception {
+        return manager.getAllGeneralInfo();
+    }
     public ObservableList<School> getAllSchools() throws Exception {
         schools.setAll(manager.getAllSchools());
         return schools;

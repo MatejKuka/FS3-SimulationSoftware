@@ -33,6 +33,9 @@ public interface IFacadeBLL {
     GeneralInfo createGeneralInfo(String mastery, String motivation, String resources, String roller, String habits,
                                   String educationJob, String lifeStory, String healthInfo, String assistiveDevices,
                                   String interiorOfDwelling, String network, int citizenId) throws Exception;
+List<GeneralInfo> getAllGeneralInfo() throws Exception;
+
+
 
     List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception;
 

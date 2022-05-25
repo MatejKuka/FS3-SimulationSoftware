@@ -51,6 +51,7 @@ public interface IFacadeDAL {
                                   String educationJob, String lifeStory, String healthInfo, String assistiveDevices,
                                   String interiorOfDwelling, String network, int citizenId) throws Exception;
     void updateGeneralInfo(GeneralInfo generalInfo) throws Exception;
+    List<GeneralInfo> getAllGeneralInfo() throws Exception;
 
     //FunctionalityStateDAO
     List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception;

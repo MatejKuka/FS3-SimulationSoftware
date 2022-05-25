@@ -55,18 +55,6 @@ public class CitizenBasicInfoController implements Initializable {
 
     private MainModel mainModel;
 
-//this.mastery = mastery;
-//        this.motivation = motivation;
-//        this.resources = resources;
-//        this.roller = roller;
-//        this.habits = habits;
-//        this.educationJob = educationJob;
-//        this.lifeStory = lifeStory;
-//        this.healthInfo = healthInfo;
-//        this.assistiveDevices = assistiveDevices;
-//        this.interiorOfDwelling = interiorOfDwelling;
-//        this.network = network;
-//        this.citizen = citizen;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {

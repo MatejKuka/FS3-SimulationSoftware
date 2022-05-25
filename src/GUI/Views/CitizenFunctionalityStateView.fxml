@@ -65,9 +65,9 @@
                 </VBox>
             </left>
          <center>
-            <ScrollPane hbarPolicy="NEVER" BorderPane.alignment="CENTER">
+            <ScrollPane hbarPolicy="NEVER" styleClass="bg-secondary" BorderPane.alignment="CENTER">
                <content>
-                      <VBox fx:id="mainView" prefHeight="537.0" prefWidth="593.0" spacing="30.0">
+                      <VBox fx:id="mainView" prefHeight="538.0" prefWidth="606.0" spacing="30.0" styleClass="bg-secondary">
                      <children>
                         <Label fx:id="label" text="Self care">
                            <font>

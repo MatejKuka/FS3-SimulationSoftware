@@ -7,6 +7,8 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GeneralInformationDAO {
     DBConnector dbConnector;
@@ -82,6 +84,38 @@ public class GeneralInformationDAO {
 
             preparedStatement.executeUpdate();
         }
+    }
+
+    public List<GeneralInfo> getAllGeneralInfo() throws Exception {
+        List<GeneralInfo> generalInfoArrayList = new ArrayList<>();
+        String query = "SELECT * FROM General_Information";
+        try (Connection connection = dbConnector.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.execute();
+
+            ResultSet resultSet = preparedStatement.getResultSet();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("Id");
+                String mastery = resultSet.getString("Mastery");
+                String motivation = resultSet.getString("Motivation");
+                String resources = resultSet.getString("Ressources");
+                String roller = resultSet.getString("Roller");
+                String habits = resultSet.getString("Habits");
+                String educationJob = resultSet.getString("EducationJob");
+                String lifeStory = resultSet.getString("LifeStory");
+                String healthInfo = resultSet.getString("HealthInfo");
+                String assistiveDevices = resultSet.getString("AssistiveDevices");
+                String interiorOfDwelling = resultSet.getString("InteriorOfDwelling");
+                String network = resultSet.getString("Networ");
+                int citizenId = resultSet.getInt("Citizen");
+                GeneralInfo generalInfo = new GeneralInfo(id, mastery, motivation, resources, roller, habits,
+                        educationJob, lifeStory, healthInfo, assistiveDevices,
+                        interiorOfDwelling, network, citizenId);
+                generalInfoArrayList.add(generalInfo);
+            }
+        }
+        return generalInfoArrayList;
     }
 
     public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {

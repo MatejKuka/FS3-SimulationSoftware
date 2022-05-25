@@ -174,6 +174,11 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
+    public List<GeneralInfo> getAllGeneralInfo() throws Exception {
+        return generalInformationDAO.getAllGeneralInfo();
+    }
+
+    @Override
     public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception {
         return functionalityStateDAO.getCitizenFunctionalityState(idCitizen);
     }

@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.Citizen;
 import BE.GeneralInfo;
+import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -40,28 +42,45 @@ public class CitizenGeneralInfoController implements Initializable {
     private BorderPane buttonPane = new BorderPane();
     private GeneralInfo generalInfo;
     HBox hBox = new HBox();
+    private boolean isCreated = false;
 
-    public void getCitizen(Citizen citizen) {
-
+    public void getCitizen(Citizen citizen) throws Exception {
+        mainModel.getAllGeneralInfo().forEach(generalInfo1 -> {
+            if (citizen.getId() == generalInfo1.getCitizen()) {
+                isCreated = true;
+                generalInfo = generalInfo1;
+            }
+        });
+        if (!isCreated) {
+            System.out.println("test");
+            String placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget magna nisl. Vivamus hendrerit justo pulvinar orci malesuada tincidunt. Sed vitae porttitor leo, eget pellentesque sapien. Mauris porttitor, orci vel convallis pellentesque, eros turpis ullamcorper nibh, eget eleifend lectus turpis fermentum lorem.";
+            generalInfo = mainModel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getId());
+        }
     }
 
-
+    private MainModel mainModel;
     private CitizensEditController citizensEditController;
 
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
+
     }
 
     private Citizen citizen;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            mainModel = new MainModel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         cancelButton.getStyleClass().addAll("btn-action", "padding");
         saveButton.getStyleClass().addAll("btn-action", "padding");
         hBox.setSpacing(20);
         hBox.getChildren().add(cancelButton);
         hBox.getChildren().add(saveButton);
-        generalInfo = new GeneralInfo(1, "This is mastery", "This is motivation", "Those are resources", "That is roller", "Those are habits", "This is education job", "This is lifeStory", "this is health info", "this is assistive devices", "this is interior of dwelling", "this is network", 1);
+//        generalInfo = new GeneralInfo(1, "This is mastery", "This is motivation", "Those are resources", "That is roller", "Those are habits", "This is education job", "This is lifeStory", "this is health info", "this is assistive devices", "this is interior of dwelling", "this is network", 1);
     }
 
     @FXML
@@ -96,12 +115,12 @@ public class CitizenGeneralInfoController implements Initializable {
 
     @FXML
     void toMasterySec(ActionEvent event) {
-       setupViewChange("Mastery", generalInfo.getMastery());
+        setupViewChange("Mastery", generalInfo.getMastery());
     }
 
     @FXML
     void toMotivationSec(ActionEvent event) {
-       setupViewChange("Motivation", generalInfo.getMotivation());
+        setupViewChange("Motivation", generalInfo.getMotivation());
     }
 
     @FXML
@@ -111,7 +130,7 @@ public class CitizenGeneralInfoController implements Initializable {
 
     @FXML
     void toResourceSec(ActionEvent event) {
-       setupViewChange("Resources", generalInfo.getResources());
+        setupViewChange("Resources", generalInfo.getResources());
     }
 
     @FXML

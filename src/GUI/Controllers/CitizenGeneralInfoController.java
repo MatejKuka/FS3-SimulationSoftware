@@ -52,7 +52,6 @@ public class CitizenGeneralInfoController implements Initializable {
             }
         });
         if (!isCreated) {
-            System.out.println("test");
             String placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget magna nisl. Vivamus hendrerit justo pulvinar orci malesuada tincidunt. Sed vitae porttitor leo, eget pellentesque sapien. Mauris porttitor, orci vel convallis pellentesque, eros turpis ullamcorper nibh, eget eleifend lectus turpis fermentum lorem.";
             generalInfo = mainModel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getId());
         }
@@ -63,7 +62,6 @@ public class CitizenGeneralInfoController implements Initializable {
 
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
-
     }
 
     private Citizen citizen;

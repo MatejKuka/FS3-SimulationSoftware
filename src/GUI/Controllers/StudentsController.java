@@ -101,9 +101,11 @@ public class StudentsController implements Initializable {
     @FXML
     void toShowUser(MouseEvent event) {
         userToShow = tableViewUsers.getSelectionModel().getSelectedItem();
+        if (userToShow != null) {
         labelFirstName.setText(userToShow.getFirstName());
         labelLastName.setText(userToShow.getLastName());
         labelUsername.setText(userToShow.getLoginName());
+        }
     }
 
 }

@@ -56,10 +56,10 @@ public class StudentCaseController implements Initializable {
     }
 
     void setUpTableView() throws Exception {
-        tableColId.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        tableColFName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        tableColId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tableColFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tableColLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        //tableViewCases.getItems().setAll();
+        tableViewCases.getItems().setAll(mainModel.getStudentCitizens(mainModel.getCurrentUser().getUserID()));
     }
 
 

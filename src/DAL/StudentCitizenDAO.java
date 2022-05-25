@@ -43,7 +43,7 @@ public class StudentCitizenDAO {
 
     public List<Citizen> getStudentCitizens(int studentId) throws Exception {
         List<Citizen> allCitizens = new ArrayList<>();
-        String query =  "SELECT c.Id, c.FName, c.LName, c.School, c.General_information " +
+        String query =  "SELECT c.Id, c.FName, c.LName, c.School " +
                         "FROM Citizen c " +
                         "JOIN Student_Citizen s ON s.Citizen = c.Id " +
                         "WHERE s.Student = ?";

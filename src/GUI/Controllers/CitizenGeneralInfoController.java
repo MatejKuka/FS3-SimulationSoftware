@@ -51,20 +51,17 @@ public class CitizenGeneralInfoController implements Initializable {
 
     @FXML
     void toAssistDevSec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Assistive devices");
+        setupViewChange("Assistive devices", generalInfo.getAssistiveDevices());
     }
 
     @FXML
     void toDwelSec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Interior of Dwelling");
+        setupViewChange("Interior of dwelling", generalInfo.getInteriorOfDwelling());
     }
 
     @FXML
     void toEduJobSec(ActionEvent event) {
-        clearMainView();
-        setNameLabel("Education/Job");
+        setupViewChange("Education/Job", generalInfo.getEducationJob());
     }
 
     @FXML

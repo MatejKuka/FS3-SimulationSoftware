@@ -20,7 +20,6 @@ import java.util.ResourceBundle;
 
 public class CitizensController implements Initializable {
     MainModel mainModel;
-    Citizen currentCitizen;
     MAdminStudentViewController adminStudentViewController;
     SceneSetter sceneSetter;
     public CitizensController() throws IOException {
@@ -30,7 +29,7 @@ public class CitizensController implements Initializable {
     }
 
     @FXML
-    private Button generalEditButton, functionalityStateButton;
+    private Button generalEditButton, functionalityStateButton, deleteButton;
 
     @FXML
     private Label labelDailyRoutine, labelLifeStory, labelMobility, labelMove, labelSelfCare, labelWash;
@@ -74,13 +73,6 @@ public class CitizensController implements Initializable {
     void toCreate(ActionEvent event) {
 
     }
-
-    @FXML
-    void toDelete(ActionEvent event) throws Exception {
-        System.out.println("Citizen is about to delete: " + currentCitizen);
-        //mainModel.deleteCitizen(currentCitizen, currentCitizen.getGeneralInfo());
-    } //TODO Error - this needs to be fixed (Matej)
-
     @FXML
     void toEdit(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
@@ -101,6 +93,7 @@ public class CitizensController implements Initializable {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
                     citizen = row.getItem();
                     generalEditButton.setDisable(false);
+                    deleteButton.setDisable(false);
 //                    functionalityStateButton.setDisable(false);
                     //TODO -> implement the button functionality then uncomment
                 }
@@ -133,5 +126,9 @@ public class CitizensController implements Initializable {
         stage.setTitle("Create new citizen");
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void handleDeleteButton(ActionEvent event) throws Exception {
+        mainModel.deleteCitizen(citizen);
     }
 }

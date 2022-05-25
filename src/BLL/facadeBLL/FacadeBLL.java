@@ -68,6 +68,11 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
+        facadeDAL.updateGeneralInfo(generalInfo);
+    }
+
+    @Override
     public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception {
         return facadeDAL.getCitizenFunctionalityState(idCitizen);
     }

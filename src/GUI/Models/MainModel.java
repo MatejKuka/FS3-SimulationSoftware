@@ -255,5 +255,8 @@ public class MainModel {
     public School getSchoolById(int schoolId) throws Exception {
         return manager.getSchoolById(schoolId);
     }
+    public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
+        manager.updateGeneralInfo(generalInfo);
+    }
 
 }

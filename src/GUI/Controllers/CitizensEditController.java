@@ -42,11 +42,13 @@ public class CitizensEditController implements Initializable {
         borderPaneContent.setCenter(root);
     }
 
-    public void handleGeneralInformation(ActionEvent event) throws IOException {
+    public void handleGeneralInformation(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenGeneralInfoView.fxml"));
         Parent root = loader.load();
-
+        CitizenGeneralInfoController citizenBasicInfoController = loader.getController();
+        citizenBasicInfoController.setCitizensEditController(this);
+        citizenBasicInfoController.getCitizen(citizen);
         borderPaneContent.setCenter(root);
     }
 

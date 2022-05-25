@@ -43,12 +43,6 @@
             <BorderPane fx:id="firstNameContainer" GridPane.columnIndex="1" />
             <BorderPane fx:id="lastNameContainer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <BorderPane fx:id="schoolContainer" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="General Info:" GridPane.rowIndex="3">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Label>
-            <BorderPane fx:id="generalInfoContainer" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </center>

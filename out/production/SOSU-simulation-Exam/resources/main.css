@@ -84,3 +84,25 @@
 .cursor-text {
     -fx-cursor: text;
 }
+.custom-textarea {
+    -fx-background-insets: 0;
+    -fx-background-color: #e5f3eb;
+    -fx-background-radius: 0, 0, 0, 0;
+
+    -fx-box-border: none;
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+    -fx-text-box-border: -fx-control-inner-background;
+    -fx-border-width: -1;
+    -fx-text-fill: #0B5351;
+}
+.custom-textarea .content {
+    -fx-background-color: #e5f3eb;
+    -fx-border-width: 2;
+    -fx-border-color: #c4e1c1;
+    -fx-border-radius: 5;
+}
+.custom-textarea:focused .content {
+    -fx-background-color: #e5f3eb;
+    -fx-border-color: #0B5351;
+}

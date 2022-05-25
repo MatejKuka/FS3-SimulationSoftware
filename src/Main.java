@@ -1,3 +1,4 @@
+import BE.HealthConditions;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,5 +18,8 @@ import javafx.stage.Stage;
 
         public static void main(String[] args) {
             launch(args);
+
         }
+
+
 }

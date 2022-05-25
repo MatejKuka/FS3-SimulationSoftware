@@ -1,5 +1,6 @@
 package GUI.Controllers;
 
+import BE.Citizen;
 import BE.GeneralInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,14 +41,28 @@ public class CitizenGeneralInfoController implements Initializable {
     private GeneralInfo generalInfo;
     HBox hBox = new HBox();
 
+    public void getCitizen(Citizen citizen) {
+        
+    }
+
+
+    private CitizensEditController citizensEditController;
+
+    public void setCitizensEditController(CitizensEditController citizensEditController) {
+        this.citizensEditController = citizensEditController;
+    }
+
+    private Citizen citizen;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cancelButton.getStyleClass().addAll("btn-action", "padding");
+        saveButton.getStyleClass().addAll("btn-action", "padding");
         hBox.setSpacing(20);
         hBox.getChildren().add(cancelButton);
         hBox.getChildren().add(saveButton);
         generalInfo = new GeneralInfo(1, "This is mastery", "This is motivation", "Those are resources", "That is roller", "Those are habits", "This is education job", "This is lifeStory", "this is health info", "this is assistive devices", "this is interior of dwelling", "this is network", 1);
     }
-
 
     @FXML
     void toAssistDevSec(ActionEvent event) {
@@ -132,9 +147,10 @@ public class CitizenGeneralInfoController implements Initializable {
         clearMainView();
 
         textArea = new TextArea();
+        textArea.getStyleClass().add("custom-textarea");
         textArea.setMinHeight(360);
         editButton = new Button("Edit");
-
+        editButton.getStyleClass().addAll("btn-action", "padding");
         buttonPane.setRight(editButton);
         setNameLabel(label);
 

@@ -3,7 +3,6 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
@@ -37,11 +36,6 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label prefHeight="79.0" prefWidth="177.0" styleClass="text-primary" text="School:" GridPane.rowIndex="2">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Label>
             <BorderPane GridPane.columnIndex="1">
                <center>
                   <TextField fx:id="firstNameTextField" styleClass="custom-text-field" BorderPane.alignment="CENTER">
@@ -57,10 +51,6 @@
                         <Insets />
                      </BorderPane.margin>
                   </TextField>
-               </center></BorderPane>
-            <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <center>
-                  <ComboBox fx:id="comboBox" minWidth="254.0" styleClass="custom-combobox" BorderPane.alignment="CENTER" />
                </center></BorderPane>
             <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="3">
                <right>

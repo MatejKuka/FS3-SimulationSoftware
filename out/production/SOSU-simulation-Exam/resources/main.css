@@ -106,3 +106,10 @@
     -fx-background-color: #e5f3eb;
     -fx-border-color: #0B5351;
 }
+.text-decorated {
+    -fx-text-fill: #e5f3eb;
+    -fx-background-color: #0B5351;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 3px;
+    -fx-font-size: 15pt;
+}

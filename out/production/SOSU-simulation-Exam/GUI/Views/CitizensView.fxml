@@ -48,7 +48,7 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#toDelete" prefHeight="30.0" prefWidth="60.0" styleClass="btn-action" text="Delete">
+                        <Button fx:id="deleteButton" disable="true" mnemonicParsing="false" onAction="#handleDeleteButton" prefHeight="30.0" prefWidth="60.0" styleClass="btn-action" text="Delete">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>

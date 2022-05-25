@@ -21,7 +21,8 @@ import java.util.ResourceBundle;
 public class AssignCasesController implements Initializable {
     MainModel mainModel;
     Citizen clickedCitizen;
-    User clickedUser;
+    Student clickedUser;
+    String initialStringHC = "empty";
 
     @FXML
     private Button btnAssign;
@@ -81,7 +82,7 @@ public class AssignCasesController implements Initializable {
     @FXML
     void toAssignCitizen(ActionEvent event) throws Exception {
         if (clickedUser != null && clickedCitizen != null) {
-            mainModel.addCitizenToStudent((Student) clickedUser, clickedCitizen);
+            mainModel.addCitizenToStudent(clickedUser, clickedCitizen);
             System.out.println(clickedUser + " user got assinged " + clickedCitizen);
         } else labelMessage.setText("Something went wrong!");
     }
@@ -96,7 +97,7 @@ public class AssignCasesController implements Initializable {
 
     @FXML
     void handleClickedStudent(MouseEvent event) {
-        clickedUser = tableViewStudents.getSelectionModel().getSelectedItem();
+        clickedUser = (Student) tableViewStudents.getSelectionModel().getSelectedItem();
         labelStudentName.setText(clickedUser.getFullName());
     }
 

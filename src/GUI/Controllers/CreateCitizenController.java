@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 ;
+import BE.Citizen;
 import BE.School;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
@@ -41,8 +42,12 @@ public class CreateCitizenController implements Initializable {
             if (firstNameTextField.getText().equals("")) firstNameTextField.getStyleClass().add("custom-text-field-error");
             if (lastNameTextField.getText().equals("")) lastNameTextField.getStyleClass().add("custom-text-field-error");
         } else {
-            mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), mainModel.getCurrentSchoolId());
-
+            Citizen citizenNew = mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), mainModel.getCurrentSchoolId());
+            String initialStringHC = "empty";
+            for (int i = 0; i < 43; i++) {
+                mainModel.createHealthCondition(initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, i, citizenNew.getId());
+            }
+            // TODO Test this
             Stage stage = (Stage) saveButton.getScene().getWindow();
             stage.close();
         }

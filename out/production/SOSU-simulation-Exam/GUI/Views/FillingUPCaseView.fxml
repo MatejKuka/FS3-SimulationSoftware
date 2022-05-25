@@ -6,12 +6,12 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="600.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.FillingUPCaseController">
    <children>
@@ -288,11 +288,7 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="labelProfNote" alignment="TOP_LEFT" prefHeight="161.0" prefWidth="561.0" text="professnotes">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </Label>
+                              <TextArea fx:id="textAreaProfNote" prefHeight="200.0" prefWidth="200.0" />
                               <Label prefHeight="26.0" prefWidth="216.0" text="Current assessment:">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
@@ -301,7 +297,7 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="labelCurrAss" alignment="TOP_LEFT" prefHeight="161.0" prefWidth="561.0" text="currasses" />
+                              <TextArea fx:id="textAreaCurrAss" prefHeight="200.0" prefWidth="200.0" />
                               <Label prefHeight="26.0" prefWidth="216.0" text="Expected level:">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
@@ -328,10 +324,9 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="labelObNotes" alignment="TOP_LEFT" prefHeight="161.0" prefWidth="561.0" text="obnotes" />
+                              <TextArea fx:id="textAreaObsNotes" prefHeight="200.0" prefWidth="200.0" />
                               <Button fx:id="btnSave" mnemonicParsing="false" onAction="#toSave" text="Save" />
                               <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#toCancel" text="Cancel" />
-                              <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#toEdit" text="Edit" />
                            </children>
                         </VBox>
                      </content>

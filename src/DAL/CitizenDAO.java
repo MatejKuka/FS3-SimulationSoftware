@@ -38,7 +38,26 @@ public class CitizenDAO {
         }
     }
 
-    
+    public List<Citizen> getAllCitizens() throws Exception {
+        List<Citizen> allCitizens = new ArrayList<>();
+        String query = "SELECT * FROM Citizen";
+
+        try(Connection connection = dbConnector.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("Id");
+                String fName = resultSet.getString("FName");
+                String lName = resultSet.getString("LName");
+                int idOfSchool = resultSet.getInt("School");
+
+                Citizen citizen = new Citizen(id, fName, lName, idOfSchool);
+                allCitizens.add(citizen);
+            }
+            return allCitizens;
+        }
+    }
 
     //you can not change school and general info of the citizen
     public void updateCitizen(Citizen citizen) throws Exception {

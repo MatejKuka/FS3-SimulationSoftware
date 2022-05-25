@@ -194,6 +194,10 @@ public class CitizenGeneralInfoController implements Initializable {
                 default:
                     System.out.println("error");
             }
+            mainText.setText(textArea.getText());
+            mainView.getChildren().set(2, mainText);
+            buttonPane.getChildren().clear();
+            buttonPane.setRight(editButton);
         });
 
         setupCancelButton(editButton);

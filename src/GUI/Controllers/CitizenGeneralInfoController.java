@@ -78,62 +78,61 @@ public class CitizenGeneralInfoController implements Initializable {
         hBox.setSpacing(20);
         hBox.getChildren().add(cancelButton);
         hBox.getChildren().add(saveButton);
-//        generalInfo = new GeneralInfo(1, "This is mastery", "This is motivation", "Those are resources", "That is roller", "Those are habits", "This is education job", "This is lifeStory", "this is health info", "this is assistive devices", "this is interior of dwelling", "this is network", 1);
     }
 
     @FXML
     void toAssistDevSec(ActionEvent event) {
-        setupViewChange("Assistive devices", generalInfo.getAssistiveDevices());
+        setupViewChange("Assistive devices", generalInfo.getAssistiveDevices(), "assistiveDevices");
     }
 
     @FXML
     void toDwelSec(ActionEvent event) {
-        setupViewChange("Interior of dwelling", generalInfo.getInteriorOfDwelling());
+        setupViewChange("Interior of dwelling", generalInfo.getInteriorOfDwelling(), "dwelling");
     }
 
     @FXML
     void toEduJobSec(ActionEvent event) {
-        setupViewChange("Education/Job", generalInfo.getEducationJob());
+        setupViewChange("Education/Job", generalInfo.getEducationJob(), "educationJob");
     }
 
     @FXML
     void toHabitSec(ActionEvent event) {
-        setupViewChange("Habits", generalInfo.getHabits());
+        setupViewChange("Habits", generalInfo.getHabits(), "habits");
     }
 
     @FXML
     void toHealthInfoSec(ActionEvent event) {
-        setupViewChange("Health Information", generalInfo.getHealthInfo());
+        setupViewChange("Health Information", generalInfo.getHealthInfo(), "healthInfo");
     }
 
     @FXML
     void toLifeStorySec(ActionEvent event) {
-        setupViewChange("Life Story", generalInfo.getLifeStory());
+        setupViewChange("Life Story", generalInfo.getLifeStory(), "lifeStory");
     }
 
     @FXML
     void toMasterySec(ActionEvent event) {
-        setupViewChange("Mastery", generalInfo.getMastery());
+        setupViewChange("Mastery", generalInfo.getMastery(), "mastery");
     }
 
     @FXML
     void toMotivationSec(ActionEvent event) {
-        setupViewChange("Motivation", generalInfo.getMotivation());
+        setupViewChange("Motivation", generalInfo.getMotivation(), "motivation");
     }
 
     @FXML
     void toNetworkSec(ActionEvent event) {
-        setupViewChange("Network", generalInfo.getNetwork());
+        setupViewChange("Network", generalInfo.getNetwork(), "network");
     }
 
     @FXML
     void toResourceSec(ActionEvent event) {
-        setupViewChange("Resources", generalInfo.getResources());
+        setupViewChange("Resources", generalInfo.getResources(), "resources");
     }
 
     @FXML
     void toRollerSec(ActionEvent event) {
-        setupViewChange("Roller", generalInfo.getRoller());
+        setupViewChange("Roller", generalInfo.getRoller(), "roller");
     }
 
     private void setupCancelButton(Button editButton) {
@@ -160,7 +159,7 @@ public class CitizenGeneralInfoController implements Initializable {
         buttonPane.getChildren().clear();
     }
 
-    private void setupViewChange(String label, String mainTextLabel) {
+    private void setupViewChange(String label, String mainTextLabel, String updateView) {
         clearMainView();
 
         textArea = new TextArea();
@@ -177,6 +176,26 @@ public class CitizenGeneralInfoController implements Initializable {
             buttonPane.getChildren().clear();
             buttonPane.setRight(hBox);
         });
+
+        saveButton.setOnAction(event -> {
+            switch (updateView) {
+                case "mastery": {
+                    GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), textArea.getText(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
+                    try {
+                        mainModel.updateGeneralInfo(generalInfo);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
+                case "dwelling": {
+                    System.out.println("test");
+                }
+                default:
+                    System.out.println("error");
+            }
+        });
+
         setupCancelButton(editButton);
     }
 

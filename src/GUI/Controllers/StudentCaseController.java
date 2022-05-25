@@ -33,6 +33,9 @@ public class StudentCaseController implements Initializable {
     private Label labelLifeStory;
 
     @FXML
+    private Label labelMessage;
+
+    @FXML
     private TableColumn<Citizen, String> tableColFName;
 
     @FXML
@@ -55,8 +58,7 @@ public class StudentCaseController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
+        labelMessage.setText(" ");
     }
 
     void setUpTableView() throws Exception {
@@ -70,6 +72,7 @@ public class StudentCaseController implements Initializable {
     @FXML
     void selectedCase(MouseEvent event) {
         clickedCitizen = tableViewCases.getSelectionModel().getSelectedItem();
+        mainModel.setChosenCitizenFillUp(clickedCitizen);
     }
 
     @FXML
@@ -81,9 +84,12 @@ public class StudentCaseController implements Initializable {
 
     @FXML
     void toSeeMore(ActionEvent event) {
+        if (clickedCitizen != null) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/FillingUPCaseView.fxml"));
         sceneSetter.setScene(loader);
+        labelMessage.setText(" ");
+        } else labelMessage.setText("First you have to click in particular citizen");
     }
 
 

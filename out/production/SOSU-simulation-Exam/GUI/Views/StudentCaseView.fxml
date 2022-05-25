@@ -75,6 +75,7 @@
                         </Button>
                      </children>
                   </HBox>
+                  <Label fx:id="labelMessage" prefHeight="37.0" prefWidth="367.0" text="d" textFill="RED" />
                </children>
             </VBox>
          </children>

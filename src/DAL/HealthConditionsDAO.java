@@ -71,7 +71,7 @@ public class HealthConditionsDAO {
 
             preparedStatement.executeUpdate();
         }
-    }
+    } 
 
     public HealthConditions createHealthCondition(String SaveAs, //Relevant, potential, active
                                                   String ProfessNote, // to je tá text area, ktorú vypĺňa študent

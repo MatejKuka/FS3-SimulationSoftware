@@ -28,10 +28,10 @@ public class FillingUPCaseController implements Initializable {
     private Button btnSave;
 
     @FXML
-    private ComboBox<?> comboBoxExpLevel;
+    private ComboBox<String> comboBoxExpLevel;
 
     @FXML
-    private ComboBox<?> comboBoxSaving;
+    private ComboBox<String> comboBoxSaving;
 
     @FXML
     private DatePicker datePickerFollDate;
@@ -61,10 +61,31 @@ public class FillingUPCaseController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        labelFName.setText(mainModel.getChosenCitizenFillUp().getFirstName());
+        labelLName.setText(mainModel.getChosenCitizenFillUp().getLastName());
+        setLabelName(" ");
+        setComboBoxSave();
+        setComboBoxExpLevel();
+    }
+
+    private void setComboBoxSave() {
+        comboBoxSaving.getItems().add("Active");
+        comboBoxSaving.getItems().add("Potential");
+        comboBoxSaving.getItems().add("Relevant");
+    }
+
+    private void setComboBoxExpLevel() {
+        comboBoxExpLevel.getItems().add("Decreasing");
+        comboBoxExpLevel.getItems().add("Remains unchanged");
+        comboBoxExpLevel.getItems().add("Disappeared");
     }
 
     public FillingUPCaseController() {
 
+    }
+
+    void setLabelName(String labelko) {
+        labelNameHC.setText(labelko);
     }
 
     @FXML
@@ -77,8 +98,66 @@ public class FillingUPCaseController implements Initializable {
 
     }
 
+    private String getSaveAsComboBox(int indexC) {
+        String output = "Active";
+        switch (indexC) {
+            case 0:
+                output = "Active";
+                break;
+            case 1:
+                output = "Potential";
+                break;
+            case 2:
+                output = "Relevant";
+                break;
+        }
+        System.out.println(indexC + " " + output);
+        return output;
+    }
+
     @FXML
     void toHC1(ActionEvent event) {
+        //mainModel.createHealthCondition(getSaveAsComboBox(comboBoxSaving.getSelectionModel().getSelectedIndex()), );
+        setLabelName("Personal Care");
+    }
+
+    @FXML
+    void toHC2(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toHC3(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toHC4(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toHC5(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toHC6(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toHC7(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toHC8(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toHC9(ActionEvent event) {
 
     }
 
@@ -133,11 +212,6 @@ public class FillingUPCaseController implements Initializable {
     }
 
     @FXML
-    void toHC2(ActionEvent event) {
-
-    }
-
-    @FXML
     void toHC20(ActionEvent event) {
 
     }
@@ -187,10 +261,6 @@ public class FillingUPCaseController implements Initializable {
 
     }
 
-    @FXML
-    void toHC3(ActionEvent event) {
-
-    }
 
     @FXML
     void toHC30(ActionEvent event) {
@@ -242,10 +312,6 @@ public class FillingUPCaseController implements Initializable {
 
     }
 
-    @FXML
-    void toHC4(ActionEvent event) {
-
-    }
 
     @FXML
     void toHC40(ActionEvent event) {
@@ -264,31 +330,6 @@ public class FillingUPCaseController implements Initializable {
 
     @FXML
     void toHC43(ActionEvent event) {
-
-    }
-
-    @FXML
-    void toHC5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void toHC6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void toHC7(ActionEvent event) {
-
-    }
-
-    @FXML
-    void toHC8(ActionEvent event) {
-
-    }
-
-    @FXML
-    void toHC9(ActionEvent event) {
 
     }
 

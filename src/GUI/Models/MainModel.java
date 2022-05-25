@@ -14,6 +14,7 @@ public class MainModel {
     private static int currentSchoolId;
     public static User currrentUser;
     public static Citizen clickedCitizen;
+    public static Citizen chosenCitizenToFillUp;
     public static School clickedSchool;
     private static String nameRole;
     ObservableList<User> students;
@@ -269,6 +270,27 @@ public class MainModel {
 
     public List<Citizen> getStudentCitizens(int studentId) throws Exception {
         return manager.getStudentCitizens(studentId);
+    }
+
+    public List<HealthConditions> getHealthCondition(int idCitizen) throws Exception {
+        return manager.getHealthCondition(idCitizen);
+    }
+
+    public void updateHealthConditions(HealthConditions healthConditions) throws Exception {
+        manager.updateHealthConditions(healthConditions);
+    }
+
+    public HealthConditions createHealthCondition(String SaveAs, String ProfessNote, String CurrAssess, String ExpectedLvl, String FollUpDate, String ObservNote, int TypeOfCase, int Citizen) throws Exception {
+        return manager.createHealthCondition(SaveAs, ProfessNote, CurrAssess, ExpectedLvl, FollUpDate, ObservNote, TypeOfCase, Citizen);
+    }
+
+    public void setChosenCitizenFillUp(Citizen citizenCh) {
+        chosenCitizenToFillUp = citizenCh;
+        System.out.println("Current Citizen to fill up: " + chosenCitizenToFillUp);
+    }
+
+    public Citizen getChosenCitizenFillUp() {
+        return chosenCitizenToFillUp;
     }
 
 }

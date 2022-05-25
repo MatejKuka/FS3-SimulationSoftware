@@ -1,13 +1,22 @@
 package GUI.Controllers;
 
+import BE.Citizen;
+import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
-public class FillingUPCaseController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class FillingUPCaseController implements Initializable {
+
+    MainModel mainModel;
 
     @FXML
     private Button btnCancel;
@@ -44,6 +53,19 @@ public class FillingUPCaseController {
 
     @FXML
     private Label labelProfNote;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            mainModel = new MainModel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public FillingUPCaseController() {
+
+    }
 
     @FXML
     void toCancel(ActionEvent event) {
@@ -274,5 +296,6 @@ public class FillingUPCaseController {
     void toSave(ActionEvent event) {
 
     }
+
 
 }

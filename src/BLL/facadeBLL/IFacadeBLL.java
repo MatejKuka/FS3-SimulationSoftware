@@ -53,6 +53,9 @@ public interface IFacadeBLL {
     void removeUserFromSchool(User user, School school) throws Exception;
     School getSchoolById(int schoolId) throws Exception;
 
-
+    List<HealthConditions> getHealthCondition(int idCitizen) throws Exception;
+    void updateHealthConditions(HealthConditions healthConditions) throws Exception;
+    HealthConditions createHealthCondition(String SaveAs, String ProfessNote, String CurrAssess, String ExpectedLvl,
+                                           String FollUpDate, String ObservNote, int TypeOfCase, int Citizen) throws Exception;
 
 }

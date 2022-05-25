@@ -2,8 +2,10 @@ package GUI.Controllers;
 
 import BE.Citizen;
 import GUI.Models.MainModel;
+import GUI.Utils.SceneSetter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,6 +21,7 @@ import java.util.ResourceBundle;
 public class StudentCaseController implements Initializable {
     Citizen clickedCitizen;
     MainModel mainModel;
+    SceneSetter sceneSetter;
 
     @FXML
     private Button btnFillCase;
@@ -45,6 +48,7 @@ public class StudentCaseController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             mainModel = new MainModel();
+            sceneSetter = new SceneSetter();
             setUpTableView();
         } catch (IOException e) {
             e.printStackTrace();
@@ -70,12 +74,16 @@ public class StudentCaseController implements Initializable {
 
     @FXML
     void toFIllCase(ActionEvent event) {
-
+        /*FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/NewUserView.fxml"));
+        sceneSetter.setScene(loader);*/
     }
 
     @FXML
     void toSeeMore(ActionEvent event) {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/FillingUPCaseView.fxml"));
+        sceneSetter.setScene(loader);
     }
 
 

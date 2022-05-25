@@ -149,6 +149,21 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public List<HealthConditions> getHealthCondition(int idCitizen) throws Exception {
+        return facadeDAL.getHealthCondition(idCitizen);
+    }
+
+    @Override
+    public void updateHealthConditions(HealthConditions healthConditions) throws Exception {
+        facadeDAL.updateHealthConditions(healthConditions);
+    }
+
+    @Override
+    public HealthConditions createHealthCondition(String SaveAs, String ProfessNote, String CurrAssess, String ExpectedLvl, String FollUpDate, String ObservNote, int TypeOfCase, int Citizen) throws Exception {
+        return facadeDAL.createHealthCondition(SaveAs, ProfessNote, CurrAssess, ExpectedLvl, FollUpDate, ObservNote, TypeOfCase, Citizen);
+    }
+
+    @Override
     public int returnUsersSchoolID(User user) throws Exception {
         return facadeDAL.returnUsersSchoolID(user);
     }

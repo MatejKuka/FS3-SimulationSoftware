@@ -1,5 +1,6 @@
 package GUI.Controllers;
 
+import BE.Citizen;
 import BE.FunctionalityState;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,6 +45,16 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11;
 
     private Button editButton, saveButton, cancelButton;
+
+    private CitizensEditController citizensEditController;
+
+    public void setCitizensEditController(CitizensEditController citizensEditController) {
+        this.citizensEditController = citizensEditController;
+    }
+
+    public void getCitizen(Citizen citizen) {
+        System.out.println(citizen);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

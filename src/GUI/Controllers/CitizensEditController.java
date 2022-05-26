@@ -56,7 +56,9 @@ public class CitizensEditController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenFunctionalityStateView.fxml"));
         Parent root = loader.load();
-
+        CitizenFunctionalityStateViewController citizenFunctionalityStateViewController = loader.getController();
+        citizenFunctionalityStateViewController.setCitizensEditController(this);
+        citizenFunctionalityStateViewController.getCitizen(citizen);
         borderPaneContent.setCenter(root);
     }
 }

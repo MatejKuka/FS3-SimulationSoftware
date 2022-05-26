@@ -52,4 +52,15 @@ public class CitizensAssessment {
     public int getCitizen() {
         return Citizen;
     }
+    @Override
+    public String toString() {
+        return  "Id=" + id +
+                ", Performance=" + Performance +
+                ", Importance=" + Importance +
+                ", CitizenWishes='" + CitizWishes +
+                ", FollUpDate='" + FollUpDate +
+                ", ObservNote=" + ObservNote +
+                ", FunctionalityType=" + FunctionalityType +
+                ", Citizen=" + Citizen;
+    }
 }

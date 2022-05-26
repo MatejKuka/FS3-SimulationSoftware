@@ -57,18 +57,18 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
-    private boolean isCreated = false;
+    private boolean isFunctionalityStateCreated = false;
 
     public void getCitizen(Citizen citizen) throws Exception {
         functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
         int integerPlaceholder = 4;
         String stringPlaceholder = "Lorem ipsum";
         int[] functionalityTypes = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
+        System.out.println(mainModel.getCitizenAssessmentsById(citizen.getId()));
         if (functionalityStateList.size() != 0) {
-            isCreated = true;
+            isFunctionalityStateCreated = true;
         }
-        if (!isCreated) {
+        if (!isFunctionalityStateCreated) {
             for (int functionalityType :
                     functionalityTypes) {
                 functionalityStateList.add(mainModel.createFunctionalityState(integerPlaceholder, integerPlaceholder, stringPlaceholder, stringPlaceholder, functionalityType, citizen.getId()));

@@ -230,7 +230,6 @@ public class MainModel {
     public ObservableList<School> getAllSchools() throws Exception {
         schools.setAll(manager.getAllSchools());
         return schools;
-
     }
 
     public School createSchool(String name, String city) throws Exception {
@@ -300,8 +299,8 @@ public class MainModel {
     public FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String saveAs, int functionalityType, int citizen) throws Exception {
         return manager.createFunctionalityState(currLvl, expectedLvl, professNote, saveAs, functionalityType, citizen);
     }
+
     public List<CitizensAssessment> getCitizenAssessmentsById(int id) throws Exception {
         return manager.getCitizenAssessmentById(id);
     }
-
 }

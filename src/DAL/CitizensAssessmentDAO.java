@@ -42,7 +42,6 @@ public class CitizensAssessmentDAO {
                 int citizen = resultSet.getInt("Citizen");
 
                 citizensAssessment = new CitizensAssessment(id,  performance, importance, citizWishes, follUpDate, observNote, functionalityType, citizen);
-                System.out.println(citizensAssessment);
                 citizensAssessmentList.add(citizensAssessment);
             }
         }

@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.Citizen;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
 import javafx.event.ActionEvent;
@@ -50,12 +51,12 @@ public class CitizensController implements Initializable {
         setupTableView();
         try {
             updateTableView();
-        } catch (Exception e) {
+        } catch (Exception | UserException e) {
             e.printStackTrace();
         }
     }
 
-    private void updateTableView() throws Exception {
+    private void updateTableView() throws UserException {
         tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tableColumnFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -128,7 +129,7 @@ public class CitizensController implements Initializable {
         stage.show();
     }
 
-    public void handleDeleteButton(ActionEvent event) throws Exception {
+    public void handleDeleteButton(ActionEvent event) throws UserException {
         mainModel.deleteCitizen(citizen);
     }
 }

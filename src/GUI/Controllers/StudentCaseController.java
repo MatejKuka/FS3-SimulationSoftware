@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.Citizen;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
 import javafx.event.ActionEvent;
@@ -53,15 +54,13 @@ public class StudentCaseController implements Initializable {
             mainModel = new MainModel();
             sceneSetter = new SceneSetter();
             setUpTableView();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
+        } catch (Exception | UserException e) {
             e.printStackTrace();
         }
         labelMessage.setText(" ");
     }
 
-    void setUpTableView() throws Exception {
+    void setUpTableView() throws UserException {
         tableColId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tableColFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tableColLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));

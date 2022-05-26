@@ -1,6 +1,7 @@
 package DAL;
 
 import BE.FunctionalityState;
+import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class FunctionalityStateDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws Exception {
+    public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws UserException {
         List<FunctionalityState> functionalityStateList = new ArrayList<>();
         FunctionalityState functionalityState = null;
         String query =  "SELECT * FROM Functionality_State_Answ WHERE Citizen = ?";
@@ -44,12 +45,14 @@ public class FunctionalityStateDAO {
                 functionalityStateList.add(functionalityState);
 
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to get functionality state", e);
         }
         return functionalityStateList;
-    } // TODO Oliver - change this
+    }
 
 
-    public void updateFunctionalityState(FunctionalityState functionalityState) throws Exception {
+    public void updateFunctionalityState(FunctionalityState functionalityState) throws UserException {
         String query =  "UPDATE Functionality_State_Answ SET CurrLvl = ?, ExpectedLvl = ?, ProfessNote = ?, SaveAs = ? WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -60,6 +63,8 @@ public class FunctionalityStateDAO {
             preparedStatement.setInt(5, functionalityState.getId());
 
             preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            throw new UserException("Not able to update functionality state", e);
         }
     }
 
@@ -68,7 +73,7 @@ public class FunctionalityStateDAO {
                                                        String professNote,
                                                        String saveAs,
                                                        int functionalityType,
-                                                       int citizen) throws Exception {
+                                                       int citizen) throws UserException {
         FunctionalityState functionalityState = null;
         int id = 0;
         String query = "INSERT INTO Functionality_State_Answ VALUES(?, ?, ?, ?, ?, ?)";
@@ -91,6 +96,8 @@ public class FunctionalityStateDAO {
             if (created != 0){
                 functionalityState = new FunctionalityState(id, currLvl, expectedLvl, professNote, saveAs, functionalityType, citizen);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to create functionality state", e);
         }
         return functionalityState;
     }

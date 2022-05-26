@@ -56,12 +56,12 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toCitizensPage" styleClass="btn-primary" text="Citizen templates" textAlignment="CENTER" wrapText="true">
+                  <Button mnemonicParsing="false" onAction="#toCitizensPage" prefHeight="43.0" prefWidth="174.0" styleClass="btn-primary" text="Citizens" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toStuAssignPage" prefHeight="72.0" prefWidth="160.0" styleClass="btn-primary" text="Student assignemnts" textAlignment="CENTER" wrapText="true">
+                  <Button mnemonicParsing="false" onAction="#toStuAssignPage" prefHeight="72.0" prefWidth="160.0" styleClass="btn-primary" text="Assignemnts" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>

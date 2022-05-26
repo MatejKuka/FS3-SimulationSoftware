@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.User;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
 import javafx.event.ActionEvent;
@@ -57,15 +58,13 @@ public class StudentsController implements Initializable {
             mainModel = new MainModel();
             menuController = new MAdminStudentViewController();
             updateTableView();
-        } catch (IOException e) {
+        } catch (Exception | UserException e) {
             e.printStackTrace();
-        } catch (Exception ex) {
-            ex.printStackTrace();
         }
         labelNameView.setText(mainModel.getRoleName());
     }
 
-    public void updateTableView() throws Exception {
+    public void updateTableView() throws UserException {
         tableViewUsers.getItems().clear();
         tableColFname.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tableColLname.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -80,7 +79,7 @@ public class StudentsController implements Initializable {
     }
 
     @FXML
-    void toDeleteCurUser(ActionEvent event) throws Exception {
+    void toDeleteCurUser(ActionEvent event) throws UserException {
         User userToDelete = tableViewUsers.getSelectionModel().getSelectedItem();
         System.out.println("User is about to be deleted: " + userToDelete);
         mainModel.deleteUser(userToDelete);

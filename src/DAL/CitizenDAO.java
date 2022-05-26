@@ -1,6 +1,7 @@
 package DAL;
 
 import BE.Citizen;
+import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 
@@ -16,7 +17,7 @@ public class CitizenDAO {
         this.dbConnector = DBConnector.getInstance();
     }
 
-    public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws Exception {
+    public List<Citizen> getAllCitizenFromOneSchool(int schoolId) throws UserException {
         List<Citizen> allCitizensFromOneSchool = new ArrayList<>();
 
         try (Connection connection = dbConnector.getConnection()) {
@@ -34,12 +35,14 @@ public class CitizenDAO {
                 Citizen citizen = new Citizen(id, fName, lName, idOfSchool);
                 allCitizensFromOneSchool.add(citizen);
             }
-            return allCitizensFromOneSchool;
+        } catch (Exception e) {
+            throw new UserException("Not able to get all citizens from one school", e);
         }
+        return allCitizensFromOneSchool;
     }
 
     //you can not change school and general info of the citizen
-    public void updateCitizen(Citizen citizen) throws Exception {
+    public void updateCitizen(Citizen citizen) throws UserException {
         String query = "UPDATE Citizen SET FName = ?, LName = ? WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -47,10 +50,12 @@ public class CitizenDAO {
             preparedStatement.setString(2, citizen.getLastName());
             preparedStatement.setInt(3, citizen.getId());
             preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            throw new UserException("Not able to update citizen", e);
         }
     }
     
-    public void deleteCitizen(Citizen citizen) throws Exception {
+    public void deleteCitizen(Citizen citizen) throws UserException {
         String queryCitizen = "DELETE FROM Citizen WHERE Id = ?";
         String queryGeneralInfo = "DELETE FROM General_Information WHERE Citizen = ?";
         String queryHealthConditions = "DELETE FROM Health_Condition_Answ WHERE Citizen = ?";
@@ -77,10 +82,12 @@ public class CitizenDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(queryCitizen);
             preparedStatement.setInt(1, citizen.getId());
             preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            throw new UserException("Not able to delete citizen", e);
         }
     }
 
-    public Citizen createCitizen(String fName, String lName, int school) throws Exception {
+    public Citizen createCitizen(String fName, String lName, int school) throws UserException {
         Citizen citizen = null;
         int id = 0;
         String query = "INSERT INTO Citizen VALUES(?, ?, ?)";
@@ -100,11 +107,13 @@ public class CitizenDAO {
             if (created != 0) {
                 citizen = new Citizen(id, fName, lName, school);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to create citizen", e);
         }
         return citizen;
     }
 
-    public Citizen getCitizenById(int citizenId) throws Exception {
+    public Citizen getCitizenById(int citizenId) throws UserException {
 
         Citizen citizen = null;
         String query =  "SELECT * " +
@@ -127,8 +136,9 @@ public class CitizenDAO {
 
                 System.out.println(citizen);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to get citizen by ID", e);
         }
         return citizen;
     }
-
 }

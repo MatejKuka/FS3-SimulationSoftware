@@ -1,6 +1,7 @@
 package BLL;
 
 import BE.User;
+import BLL.exeptions.UserException;
 import BLL.utils.LoginUserHelper;
 import DAL.facadeDAL.FacadeDAL;
 
@@ -15,7 +16,7 @@ public class LoginManager {
         loginUserHelper = new LoginUserHelper();
     }
 
-    public User compareLogins(String username, String password) throws Exception {
+    public User compareLogins(String username, String password) throws UserException {
         User user = facadeDAL.compareLogins(username, password);
         if (user != null) return loginUserHelper.getInstance(user);
         else return null;

@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.Group;
 import BE.User;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -48,14 +49,12 @@ public class GroupsViewController implements Initializable {
             mainModel = new MainModel();
             setupStudentsTableView();
             setupGroups();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
+        } catch (Exception | UserException e) {
             e.printStackTrace();
         }
     }
 
-    private void setupStudentsTableView() throws Exception {
+    private void setupStudentsTableView() throws UserException {
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         studentsTableView.getItems().setAll(mainModel.getUsersByRole(mainModel.getRoleId()));
@@ -140,7 +139,7 @@ public class GroupsViewController implements Initializable {
         }
     }
 
-    private void updateAllTableViews() throws Exception {
+    private void updateAllTableViews() throws UserException {
 //        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 //        tableColumnFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 //        tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));

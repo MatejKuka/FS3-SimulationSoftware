@@ -3,6 +3,7 @@ package GUI.Controllers;
 import BE.Citizen;
 import BE.Student;
 import BE.User;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -69,7 +70,7 @@ public class AssignCasesController implements Initializable {
             mainModel = new MainModel();
             setUpTableViewStudent();
             setUpTableViewCases();
-        } catch (Exception e) {
+        } catch (Exception | UserException e) {
             e.printStackTrace();
         }
         labelStudentName.setText(" ");
@@ -80,7 +81,7 @@ public class AssignCasesController implements Initializable {
     }
 
     @FXML
-    void toAssignCitizen(ActionEvent event) throws Exception {
+    void toAssignCitizen(ActionEvent event) throws UserException {
         if (clickedUser != null && clickedCitizen != null) {
             mainModel.addCitizenToStudent(clickedUser, clickedCitizen);
             System.out.println(clickedUser + " user got assinged " + clickedCitizen);
@@ -101,12 +102,12 @@ public class AssignCasesController implements Initializable {
         labelStudentName.setText(clickedUser.getFullName());
     }
 
-    void setUpTableViewStudent() throws Exception {
+    void setUpTableViewStudent() throws UserException {
         tcFNameStudent.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tcLNameStudent.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tableViewStudents.getItems().setAll(mainModel.getAllStudents());
     }
-    void setUpTableViewCases() throws Exception {
+    void setUpTableViewCases() throws UserException {
         tcIdCitizen.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcFNameCitizen.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tcLNameCitizen.setCellValueFactory(new PropertyValueFactory<>("lastName"));

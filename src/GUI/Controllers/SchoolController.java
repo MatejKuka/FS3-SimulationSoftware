@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.School;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
 import javafx.event.ActionEvent;
@@ -50,7 +51,7 @@ public class SchoolController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             updateTableView();
-        } catch (Exception e) {
+        } catch (Exception | UserException e) {
             e.printStackTrace();
         }
     }
@@ -63,7 +64,7 @@ public class SchoolController implements Initializable {
     }
 
     @FXML
-    void toDeleteCurSchool(ActionEvent event) throws Exception {
+    void toDeleteCurSchool(ActionEvent event) throws UserException {
         mainModel.deleteSchool(clickedSchool);
         System.out.println("school is about to delete: " + clickedSchool);
     }
@@ -83,7 +84,7 @@ public class SchoolController implements Initializable {
         mainModel.setCurrentSchool(clickedSchool);
     }
 
-    public void updateTableView() throws Exception {
+    public void updateTableView() throws UserException {
         tableViewSchools.getItems().clear();
         tableColName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColCity.setCellValueFactory(new PropertyValueFactory<>("city"));

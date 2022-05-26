@@ -42,7 +42,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toCitizensPage" prefHeight="84.0" prefWidth="160.0" styleClass="btn-primary" text="Citizen templates" textAlignment="CENTER" wrapText="true">
+                  <Button mnemonicParsing="false" onAction="#toCitizensPage" prefHeight="84.0" prefWidth="160.0" styleClass="btn-primary" text="Citizens" textAlignment="CENTER" wrapText="true">
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
@@ -58,7 +58,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toStuAssignPage" prefHeight="37.0" prefWidth="200.0" styleClass="btn-primary" text="Student assignemnts" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#toStuAssignPage" prefHeight="37.0" prefWidth="200.0" styleClass="btn-primary" text="Assignemnts" textAlignment="CENTER">
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>

@@ -3,6 +3,7 @@ package GUI.Controllers;
 ;
 import BE.Citizen;
 import BE.School;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,12 +33,12 @@ public class CreateCitizenController implements Initializable {
         try {
             mainModel = new MainModel();
             schoolList = mainModel.getAllSchools();
-        } catch (Exception e) {
+        } catch (Exception | UserException e) {
             e.printStackTrace();
         }
     }
 
-    public void handleSaveButton(ActionEvent event) throws Exception {
+    public void handleSaveButton(ActionEvent event) throws UserException {
         if (firstNameTextField.getText().equals("") || lastNameTextField.getText().equals("")) {
             if (firstNameTextField.getText().equals("")) firstNameTextField.getStyleClass().add("custom-text-field-error");
             if (lastNameTextField.getText().equals("")) lastNameTextField.getStyleClass().add("custom-text-field-error");

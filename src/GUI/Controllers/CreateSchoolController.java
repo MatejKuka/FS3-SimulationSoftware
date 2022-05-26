@@ -1,5 +1,6 @@
 package GUI.Controllers;
 
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.fxml.Initializable;
 
@@ -51,7 +52,7 @@ public class CreateSchoolController implements Initializable {
     }
 
     @FXML
-    void toCreateNewSchool(ActionEvent event) throws Exception {
+    void toCreateNewSchool(ActionEvent event) throws UserException {
         if (!txtFieldName.getText().isEmpty() && !txtFieldCity.getText().isEmpty()){
             mainModel.createSchool(txtFieldName.getText(), txtFieldCity.getText());
             System.out.println("Created new school");

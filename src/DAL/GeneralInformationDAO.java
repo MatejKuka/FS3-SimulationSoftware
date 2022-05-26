@@ -2,6 +2,7 @@ package DAL;
 
 import BE.GeneralInfo;
 import BE.School;
+import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 
@@ -28,7 +29,7 @@ public class GeneralInformationDAO {
                                         String assistiveDevices,
                                         String interiorOfDwelling,
                                         String network,
-                                         int citizenId) throws Exception {
+                                         int citizenId) throws UserException {
         GeneralInfo generalInfo = null;
         int id = 0;
         String query = "INSERT INTO General_Information VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -59,11 +60,13 @@ public class GeneralInformationDAO {
                                               educationJob, lifeStory, healthInfo, assistiveDevices,
                                               interiorOfDwelling, network, citizenId);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to create general info", e);
         }
         return generalInfo;
     }
 
-    public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
+    public void updateGeneralInfo(GeneralInfo generalInfo) throws UserException {
         String query =  "UPDATE General_Information SET Mastery = ?, Motivation = ?, Ressources = ?, Roller = ?, " +
                         "Habits = ?, EducationJob = ?, LifeStory = ?, HealthInfo = ?, AssistiveDevices = ?," +
                         " InteriorOfDwelling = ?, Networ = ? WHERE Id = ?";
@@ -83,10 +86,12 @@ public class GeneralInformationDAO {
             preparedStatement.setInt(12, generalInfo.getId());
 
             preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            throw new UserException("Not able to update general info", e);
         }
     }
 
-    public List<GeneralInfo> getAllGeneralInfo() throws Exception {
+    public List<GeneralInfo> getAllGeneralInfo() throws UserException {
         List<GeneralInfo> generalInfoArrayList = new ArrayList<>();
         String query = "SELECT * FROM General_Information";
         try (Connection connection = dbConnector.getConnection()){
@@ -114,11 +119,13 @@ public class GeneralInformationDAO {
                         interiorOfDwelling, network, citizenId);
                 generalInfoArrayList.add(generalInfo);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to get all general info", e);
         }
         return generalInfoArrayList;
     }
 
-    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
+    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws UserException {
         GeneralInfo generalInfo = null;
         String query =  "SELECT * FROM General_Information WHERE Id = ?";
 
@@ -149,6 +156,8 @@ public class GeneralInformationDAO {
                             interiorOfDwelling, network, citizenId);
                 System.out.println(generalInfo);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to get general info", e);
         }
         return generalInfo;
     }

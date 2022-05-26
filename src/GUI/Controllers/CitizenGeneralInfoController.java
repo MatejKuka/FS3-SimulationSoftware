@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.Citizen;
 import BE.GeneralInfo;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,7 +44,7 @@ public class CitizenGeneralInfoController implements Initializable {
     private boolean isCreated = false;
     private Citizen citizen;
 
-    public void getCitizen(Citizen citizen) throws Exception {
+    public void getCitizen(Citizen citizen) throws UserException {
         mainModel.getAllGeneralInfo().forEach(generalInfo1 -> {
             if (citizen.getId() == generalInfo1.getCitizen()) {
                 isCreated = true;
@@ -181,7 +182,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), textArea.getText(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -190,7 +191,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), textArea.getText(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -199,7 +200,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), textArea.getText(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -208,7 +209,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), textArea.getText(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -217,7 +218,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), textArea.getText(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -226,7 +227,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), textArea.getText(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -235,7 +236,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), textArea.getText(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -244,7 +245,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), textArea.getText(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -253,7 +254,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), textArea.getText(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -262,7 +263,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), textArea.getText(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -271,7 +272,7 @@ public class CitizenGeneralInfoController implements Initializable {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), textArea.getText(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
-                    } catch (Exception e) {
+                    } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -288,7 +289,7 @@ public class CitizenGeneralInfoController implements Initializable {
         setupCancelButton(editButton);
     }
 
-    private void handleSaveButtonSave(GeneralInfo generalInfo) throws Exception {
+    private void handleSaveButtonSave(GeneralInfo generalInfo) throws UserException {
         mainModel.updateGeneralInfo(generalInfo);
         this.generalInfo = generalInfo;
     }

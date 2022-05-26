@@ -2,6 +2,7 @@ package DAL;
 
 import BE.CitizensAssessment;
 import BE.HealthConditions;
+import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
 
 import java.io.IOException;
@@ -20,7 +21,7 @@ public class CitizensAssessmentDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public List<CitizensAssessment> getCitizenAssessment(int idCitizen) throws Exception {
+    public List<CitizensAssessment> getCitizenAssessment(int idCitizen) throws UserException {
         List<CitizensAssessment> citizensAssessmentList = new ArrayList<>();
         CitizensAssessment citizensAssessment = null;
         String query =  "SELECT * FROM Citizens_Assessment WHERE Citizen = ?";
@@ -44,11 +45,13 @@ public class CitizensAssessmentDAO {
                 citizensAssessment = new CitizensAssessment(id,  performance, importance, citizWishes, follUpDate, observNote, functionalityType, citizen);
                 citizensAssessmentList.add(citizensAssessment);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to get citizen assessment", e);
         }
         return citizensAssessmentList;
     }
 
-    public void updateCitizenAssessment(CitizensAssessment citizensAssessment) throws Exception {
+    public void updateCitizenAssessment(CitizensAssessment citizensAssessment) throws UserException {
         String query =  "UPDATE Citizens_Assessment SET Performance = ?, Importance = ?, CitizWishes = ?, FollUpDate = ?, " +
                         "ObservNote = ?  WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()){
@@ -61,6 +64,8 @@ public class CitizensAssessmentDAO {
             preparedStatement.setInt(6, citizensAssessment.getId());
 
             preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            throw new UserException("Not able to update citizen assessment", e);
         }
     }
 
@@ -70,7 +75,7 @@ public class CitizensAssessmentDAO {
                                                        String follUpDate,
                                                        String observNote,
                                                        int functionalityType,
-                                                       int citizen) throws Exception {
+                                                       int citizen) throws UserException {
         CitizensAssessment citizensAssessment = null;
         int id = 0;
         String query = "INSERT INTO Citizens_Assessment VALUES(?, ?, ?, ?, ?, ?, ?)";
@@ -95,6 +100,8 @@ public class CitizensAssessmentDAO {
                 citizensAssessment = new CitizensAssessment(id, performance,importance, citizWishes,
                         follUpDate, observNote, functionalityType, citizen);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to create citizen assessment", e);
         }
         return citizensAssessment;
     }

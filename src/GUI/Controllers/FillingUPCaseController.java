@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 public class FillingUPCaseController implements Initializable {
 
     MainModel mainModel;
+    HealthConditions healthConditions;
 
     @FXML
     private Button btnCancel;
@@ -92,6 +93,8 @@ public class FillingUPCaseController implements Initializable {
 
     @FXML
     void toSave(ActionEvent event) {
+        HealthConditions healthConditionsUpdated = new HealthConditions(healthConditions.getId(), setComboBoxSave(),
+                textAreaProfNote, textAreaCurrAss, setComboBoxExpLevel(), datePickerFollDate.getValue(), textAreaObsNotes, );
 
     }
 
@@ -113,7 +116,7 @@ public class FillingUPCaseController implements Initializable {
     }
 
     private void setUpNodes(int numberOfIndex) throws Exception {
-        HealthConditions healthConditions = mainModel.getHealthCondition(mainModel.getChosenCitizenFillUp().getId()).get(numberOfIndex);
+        healthConditions = mainModel.getHealthCondition(mainModel.getChosenCitizenFillUp().getId()).get(numberOfIndex);
         textAreaProfNote.setText(healthConditions.getProfessNote());
         textAreaCurrAss.setText(healthConditions.getCurrAssess());
         textAreaObsNotes.setText(healthConditions.getObservNote());

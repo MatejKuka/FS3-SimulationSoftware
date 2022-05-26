@@ -174,6 +174,11 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public CitizensAssessment createCitizensAssessment(String performance, String importance, String citizWishes, String follUpDate, String observNote, int functionalityType, int citizen) throws Exception {
+        return facadeDAL.createCitizensAssessment(performance, importance, citizWishes, follUpDate, observNote, functionalityType, citizen);
+    }
+
+    @Override
     public int returnUsersSchoolID(User user) throws Exception {
         return facadeDAL.returnUsersSchoolID(user);
     }

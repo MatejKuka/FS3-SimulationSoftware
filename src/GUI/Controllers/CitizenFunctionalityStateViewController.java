@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.Citizen;
+import BE.CitizensAssessment;
 import BE.FunctionalityState;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
@@ -24,13 +25,14 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     @FXML
     private Label label, label1;
     @FXML
-    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11, container12;
+    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11,  container12;
     final ComboBox<String> currentBox = new ComboBox<>();
     final ComboBox<String> expectedBox = new ComboBox<>();
     final ComboBox<String> performanceBox = new ComboBox<>();
     final ComboBox<String> importanceBox = new ComboBox<>();
     final ComboBox<String> citizenWishesBox = new ComboBox<>();
     final ComboBox<String> relevantBox = new ComboBox<>();
+    final ComboBox<String> saveAsComboBox = new ComboBox<>();
 
     final TextArea professionalArea = new TextArea();
     final TextArea observationalArea = new TextArea();
@@ -46,7 +48,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private Label citizenWishesData = new Label(placeholder);
     private Label followUpDateData = new Label(placeholder);
     private Label observationalNotes = new Label(placeholder);
-    private Label relevantData = new Label(placeholder);
     private MainModel mainModel;
 
 
@@ -54,24 +55,39 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     private CitizensEditController citizensEditController;
     List<FunctionalityState> functionalityStateList;
+    List<CitizensAssessment> citizensAssessmentList;
+
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
     private boolean isFunctionalityStateCreated = false;
+    private boolean isCitizenAssessmentCreated = false;
 
     public void getCitizen(Citizen citizen) throws Exception {
         functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
+        citizensAssessmentList = mainModel.getCitizenAssessmentsById(citizen.getId());
+
         int integerPlaceholder = 4;
         String stringPlaceholder = "Lorem ipsum";
         int[] functionalityTypes = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        System.out.println(mainModel.getCitizenAssessmentsById(citizen.getId()));
+
         if (functionalityStateList.size() != 0) {
             isFunctionalityStateCreated = true;
         }
+        if (citizensAssessmentList.size() != 0) {
+            isCitizenAssessmentCreated = false;
+        }
+
         if (!isFunctionalityStateCreated) {
             for (int functionalityType :
                     functionalityTypes) {
                 functionalityStateList.add(mainModel.createFunctionalityState(integerPlaceholder, integerPlaceholder, stringPlaceholder, stringPlaceholder, functionalityType, citizen.getId()));
+            }
+        }
+        if (!isCitizenAssessmentCreated) {
+            for (int functionalityType :
+                    functionalityTypes) {
+                citizensAssessmentList.add(mainModel.createCitizensAssessments(stringPlaceholder, stringPlaceholder, stringPlaceholder, stringPlaceholder,stringPlaceholder, functionalityType, citizen.getId()));
             }
         }
     }
@@ -79,7 +95,8 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         editButton = new Button("Edit");
-        editButton.setDisable(true); //TODO -> Zrobic a potom vymazat
+        editButton.getStyleClass().addAll("btn-action", "padding");
+//        editButton.setDisable(true); //TODO -> Zrobic a potom vymazat
         saveButton = new Button("Save");
         cancelButton = new Button("Cancel");
         try {
@@ -126,15 +143,25 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
     public void handleNewView(String labelName, int functionalityType) {
-        List<FunctionalityState> filteredList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
-        FunctionalityState functionalityStateData = filteredList.get(0);
-        System.out.println(functionalityStateData);
+        List<FunctionalityState> filteredFunctionalityStateList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
+        FunctionalityState functionalityStateData = filteredFunctionalityStateList.get(0);
+
+        List<CitizensAssessment> filteredCitizensAssessmentList = citizensAssessmentList.stream().filter(citizensAssessment -> citizensAssessment.getFunctionalityType() == functionalityType).collect(Collectors.toList());
+        CitizensAssessment citizensAssessmentData = filteredCitizensAssessmentList.get(0);
+
         label.setText(labelName);
         setInitView();
+
         currentLevelData.setText(String.valueOf(functionalityStateData.getCurrLvl()));
         expectedLevelData.setText(String.valueOf(functionalityStateData.getExpectedLvl()));
         professionalNoteData.setText(functionalityStateData.getProfessNote());
         saveAsData.setText(functionalityStateData.getProfessNote());
+
+        performanceData.setText(citizensAssessmentData.getPerformance());
+        importanceData.setText(citizensAssessmentData.getImportance());
+        citizenWishesData.setText(citizensAssessmentData.getCitizWishes());
+        followUpDateData.setText(citizensAssessmentData.getFollUpDate());
+        observationalNotes.setText(citizensAssessmentData.getObservNote());
 
         editButton.setOnAction(evt -> {
             setupEditFields();
@@ -170,18 +197,19 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
         container1.getChildren().set(1, currentBox);
         container2.getChildren().set(1, expectedBox);
-        container5.getChildren().set(1, performanceBox);
-        container6.getChildren().set(1, importanceBox);
-        container7.getChildren().set(1, citizenWishesBox);
-        container10.getChildren().set(1, relevantBox);
-        container8.getChildren().set(1, datePicker);
+//        container5.getChildren().set(1, performanceBox);
+//        container6.getChildren().set(1, importanceBox);
+//        container7.getChildren().set(1, citizenWishesBox);
+//        container10.getChildren().set(1, relevantBox);
+//        container8.getChildren().set(1, datePicker);
         container3.getChildren().set(1, professionalArea);
-        container9.getChildren().set(1, observationalArea);
+        container4.getChildren().set(1, saveAsComboBox);
+//        container9.getChildren().set(1, observationalArea);
 
         clearButtons();
 
-        container11.getChildren().add(saveButton);
-        container11.getChildren().add(cancelButton);
+        container12.getChildren().add(saveButton);
+        container12.getChildren().add(cancelButton);
     }
 
     private void clearMainView() {
@@ -198,11 +226,11 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         mainView.getChildren().add(container3);
         mainView.getChildren().add(container4);
         mainView.getChildren().add(container5);
+        mainView.getChildren().add(container6);
         mainView.getChildren().add(container7);
         mainView.getChildren().add(container8);
         mainView.getChildren().add(container9);
         mainView.getChildren().add(container10);
-        mainView.getChildren().add(container11);
         mainView.getChildren().add(container12);
 
         container1.setSpacing(spacing);
@@ -215,7 +243,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container8.setSpacing(spacing);
         container9.setSpacing(spacing);
         container10.setSpacing(spacing);
-        container11.setSpacing(spacing);
+
         container12.setSpacing(spacing);
     }
 
@@ -230,7 +258,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container8.getChildren().clear();
         container9.getChildren().clear();
         container10.getChildren().clear();
-        container11.getChildren().clear();
         clearButtons();
     }
 
@@ -264,9 +291,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
         container10.getChildren().add(createLabel("Observational notes:"));
         container10.getChildren().add(observationalNotes);
-
-        container11.getChildren().add(createLabel("Relevant:"));
-        container11.getChildren().add(relevantData);
 
         container12.getChildren().add(editButton);
     }

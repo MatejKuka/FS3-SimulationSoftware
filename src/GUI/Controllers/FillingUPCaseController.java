@@ -91,12 +91,12 @@ public class FillingUPCaseController implements Initializable {
 
     }
 
-    @FXML
-    void toSave(ActionEvent event) {
-        HealthConditions healthConditionsUpdated = new HealthConditions(healthConditions.getId(), setComboBoxSave(),
-                textAreaProfNote, textAreaCurrAss, setComboBoxExpLevel(), datePickerFollDate.getValue(), textAreaObsNotes, );
-
-    }
+//    @FXML
+//    void toSave(ActionEvent event) {
+//        HealthConditions healthConditionsUpdated = new HealthConditions(healthConditions.getId(), setComboBoxSave(),
+//                textAreaProfNote, textAreaCurrAss, setComboBoxExpLevel(), datePickerFollDate.getValue(), textAreaObsNotes);
+//
+//    }
 
     private String getTextComboBoxSave(int indexC) {
         String output = "Active";

@@ -46,6 +46,8 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     private Button editButton, saveButton, cancelButton;
 
+    FunctionalityState functionalityState = new FunctionalityState(1, 3, 2, "In good shape", "23/5/2022", 4, 22);
+
     private CitizensEditController citizensEditController;
 
     public void setCitizensEditController(CitizensEditController citizensEditController) {
@@ -61,7 +63,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     }
 
-    private void setInitSelfCare() {
+    private void setInitView() {
         clearMainView();
         container1.getChildren().add(createLabel("Current level:"));
         container1.getChildren().add(currentLevelData);
@@ -96,19 +98,19 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
     public void handleSelfCare(ActionEvent event) {
-//        public FunctionalityState(int id, int currLvl, int expectedLvl, String professNote, String follUpDate, int functionalityType, int citizen) {
+        handleNewView("Self Care", 1);
+    }
 
-        FunctionalityState functionalityState = new FunctionalityState(1, 3, 2, "In good shape", "23/5/2022", 4, 22);
+    public void handleNewView(String labelName, int functionalityType) {
+        label.setText(labelName);
+        setInitView();
         currentLevelData.setText(String.valueOf(functionalityState.getCurrLvl()));
         expectedLevelData.setText(String.valueOf(functionalityState.getExpectedLvl()));
         professionalNoteData.setText(functionalityState.getProfessNote());
-//        followUpDateData.setText(functionalityState.getFollUpDate());
 
         editButton = new Button("Edit");
         saveButton = new Button("Save");
         cancelButton = new Button("Cancel");
-
-        setInitSelfCare();
 
         editButton.setOnAction(evt -> {
             setupSelfCareEditFields();
@@ -117,22 +119,19 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         cancelButton.setOnAction(evt -> {
             clearButtons();
             clearMainView();
-            setInitSelfCare();
+            setInitView();
         });
 
         saveButton.setOnAction(evt -> {
             String formattedDate = datePicker.getValue().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
             FunctionalityState newFunctionalityState = new FunctionalityState(2, Integer.parseInt(currentBox.getValue()), Integer.parseInt(expectedBox.getValue()), professionalArea.getText(), formattedDate, 5, 22);
-
-
             currentLevelData.setText(String.valueOf(newFunctionalityState.getCurrLvl()));
             expectedLevelData.setText(String.valueOf(newFunctionalityState.getExpectedLvl()));
             professionalNoteData.setText(newFunctionalityState.getProfessNote());
-//            followUpDateData.setText(newFunctionalityState.getFollUpDate());
-
-            setInitSelfCare();
+            setInitView();
         });
     }
+
 
     public void handleDrinking(ActionEvent event) {
     }

@@ -303,4 +303,8 @@ public class MainModel {
     public List<CitizensAssessment> getCitizenAssessmentsById(int id) throws Exception {
         return manager.getCitizenAssessmentById(id);
     }
+
+    public CitizensAssessment createCitizensAssessments(String performance, String importance, String citizWishes, String follUpDate, String observNote, int functionalityType, int citizen) throws Exception {
+        return manager.createCitizensAssessment(performance, importance, citizWishes, follUpDate, observNote, functionalityType, citizen);
+    }
 }

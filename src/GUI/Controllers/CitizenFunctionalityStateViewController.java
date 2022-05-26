@@ -25,7 +25,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     @FXML
     private Label label, label1;
     @FXML
-    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11, container12;
+    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container12;
     final ComboBox<String> currentBox = new ComboBox<>();
     final ComboBox<String> expectedBox = new ComboBox<>();
     final ComboBox<String> performanceBox = new ComboBox<>();
@@ -47,7 +47,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private Label citizenWishesData = new Label(placeholder);
     private Label followUpDateData = new Label(placeholder);
     private Label observationalNotes = new Label(placeholder);
-    private Label relevantData = new Label(placeholder);
     private MainModel mainModel;
 
 
@@ -87,7 +86,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         if (!isCitizenAssessmentCreated) {
             for (int functionalityType :
                     functionalityTypes) {
-                citizensAssessmentList.add(mainModel.cre)
+                citizensAssessmentList.add(mainModel.createCitizensAssessments(stringPlaceholder, stringPlaceholder, stringPlaceholder, stringPlaceholder,stringPlaceholder, functionalityType, citizen.getId()));
             }
         }
     }
@@ -95,6 +94,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         editButton = new Button("Edit");
+        editButton.getStyleClass().addAll("btn-action", "padding");
         editButton.setDisable(true); //TODO -> Zrobic a potom vymazat
         saveButton = new Button("Save");
         cancelButton = new Button("Cancel");
@@ -205,8 +205,8 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
         clearButtons();
 
-        container11.getChildren().add(saveButton);
-        container11.getChildren().add(cancelButton);
+        container12.getChildren().add(saveButton);
+        container12.getChildren().add(cancelButton);
     }
 
     private void clearMainView() {
@@ -227,7 +227,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         mainView.getChildren().add(container8);
         mainView.getChildren().add(container9);
         mainView.getChildren().add(container10);
-        mainView.getChildren().add(container11);
         mainView.getChildren().add(container12);
 
         container1.setSpacing(spacing);
@@ -240,7 +239,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container8.setSpacing(spacing);
         container9.setSpacing(spacing);
         container10.setSpacing(spacing);
-        container11.setSpacing(spacing);
         container12.setSpacing(spacing);
     }
 
@@ -255,7 +253,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container8.getChildren().clear();
         container9.getChildren().clear();
         container10.getChildren().clear();
-        container11.getChildren().clear();
         clearButtons();
     }
 
@@ -289,9 +286,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
         container10.getChildren().add(createLabel("Observational notes:"));
         container10.getChildren().add(observationalNotes);
-
-        container11.getChildren().add(createLabel("Relevant:"));
-        container11.getChildren().add(relevantData);
 
         container12.getChildren().add(editButton);
     }

@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.List;
@@ -149,16 +150,15 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         handleNewView("Emotional Functions", 9);
     }
 
-    List<FunctionalityState> filteredFunctionalityStateList;
-
     private FunctionalityState functionalityStateData;
+    private CitizensAssessment citizensAssessmentData;
 
     public void handleNewView(String labelName, int functionalityType) {
-        filteredFunctionalityStateList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
+        List<FunctionalityState> filteredFunctionalityStateList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
         functionalityStateData = filteredFunctionalityStateList.get(0);
 
         List<CitizensAssessment> filteredCitizensAssessmentList = citizensAssessmentList.stream().filter(citizensAssessment -> citizensAssessment.getFunctionalityType() == functionalityType).collect(Collectors.toList());
-        CitizensAssessment citizensAssessmentData = filteredCitizensAssessmentList.get(0);
+        citizensAssessmentData = filteredCitizensAssessmentList.get(0);
 
         label.setText(labelName);
         setInitView();
@@ -185,15 +185,26 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         });
 
         saveButton.setOnAction(evt -> {
-//            String formattedDate = datePicker.getValue().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
+            String formattedDate = datePicker.getValue().format(DateTimeFormatter.ofPattern("dd-M-yyyy"));
             FunctionalityState newFunctionalityState = new FunctionalityState(functionalityStateData.getId(), Integer.parseInt(currentBox.getValue()), Integer.parseInt(expectedBox.getValue()), professionalArea.getText(), saveAsComboBox.getValue(), functionalityType, citizen.getId());
+            CitizensAssessment newCitizensAssessment = new CitizensAssessment(citizensAssessmentData.getId(), performanceBox.getValue(), importanceBox.getValue(), citizenWishesBox.getValue(), formattedDate, observationalArea.getText(), functionalityType, citizen.getId());
             try {
                 mainModel.updateFunctionalityState(newFunctionalityState);
-                functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
+                mainModel.updateCitizensAssessment(newCitizensAssessment);
+
+                citizensAssessmentList = mainModel.getCitizenAssessmentsById(citizen.getId());
+
                 currentLevelData.setText(String.valueOf(newFunctionalityState.getCurrLvl()));
                 expectedLevelData.setText(String.valueOf(newFunctionalityState.getExpectedLvl()));
                 professionalNoteData.setText(newFunctionalityState.getProfessNote());
                 saveAsData.setText(newFunctionalityState.getSaveAs());
+                functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
+                performanceData.setText(newCitizensAssessment.getPerformance());
+                importanceData.setText(newCitizensAssessment.getImportance());
+                citizenWishesData.setText(newCitizensAssessment.getCitizWishes());
+                observationalNotes.setText(newCitizensAssessment.getObservNote());
+
+
             } catch (Exception | UserException e) {
                 e.printStackTrace();
             }
@@ -222,6 +233,18 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         professionalArea.setMinHeight(200);
 
         currentBox.setValue(String.valueOf(functionalityStateData.getCurrLvl()));
+        expectedBox.setValue(String.valueOf(functionalityStateData.getExpectedLvl()));
+        professionalArea.setText(functionalityStateData.getProfessNote());
+        saveAsComboBox.setValue(functionalityStateData.getSaveAs());
+
+        performanceBox.setValue(citizensAssessmentData.getPerformance());
+        importanceBox.setValue(citizensAssessmentData.getImportance());
+        citizenWishesBox.setValue(citizensAssessmentData.getCitizWishes());
+        datePicker.setEditable(false);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-M-yyyy");
+        LocalDate localDate = LocalDate.parse(citizensAssessmentData.getFollUpDate(), formatter);
+        datePicker.setValue(localDate);
+        observationalArea.setText(citizensAssessmentData.getObservNote());
 
         container1.getChildren().set(1, currentBox);
         container2.getChildren().set(1, expectedBox);

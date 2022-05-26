@@ -56,7 +56,7 @@
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleEmotionalFunctions" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Emotional Functions">
+                        <Button mnemonicParsing="false" onAction="#handleEmotionalFunctions" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Emotional Functions" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
@@ -78,17 +78,21 @@
                         <HBox fx:id="container2" prefWidth="200.0" />
                         <HBox fx:id="container3" prefWidth="200.0" />
                         <HBox fx:id="container4" />
-                        <Label fx:id="label1" styleClass="text-decorated" text="Citizen's assesment">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                        </Label>
-                        <HBox fx:id="container5" prefWidth="200.0" />
+                        <HBox fx:id="container5">
+                           <children>
+                              <Label fx:id="label1" styleClass="text-decorated" text="Citizen's assesment">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                         <HBox fx:id="container6" prefWidth="200.0" />
                         <HBox fx:id="container7" prefWidth="200.0" />
                         <HBox fx:id="container8" prefWidth="200.0" />
                         <HBox fx:id="container9" prefWidth="200.0" />
                         <HBox fx:id="container10" prefWidth="200.0" />
+                        <HBox fx:id="container11" prefWidth="200.0" />
                         <HBox fx:id="container12" prefWidth="200.0" />
                      </children>
                       </VBox>

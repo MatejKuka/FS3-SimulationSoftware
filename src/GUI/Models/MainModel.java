@@ -305,6 +305,10 @@ public class MainModel {
         manager.updateFunctionalityState(functionalityState);
     }
 
+    public void updateCitizensAssessment(CitizensAssessment citizensAssessment) throws UserException {
+        manager.updateCitizensAssessment(citizensAssessment);
+    }
+
     public List<CitizensAssessment> getCitizenAssessmentsById(int id) throws UserException {
         return manager.getCitizenAssessmentById(id);
     }

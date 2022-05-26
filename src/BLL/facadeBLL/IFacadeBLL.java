@@ -63,6 +63,7 @@ public interface IFacadeBLL {
 
     List<CitizensAssessment> getCitizenAssessmentById(int id) throws UserException;
     CitizensAssessment createCitizensAssessment(String performance, String importance, String citizWishes, String follUpDate, String observNote, int functionalityType, int citizen) throws UserException;
+    void updateCitizensAssessment(CitizensAssessment citizensAssessment) throws UserException;
 
     FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String saveAs, int functionalityType, int citizen) throws UserException;
 

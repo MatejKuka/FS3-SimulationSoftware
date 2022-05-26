@@ -20,7 +20,7 @@
          <children>
             <VBox>
                <children>
-                  <Label text="Citizens">
+                  <Label styleClass="text-decorated" text="Citizens">
                      <font>
                         <Font name="System Bold" size="26.0" />
                      </font>

@@ -25,6 +25,7 @@ public class CitizensEditController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
     }
 
     public void getCitizen(Citizen citizen) {
@@ -38,7 +39,6 @@ public class CitizensEditController implements Initializable {
         CitizenBasicInfoController citizenBasicInfoController = loader.getController();
         citizenBasicInfoController.setCitizensEditController(this);
         citizenBasicInfoController.getCitizen(citizen);
-
         borderPaneContent.setCenter(root);
     }
 

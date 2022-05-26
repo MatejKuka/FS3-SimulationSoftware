@@ -25,7 +25,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     @FXML
     private Label label, label1;
     @FXML
-    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container12;
+    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11,  container12;
     final ComboBox<String> currentBox = new ComboBox<>();
     final ComboBox<String> expectedBox = new ComboBox<>();
     final ComboBox<String> performanceBox = new ComboBox<>();
@@ -157,6 +157,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         professionalNoteData.setText(functionalityStateData.getProfessNote());
         saveAsData.setText(functionalityStateData.getProfessNote());
 
+        performanceData.setText(citizensAssessmentData.getPerformance());
         importanceData.setText(citizensAssessmentData.getImportance());
         citizenWishesData.setText(citizensAssessmentData.getCitizWishes());
         followUpDateData.setText(citizensAssessmentData.getFollUpDate());
@@ -225,6 +226,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         mainView.getChildren().add(container3);
         mainView.getChildren().add(container4);
         mainView.getChildren().add(container5);
+        mainView.getChildren().add(container6);
         mainView.getChildren().add(container7);
         mainView.getChildren().add(container8);
         mainView.getChildren().add(container9);
@@ -241,6 +243,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container8.setSpacing(spacing);
         container9.setSpacing(spacing);
         container10.setSpacing(spacing);
+
         container12.setSpacing(spacing);
     }
 

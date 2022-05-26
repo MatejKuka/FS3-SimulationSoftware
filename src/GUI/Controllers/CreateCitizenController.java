@@ -43,11 +43,11 @@ public class CreateCitizenController implements Initializable {
             if (lastNameTextField.getText().equals("")) lastNameTextField.getStyleClass().add("custom-text-field-error");
         } else {
             Citizen citizenNew = mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), mainModel.getCurrentSchoolId());
-            String initialStringHC = "empty";
-            for (int i = 0; i < 43; i++) {
-                mainModel.createHealthCondition(initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, i, citizenNew.getId());
-            }
-            // TODO Test this
+//            String initialStringHC = "empty";
+//            for (int i = 0; i < 43; i++) {
+//                mainModel.createHealthCondition(initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, i, citizenNew.getId());
+//            }
+//            // TODO Test this
             Stage stage = (Stage) saveButton.getScene().getWindow();
             stage.close();
         }

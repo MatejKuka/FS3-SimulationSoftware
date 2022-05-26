@@ -25,7 +25,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private Label label, label1;
     @FXML
     private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11, container12;
-
     final ComboBox<String> currentBox = new ComboBox<>();
     final ComboBox<String> expectedBox = new ComboBox<>();
     final ComboBox<String> performanceBox = new ComboBox<>();
@@ -49,7 +48,8 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private Label observationalNotes = new Label(placeholder);
     private Label relevantData = new Label(placeholder);
     private MainModel mainModel;
-    
+
+
     private Button editButton, saveButton, cancelButton;
 
     private CitizensEditController citizensEditController;

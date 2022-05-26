@@ -77,12 +77,12 @@
                         <HBox fx:id="container1" prefWidth="200.0" />
                         <HBox fx:id="container2" prefWidth="200.0" />
                         <HBox fx:id="container3" prefWidth="200.0" />
+                        <HBox fx:id="container4" />
                         <Label fx:id="label1" styleClass="text-decorated" text="Citizen's assesment">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
-                        <HBox fx:id="container4" prefWidth="200.0" />
                         <HBox fx:id="container5" prefWidth="200.0" />
                         <HBox fx:id="container6" prefWidth="200.0" />
                         <HBox fx:id="container7" prefWidth="200.0" />
@@ -90,6 +90,7 @@
                         <HBox fx:id="container9" prefWidth="200.0" />
                         <HBox fx:id="container10" prefWidth="200.0" />
                         <HBox fx:id="container11" prefWidth="200.0" />
+                        <HBox fx:id="container12" prefWidth="200.0" />
                      </children>
                       </VBox>
                </content>

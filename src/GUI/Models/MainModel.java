@@ -301,15 +301,15 @@ public class MainModel {
         return manager.createFunctionalityState(currLvl, expectedLvl, professNote, saveAs, functionalityType, citizen);
     }
 
-    public void updateFunctionalityState(FunctionalityState functionalityState) throws Exception {
+    public void updateFunctionalityState(FunctionalityState functionalityState) throws UserException {
         manager.updateFunctionalityState(functionalityState);
     }
 
-    public List<CitizensAssessment> getCitizenAssessmentsById(int id) throws Exception {
+    public List<CitizensAssessment> getCitizenAssessmentsById(int id) throws UserException {
         return manager.getCitizenAssessmentById(id);
     }
 
-    public CitizensAssessment createCitizensAssessments(String performance, String importance, String citizWishes, String follUpDate, String observNote, int functionalityType, int citizen) throws Exception {
+    public CitizensAssessment createCitizensAssessments(String performance, String importance, String citizWishes, String follUpDate, String observNote, int functionalityType, int citizen) throws UserException {
         return manager.createCitizensAssessment(performance, importance, citizWishes, follUpDate, observNote, functionalityType, citizen);
     }
 }

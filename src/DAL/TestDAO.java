@@ -5,7 +5,7 @@ import BE.*;
 public class TestDAO {
     public static void main(String[] args) throws Exception {
 
-//        SchoolDAO schoolDAO = new SchoolDAO();
+        SchoolDAO schoolDAO = new SchoolDAO();
 
 //        School school = new School(1,"Test", "Zvolen");
 

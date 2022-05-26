@@ -59,13 +59,11 @@ public interface IFacadeBLL {
     HealthConditions createHealthCondition(String SaveAs, String ProfessNote, String CurrAssess, String ExpectedLvl,
                                            String FollUpDate, String ObservNote, int TypeOfCase, int Citizen) throws UserException;
 
-<<<<<<< Updated upstream
-    FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String saveAs, int functionalityType, int citizen) throws Exception;
-    void updateFunctionalityState(FunctionalityState functionalityState) throws Exception;
+    void updateFunctionalityState(FunctionalityState functionalityState) throws UserException;
 
-    List<CitizensAssessment> getCitizenAssessmentById(int id) throws Exception;
-    CitizensAssessment createCitizensAssessment(String performance, String importance, String citizWishes, String follUpDate, String observNote, int functionalityType, int citizen) throws Exception;
-=======
+    List<CitizensAssessment> getCitizenAssessmentById(int id) throws UserException;
+    CitizensAssessment createCitizensAssessment(String performance, String importance, String citizWishes, String follUpDate, String observNote, int functionalityType, int citizen) throws UserException;
+
     FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String saveAs, int functionalityType, int citizen) throws UserException;
->>>>>>> Stashed changes
+
 }

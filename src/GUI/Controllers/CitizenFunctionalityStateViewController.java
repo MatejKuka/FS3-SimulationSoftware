@@ -3,6 +3,7 @@ package GUI.Controllers;
 import BE.Citizen;
 import BE.CitizensAssessment;
 import BE.FunctionalityState;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -66,7 +67,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private boolean isCitizenAssessmentCreated = false;
     private Citizen citizen;
 
-    public void getCitizen(Citizen citizen) throws Exception {
+    public void getCitizen(Citizen citizen) throws UserException {
         this.citizen = citizen;
         functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
         citizensAssessmentList = mainModel.getCitizenAssessmentsById(citizen.getId());
@@ -193,7 +194,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
                 expectedLevelData.setText(String.valueOf(newFunctionalityState.getExpectedLvl()));
                 professionalNoteData.setText(newFunctionalityState.getProfessNote());
                 saveAsData.setText(newFunctionalityState.getSaveAs());
-            } catch (Exception e) {
+            } catch (Exception | UserException e) {
                 e.printStackTrace();
             }
             setInitView();

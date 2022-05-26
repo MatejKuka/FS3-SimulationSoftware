@@ -63,17 +63,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private boolean isCreated = false;
 
     public void getCitizen(Citizen citizen) throws Exception {
-//        mainModel.getAllGeneralInfo().forEach(generalInfo1 -> {
-//            if (citizen.getId() == generalInfo1.getCitizen()) {
-//                isCreated = true;
-//                generalInfo = generalInfo1;
-//            }
-//        });
-//        if (!isCreated) {
-//            String placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget magna nisl. Vivamus hendrerit justo pulvinar orci malesuada tincidunt. Sed vitae porttitor leo, eget pellentesque sapien. Mauris porttitor, orci vel convallis pellentesque, eros turpis ullamcorper nibh, eget eleifend lectus turpis fermentum lorem.";
-//            generalInfo = mainModel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getId());
-//        }
-//        this.citizen = citizen;
         functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
         int integerPlaceholder = 4;
         String stringPlaceholder = "Lorem ipsum";
@@ -82,9 +71,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         if (functionalityStateList.size() != 0) {
             isCreated = true;
         }
-        System.out.println(functionalityStateList);
         if (!isCreated) {
-            System.out.println("test");
             for (int functionalityType :
                     functionalityTypes) {
                 functionalityStateList.add(mainModel.createFunctionalityState(integerPlaceholder, integerPlaceholder, stringPlaceholder, stringPlaceholder, functionalityType, citizen.getId()));
@@ -95,6 +82,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         editButton = new Button("Edit");
+        editButton.setDisable(true); //TODO -> Zrobic a potom vymazat
         saveButton = new Button("Save");
         cancelButton = new Button("Cancel");
         try {

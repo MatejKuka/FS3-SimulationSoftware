@@ -182,6 +182,10 @@ public class MainModel {
 
     }
 
+    public List<FunctionalityState> getFunctionalityStateById(int id) throws Exception {
+        return manager.getCitizenFunctionalityState(id);
+    }
+
     public Citizen setCurrentCitizen(Citizen citizen) {
         clickedCitizen = citizen;
         System.out.println("Current citizen: " + clickedCitizen);

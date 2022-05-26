@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.Citizen;
 import BE.FunctionalityState;
+import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,10 +10,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class CitizenFunctionalityStateViewController implements Initializable {
     @FXML
@@ -41,7 +45,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private Label followUpDateData = new Label(placeholder);
     private Label observationalNotes = new Label(placeholder);
     private Label relevantData = new Label(placeholder);
-
+    private MainModel mainModel;
     @FXML
     private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11;
 
@@ -50,13 +54,24 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     FunctionalityState functionalityState = new FunctionalityState(1, 3, 2, "In good shape", "23/5/2022", 4, 22);
 
     private CitizensEditController citizensEditController;
-
+    List<FunctionalityState> functionalityStateList;
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
 
-    public void getCitizen(Citizen citizen) {
-        System.out.println(citizen);
+    public void getCitizen(Citizen citizen) throws Exception {
+//        mainModel.getAllGeneralInfo().forEach(generalInfo1 -> {
+//            if (citizen.getId() == generalInfo1.getCitizen()) {
+//                isCreated = true;
+//                generalInfo = generalInfo1;
+//            }
+//        });
+//        if (!isCreated) {
+//            String placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget magna nisl. Vivamus hendrerit justo pulvinar orci malesuada tincidunt. Sed vitae porttitor leo, eget pellentesque sapien. Mauris porttitor, orci vel convallis pellentesque, eros turpis ullamcorper nibh, eget eleifend lectus turpis fermentum lorem.";
+//            generalInfo = mainModel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getId());
+//        }
+//        this.citizen = citizen;
+        functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
     }
 
     @Override
@@ -64,6 +79,11 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         editButton = new Button("Edit");
         saveButton = new Button("Save");
         cancelButton = new Button("Cancel");
+        try {
+            mainModel = new MainModel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -105,6 +125,8 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
     public void handleNewView(String labelName, int functionalityType) {
+        functionalityStateList.forEach(functionalityState1 -> System.out.println(functionalityState1.getFunctionalityType()));
+
         label.setText(labelName);
         setInitView();
         currentLevelData.setText(String.valueOf(functionalityState.getCurrLvl()));

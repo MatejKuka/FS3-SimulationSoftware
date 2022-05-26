@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.School;
 import BE.User;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,7 +59,7 @@ public class EditSchoolController implements Initializable {
     }
 
     @FXML
-    void toCreateNewUser(ActionEvent event) throws Exception {
+    void toCreateNewUser(ActionEvent event) throws UserException {
         if (!txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty()) {
             School newSchool = new School(school.getId() , txtFieldFName.getText(), txtFieldLName.getText());
             mainModel.updateSchool(newSchool);

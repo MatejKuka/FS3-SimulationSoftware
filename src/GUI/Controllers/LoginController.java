@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.User;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,7 +42,7 @@ public class LoginController {
 
 
 
-    public void toSubmitLogin(ActionEvent actionEvent) throws Exception{
+    public void toSubmitLogin(ActionEvent actionEvent) throws UserException {
         User user= mainModel.compareLogins(textFieldUsername.getText(), textFieldPassword.getText());
         if(user != null) {
             if (user.getRoleID() == 1) {

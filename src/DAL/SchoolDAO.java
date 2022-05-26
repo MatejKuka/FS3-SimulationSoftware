@@ -1,6 +1,7 @@
 package DAL;
 
 import BE.School;
+import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class SchoolDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public List<School> getAllSchools() throws Exception {
+    public List<School> getAllSchools() throws UserException {
         List<School> allSchools = new ArrayList<>();
         try (Connection connection = dbConnector.getConnection()) {
             String query = "SELECT * FROM School";
@@ -30,11 +31,13 @@ public class SchoolDAO {
                 System.out.println(school);
                 allSchools.add(school);
             }
-            return allSchools;
+        } catch (Exception e) {
+            throw new UserException("Not able to get all schools", e);
         }
+        return allSchools;
     }
 
-    public School createSchool(String name, String city) throws Exception {
+    public School createSchool(String name, String city) throws UserException {
         School school = null;
         int id = 0;
         String query = "INSERT INTO School VALUES(?, ?)";
@@ -53,36 +56,40 @@ public class SchoolDAO {
             if (created != 0){
                 school = new School(id, name, city);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to create school", e);
         }
         return school;
     }
 
     //when deleting school also delete Users, Fictive citizens connections with school,
     //do we need also delete citizens GenInfo, HealthCon, CitizenAss and FunctionState??
-    public void deleteSchool(School school) throws Exception {
+    public void deleteSchool(School school) throws UserException {
         String querySchool = "DELETE FROM School WHERE Id = ?";
+        String querySchoolUsers = "DELETE FROM Users_School WHERE School = ?";
+        String querySchoolCitizens = "DELETE FROM Citizen WHERE School = ?";
+
         try(Connection connection = dbConnector.getConnection()) {
+
+            PreparedStatement preparedStatement1 = connection.prepareStatement(querySchoolUsers);
+            preparedStatement1.setInt(1, school.getId());
+            preparedStatement1.executeUpdate();
+
+            PreparedStatement preparedStatement2 = connection.prepareStatement(querySchoolCitizens);
+            preparedStatement2.setInt(1, school.getId());
+            preparedStatement2.executeUpdate();
+
             PreparedStatement preparedStatement = connection.prepareStatement(querySchool);
             preparedStatement.setInt(1, school.getId());
             preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            throw new UserException("Not able to delete school", e);
         }
 
-        String querySchoolUsers = "DELETE FROM Users_School WHERE School = ?";
-        try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(querySchoolUsers);
-            preparedStatement.setInt(1, school.getId());
-            preparedStatement.executeUpdate();
-        }
-
-        String querySchoolCitizens = "DELETE FROM Citizen WHERE School = ?";
-        try(Connection connection = dbConnector.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(querySchoolCitizens);
-            preparedStatement.setInt(1, school.getId());
-            preparedStatement.executeUpdate();
-        }
     }
 
-    public void updateSchool(School school) throws Exception {
+    public void updateSchool(School school) throws UserException {
         String query =  "UPDATE School SET SchName = ?, City = ? WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -90,10 +97,12 @@ public class SchoolDAO {
             preparedStatement.setString(2, school.getCity());
             preparedStatement.setInt(3, school.getId());
             preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            throw new UserException("Not able to update school info", e);
         }
     }
 
-    public School getSchoolById(int schoolId) throws Exception {
+    public School getSchoolById(int schoolId) throws UserException {
         School school = null;
         String query = "SELECT * FROM School WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()){
@@ -109,6 +118,8 @@ public class SchoolDAO {
 
                 school = new School(id, schName, city);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to find school by ID", e);
         }
         return school;
     }

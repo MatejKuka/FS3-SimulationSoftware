@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.Citizen;
+import BLL.exeptions.UserException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +33,7 @@ public class CitizensEditController implements Initializable {
         this.citizen = citizen;
     }
 
-    public void handleBasicInformation(ActionEvent event) throws Exception {
+    public void handleBasicInformation(ActionEvent event) throws UserException, IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenBasicInfoView.fxml"));
         Parent root = loader.load();
@@ -42,7 +43,7 @@ public class CitizensEditController implements Initializable {
         borderPaneContent.setCenter(root);
     }
 
-    public void handleGeneralInformation(ActionEvent event) throws Exception {
+    public void handleGeneralInformation(ActionEvent event) throws Exception, UserException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenGeneralInfoView.fxml"));
         Parent root = loader.load();
@@ -52,7 +53,7 @@ public class CitizensEditController implements Initializable {
         borderPaneContent.setCenter(root);
     }
 
-    public void handleFunctionalityState(ActionEvent event) throws Exception {
+    public void handleFunctionalityState(ActionEvent event) throws Exception, UserException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenFunctionalityStateView.fxml"));
         Parent root = loader.load();

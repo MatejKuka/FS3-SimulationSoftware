@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.Citizen;
 import BE.GeneralInfo;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,7 +47,7 @@ public class CitizenBasicInfoController implements Initializable {
 
     private Citizen citizen;
 
-    public void getCitizen(Citizen citizen) throws Exception {
+    public void getCitizen(Citizen citizen) throws UserException {
         Citizen citizen1 = mainModel.getCitizenById(citizen.getId());
         this.citizen = citizen1;
         setupLabels(citizen1);
@@ -120,7 +121,7 @@ public class CitizenBasicInfoController implements Initializable {
             Citizen newCitizen = new Citizen(citizen.getId(), firstNameTextField.getText(), lastNameTextField.getText(), citizen.getSchool());
             try {
                 mainModel.updateCitizen(newCitizen);
-            } catch (Exception e) {
+            } catch (Exception | UserException e) {
                 e.printStackTrace();
             }
             setupInitialView();

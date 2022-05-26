@@ -2,13 +2,11 @@ package DAL;
 
 import BE.GeneralInfo;
 import BE.HealthConditions;
+import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class HealthConditionsDAO {
         dbConnector = DBConnector.getInstance();
     }
 
-    public List<HealthConditions> getHealthCondition(int idCitizen) throws Exception {
+    public List<HealthConditions> getHealthCondition(int idCitizen) throws UserException {
         List<HealthConditions> healthConditionsList = new ArrayList<>();
         HealthConditions healthConditions = null;
         String query =  "SELECT * FROM Health_Condition_Answ WHERE Citizen = ?";
@@ -51,11 +49,13 @@ public class HealthConditionsDAO {
                                                         observNote, typeOfCase, citizen);
                 healthConditionsList.add(healthConditions);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to get health conditions", e);
         }
         return healthConditionsList;
     }
 
-    public void updateHealthConditions(HealthConditions healthConditions) throws Exception {
+    public void updateHealthConditions(HealthConditions healthConditions) throws UserException {
         String query =  "UPDATE Health_Condition_Answ SET SaveAs = ?, ProfessNote = ?, CurrAssess = ?, ExpectedLvl = ?, " +
                         "FollUpDate = ?, ObservNote = ? WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()){
@@ -69,6 +69,8 @@ public class HealthConditionsDAO {
             preparedStatement.setInt(7, healthConditions.getId());
 
             preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            throw new UserException("Not able to update health conditions", e);
         }
     }
 
@@ -79,7 +81,7 @@ public class HealthConditionsDAO {
                                                   String FollUpDate, //date picker
                                                   String ObservNote, // text area
                                                   int TypeOfCase,
-                                                  int Citizen) throws Exception {
+                                                  int Citizen) throws UserException {
         HealthConditions healthConditions = null;
         int id = 0;
         String query = "INSERT INTO Health_Condition_Answ VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
@@ -106,6 +108,8 @@ public class HealthConditionsDAO {
                 healthConditions = new HealthConditions(id, SaveAs,ProfessNote, CurrAssess,
                                                         ExpectedLvl, FollUpDate, ObservNote, TypeOfCase, Citizen);
             }
+        } catch (Exception e) {
+            throw new UserException("Not able to create health conditions", e);
         }
         return healthConditions;
     }

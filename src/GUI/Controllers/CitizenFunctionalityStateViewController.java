@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.Citizen;
+import BE.CitizensAssessment;
 import BE.FunctionalityState;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
@@ -54,24 +55,39 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     private CitizensEditController citizensEditController;
     List<FunctionalityState> functionalityStateList;
+    List<CitizensAssessment> citizensAssessmentList;
+
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
     private boolean isFunctionalityStateCreated = false;
+    private boolean isCitizenAssessmentCreated = false;
 
     public void getCitizen(Citizen citizen) throws Exception {
         functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
+        citizensAssessmentList = mainModel.getCitizenAssessmentsById(citizen.getId());
+
         int integerPlaceholder = 4;
         String stringPlaceholder = "Lorem ipsum";
         int[] functionalityTypes = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        System.out.println(mainModel.getCitizenAssessmentsById(citizen.getId()));
+
         if (functionalityStateList.size() != 0) {
             isFunctionalityStateCreated = true;
         }
+        if (citizensAssessmentList.size() != 0) {
+            isCitizenAssessmentCreated = false;
+        }
+
         if (!isFunctionalityStateCreated) {
             for (int functionalityType :
                     functionalityTypes) {
                 functionalityStateList.add(mainModel.createFunctionalityState(integerPlaceholder, integerPlaceholder, stringPlaceholder, stringPlaceholder, functionalityType, citizen.getId()));
+            }
+        }
+        if (!isCitizenAssessmentCreated) {
+            for (int functionalityType :
+                    functionalityTypes) {
+                citizensAssessmentList.add(mainModel.cre)
             }
         }
     }
@@ -126,15 +142,24 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
     public void handleNewView(String labelName, int functionalityType) {
-        List<FunctionalityState> filteredList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
-        FunctionalityState functionalityStateData = filteredList.get(0);
-        System.out.println(functionalityStateData);
+        List<FunctionalityState> filteredFunctionalityStateList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
+        FunctionalityState functionalityStateData = filteredFunctionalityStateList.get(0);
+
+        List<CitizensAssessment> filteredCitizensAssessmentList = citizensAssessmentList.stream().filter(citizensAssessment -> citizensAssessment.getFunctionalityType() == functionalityType).collect(Collectors.toList());
+        CitizensAssessment citizensAssessmentData = filteredCitizensAssessmentList.get(0);
+
         label.setText(labelName);
         setInitView();
+
         currentLevelData.setText(String.valueOf(functionalityStateData.getCurrLvl()));
         expectedLevelData.setText(String.valueOf(functionalityStateData.getExpectedLvl()));
         professionalNoteData.setText(functionalityStateData.getProfessNote());
         saveAsData.setText(functionalityStateData.getProfessNote());
+
+        importanceData.setText(citizensAssessmentData.getImportance());
+        citizenWishesData.setText(citizensAssessmentData.getCitizWishes());
+        followUpDateData.setText(citizensAssessmentData.getFollUpDate());
+        observationalNotes.setText(citizensAssessmentData.getObservNote());
 
         editButton.setOnAction(evt -> {
             setupEditFields();

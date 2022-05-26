@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -58,6 +60,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
+    private boolean isCreated = false;
 
     public void getCitizen(Citizen citizen) throws Exception {
 //        mainModel.getAllGeneralInfo().forEach(generalInfo1 -> {
@@ -72,6 +75,21 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 //        }
 //        this.citizen = citizen;
         functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
+        int integerPlaceholder = 4;
+        String stringPlaceholder = "Lorem ipsum";
+        int[] functionalityTypes = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        if (functionalityStateList.size() != 0) {
+            isCreated = true;
+        }
+        System.out.println(functionalityStateList);
+        if (!isCreated) {
+            System.out.println("test");
+            for (int functionalityType :
+                    functionalityTypes) {
+                functionalityStateList.add(mainModel.createFunctionalityState(integerPlaceholder, integerPlaceholder, stringPlaceholder, stringPlaceholder, functionalityType, citizen.getId()));
+            }
+        }
     }
 
     @Override
@@ -125,12 +143,13 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
     public void handleNewView(String labelName, int functionalityType) {
-        functionalityStateList.forEach(functionalityState1 -> System.out.println(functionalityState1.getFunctionalityType()));
-
+        List<FunctionalityState> filteredList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
+        FunctionalityState functionalityStateData = filteredList.get(0);
+        System.out.println(functionalityStateData);
         label.setText(labelName);
         setInitView();
-        currentLevelData.setText(String.valueOf(functionalityState.getCurrLvl()));
-        expectedLevelData.setText(String.valueOf(functionalityState.getExpectedLvl()));
+        currentLevelData.setText(String.valueOf(functionalityStateData.getCurrLvl()));
+        expectedLevelData.setText(String.valueOf(functionalityStateData.getExpectedLvl()));
         professionalNoteData.setText(functionalityState.getProfessNote());
 
         editButton.setOnAction(evt -> {

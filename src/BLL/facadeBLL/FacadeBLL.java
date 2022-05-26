@@ -164,6 +164,11 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String saveAs, int functionalityType, int citizen) throws Exception {
+        return facadeDAL.createFunctionalityState(currLvl, expectedLvl, professNote, saveAs, functionalityType, citizen);
+    }
+
+    @Override
     public int returnUsersSchoolID(User user) throws Exception {
         return facadeDAL.returnUsersSchoolID(user);
     }

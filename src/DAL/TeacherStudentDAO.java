@@ -4,6 +4,7 @@ import BE.School;
 import BE.Student;
 import BE.Teacher;
 import BE.User;
+import BLL.utils.UserFactory;
 import DAL.Connector.DBConnector;
 
 import java.io.IOException;
@@ -16,10 +17,12 @@ import java.util.List;
 
 public class TeacherStudentDAO {
 
-    private DBConnector dbConnector;
+    private final DBConnector dbConnector;
+    UserFactory userFactory;
 
     public TeacherStudentDAO() throws IOException {
         dbConnector = DBConnector.getInstance();
+        userFactory = new UserFactory();
     }
 
     public void addStudentToTeacher(Student student, Teacher teacher) throws Exception {
@@ -44,7 +47,7 @@ public class TeacherStudentDAO {
 
     public List<User> getTeacherStudents(int teacherId) throws Exception {
         List<User> allStudents = new ArrayList<>();
-        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User " +
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " + //, u.Type_Of_User " +
                         "FROM Users u " +
                         "JOIN Teacher_Student t ON t.Student = u.Id " +
                         "WHERE t.Teacher = ?";
@@ -60,9 +63,9 @@ public class TeacherStudentDAO {
                 String lName = rs.getString("LName");
                 String userName = rs.getString("UserName");
                 String password = rs.getString("UPassword");
-                int type = rs.getInt("Type_Of_User");
+//                int type = rs.getInt("Type_Of_User");
 
-                Student student = new Student(id, fName, lName, userName, password, type);
+                User student = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.STUDENT);
                 System.out.println(student);
                 allStudents.add(student);
             }

@@ -62,8 +62,8 @@ public class EditUserController implements Initializable {
     @FXML
     void toCreateNewUser(ActionEvent event) throws Exception {
         if (!txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
-            User userCreated = new User(user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText(), user.getRoleID());
-            mainModel.updateUser(userCreated);
+//            User userCreated = new User(user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText(), user.getRoleID());
+//            mainModel.updateUser(userCreated);
             System.out.println("User updated");
             Stage stage = (Stage) btnSave.getScene().getWindow();
             stage.close();

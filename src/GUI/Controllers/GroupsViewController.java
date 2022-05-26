@@ -81,34 +81,34 @@ public class GroupsViewController implements Initializable {
 
     private void setupGroups() {
 //        int userID, String firstName, String lastName, String loginName, String password, int roleID
-        User u1 = new User(1, "Pavol", "Habera", "vlasatykokot", "roko", 2);
-        User u2 = new User(2, "Jozef", "Raz", "Zatmenie", "auto", 1);
-        User u3 = new User(3, "Jaromir", "Jagr", "fico", "fico", 2);
-        User u4 = new User(4, "Marian", "Kocner", "kuco", "zajebat", 2);
-        User u5 = new User(5, "Mikulas", "Cernak", "tampa", "bay", 2);
+//        User u1 = new User(1, "Pavol", "Habera", "vlasatykokot", "roko", 2);
+//        User u2 = new User(2, "Jozef", "Raz", "Zatmenie", "auto", 1);
+//        User u3 = new User(3, "Jaromir", "Jagr", "fico", "fico", 2);
+//        User u4 = new User(4, "Marian", "Kocner", "kuco", "zajebat", 2);
+//        User u5 = new User(5, "Mikulas", "Cernak", "tampa", "bay", 2);
 
-        ArrayList<User> al1 = new ArrayList<>();
-        al1.add(u1);
-        al1.add(u2);
-        ArrayList<User> al2 = new ArrayList<>();
-        al2.add(u5);
-        al2.add(u1);
-        al2.add(u2);
-        ArrayList<User> al3 = new ArrayList<>();
-        al3.add(u4);
-        al3.add(u3);
-        al3.add(u1);
-        al3.add(u2);
+//        ArrayList<User> al1 = new ArrayList<>();
+//        al1.add(u1);
+//        al1.add(u2);
+//        ArrayList<User> al2 = new ArrayList<>();
+//        al2.add(u5);
+//        al2.add(u1);
+//        al2.add(u2);
+//        ArrayList<User> al3 = new ArrayList<>();
+//        al3.add(u4);
+//        al3.add(u3);
+//        al3.add(u1);
+//        al3.add(u2);
 
 
-        Group g1 = new Group("Gumkaci", al1);
-        Group g2 = new Group("Pelonidas", al2);
-        Group g3 = new Group("Špartakus", al3);
+//        Group g1 = new Group("Gumkaci", al1);
+//        Group g2 = new Group("Pelonidas", al2);
+//        Group g3 = new Group("Špartakus", al3);
 
         groupsName.setCellValueFactory(new PropertyValueFactory<>("groupName"));
         groupsStudentCount.setCellValueFactory(param -> new SimpleStringProperty(String.valueOf(param.getValue().getStudentList().size())));
 
-        groupsTableView.getItems().setAll(g1, g2, g3);
+//        groupsTableView.getItems().setAll(g1, g2, g3);
 
         groupsTableView.setRowFactory(tv -> {
             TableRow<Group> row = new TableRow<>();

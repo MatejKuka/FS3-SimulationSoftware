@@ -32,7 +32,7 @@ public class EditProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        user = new User(22, "Jozef", "Matus", "palenka", "tranzistor", 2);
+//        user = new User(22, "Jozef", "Matus", "palenka", "tranzistor", 2);
         initializeTextFields();
         setupInitialView();
 
@@ -64,7 +64,7 @@ public class EditProfileController implements Initializable {
         });
 
         saveChangesButton.setOnAction(event -> {
-            user = new User(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText(), user.getRoleID());
+//            user = new User(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText(), user.getRoleID());
             //try {model.updateUser(user);} catch (Exception e) {e.printStackTrace();}
             setupLabels();
             cleanBorderPanes();

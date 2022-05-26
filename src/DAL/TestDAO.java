@@ -18,7 +18,7 @@ public class TestDAO {
 
 //        User user = new Student(7, "Lala", "Lochnes","UserName", "Pass", 3);
 
-//        userDAO.createStudent("Matej", "Kuka", "UserName", "Pass");
+//        userDAO.createStudent("Semenik", "Dvojhlavy", "UserName", "Pass");
 //        userDAO.updateUser(user);
 //        userDAO.getAllUsers();
 //        userDAO.getAllAdmins();
@@ -58,14 +58,14 @@ public class TestDAO {
 //        generalInformationDAO.getGeneralInfo(generalInfo.getId());
 //        generalInformationDAO.getGeneralInfo(citizen.getGeneralInfo());
 
-        CitizenDAO citizenDAO  = new CitizenDAO();
+//        CitizenDAO citizenDAO  = new CitizenDAO();
 
-        Citizen citizen = new Citizen(4, "Loptos", "Heteracik", 2);
+//        Citizen citizen = new Citizen(4, "Loptos", "Heteracik", 2);
 
-//        citizenDAO.createCitizen("Saman", "Lepros", 1, 2);
+//        citizenDAO.createCitizen("Lepros", "Lepros", 1);
 //        citizenDAO.updateCitizen(citizen);
 //        citizenDAO.getAllCitizenFromOneSchool(1);
-        citizenDAO.deleteCitizen(citizen);
+//        citizenDAO.deleteCitizen(citizen);
 //        citizenDAO.getCitizenById(3);
 
 //        HealthConditionsDAO healthConditionsDAO = new HealthConditionsDAO();

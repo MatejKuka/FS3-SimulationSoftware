@@ -1,6 +1,7 @@
 package DAL;
 
 import BE.*;
+import BLL.utils.UserFactory;
 import DAL.Connector.DBConnector;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 
@@ -13,37 +14,40 @@ public class UserDAO {
 
 
     private DBConnector dbConnector;
+    UserFactory userFactory;
 
     public UserDAO() throws IOException {
         dbConnector = DBConnector.getInstance();
+        userFactory = new UserFactory();
     }
 
-    public User compareLogins(String username, String password) throws Exception
-    {
+    public User compareLogins(String username, String password) throws Exception {
         User user = null;
 
         try (Connection con = dbConnector.getConnection()) {
             String sql ="SELECT * FROM Users WHERE [UserName] = ? AND [UPassword] = ?";
-            PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1,username);
-            pstmt.setString(2,password);
-            ResultSet rs = pstmt.executeQuery();
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,password);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-            while(rs.next())
-            {
-                int userID = rs.getInt("Id");
-                String loginName = rs.getString("UserName");
-                String firstName = rs.getString("FName");
-                String lastName = rs.getString("LName");
-                int roleID = rs.getInt("Type_Of_User");
+            if(resultSet.next()) {
+                int userID = resultSet.getInt("Id");
+                String firstName = resultSet.getString("FName");
+                String lastName = resultSet.getString("LName");
+                String loginName = resultSet.getString("UserName");
+                String userPassword = resultSet.getString("UPassword");
+                int roleID = resultSet.getInt("Type_Of_User");
 
-                user = new User(userID, firstName, lastName, loginName, password, roleID);
+                if (roleID ==  UserFactory.UserType.ADMIN.getIdInDatabase())
+                    user = userFactory.createUser(userID, firstName, lastName, loginName, userPassword, UserFactory.UserType.ADMIN);
+
+                else if (roleID ==  UserFactory.UserType.TEACHER.getIdInDatabase())
+                    user = userFactory.createUser(userID, firstName, lastName, loginName, userPassword, UserFactory.UserType.TEACHER);
+
+                else
+                    user = userFactory.createUser(userID, firstName, lastName, loginName, userPassword, UserFactory.UserType.STUDENT);
             }
-        }
-        catch (Exception e)
-        {
-            user = null;
-            e.printStackTrace();
         }
         return user;
     }
@@ -65,12 +69,14 @@ public class UserDAO {
                 String  password = rs.getString("UPassword");
                 int type = rs.getInt("Type_Of_User");
 
-                if (type == 1)
-                    user = new Admin(id, fName, lName, userName, password, type);
-                else if (type == 2)
-                    user = new Teacher(id, fName, lName, userName, password, type);
+                if (type ==  UserFactory.UserType.ADMIN.getIdInDatabase())
+                    user = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.ADMIN);
+
+                else if (type ==  UserFactory.UserType.TEACHER.getIdInDatabase())
+                    user = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.TEACHER);
+
                 else
-                    user = new Student(id, fName, lName, userName, password, type);
+                    user = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.STUDENT);
 
                 allUsers.add(user);
             }
@@ -81,7 +87,7 @@ public class UserDAO {
 
     public List<User> getAllAdminsFromOneSchool(int schoolId) throws Exception {
         List<User> allAdmins = new ArrayList<>();
-        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User " +
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " + //u.Type_Of_User " +
                         "FROM Users u " +
                         "JOIN Users_School s ON s.Users = u.id " +
                         "WHERE u.Type_Of_User = 1 AND s.School = ?";
@@ -97,9 +103,9 @@ public class UserDAO {
                 String lName = resultSet.getString("LName");
                 String userName = resultSet.getString("UserName");
                 String  password = resultSet.getString("UPassword");
-                int type = resultSet.getInt("Type_Of_User");
+//                int type = resultSet.getInt("Type_Of_User");
 
-                Admin admin = new Admin(id, fName, lName, userName, password, type);
+                User admin = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.ADMIN);
                 System.out.println(admin);
                 allAdmins.add(admin);
             }
@@ -109,7 +115,7 @@ public class UserDAO {
 
     public List<User> getAllAdmins() throws Exception {
         List<User> allAdmins = new ArrayList<>();
-        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +  //u.Type_Of_User" +
                         " FROM Users u " +
                         "JOIN Users_School s ON s.Users = u.id " +
                         "WHERE u.Type_Of_User = 1";
@@ -125,9 +131,9 @@ public class UserDAO {
                 String lName = resultSet.getString("LName");
                 String userName = resultSet.getString("UserName");
                 String  password = resultSet.getString("UPassword");
-                int type = resultSet.getInt("Type_Of_User");
+//                int type = resultSet.getInt("Type_Of_User");
 
-                Admin admin = new Admin(id, fName, lName, userName, password, type);
+                User admin = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.ADMIN);
                 System.out.println(admin);
                 allAdmins.add(admin);
             }
@@ -137,7 +143,7 @@ public class UserDAO {
 
     public List<User> getAllStudentsFromOneSchool(int schoolId) throws Exception {
         List<User> allStudents = new ArrayList<>();
-        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +  //u.Type_Of_User" +
                         " FROM Users u " +
                         "JOIN Users_School s ON s.Users = u.id " +
                         "WHERE u.Type_Of_User = 3 AND s.School = ?";
@@ -153,9 +159,9 @@ public class UserDAO {
                 String lName = resultSet.getString("LName");
                 String userName = resultSet.getString("UserName");
                 String  password = resultSet.getString("UPassword");
-                int type = resultSet.getInt("Type_Of_User");
+//                int type = resultSet.getInt("Type_Of_User");
 
-                Student student = new Student(id, fName, lName, userName,password, type);
+                User student = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.STUDENT);
                 allStudents.add(student);
             }
             return allStudents;
@@ -164,7 +170,7 @@ public class UserDAO {
 
     public List<User> getAllTeachersFromOneSchool(int schoolId) throws Exception {
         List<User> allTeachers = new ArrayList<>();
-        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword, u.Type_Of_User" +
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " + //, u.Type_Of_User" +
                         " FROM Users u " +
                         "JOIN Users_School s ON s.Users = u.id " +
                         "WHERE u.Type_Of_User = 2 AND s.School = ?";
@@ -180,9 +186,9 @@ public class UserDAO {
                 String lName = rs.getString("LName");
                 String userName = rs.getString("UserName");
                 String  password = rs.getString("UPassword");
-                int type = rs.getInt("Type_Of_User");
+//                int type = rs.getInt("Type_Of_User");
 
-                Teacher teacher = new Teacher(id, fName, lName, userName, password, type);
+                User teacher = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.TEACHER);
                 allTeachers.add(teacher);
             }
             return allTeachers;
@@ -191,7 +197,7 @@ public class UserDAO {
 
     public User createAdmin(String firstName, String lastName, String loginName, String password) throws Exception {
         User admin = null;
-        int type = 1;
+        int type = UserFactory.UserType.ADMIN.getIdInDatabase();
         int id = 0;
         String query = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
 
@@ -210,7 +216,7 @@ public class UserDAO {
                 id = resultSet.getInt(1);
             }
             if (created != 0){
-                admin = new Admin(id,firstName, lastName, loginName, password, type);
+                admin = userFactory.createUser(id, firstName, lastName, loginName, password, UserFactory.UserType.ADMIN);
             }
         }
         return admin;
@@ -218,7 +224,7 @@ public class UserDAO {
 
     public User createTeacher(String firstName, String lastName, String loginName, String password) throws Exception {
         User teacher = null;
-        int type = 2;
+        int type = UserFactory.UserType.TEACHER.getIdInDatabase();
         int id = 0;
         String query = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
 
@@ -237,7 +243,7 @@ public class UserDAO {
                 id = resultSet.getInt(1);
             }
             if (created != 0){
-                teacher = new Teacher(id,firstName, lastName, loginName, password, type);
+                teacher = userFactory.createUser(id, firstName, lastName, loginName, password, UserFactory.UserType.TEACHER);
             }
         }
         return teacher;
@@ -245,7 +251,7 @@ public class UserDAO {
 
     public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
         User student = null;
-        int type = 3;
+        int type = UserFactory.UserType.STUDENT.getIdInDatabase();
         int id = 0;
         String query = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
 
@@ -264,7 +270,7 @@ public class UserDAO {
                 id = resultSet.getInt(1);
             }
             if (created != 0){
-                student = new Student(id,firstName, lastName, loginName, password, type);
+                student = userFactory.createUser(id, firstName, lastName, loginName, password, UserFactory.UserType.STUDENT);
                 System.out.println(student);
             }
         }

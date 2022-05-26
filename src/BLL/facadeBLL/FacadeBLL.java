@@ -169,6 +169,11 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public List<CitizensAssessment> getCitizenAssessmentById(int id) throws Exception {
+        return facadeDAL.getCitizenAssessment(id);
+    }
+
+    @Override
     public int returnUsersSchoolID(User user) throws Exception {
         return facadeDAL.returnUsersSchoolID(user);
     }

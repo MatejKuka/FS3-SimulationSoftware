@@ -32,6 +32,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     final ComboBox<String> importanceBox = new ComboBox<>();
     final ComboBox<String> citizenWishesBox = new ComboBox<>();
     final ComboBox<String> relevantBox = new ComboBox<>();
+    final ComboBox<String> saveAsComboBox = new ComboBox<>();
 
     final TextArea professionalArea = new TextArea();
     final TextArea observationalArea = new TextArea();
@@ -95,7 +96,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         editButton = new Button("Edit");
         editButton.getStyleClass().addAll("btn-action", "padding");
-        editButton.setDisable(true); //TODO -> Zrobic a potom vymazat
+//        editButton.setDisable(true); //TODO -> Zrobic a potom vymazat
         saveButton = new Button("Save");
         cancelButton = new Button("Cancel");
         try {
@@ -195,13 +196,14 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
         container1.getChildren().set(1, currentBox);
         container2.getChildren().set(1, expectedBox);
-        container5.getChildren().set(1, performanceBox);
-        container6.getChildren().set(1, importanceBox);
-        container7.getChildren().set(1, citizenWishesBox);
-        container10.getChildren().set(1, relevantBox);
-        container8.getChildren().set(1, datePicker);
+//        container5.getChildren().set(1, performanceBox);
+//        container6.getChildren().set(1, importanceBox);
+//        container7.getChildren().set(1, citizenWishesBox);
+//        container10.getChildren().set(1, relevantBox);
+//        container8.getChildren().set(1, datePicker);
         container3.getChildren().set(1, professionalArea);
-        container9.getChildren().set(1, observationalArea);
+        container4.getChildren().set(1, saveAsComboBox);
+//        container9.getChildren().set(1, observationalArea);
 
         clearButtons();
 

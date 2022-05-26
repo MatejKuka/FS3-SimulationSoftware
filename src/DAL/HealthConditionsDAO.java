@@ -49,7 +49,6 @@ public class HealthConditionsDAO {
 
                 healthConditions = new HealthConditions(id, saveAs, professNote, currAssess, expectedLvl, follUpDate,
                                                         observNote, typeOfCase, citizen);
-                System.out.println(healthConditions);
                 healthConditionsList.add(healthConditions);
             }
         }

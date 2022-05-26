@@ -58,4 +58,19 @@ public class HealthConditions {
     public int getCitizen() {
         return Citizen;
     }
+
+    @Override
+    public String toString() {
+        return "HealthConditions{" +
+                "id=" + id +
+                ", SaveAs='" + SaveAs + '\'' +
+                ", ProfessNote='" + ProfessNote + '\'' +
+                ", CurrAssess='" + CurrAssess + '\'' +
+                ", ExpectedLvl='" + ExpectedLvl + '\'' +
+                ", FollUpDate='" + FollUpDate + '\'' +
+                ", ObservNote='" + ObservNote + '\'' +
+                ", TypeOfCase=" + TypeOfCase +
+                ", Citizen=" + Citizen +
+                '}';
+    }
 }

@@ -169,6 +169,11 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
+    public void updateFunctionalityState(FunctionalityState functionalityState) throws Exception {
+        facadeDAL.updateFunctionalityState(functionalityState);
+    }
+
+    @Override
     public List<CitizensAssessment> getCitizenAssessmentById(int id) throws Exception {
         return facadeDAL.getCitizenAssessment(id);
     }

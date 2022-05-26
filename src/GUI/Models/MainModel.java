@@ -300,6 +300,10 @@ public class MainModel {
         return manager.createFunctionalityState(currLvl, expectedLvl, professNote, saveAs, functionalityType, citizen);
     }
 
+    public void updateFunctionalityState(FunctionalityState functionalityState) throws Exception {
+        manager.updateFunctionalityState(functionalityState);
+    }
+
     public List<CitizensAssessment> getCitizenAssessmentsById(int id) throws Exception {
         return manager.getCitizenAssessmentById(id);
     }

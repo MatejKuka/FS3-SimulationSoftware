@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +26,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     @FXML
     private Label label, label1;
     @FXML
-    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11,  container12;
+    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11, container12;
     final ComboBox<String> currentBox = new ComboBox<>();
     final ComboBox<String> expectedBox = new ComboBox<>();
     final ComboBox<String> performanceBox = new ComboBox<>();
@@ -60,10 +61,13 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     public void setCitizensEditController(CitizensEditController citizensEditController) {
         this.citizensEditController = citizensEditController;
     }
+
     private boolean isFunctionalityStateCreated = false;
     private boolean isCitizenAssessmentCreated = false;
+    private Citizen citizen;
 
     public void getCitizen(Citizen citizen) throws Exception {
+        this.citizen = citizen;
         functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
         citizensAssessmentList = mainModel.getCitizenAssessmentsById(citizen.getId());
 
@@ -87,7 +91,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         if (!isCitizenAssessmentCreated) {
             for (int functionalityType :
                     functionalityTypes) {
-                citizensAssessmentList.add(mainModel.createCitizensAssessments(stringPlaceholder, stringPlaceholder, stringPlaceholder, stringPlaceholder,stringPlaceholder, functionalityType, citizen.getId()));
+                citizensAssessmentList.add(mainModel.createCitizensAssessments(stringPlaceholder, stringPlaceholder, stringPlaceholder, stringPlaceholder, stringPlaceholder, functionalityType, citizen.getId()));
             }
         }
     }
@@ -98,7 +102,9 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         editButton.getStyleClass().addAll("btn-action", "padding");
 //        editButton.setDisable(true); //TODO -> Zrobic a potom vymazat
         saveButton = new Button("Save");
+        saveButton.getStyleClass().addAll("btn-action", "padding");
         cancelButton = new Button("Cancel");
+        cancelButton.getStyleClass().addAll("btn-action", "padding");
         try {
             mainModel = new MainModel();
         } catch (IOException e) {
@@ -142,9 +148,13 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         handleNewView("Emotional Functions", 9);
     }
 
+    List<FunctionalityState> filteredFunctionalityStateList;
+
+    private FunctionalityState functionalityStateData;
+
     public void handleNewView(String labelName, int functionalityType) {
-        List<FunctionalityState> filteredFunctionalityStateList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
-        FunctionalityState functionalityStateData = filteredFunctionalityStateList.get(0);
+        filteredFunctionalityStateList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
+        functionalityStateData = filteredFunctionalityStateList.get(0);
 
         List<CitizensAssessment> filteredCitizensAssessmentList = citizensAssessmentList.stream().filter(citizensAssessment -> citizensAssessment.getFunctionalityType() == functionalityType).collect(Collectors.toList());
         CitizensAssessment citizensAssessmentData = filteredCitizensAssessmentList.get(0);
@@ -155,7 +165,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         currentLevelData.setText(String.valueOf(functionalityStateData.getCurrLvl()));
         expectedLevelData.setText(String.valueOf(functionalityStateData.getExpectedLvl()));
         professionalNoteData.setText(functionalityStateData.getProfessNote());
-        saveAsData.setText(functionalityStateData.getProfessNote());
+        saveAsData.setText(functionalityStateData.getSaveAs());
 
         performanceData.setText(citizensAssessmentData.getPerformance());
         importanceData.setText(citizensAssessmentData.getImportance());
@@ -174,37 +184,53 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         });
 
         saveButton.setOnAction(evt -> {
-            String formattedDate = datePicker.getValue().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
-            FunctionalityState newFunctionalityState = new FunctionalityState(2, Integer.parseInt(currentBox.getValue()), Integer.parseInt(expectedBox.getValue()), professionalArea.getText(), formattedDate, 5, 22);
-            currentLevelData.setText(String.valueOf(newFunctionalityState.getCurrLvl()));
-            expectedLevelData.setText(String.valueOf(newFunctionalityState.getExpectedLvl()));
-            professionalNoteData.setText(newFunctionalityState.getProfessNote());
+//            String formattedDate = datePicker.getValue().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
+            FunctionalityState newFunctionalityState = new FunctionalityState(functionalityStateData.getId(), Integer.parseInt(currentBox.getValue()), Integer.parseInt(expectedBox.getValue()), professionalArea.getText(), saveAsComboBox.getValue(), functionalityType, citizen.getId());
+            try {
+                mainModel.updateFunctionalityState(newFunctionalityState);
+                functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
+                currentLevelData.setText(String.valueOf(newFunctionalityState.getCurrLvl()));
+                expectedLevelData.setText(String.valueOf(newFunctionalityState.getExpectedLvl()));
+                professionalNoteData.setText(newFunctionalityState.getProfessNote());
+                saveAsData.setText(newFunctionalityState.getSaveAs());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             setInitView();
         });
     }
 
     private void setupEditFields() {
+        importanceBox.getStyleClass().add("custom-combobox");
+        currentBox.getStyleClass().add("custom-combobox");
+        expectedBox.getStyleClass().add("custom-combobox");
+        saveAsComboBox.getStyleClass().add("custom-combobox");
+        performanceBox.getStyleClass().add("custom-combobox");
+        citizenWishesBox.getStyleClass().add("custom-combobox");
+
         importanceBox.getItems().setAll("bad", "normal", "good");
         performanceBox.getItems().setAll("bad", "normal", "good");
-        currentBox.getItems().setAll("1", "2", "3");
+        currentBox.getItems().setAll("0", "1", "2", "3", "4", "9");
         citizenWishesBox.getItems().setAll("bad", "normal", "good");
         relevantBox.getItems().setAll("bad", "normal", "good");
-        expectedBox.getItems().setAll("1", "2", "3");
+        expectedBox.getItems().setAll("0", "1", "2", "3", "4", "9");
+        saveAsComboBox.getItems().setAll("Save as active", "Save as potential", "Save as not relevant");
         observationalArea.setMaxWidth(400);
         observationalArea.setMinHeight(150);
         professionalArea.setMaxWidth(400);
         professionalArea.setMinHeight(200);
 
+        currentBox.setValue(String.valueOf(functionalityStateData.getCurrLvl()));
+
         container1.getChildren().set(1, currentBox);
         container2.getChildren().set(1, expectedBox);
-//        container5.getChildren().set(1, performanceBox);
-//        container6.getChildren().set(1, importanceBox);
-//        container7.getChildren().set(1, citizenWishesBox);
-//        container10.getChildren().set(1, relevantBox);
-//        container8.getChildren().set(1, datePicker);
+        container6.getChildren().set(1, performanceBox);
+        container7.getChildren().set(1, importanceBox);
+        container8.getChildren().set(1, citizenWishesBox);
+        container9.getChildren().set(1, datePicker);
+        container10.getChildren().set(1, observationalArea);
         container3.getChildren().set(1, professionalArea);
         container4.getChildren().set(1, saveAsComboBox);
-//        container9.getChildren().set(1, observationalArea);
 
         clearButtons();
 

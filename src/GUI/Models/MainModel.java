@@ -182,6 +182,10 @@ public class MainModel {
 
     }
 
+    public List<FunctionalityState> getFunctionalityStateById(int id) throws Exception {
+        return manager.getCitizenFunctionalityState(id);
+    }
+
     public Citizen setCurrentCitizen(Citizen citizen) {
         clickedCitizen = citizen;
         System.out.println("Current citizen: " + clickedCitizen);
@@ -291,6 +295,10 @@ public class MainModel {
 
     public Citizen getChosenCitizenFillUp() {
         return chosenCitizenToFillUp;
+    }
+
+    public FunctionalityState createFunctionalityState(int currLvl, int expectedLvl, String professNote, String saveAs, int functionalityType, int citizen) throws Exception {
+        return manager.createFunctionalityState(currLvl, expectedLvl, professNote, saveAs, functionalityType, citizen);
     }
 
 }

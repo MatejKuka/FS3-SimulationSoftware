@@ -177,7 +177,6 @@ public class FacadeBLL implements IFacadeBLL {
     public int returnUsersSchoolID(User user) throws Exception {
         return facadeDAL.returnUsersSchoolID(user);
     }
-
     @Override
     public User createStudent(String firstName, String lastName, String loginName, String password) throws Exception {
         return facadeDAL.createStudent(firstName, lastName, loginName, password);

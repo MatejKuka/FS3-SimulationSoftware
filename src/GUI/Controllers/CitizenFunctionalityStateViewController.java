@@ -52,8 +52,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     private Button editButton, saveButton, cancelButton;
 
-    FunctionalityState functionalityState = new FunctionalityState(1, 3, 2, "In good shape", "23/5/2022", 4, 22);
-
     private CitizensEditController citizensEditController;
     List<FunctionalityState> functionalityStateList;
     public void setCitizensEditController(CitizensEditController citizensEditController) {
@@ -90,8 +88,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
 
     public void handleSelfCare(ActionEvent event) {
         handleNewView("Self Care", 1);
@@ -141,7 +137,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         saveAsData.setText(functionalityStateData.getProfessNote());
 
         editButton.setOnAction(evt -> {
-            setupSelfCareEditFields();
+            setupEditFields();
         });
 
         cancelButton.setOnAction(evt -> {
@@ -160,7 +156,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         });
     }
 
-    private void setupSelfCareEditFields() {
+    private void setupEditFields() {
         importanceBox.getItems().setAll("bad", "normal", "good");
         performanceBox.getItems().setAll("bad", "normal", "good");
         currentBox.getItems().setAll("1", "2", "3");

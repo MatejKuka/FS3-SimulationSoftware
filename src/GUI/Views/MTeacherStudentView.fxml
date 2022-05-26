@@ -26,7 +26,7 @@
                      </font>
                   </Label>
                   <Pane prefHeight="33.0" prefWidth="160.0" />
-                  <Button mnemonicParsing="false" onAction="#toStudentsPage" prefHeight="27.0" prefWidth="200.0" styleClass="btn-primary" text="Students" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#toStudentsPage" prefHeight="44.0" prefWidth="160.0" styleClass="btn-primary" text="Students" textAlignment="CENTER">
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </padding>
@@ -34,15 +34,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toGroup" prefHeight="37.0" prefWidth="200.0" styleClass="btn-primary" text="Groups" textAlignment="CENTER">
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#toCitizensPage" prefHeight="84.0" prefWidth="160.0" styleClass="btn-primary" text="Citizens" textAlignment="CENTER" wrapText="true">
+                  <Button mnemonicParsing="false" onAction="#toCitizensPage" prefHeight="54.0" prefWidth="160.0" styleClass="btn-primary" text="Citizens" textAlignment="CENTER" wrapText="true">
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>

@@ -31,11 +31,6 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#toGroup" prefHeight="37.0" prefWidth="200.0" styleClass="btn-primary" text="Groups" textAlignment="CENTER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
                   <Button mnemonicParsing="false" onAction="#toAdminsPage" prefHeight="37.0" prefWidth="200.0" styleClass="btn-primary" text="Admins" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets />

@@ -41,6 +41,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private Label followUpDateData = new Label(placeholder);
     private Label observationalNotes = new Label(placeholder);
     private Label relevantData = new Label(placeholder);
+
     @FXML
     private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11;
 
@@ -60,45 +61,47 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        editButton = new Button("Edit");
+        saveButton = new Button("Save");
+        cancelButton = new Button("Cancel");
     }
 
-    private void setInitView() {
-        clearMainView();
-        container1.getChildren().add(createLabel("Current level:"));
-        container1.getChildren().add(currentLevelData);
 
-        container2.getChildren().add(createLabel("Expected level:"));
-        container2.getChildren().add(expectedLevelData);
-
-        container3.getChildren().add(createLabel("Professional note:"));
-        container3.getChildren().add(professionalNoteData);
-
-        container4.getChildren().add(label1);
-
-        container5.getChildren().add(createLabel("Performance:"));
-        container5.getChildren().add(performanceData);
-
-        container6.getChildren().add(createLabel("Importance:"));
-        container6.getChildren().add(importanceData);
-
-        container7.getChildren().add(createLabel("Citizen wishes:"));
-        container7.getChildren().add(citizenWishesData);
-
-        container8.getChildren().add(createLabel("Follow-up date:"));
-        container8.getChildren().add(followUpDateData);
-
-        container9.getChildren().add(createLabel("Observational notes:"));
-        container9.getChildren().add(observationalNotes);
-
-        container10.getChildren().add(createLabel("Relevant:"));
-        container10.getChildren().add(relevantData);
-
-        container11.getChildren().add(editButton);
-    }
 
     public void handleSelfCare(ActionEvent event) {
         handleNewView("Self Care", 1);
+    }
+
+    public void handleDrinking(ActionEvent event) {
+        handleNewView("Drinking", 2);
+    }
+
+    public void handleEating(ActionEvent event) {
+        handleNewView("Eating", 3);
+    }
+
+    public void handleFoodIntake(ActionEvent event) {
+        handleNewView("Food Intake", 4);
+    }
+
+    public void handleWalking(ActionEvent event) {
+        handleNewView("Walking", 5);
+    }
+
+    public void handleBathroom(ActionEvent event) {
+        handleNewView("Bathroom", 6);
+    }
+
+    public void handleBodyPosition(ActionEvent event) {
+        handleNewView("Body Position", 7);
+    }
+
+    public void handleCommunication(ActionEvent event) {
+        handleNewView("Communication", 8);
+    }
+
+    public void handleEmotionalFunctions(ActionEvent event) {
+        handleNewView("Emotional Functions", 9);
     }
 
     public void handleNewView(String labelName, int functionalityType) {
@@ -107,10 +110,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         currentLevelData.setText(String.valueOf(functionalityState.getCurrLvl()));
         expectedLevelData.setText(String.valueOf(functionalityState.getExpectedLvl()));
         professionalNoteData.setText(functionalityState.getProfessNote());
-
-        editButton = new Button("Edit");
-        saveButton = new Button("Save");
-        cancelButton = new Button("Cancel");
 
         editButton.setOnAction(evt -> {
             setupSelfCareEditFields();
@@ -132,38 +131,13 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         });
     }
 
-
-    public void handleDrinking(ActionEvent event) {
-    }
-
-    public void handleEating(ActionEvent event) {
-    }
-
-    public void handleFoodIntake(ActionEvent event) {
-    }
-
-    public void handleWalking(ActionEvent event) {
-    }
-
-    public void handleBathroom(ActionEvent event) {
-    }
-
-    public void handleBodyPosition(ActionEvent event) {
-    }
-
-    public void handleCommunication(ActionEvent event) {
-    }
-
-    public void handleEmotionalFunctions(ActionEvent event) {
-    }
-
     private void setupSelfCareEditFields() {
-        importanceBox.getItems().addAll("bad", "normal", "good");
-        performanceBox.getItems().addAll("bad", "normal", "good");
-        currentBox.getItems().addAll("1", "2", "3");
-        citizenWishesBox.getItems().addAll("bad", "normal", "good");
-        relevantBox.getItems().addAll("bad", "normal", "good");
-        expectedBox.getItems().addAll("1", "2", "3");
+        importanceBox.getItems().setAll("bad", "normal", "good");
+        performanceBox.getItems().setAll("bad", "normal", "good");
+        currentBox.getItems().setAll("1", "2", "3");
+        citizenWishesBox.getItems().setAll("bad", "normal", "good");
+        relevantBox.getItems().setAll("bad", "normal", "good");
+        expectedBox.getItems().setAll("1", "2", "3");
         observationalArea.setMaxWidth(400);
         observationalArea.setMinHeight(150);
         professionalArea.setMaxWidth(400);
@@ -230,6 +204,40 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container9.getChildren().clear();
         container10.getChildren().clear();
         clearButtons();
+    }
+
+    private void setInitView() {
+        clearMainView();
+        container1.getChildren().add(createLabel("Current level:"));
+        container1.getChildren().add(currentLevelData);
+
+        container2.getChildren().add(createLabel("Expected level:"));
+        container2.getChildren().add(expectedLevelData);
+
+        container3.getChildren().add(createLabel("Professional note:"));
+        container3.getChildren().add(professionalNoteData);
+
+        container4.getChildren().add(label1);
+
+        container5.getChildren().add(createLabel("Performance:"));
+        container5.getChildren().add(performanceData);
+
+        container6.getChildren().add(createLabel("Importance:"));
+        container6.getChildren().add(importanceData);
+
+        container7.getChildren().add(createLabel("Citizen wishes:"));
+        container7.getChildren().add(citizenWishesData);
+
+        container8.getChildren().add(createLabel("Follow-up date:"));
+        container8.getChildren().add(followUpDateData);
+
+        container9.getChildren().add(createLabel("Observational notes:"));
+        container9.getChildren().add(observationalNotes);
+
+        container10.getChildren().add(createLabel("Relevant:"));
+        container10.getChildren().add(relevantData);
+
+        container11.getChildren().add(editButton);
     }
 
     private void clearButtons() {

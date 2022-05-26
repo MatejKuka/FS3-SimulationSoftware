@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.School;
+import BE.User;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
@@ -22,6 +23,7 @@ import java.util.ResourceBundle;
 public class SchoolController implements Initializable {
     MainModel mainModel;
     School clickedSchool;
+    User chosenUser;
     SceneSetter sceneSetter;
 
     @FXML
@@ -34,10 +36,26 @@ public class SchoolController implements Initializable {
     private Label labelNameView;
 
     @FXML
+    private Label labelMessage;
+
+    @FXML
     private TableColumn<School, String> tableColCity;
 
     @FXML
     private TableColumn<School, String> tableColName;
+
+    @FXML
+    private TableView<User> tableView;
+
+    @FXML
+    private TableColumn<User, Integer> tableColID;
+
+    @FXML
+    private TableColumn<User, String> tableColLogName;
+
+    @FXML
+    private TableColumn<User, String> tableColFirstName;
+
 
     @FXML
     private TableView<School> tableViewSchools;
@@ -51,9 +69,11 @@ public class SchoolController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             updateTableView();
+            updateTableView1();
         } catch (Exception | UserException e) {
             e.printStackTrace();
         }
+        labelMessage.setText(" ");
     }
 
     @FXML
@@ -85,10 +105,25 @@ public class SchoolController implements Initializable {
     }
 
     public void updateTableView() throws UserException {
-        tableViewSchools.getItems().clear();
         tableColName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColCity.setCellValueFactory(new PropertyValueFactory<>("city"));
         tableViewSchools.getItems().setAll(mainModel.getAllSchools());
+    }
+
+    public void updateTableView1() throws UserException {
+        tableColID.setCellValueFactory(new PropertyValueFactory<>("userID"));
+        tableColLogName.setCellValueFactory(new PropertyValueFactory<>("loginName"));
+        tableColFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        tableView.getItems().setAll(mainModel.getAllAdmins());
+    }
+
+    @FXML
+    void toAssignAdmin(ActionEvent event) throws UserException {
+        chosenUser = tableView.getSelectionModel().getSelectedItem();
+        if (chosenUser != null && clickedSchool != null) {
+            mainModel.addUserToSchool(chosenUser, clickedSchool);
+            labelMessage.setText(" ");
+        } else labelMessage.setText("You have to choose school and admin to assign");
     }
 
 

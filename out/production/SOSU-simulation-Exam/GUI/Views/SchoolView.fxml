@@ -35,7 +35,7 @@
                   </TableView>
                </children>
             </VBox>
-            <VBox prefWidth="266.0" spacing="20.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="520.0" prefWidth="275.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
                   <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#toCreateNewSchool" prefWidth="300.0" styleClass="btn-primary" text="Create">
                      <VBox.margin>
@@ -52,6 +52,15 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
+                  <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="tableColID" prefWidth="43.200010657310486" text="ID" />
+                      <TableColumn fx:id="tableColLogName" prefWidth="104.00000762939453" text="Login Name" />
+                        <TableColumn fx:id="tableColFirstName" prefWidth="126.39996337890625" text="First name" />
+                    </columns>
+                  </TableView>
+                  <Button mnemonicParsing="false" onAction="#toAssignAdmin" prefHeight="34.0" prefWidth="144.0" text="Assign" />
+                  <Label fx:id="labelMessage" text="Label" textFill="RED" />
                </children>
                <HBox.margin>
                   <Insets top="40.0" />

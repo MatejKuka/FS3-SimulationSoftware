@@ -31,7 +31,7 @@ public class CitizenGeneralInfoController implements Initializable {
     private VBox mainView;
 
     private Label nameLabel = new Label("Label");
-    private Label descriptionLabel = new Label("---****--TOTO BY SOM UROBIL AKO LEN PLACEHOLDER ---***---");
+//    private Label descriptionLabel = new Label("---****--TOTO BY SOM UROBIL AKO LEN PLACEHOLDER ---***---");
     private Label mainText = new Label(" ");
     private Button editButton;
     private Button cancelButton = new Button("Cancel");
@@ -81,57 +81,57 @@ public class CitizenGeneralInfoController implements Initializable {
 
     @FXML
     void toAssistDevSec(ActionEvent event) throws Exception {
-        setupViewChange("Assistive devices", generalInfo.getAssistiveDevices(), "assistiveDevices");
+        setupViewChange("Assistive devices", generalInfo.getAssistiveDevices(), "assistiveDevices", "Equipment, products and technology such as used by the citizen in daily activities, incl. such as are customized or specially made for, implanted in,located on or near the person who apply them. (Incl. Regular objects and aids and technology for personal use).");
     }
 
     @FXML
     void toDwelSec(ActionEvent event) throws Exception {
-        setupViewChange("Interior of dwelling", generalInfo.getInteriorOfDwelling(), "dwelling");
+        setupViewChange("Interior of dwelling", generalInfo.getInteriorOfDwelling(), "dwelling", "A description of the physical environment of the home and environments that matter the citizen's everyday life and ability to function. ");
     }
 
     @FXML
     void toEduJobSec(ActionEvent event) throws Exception {
-        setupViewChange("Education/Job", generalInfo.getEducationJob(), "educationJob");
+        setupViewChange("Education/Job", generalInfo.getEducationJob(), "educationJob", "Current or previous educational and / or professional background.Eg primary school, vocational education andHigher Education.");
     }
 
     @FXML
     void toHabitSec(ActionEvent event) throws Exception {
-        setupViewChange("Habits", generalInfo.getHabits(), "habits");
+        setupViewChange("Habits", generalInfo.getHabits(), "habits", " Regular behavior that the citizen has learned through constant repetition and execution completely or partially unconsciously.Habits are, for example, the circadian rhythm, the way of becoming accused of, contact with fellow human beings and relationships, way of looking at the world.");
     }
 
     @FXML
     void toHealthInfoSec(ActionEvent event) throws Exception {
-        setupViewChange("Health Information", generalInfo.getHealthInfo(), "healthInfo");
+        setupViewChange("Health Information", generalInfo.getHealthInfo(), "healthInfo", "Current or past illnesses and disability that matters the situation of the citizen.Health professional contacts:Employee or units within the healthcare system the citizen is affiliated with,eg ophthalmologist, dentist, podiatrist or department / outpatient clinic.");
     }
 
     @FXML
     void toLifeStorySec(ActionEvent event) throws Exception {
-        setupViewChange("Life Story", generalInfo.getLifeStory(), "lifeStory");
+        setupViewChange("Life Story", generalInfo.getLifeStory(), "lifeStory", "A description of the citizen's experience of significant events, interests and chores throughout life.\n");
     }
 
     @FXML
     void toMasterySec(ActionEvent event) throws Exception {
-        setupViewChange("Mastery", generalInfo.getMastery(), "mastery");
+        setupViewChange("Mastery", generalInfo.getMastery(), "mastery", "The conscious or unconscious of the citizen management of life / illness - both challenges and opportunities. ");
     }
 
     @FXML
     void toMotivationSec(ActionEvent event) throws Exception {
-        setupViewChange("Motivation", generalInfo.getMotivation(), "motivation");
+        setupViewChange("Motivation", generalInfo.getMotivation(), "motivation", " The driving force behind the citizen acting ona certain way or get started with / maintains a task / effort.");
     }
 
     @FXML
     void toNetworkSec(ActionEvent event) throws Exception {
-        setupViewChange("Network", generalInfo.getNetwork(), "network");
+        setupViewChange("Network", generalInfo.getNetwork(), "network", " People who are close to the citizen, and which provides practical and / or emotional support and care towards the citizen. Networking can be public or private.A public network consists of personal helpers, health professionals and others professionals primarily caregivers.Private network is family, relative,friends and acquaintances.");
     }
 
     @FXML
     void toResourceSec(ActionEvent event) throws Exception {
-        setupViewChange("Resources", generalInfo.getResources(), "resources");
+        setupViewChange("Resources", generalInfo.getResources(), "resources", "The physical or mental forces that the citizen to a certain extent has to available and can take advantage of. Physical forces can for example be in the form of physical health and strength. Mental forces can, for example, be inform of mental health and strength,including thoughts and ways of behaving to situations and other people on.");
     }
 
     @FXML
     void toRollerSec(ActionEvent event) throws Exception {
-        setupViewChange("Roller", generalInfo.getRoller(), "roller");
+        setupViewChange("Roller", generalInfo.getRoller(), "roller", "The roles that are particularly important for the citizen in relation to family, work and community.");
     }
 
     private void setupCancelButton(Button editButton) {
@@ -149,18 +149,18 @@ public class CitizenGeneralInfoController implements Initializable {
         nameLabel.getStyleClass().add("text-decorated");
     }
 
-    private void clearMainView() {
+    private void clearMainView(String descriptionLabel) {
         mainView.getChildren().clear();
         mainView.getChildren().add(nameLabel);
-        mainView.getChildren().add(descriptionLabel);
+        mainView.getChildren().add(createLabel(descriptionLabel));
         mainText.setWrapText(true);
         mainView.getChildren().add(mainText);
         mainView.getChildren().add(buttonPane);
         buttonPane.getChildren().clear();
     }
 
-    private void setupViewChange(String label, String mainTextLabel, String updateView) throws Exception {
-        clearMainView();
+    private void setupViewChange(String label, String mainTextLabel, String updateView, String description) throws Exception {
+        clearMainView(description);
         textArea = new TextArea();
         textArea.getStyleClass().add("custom-textarea");
         textArea.setMinHeight(360);
@@ -292,5 +292,8 @@ public class CitizenGeneralInfoController implements Initializable {
     private void handleSaveButtonSave(GeneralInfo generalInfo) throws UserException {
         mainModel.updateGeneralInfo(generalInfo);
         this.generalInfo = generalInfo;
+    }
+    private Label createLabel(String title) {
+        return new Label(title);
     }
 }

@@ -34,6 +34,7 @@ public class MainModel {
         manager = new FacadeBLL();
         students = FXCollections.observableArrayList();
         admins = FXCollections.observableArrayList();
+        adminsBySchool = FXCollections.observableArrayList();
         schools = FXCollections.observableArrayList();
         teachers = FXCollections.observableArrayList();
         users = FXCollections.observableArrayList();
@@ -79,7 +80,6 @@ public class MainModel {
         if (roleID == 1) userObservableList.setAll(getAllAdminsFromOneSchool());
         else if (roleID == 2) userObservableList.setAll(getAllTeacher());
         else if (roleID == 3) userObservableList.setAll(getAllStudents());
-
         return userObservableList;
     }
 
@@ -87,7 +87,6 @@ public class MainModel {
         removeUserFromSchool(user, getCurrentSchool());
         manager.deleteUser(user);
         userObservableList.remove(user);
-        System.out.println("user is deleted: " + user);
     }
 
     public void updateUser(User user) throws UserException {
@@ -119,7 +118,6 @@ public class MainModel {
 
     public User setCurrentUser(User user) {
         currrentUser = user;
-        System.out.println("Current user: " + currrentUser);
         return currrentUser;
     }
 
@@ -129,7 +127,6 @@ public class MainModel {
 
     public int setCurrentSchoolId(User user) throws UserException {
         currentSchoolId = returnUsersSchoolID(user);
-        System.out.println("Id of the current school:" + currentSchoolId);
         return currentSchoolId;
     }
 
@@ -139,7 +136,7 @@ public class MainModel {
 
     public int returnUsersSchoolID(User user) throws UserException {
         return manager.returnUsersSchoolID(user);
-    } // TODO Matej - all these methods for setting something(school, currentUser,...) can be easily put in facade or in one method
+    }
 
     public GeneralInfo getGeneralInfo(int idGeneralInfo) throws UserException {
         return manager.getGeneralInfo(idGeneralInfo);
@@ -153,11 +150,9 @@ public class MainModel {
 
     public User createStudent(String firstName, String lastName, String loginName, String password) throws UserException {
         User studentNew = manager.createStudent(firstName, lastName, loginName, password);
-        System.out.println(getCurrentSchool());
         addUserToSchool(studentNew, getSchoolById(getCurrentSchoolId())); // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
 
         students.add(studentNew);
-        System.out.println("new student created: " + studentNew);
         return studentNew;
     }
 
@@ -176,9 +171,8 @@ public class MainModel {
 
     public User createTeacher(String firstName, String lastName, String loginName, String password) throws UserException {
         User teacherNew = manager.createTeacher(firstName, lastName, loginName, password);
-        addUserToSchool(teacherNew, getSchoolById(getCurrentSchoolId())); // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+        addUserToSchool(teacherNew, getSchoolById(getCurrentSchoolId()));
         teachers.add(teacherNew);
-        System.out.println("new teacher created: " + teacherNew);
         return teacherNew;
 
     }
@@ -189,7 +183,6 @@ public class MainModel {
 
     public Citizen setCurrentCitizen(Citizen citizen) {
         clickedCitizen = citizen;
-        System.out.println("Current citizen: " + clickedCitizen);
         return clickedCitizen;
     }
 
@@ -222,7 +215,6 @@ public class MainModel {
     public Citizen createCitizen(String fName, String lName, int school) throws UserException {
         Citizen citizenBla = manager.createCitizen(fName, lName, school);
         citizensBySchool.add(citizenBla);
-        System.out.println("Citizen added to observable: " + citizenBla);
         return citizenBla;
     }
     public List<GeneralInfo> getAllGeneralInfo() throws UserException {
@@ -290,7 +282,6 @@ public class MainModel {
 
     public void setChosenCitizenFillUp(Citizen citizenCh) {
         chosenCitizenToFillUp = citizenCh;
-        System.out.println("Current Citizen to fill up: " + chosenCitizenToFillUp);
     }
 
     public Citizen getChosenCitizenFillUp() {

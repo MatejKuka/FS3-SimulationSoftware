@@ -54,7 +54,7 @@ public class NewUserController implements Initializable {
     @FXML
     void toCreateNewUser(ActionEvent event) throws UserException {
         if (comboBoxRole.getSelectionModel().getSelectedIndex() != -1 && !txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
-            if (comboBoxRole.getSelectionModel().getSelectedIndex() == 0) mainModel.createAdminInSchool(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+            if (comboBoxRole.getSelectionModel().getSelectedIndex() == 0) mainModel.createAdmin(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
             if (comboBoxRole.getSelectionModel().getSelectedIndex() == 1) mainModel.createTeacher(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
             if (comboBoxRole.getSelectionModel().getSelectedIndex() == 2) mainModel.createStudent(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
             Stage stage = (Stage) btnSave.getScene().getWindow();

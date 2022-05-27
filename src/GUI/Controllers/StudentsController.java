@@ -81,16 +81,14 @@ public class StudentsController implements Initializable {
     @FXML
     void toDeleteCurUser(ActionEvent event) throws UserException {
         User userToDelete = tableViewUsers.getSelectionModel().getSelectedItem();
-        System.out.println("User is about to be deleted: " + userToDelete);
+        //mainModel.removeUserFromSchool(userToDelete, mainModel.getSchoolById(mainModel.getCurrentSchoolId()));
         mainModel.deleteUser(userToDelete);
         updateTableView();
-        System.out.println("button to Delete user is clicked");
     }
 
     @FXML
     void toEditCurrentUser(ActionEvent event) throws IOException {
         userToShow = tableViewUsers.getSelectionModel().getSelectedItem();
-        System.out.println("chosen user to edit: " + userToShow);
         EditUserController editUserController = new EditUserController(userToShow);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditUserView.fxml"));
         loader.setController(editUserController);

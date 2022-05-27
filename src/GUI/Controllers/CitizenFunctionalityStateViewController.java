@@ -220,10 +220,10 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         performanceBox.getStyleClass().add("custom-combobox");
         citizenWishesBox.getStyleClass().add("custom-combobox");
 
-        importanceBox.getItems().setAll("bad", "normal", "good");
-        performanceBox.getItems().setAll("bad", "normal", "good");
+        importanceBox.getItems().setAll("does not experience limitations", "experiencing limitations");
+        performanceBox.getItems().setAll("performs yourself", "performs semi yourself", "do not performs yourself", "not applicable");
         currentBox.getItems().setAll("0", "1", "2", "3", "4", "9");
-        citizenWishesBox.getItems().setAll("bad", "normal", "good");
+        citizenWishesBox.getItems().setAll("bad", "normal", "good"); // textarea
         relevantBox.getItems().setAll("bad", "normal", "good");
         expectedBox.getItems().setAll("0", "1", "2", "3", "4", "9");
         saveAsComboBox.getItems().setAll("Save as active", "Save as potential", "Save as not relevant");

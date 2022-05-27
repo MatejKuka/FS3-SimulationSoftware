@@ -33,13 +33,13 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     final ComboBox<String> expectedBox = new ComboBox<>();
     final ComboBox<String> performanceBox = new ComboBox<>();
     final ComboBox<String> importanceBox = new ComboBox<>();
-    final ComboBox<String> citizenWishesBox = new ComboBox<>();
     final ComboBox<String> relevantBox = new ComboBox<>();
     final ComboBox<String> saveAsComboBox = new ComboBox<>();
 
     final TextArea professionalArea = new TextArea();
     final TextArea observationalArea = new TextArea();
     final DatePicker datePicker = new DatePicker();
+    final TextArea wishesTextarea = new TextArea();
 
     private String placeholder = "Label";
     private Label currentLevelData = new Label(placeholder);
@@ -187,7 +187,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         saveButton.setOnAction(evt -> {
             String formattedDate = datePicker.getValue().format(DateTimeFormatter.ofPattern("dd-M-yyyy"));
             FunctionalityState newFunctionalityState = new FunctionalityState(functionalityStateData.getId(), Integer.parseInt(currentBox.getValue()), Integer.parseInt(expectedBox.getValue()), professionalArea.getText(), saveAsComboBox.getValue(), functionalityType, citizen.getId());
-            CitizensAssessment newCitizensAssessment = new CitizensAssessment(citizensAssessmentData.getId(), performanceBox.getValue(), importanceBox.getValue(), citizenWishesBox.getValue(), formattedDate, observationalArea.getText(), functionalityType, citizen.getId());
+            CitizensAssessment newCitizensAssessment = new CitizensAssessment(citizensAssessmentData.getId(), performanceBox.getValue(), importanceBox.getValue(), wishesTextarea.getText(), formattedDate, observationalArea.getText(), functionalityType, citizen.getId());
             try {
                 mainModel.updateFunctionalityState(newFunctionalityState);
                 mainModel.updateCitizensAssessment(newCitizensAssessment);
@@ -218,12 +218,11 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         expectedBox.getStyleClass().add("custom-combobox");
         saveAsComboBox.getStyleClass().add("custom-combobox");
         performanceBox.getStyleClass().add("custom-combobox");
-        citizenWishesBox.getStyleClass().add("custom-combobox");
+
 
         importanceBox.getItems().setAll("does not experience limitations", "experiencing limitations");
         performanceBox.getItems().setAll("performs yourself", "performs semi yourself", "do not performs yourself", "not applicable");
         currentBox.getItems().setAll("0", "1", "2", "3", "4", "9");
-        citizenWishesBox.getItems().setAll("bad", "normal", "good"); // textarea
         relevantBox.getItems().setAll("bad", "normal", "good");
         expectedBox.getItems().setAll("0", "1", "2", "3", "4", "9");
         saveAsComboBox.getItems().setAll("Save as active", "Save as potential", "Save as not relevant");
@@ -239,7 +238,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
         performanceBox.setValue(citizensAssessmentData.getPerformance());
         importanceBox.setValue(citizensAssessmentData.getImportance());
-        citizenWishesBox.setValue(citizensAssessmentData.getCitizWishes());
+        wishesTextarea.setText(citizensAssessmentData.getCitizWishes());
         datePicker.setEditable(false);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-M-yyyy");
         LocalDate localDate = LocalDate.parse(citizensAssessmentData.getFollUpDate(), formatter);
@@ -250,7 +249,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container2.getChildren().set(1, expectedBox);
         container6.getChildren().set(1, performanceBox);
         container7.getChildren().set(1, importanceBox);
-        container8.getChildren().set(1, citizenWishesBox);
+        container8.getChildren().set(1, wishesTextarea);
         container9.getChildren().set(1, datePicker);
         container10.getChildren().set(1, observationalArea);
         container3.getChildren().set(1, professionalArea);

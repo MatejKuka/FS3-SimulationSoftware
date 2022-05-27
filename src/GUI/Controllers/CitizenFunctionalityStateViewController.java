@@ -100,6 +100,9 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        wishesTextarea.getStyleClass().add("custom-textarea");
+        professionalArea.getStyleClass().add("custom-textarea");
+        observationalArea.getStyleClass().add("custom-textarea");
         editButton = new Button("Edit");
         editButton.getStyleClass().addAll("btn-action", "padding");
 //        editButton.setDisable(true); //TODO -> Zrobic a potom vymazat

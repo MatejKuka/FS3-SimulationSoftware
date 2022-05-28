@@ -88,7 +88,7 @@ public class MAdminStudentViewController implements Initializable {
 
     @FXML
     void toStuAssignPage(ActionEvent event) {
-
+        setScene("/GUI/Views/AssignmentView.fxml");
     }
 
     @FXML

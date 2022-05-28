@@ -53,11 +53,6 @@ public class MTeacherStudentController implements Initializable {
     }
 
     @FXML
-    void toGroup(ActionEvent event) {
-        setScene("/GUI/Views/GroupsView.fxml");
-    }
-
-    @FXML
     void toLogOut(ActionEvent event) throws IOException {
         Parent root;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/LoginView.fxml"));
@@ -78,7 +73,7 @@ public class MTeacherStudentController implements Initializable {
 
     @FXML
     void toStuAssignPage(ActionEvent event) {
-
+        setScene("/GUI/Views/AssignmentView.fxml");
     }
 
     @FXML

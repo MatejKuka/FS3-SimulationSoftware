@@ -5,19 +5,15 @@ import BE.CitizensAssessment;
 import BE.FunctionalityState;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -28,7 +24,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     @FXML
     private Label label, label1;
     @FXML
-    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container11, container12;
+    private HBox container1, container2, container3, container4, container5, container6, container7, container8, container9, container10, container12;
     final ComboBox<String> currentBox = new ComboBox<>();
     final ComboBox<String> expectedBox = new ComboBox<>();
     final ComboBox<String> performanceBox = new ComboBox<>();
@@ -41,28 +37,22 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     final DatePicker datePicker = new DatePicker();
     final TextArea wishesTextarea = new TextArea();
 
-    private String placeholder = "Label";
-    private Label currentLevelData = new Label(placeholder);
-    private Label expectedLevelData = new Label(placeholder);
-    private Label professionalNoteData = new Label(placeholder);
-    private Label saveAsData = new Label(placeholder);
-    private Label performanceData = new Label(placeholder);
-    private Label importanceData = new Label(placeholder);
-    private Label citizenWishesData = new Label(placeholder);
-    private Label followUpDateData = new Label(placeholder);
-    private Label observationalNotes = new Label(placeholder);
+    private final String placeholder = "Label";
+    private final Label currentLevelData = new Label(placeholder);
+    private final Label expectedLevelData = new Label(placeholder);
+    private final Label professionalNoteData = new Label(placeholder);
+    private final Label saveAsData = new Label(placeholder);
+    private final Label performanceData = new Label(placeholder);
+    private final Label importanceData = new Label(placeholder);
+    private final Label citizenWishesData = new Label(placeholder);
+    private final Label followUpDateData = new Label(placeholder);
+    private final Label observationalNotes = new Label(placeholder);
     private MainModel mainModel;
 
 
     private Button editButton, saveButton, cancelButton;
-
-    private CitizensEditController citizensEditController;
     List<FunctionalityState> functionalityStateList;
     List<CitizensAssessment> citizensAssessmentList;
-
-    public void setCitizensEditController(CitizensEditController citizensEditController) {
-        this.citizensEditController = citizensEditController;
-    }
 
     private boolean isFunctionalityStateCreated = false;
     private boolean isCitizenAssessmentCreated = false;
@@ -116,39 +106,39 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         }
     }
 
-    public void handleSelfCare(ActionEvent event) {
+    public void handleSelfCare() {
         handleNewView("Self Care", 1);
     }
 
-    public void handleDrinking(ActionEvent event) {
+    public void handleDrinking() {
         handleNewView("Drinking", 2);
     }
 
-    public void handleEating(ActionEvent event) {
+    public void handleEating() {
         handleNewView("Eating", 3);
     }
 
-    public void handleFoodIntake(ActionEvent event) {
+    public void handleFoodIntake() {
         handleNewView("Food Intake", 4);
     }
 
-    public void handleWalking(ActionEvent event) {
+    public void handleWalking() {
         handleNewView("Walking", 5);
     }
 
-    public void handleBathroom(ActionEvent event) {
+    public void handleBathroom() {
         handleNewView("Bathroom", 6);
     }
 
-    public void handleBodyPosition(ActionEvent event) {
+    public void handleBodyPosition() {
         handleNewView("Body Position", 7);
     }
 
-    public void handleCommunication(ActionEvent event) {
+    public void handleCommunication() {
         handleNewView("Communication", 8);
     }
 
-    public void handleEmotionalFunctions(ActionEvent event) {
+    public void handleEmotionalFunctions() {
         handleNewView("Emotional Functions", 9);
     }
 
@@ -176,9 +166,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         followUpDateData.setText(citizensAssessmentData.getFollUpDate());
         observationalNotes.setText(citizensAssessmentData.getObservNote());
 
-        editButton.setOnAction(evt -> {
-            setupEditFields();
-        });
+        editButton.setOnAction(evt -> setupEditFields());
 
         cancelButton.setOnAction(evt -> {
             clearButtons();

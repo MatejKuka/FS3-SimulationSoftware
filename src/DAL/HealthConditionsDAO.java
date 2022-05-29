@@ -1,10 +1,8 @@
 package DAL;
 
-import BE.GeneralInfo;
 import BE.HealthConditions;
 import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
-
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -24,7 +22,7 @@ public class HealthConditionsDAO {
 
     public List<HealthConditions> getHealthCondition(int idCitizen) throws UserException {
         List<HealthConditions> healthConditionsList = new ArrayList<>();
-        HealthConditions healthConditions = null;
+        HealthConditions healthConditions;
         String query =  "SELECT * FROM Health_Condition_Answ WHERE Citizen = ?";
 
         try (Connection connection = dbConnector.getConnection()){

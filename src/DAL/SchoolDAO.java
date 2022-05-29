@@ -3,7 +3,6 @@ package DAL;
 import BE.School;
 import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
-
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;

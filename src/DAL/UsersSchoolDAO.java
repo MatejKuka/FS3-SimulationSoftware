@@ -1,20 +1,17 @@
 package DAL;
 
-import BE.CitizensAssessment;
 import BE.School;
 import BE.User;
 import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class UsersSchoolDAO {
 
-    private DBConnector dbConnector;
+    private final DBConnector dbConnector;
 
     public UsersSchoolDAO() throws IOException {
         dbConnector = DBConnector.getInstance();

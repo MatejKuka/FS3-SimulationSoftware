@@ -296,23 +296,23 @@ public class UserDAO {
         return student;
     }
 
-    public void deleteUser(int userId) throws UserException {
+    public void deleteUser(User user) throws UserException {
         String query = "DELETE FROM Users WHERE Id = ?";
         String queryUserSchool = "DELETE FROM Users_School WHERE Users = ?";
         String queryTeacherStudent = "DELETE FROM Teacher_Student WHERE Teacher = ? OR Student = ?";
 
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement2 = connection.prepareStatement(queryUserSchool);
-            preparedStatement2.setInt(1, userId);
+            preparedStatement2.setInt(1, user.getUserID());
             preparedStatement2.executeUpdate();
 
             PreparedStatement preparedStatement3 = connection.prepareStatement(queryTeacherStudent);
-            preparedStatement3.setInt(1, userId);
-            preparedStatement3.setInt(2, userId);
+            preparedStatement3.setInt(1, user.getUserID());
+            preparedStatement3.setInt(2, user.getUserID());
             preparedStatement3.executeUpdate();
 
             PreparedStatement preparedStatement1 = connection.prepareStatement(query);
-            preparedStatement1.setInt(1, userId);
+            preparedStatement1.setInt(1, user.getUserID());
             preparedStatement1.executeUpdate();
         } catch (Exception e) {
             throw new UserException("Not able to delete user", e);

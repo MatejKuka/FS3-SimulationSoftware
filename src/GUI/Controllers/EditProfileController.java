@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EditProfileController implements Initializable {
-    //MainModel model;
+    private MainModel model;
 
 
     @FXML
@@ -32,7 +32,12 @@ public class EditProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        user = new User(22, "Jozef", "Matus", "palenka", "tranzistor", 2);
+        try {
+            model = new MainModel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        user = MainModel.currrentUser;
         initializeTextFields();
         setupInitialView();
 
@@ -64,7 +69,8 @@ public class EditProfileController implements Initializable {
         });
 
         saveChangesButton.setOnAction(event -> {
-//            user = new User(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText(), user.getRoleID());
+            User newUser = new User(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText(), user.getRoleID());
+            model.updateUser();
             //try {model.updateUser(user);} catch (Exception e) {e.printStackTrace();}
             setupLabels();
             cleanBorderPanes();

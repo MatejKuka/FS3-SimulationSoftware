@@ -9,16 +9,14 @@ import java.io.IOException;
 
 public class LoginManager {
     FacadeDAL facadeDAL;
-    LoginUserHelper loginUserHelper;
 
     public LoginManager() throws IOException {
         facadeDAL = new FacadeDAL();
-        loginUserHelper = new LoginUserHelper();
     }
 
     public User compareLogins(String username, String password) throws UserException {
         User user = facadeDAL.compareLogins(username, password);
-        if (user != null) return loginUserHelper.getInstance(user);
+        if (user != null) return LoginUserHelper.getInstance(user);
         else return null;
     }
 

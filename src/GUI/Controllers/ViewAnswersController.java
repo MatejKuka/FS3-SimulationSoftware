@@ -25,37 +25,8 @@ public class ViewAnswersController implements Initializable {
     List<String> namesHC;
 
     @FXML
-    private Label labelCurrAss;
+    private Label labelCurrAss, labelObsNotes, labelProffNote, labelSaved, labelNameHC, labelLNameST, labelLName, labelFollDate, labelFNameST, labelFName, labelExpLev;
 
-    @FXML
-    private Label labelExpLev;
-
-    @FXML
-    private Label labelFName;
-
-    @FXML
-    private Label labelFNameST;
-
-    @FXML
-    private Label labelFollDate;
-
-    @FXML
-    private Label labelLName;
-
-    @FXML
-    private Label labelLNameST;
-
-    @FXML
-    private Label labelNameHC;
-
-    @FXML
-    private Label labelObsNotes;
-
-    @FXML
-    private Label labelProffNote;
-
-    @FXML
-    private Label labelSaved;
 
     public ViewAnswersController(Citizen citizenToShow, User userToShow) {
         this.citizenToShow = citizenToShow;

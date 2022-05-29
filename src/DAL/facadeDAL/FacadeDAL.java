@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class FacadeDAL implements IFacadeDAL{
-    private static FacadeDAL instance;
-
     UserDAO userDAO;
     CitizenDAO citizenDAO;
     UsersSchoolDAO usersSchoolDAO;

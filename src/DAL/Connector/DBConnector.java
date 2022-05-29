@@ -11,7 +11,7 @@ public class DBConnector {
     private static final String CONFIG_FILE_NAME = "src/LoginConfig.cfg";
     private static DBConnector instance = null;
 
-    private SQLServerDataSource dataSource;
+    private final SQLServerDataSource dataSource;
 
     private DBConnector() throws IOException {
         Properties props = new Properties();

@@ -85,12 +85,12 @@ public class MainModel {
 
     public void deleteUser(User user) throws UserException {
         removeUserFromSchool(user, getCurrentSchool());
-        manager.deleteUser(user);
+//        manager.deleteUser(user);
         userObservableList.remove(user);
     }
 
     public void updateUser(User user) throws UserException {
-        manager.updateUser(user);
+//        manager.updateUser(user);
     }
 
     public void changeRoleId(int number) {

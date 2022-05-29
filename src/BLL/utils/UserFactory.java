@@ -23,7 +23,6 @@ public class UserFactory {
         }
     }
 
-    //hint -> za posledny parameter vsadit napriklad UserType.ADMIN
     public User createUser(int userID, String firstName, String lastName, String loginName, String password, UserType userType){
         switch (userType){
             case ADMIN -> {

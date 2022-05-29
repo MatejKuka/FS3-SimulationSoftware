@@ -14,7 +14,6 @@ public class MainModel {
     private static int idRole;
     private static int currentSchoolId;
     public static User currrentUser;
-    public static Citizen clickedCitizen;
     public static Citizen chosenCitizenToFillUp;
     public static School clickedSchool;
     private static String nameRole;
@@ -108,18 +107,16 @@ public class MainModel {
         return citizensBySchool;
     }
 
-    public User setCurrentUser(User user) {
+    public void setCurrentUser(User user) {
         currrentUser = user;
-        return currrentUser;
     }
 
     public User getCurrentUser() {
         return currrentUser;
     }
 
-    public int setCurrentSchoolId(User user) throws UserException {
+    public void setCurrentSchoolId(User user) throws UserException {
         currentSchoolId = returnUsersSchoolID(user);
-        return currentSchoolId;
     }
 
     public int getCurrentSchoolId() {
@@ -130,31 +127,22 @@ public class MainModel {
         return manager.returnUsersSchoolID(user);
     }
 
-    public User createStudent(String firstName, String lastName, String loginName, String password) throws UserException {
+    public void createStudent(String firstName, String lastName, String loginName, String password) throws UserException {
         User studentNew = manager.createStudent(firstName, lastName, loginName, password);
         addUserToSchool(studentNew);
         students.add(studentNew);
-        return studentNew;
     }
 
-    public User createAdmin(String firstName, String lastName, String loginName, String password) throws UserException {
+    public void createAdmin(String firstName, String lastName, String loginName, String password) throws UserException {
         User adminNew = manager.createAdmin(firstName, lastName, loginName, password);
         admins.add(adminNew);
-        return manager.createAdmin(firstName, lastName, loginName, password);
+        manager.createAdmin(firstName, lastName, loginName, password);
     }
 
-    public User createAdminInSchool(String firstName, String lastName, String loginName, String password) throws UserException {
-        User userAdmin = manager.createAdmin(firstName, lastName, loginName, password);
-        addUserToSchool(userAdmin);
-        adminsBySchool.add(userAdmin);
-        return userAdmin;
-    }
-
-    public User createTeacher(String firstName, String lastName, String loginName, String password) throws UserException {
+    public void createTeacher(String firstName, String lastName, String loginName, String password) throws UserException {
         User teacherNew = manager.createTeacher(firstName, lastName, loginName, password);
         addUserToSchool(teacherNew);
         teachers.add(teacherNew);
-        return teacherNew;
 
     }
 
@@ -162,18 +150,8 @@ public class MainModel {
         return manager.getCitizenFunctionalityState(id);
     }
 
-    public Citizen setCurrentCitizen(Citizen citizen) {
-        clickedCitizen = citizen;
-        return clickedCitizen;
-    }
-
-    public Citizen getCurrentCitizen() {
-        return clickedCitizen;
-    }
-
-    public School setCurrentSchool(School school) {
+    public void setCurrentSchool(School school) {
         clickedSchool = school;
-        return clickedSchool;
     }
 
     public School getCurrentSchool() {
@@ -208,8 +186,8 @@ public class MainModel {
         return schools;
     }
 
-    public School createSchool(String name, String city) throws UserException {
-        return manager.createSchool(name, city);
+    public void createSchool(String name, String city) throws UserException {
+        manager.createSchool(name, city);
     }
 
     public void deleteSchool(School school) throws UserException {
@@ -240,10 +218,6 @@ public class MainModel {
         manager.addCitizenToStudent(student, citizen);
     }
 
-    public void removeCitizenFromStudent(User student, Citizen citizen) throws UserException {
-        manager.removeCitizenFromStudent(student, citizen);
-    }
-
     public List<Citizen> getStudentCitizens(int studentId) throws UserException {
         return manager.getStudentCitizens(studentId);
     }
@@ -256,8 +230,8 @@ public class MainModel {
         manager.updateHealthConditions(healthConditions);
     }
 
-    public HealthConditions createHealthCondition(String SaveAs, String ProfessNote, String CurrAssess, String ExpectedLvl, String FollUpDate, String ObservNote, int TypeOfCase, int Citizen) throws UserException {
-        return manager.createHealthCondition(SaveAs, ProfessNote, CurrAssess, ExpectedLvl, FollUpDate, ObservNote, TypeOfCase, Citizen);
+    public void createHealthCondition(String SaveAs, String ProfessNote, String CurrAssess, String ExpectedLvl, String FollUpDate, String ObservNote, int TypeOfCase, int Citizen) throws UserException {
+        manager.createHealthCondition(SaveAs, ProfessNote, CurrAssess, ExpectedLvl, FollUpDate, ObservNote, TypeOfCase, Citizen);
     }
 
     public void setChosenCitizenFillUp(Citizen citizenCh) {

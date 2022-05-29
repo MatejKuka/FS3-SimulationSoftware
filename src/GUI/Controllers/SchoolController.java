@@ -5,16 +5,13 @@ import BE.User;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,16 +21,6 @@ public class SchoolController implements Initializable {
     MainModel mainModel;
     School clickedSchool;
     User chosenUser;
-    SceneSetter sceneSetter;
-
-    @FXML
-    private Button btnCreate;
-
-    @FXML
-    private Button btnEdit;
-
-    @FXML
-    private Label labelNameView;
 
     @FXML
     private Label labelMessage;
@@ -62,7 +49,6 @@ public class SchoolController implements Initializable {
 
     public SchoolController() throws IOException {
         mainModel = new MainModel();
-        sceneSetter = new SceneSetter();
     }
 
     @Override
@@ -77,29 +63,29 @@ public class SchoolController implements Initializable {
     }
 
     @FXML
-    void toCreateNewSchool(ActionEvent event) {
+    void toCreateNewSchool() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CreateSchoolView.fxml"));
-        sceneSetter.setScene(loader);
+        SceneSetter.setScene(loader);
     }
 
     @FXML
-    void toDeleteCurSchool(ActionEvent event) throws UserException {
+    void toDeleteCurSchool() throws UserException {
         mainModel.deleteSchool(clickedSchool);
         System.out.println("school is about to delete: " + clickedSchool);
     }
 
     @FXML
-    void toEditCurrentSchool(ActionEvent event) throws IOException {
+    void toEditCurrentSchool() throws IOException {
 
         EditSchoolController editSchoolController = new EditSchoolController(mainModel.getCurrentSchool());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditSchoolView.fxml"));
         loader.setController(editSchoolController);
-        sceneSetter.setScene(loader);
+        SceneSetter.setScene(loader);
     }
 
     @FXML
-    void toShowUser(MouseEvent event) {
+    void toShowUser() {
         clickedSchool = tableViewSchools.getSelectionModel().getSelectedItem();
         mainModel.setCurrentSchool(clickedSchool);
     }
@@ -118,16 +104,16 @@ public class SchoolController implements Initializable {
     }
 
     @FXML
-    void toAssignAdmin(ActionEvent event) throws UserException {
+    void toAssignAdmin() throws UserException {
         chosenUser = tableView.getSelectionModel().getSelectedItem();
         if (chosenUser != null && clickedSchool != null) {
-            mainModel.addUserToSchool(chosenUser, clickedSchool);
+            mainModel.addUserToSchool(chosenUser);
             labelMessage.setText(" ");
         } else labelMessage.setText("You have to choose school and admin to assign");
     }
 
     @FXML
-    void toDeleteAdmin(ActionEvent event) throws UserException {
+    void toDeleteAdmin() throws UserException {
         chosenUser = tableView.getSelectionModel().getSelectedItem();
         if (chosenUser != null) {
             mainModel.deleteUser(chosenUser);

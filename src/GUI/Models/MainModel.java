@@ -224,12 +224,8 @@ public class MainModel {
         return manager.getCitizenById(id);
     }
 
-    public void addUserToSchool(User user, School school) throws UserException {
+    public void addUserToSchool(User user) throws UserException {
         manager.addUserToSchool(user, getSchoolById(getCurrentSchoolId()));
-    }
-
-    public void removeUserFromSchool(User user, School school) throws UserException {
-        manager.removeUserFromSchool(user, getSchoolById(getCurrentSchoolId()));
     }
 
     public School getSchoolById(int schoolId) throws UserException {

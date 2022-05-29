@@ -29,11 +29,6 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public List<User> getAllUsers() throws UserException {
-        return facadeDAL.getAllUsers();
-    }
-
-    @Override
     public List<User> getAllAdmins() throws UserException {
         return facadeDAL.getAllAdmins();
     }

@@ -54,6 +54,7 @@ public class MTeacherStudentController implements Initializable {
 
     @FXML
     void toLogOut(ActionEvent event) throws IOException {
+
         Parent root;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/LoginView.fxml"));
         root = loader.load();

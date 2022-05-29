@@ -105,7 +105,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         observationalArea.getStyleClass().add("custom-textarea");
         editButton = new Button("Edit");
         editButton.getStyleClass().addAll("btn-action", "padding");
-//        editButton.setDisable(true); //TODO -> Zrobic a potom vymazat
         saveButton = new Button("Save");
         saveButton.getStyleClass().addAll("btn-action", "padding");
         cancelButton = new Button("Cancel");

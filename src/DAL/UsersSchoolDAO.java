@@ -69,4 +69,4 @@ public class UsersSchoolDAO {
         }
         return schoolId;
     }
-} // TODO Matej - check these methods and implement them
+}

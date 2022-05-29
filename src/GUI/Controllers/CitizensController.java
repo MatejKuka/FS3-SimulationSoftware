@@ -96,7 +96,6 @@ public class CitizensController implements Initializable {
                     generalEditButton.setDisable(false);
                     deleteButton.setDisable(false);
 //                    functionalityStateButton.setDisable(false);
-                    //TODO -> implement the button functionality then uncomment
                 }
             });
             return row;

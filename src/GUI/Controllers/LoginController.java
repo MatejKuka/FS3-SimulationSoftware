@@ -3,28 +3,21 @@ package GUI.Controllers;
 import BE.User;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class LoginController {
 
-    private static User user;
     MainModel mainModel;
     String errorMessage = "Your username or password is wrong";
-
-    @FXML
-    private Button buttonLogin;
 
     @FXML
     private Label labelBadInput;
@@ -41,8 +34,8 @@ public class LoginController {
     }
 
 
-    public void toSubmitLogin(ActionEvent actionEvent) throws UserException {
-        user = mainModel.compareLogins(textFieldUsername.getText(), textFieldPassword.getText());
+    public void toSubmitLogin() throws UserException {
+        User user = mainModel.compareLogins(textFieldUsername.getText(), textFieldPassword.getText());
         if (user != null) {
             if (user.getRoleID() == 1) {
                 mainModel.setCurrentUser(user);

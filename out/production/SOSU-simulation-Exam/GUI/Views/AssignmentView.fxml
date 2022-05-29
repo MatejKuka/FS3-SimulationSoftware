@@ -62,5 +62,10 @@
             <Button fx:id="btnOpenCiitizenInfo" mnemonicParsing="false" onAction="#toOpenCitizenInfo" prefHeight="36.0" prefWidth="121.0" styleClass="btn-action" text="Open Citizen info" />
          </children>
       </HBox>
+      <HBox alignment="CENTER" layoutX="215.0" layoutY="540.0" prefHeight="52.0" prefWidth="416.0">
+         <children>
+            <Label fx:id="labelMessage" alignment="CENTER" prefHeight="22.0" prefWidth="418.0" text="-" textFill="RED" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

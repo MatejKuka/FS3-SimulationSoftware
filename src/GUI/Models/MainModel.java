@@ -130,15 +130,6 @@ public class MainModel {
         return manager.returnUsersSchoolID(user);
     }
 
-    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws UserException {
-        return manager.getGeneralInfo(idGeneralInfo);
-    }
-
-    public ObservableList<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws UserException {
-        functionalityStates.setAll(manager.getCitizenFunctionalityState(idCitizen));
-        return functionalityStates;
-    }
-
     public User createStudent(String firstName, String lastName, String loginName, String password) throws UserException {
         User studentNew = manager.createStudent(firstName, lastName, loginName, password);
         addUserToSchool(studentNew, getSchoolById(getCurrentSchoolId()));

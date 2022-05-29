@@ -5,17 +5,12 @@ import BE.Student;
 import BE.User;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,25 +18,9 @@ public class AssignCasesController implements Initializable {
     MainModel mainModel;
     Citizen clickedCitizen;
     Student clickedUser;
-    String initialStringHC = "empty";
 
     @FXML
-    private Button btnAssign;
-
-    @FXML
-    private Label labelFirstname;
-
-    @FXML
-    private Label labelID;
-
-    @FXML
-    private Label labelLastName;
-
-    @FXML
-    private Label labelStudentName;
-
-    @FXML
-    private Label labelMessage;
+    private Label labelFirstname, labelID, labelLastName, labelStudentName, labelMessage;
 
     @FXML
     private TableView<Citizen> tableViewCitizen;
@@ -53,16 +32,13 @@ public class AssignCasesController implements Initializable {
     private TableColumn<Citizen, String> tcFNameCitizen;
 
     @FXML
-    private TableColumn<User, String> tcFNameStudent;
+    private TableColumn<User, String> tcFNameStudent, tcLNameStudent;
 
     @FXML
     private TableColumn<Citizen, Integer> tcIdCitizen;
 
     @FXML
     private TableColumn<Citizen, String> tcLNameCitizen;
-
-    @FXML
-    private TableColumn<User, String> tcLNameStudent;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,7 +57,7 @@ public class AssignCasesController implements Initializable {
     }
 
     @FXML
-    void toAssignCitizen(ActionEvent event) throws UserException {
+    void toAssignCitizen() throws UserException {
         if (clickedUser != null && clickedCitizen != null) {
             mainModel.addCitizenToStudent(clickedUser, clickedCitizen);
             System.out.println(clickedUser + " user got assinged " + clickedCitizen);
@@ -89,7 +65,7 @@ public class AssignCasesController implements Initializable {
     }
 
     @FXML
-    void handleClickedCitizen(MouseEvent event) {
+    void handleClickedCitizen() {
         clickedCitizen = tableViewCitizen.getSelectionModel().getSelectedItem();
         labelFirstname.setText(clickedCitizen.getFirstName());
         labelLastName.setText(clickedCitizen.getLastName());
@@ -97,7 +73,7 @@ public class AssignCasesController implements Initializable {
     }
 
     @FXML
-    void handleClickedStudent(MouseEvent event) {
+    void handleClickedStudent() {
         clickedUser = (Student) tableViewStudents.getSelectionModel().getSelectedItem();
         labelStudentName.setText(clickedUser.getFullName());
     }

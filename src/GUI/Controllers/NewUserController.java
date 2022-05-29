@@ -2,8 +2,6 @@ package GUI.Controllers;
 
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
-import com.sun.tools.javac.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,7 +9,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,13 +43,13 @@ public class NewUserController implements Initializable {
     }
 
     @FXML
-    void toCancelPage(ActionEvent event) {
+    void toCancelPage() {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    void toCreateNewUser(ActionEvent event) throws UserException {
+    void toCreateNewUser() throws UserException {
         if (comboBoxRole.getSelectionModel().getSelectedIndex() != -1 && !txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
             if (comboBoxRole.getSelectionModel().getSelectedIndex() == 0) mainModel.createAdmin(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
             if (comboBoxRole.getSelectionModel().getSelectedIndex() == 1) mainModel.createTeacher(txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());

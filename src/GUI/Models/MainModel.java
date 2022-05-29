@@ -84,7 +84,7 @@ public class MainModel {
     }
 
     public void deleteUser(User user) throws UserException {
-        removeUserFromSchool(user, getCurrentSchool());
+        //removeUserFromSchool(user, getCurrentSchool());
         manager.deleteUser(user);
         userObservableList.remove(user);
     }

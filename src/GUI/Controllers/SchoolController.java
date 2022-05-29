@@ -126,5 +126,13 @@ public class SchoolController implements Initializable {
         } else labelMessage.setText("You have to choose school and admin to assign");
     }
 
+    @FXML
+    void toDeleteAdmin(ActionEvent event) throws UserException {
+        chosenUser = tableView.getSelectionModel().getSelectedItem();
+        if (chosenUser != null) {
+            mainModel.deleteUser(chosenUser);
+        } else labelMessage.setText("You have to choose a user to be deleted");
+    }
+
 
 }

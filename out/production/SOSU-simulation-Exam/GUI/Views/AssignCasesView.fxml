@@ -11,48 +11,60 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.AssignCasesController">
+<AnchorPane prefHeight="700.0" prefWidth="840.0" styleClass="bg-secondary" stylesheets="@../../resources/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.AssignCasesController">
    <children>
       <BorderPane layoutX="-6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="375.0" prefWidth="840.0">
+                  <HBox prefHeight="375.0" prefWidth="840.0" spacing="20.0">
                      <children>
                         <VBox prefHeight="375.0" prefWidth="385.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="90.0" prefWidth="257.0" text="Citizens">
+                              <Label alignment="CENTER" styleClass="text-decorated" text="Citizens">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
                               </Label>
-                              <TableView fx:id="tableViewCitizen" onMouseClicked="#handleClickedCitizen" prefHeight="356.0" prefWidth="281.0">
+                              <TableView fx:id="tableViewCitizen" onMouseClicked="#handleClickedCitizen" stylesheets="@../../resources/custom-tableview.css">
                                 <columns>
                                   <TableColumn fx:id="tcIdCitizen" prefWidth="47.0" text="Id" />
                                   <TableColumn fx:id="tcFNameCitizen" prefWidth="157.0" text="First name" />
                                     <TableColumn fx:id="tcLNameCitizen" prefWidth="160.0" text="Last name" />
                                 </columns>
                                  <VBox.margin>
-                                    <Insets left="10.0" right="10.0" top="20.0" />
+                                    <Insets />
                                  </VBox.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
                               </TableView>
                            </children>
                         </VBox>
                         <VBox prefHeight="375.0" prefWidth="412.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="99.0" prefWidth="363.0" text="Students">
+                              <Label alignment="CENTER" styleClass="text-decorated" text="Students">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
                               </Label>
-                              <TableView fx:id="tableViewStudents" onMouseClicked="#handleClickedStudent" prefHeight="366.0" prefWidth="540.0">
+                              <TableView fx:id="tableViewStudents" onMouseClicked="#handleClickedStudent" stylesheets="@../../resources/custom-tableview.css">
                                  <columns>
                                     <TableColumn fx:id="tcFNameStudent" prefWidth="186.0" text="First name" />
                                     <TableColumn fx:id="tcLNameStudent" prefWidth="205.0" text="Last name" />
                                  </columns>
                                  <VBox.margin>
-                                    <Insets left="10.0" right="10.0" top="20.0" />
+                                    <Insets />
                                  </VBox.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
                               </TableView>
                            </children>
                         </VBox>
@@ -61,11 +73,11 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label prefHeight="32.0" prefWidth="117.0" text="Assign Citizen:" />
-                        <VBox alignment="CENTER" prefHeight="99.0" prefWidth="134.0">
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="257.0" spacing="5.0">
                            <children>
-                              <Label fx:id="labelFirstname" prefHeight="33.0" prefWidth="127.0" text="label" />
-                              <Label fx:id="labelLastName" prefHeight="31.0" prefWidth="129.0" text="label" />
-                              <Label fx:id="labelID" prefHeight="30.0" prefWidth="129.0" text="label" />
+                              <Label fx:id="labelFirstname" text="label" />
+                              <Label fx:id="labelLastName" text="label" />
+                              <Label fx:id="labelID" text="label" />
                            </children>
                         </VBox>
                         <Label prefHeight="33.0" prefWidth="63.0" text="To" />
@@ -74,7 +86,7 @@
                   </HBox>
                   <VBox alignment="CENTER" prefHeight="143.0" prefWidth="840.0">
                      <children>
-                        <Button fx:id="btnAssign" mnemonicParsing="false" onAction="#toAssignCitizen" prefHeight="48.0" prefWidth="99.0" text="Assign">
+                        <Button fx:id="btnAssign" mnemonicParsing="false" onAction="#toAssignCitizen" prefHeight="48.0" prefWidth="99.0" styleClass="btn-action" text="Assign">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -87,6 +99,9 @@
                      </children>
                   </VBox>
                </children>
+               <BorderPane.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </BorderPane.margin>
             </VBox>
          </center>
       </BorderPane>

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="700.0" prefWidth="840.0" styleClass="bg-secondary" stylesheets="@../../resources/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane layoutX="40.0" layoutY="22.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -30,18 +30,18 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" text="Name:" textAlignment="CENTER">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" styleClass="text-primary" text="Name:" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" text="City:" textAlignment="CENTER" GridPane.rowIndex="1">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="66.0" prefWidth="199.0" styleClass="text-primary" text="City:" textAlignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtFieldFName" maxWidth="150.0" GridPane.columnIndex="1" />
-                        <TextField fx:id="txtFieldLName" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtFieldFName" maxWidth="150.0" styleClass="custom-text-field" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtFieldLName" maxWidth="150.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <VBox alignment="CENTER" prefHeight="70.0" prefWidth="530.0">
@@ -51,12 +51,12 @@
                   </VBox>
                   <HBox alignment="CENTER" prefHeight="103.0" prefWidth="531.0">
                      <children>
-                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#toCreateNewUser" prefHeight="36.0" prefWidth="76.0" text="Save">
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#toCreateNewUser" prefHeight="36.0" prefWidth="76.0" styleClass="btn-action" text="Save">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#toCancelPage" prefHeight="38.0" prefWidth="74.0" text="Cancel">
+                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#toCancelPage" prefHeight="38.0" prefWidth="74.0" styleClass="btn-action" text="Cancel">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>

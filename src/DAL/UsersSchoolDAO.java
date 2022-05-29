@@ -48,7 +48,7 @@ public class UsersSchoolDAO {
             preparedStatement1.setInt(2, user.getUserID());
             preparedStatement1.executeUpdate();
         } catch (Exception e) {
-            throw new UserException("Not able to remove student from school", e);
+            throw new UserException("Not able to remove user from school", e);
         }
     }
 

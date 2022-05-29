@@ -1,7 +1,6 @@
 package GUI.Controllers;
 
 import GUI.Models.MainModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MAdminStudentViewController implements Initializable {
@@ -42,30 +42,24 @@ public class MAdminStudentViewController implements Initializable {
     }
 
     @FXML
-    void toAdminsPage(ActionEvent event) {
+    void toAdminsPage() throws IOException {
         mainModel.changeRoleId(1);
         mainModel.changeRoleName(1);
         setScene("/GUI/Views/Students.fxml");
-
     }
 
     @FXML
-    void toCasesPage(ActionEvent event) {
+    void toCasesPage() throws IOException {
         setScene("/GUI/Views/AssignCasesView.fxml");
     }
 
     @FXML
-    void toCitizensPage(ActionEvent event) {
+    void toCitizensPage() throws IOException {
         setScene("/GUI/Views/CitizensView.fxml");
     }
 
     @FXML
-    void toGroup(ActionEvent event) {
-        setScene("/GUI/Views/GroupsView.fxml");
-    }
-
-    @FXML
-    void toLogOut(ActionEvent event) throws IOException {
+    void toLogOut() throws IOException {
         Parent root;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/LoginView.fxml"));
         root = loader.load();
@@ -77,43 +71,37 @@ public class MAdminStudentViewController implements Initializable {
     }
 
     @FXML
-    void toMyProfilePage(ActionEvent event) {
+    void toMyProfilePage() throws IOException {
         setScene("/GUI/Views/EditProfile.fxml");
     }
 
     @FXML
-    void toSchoolsPage(ActionEvent event) {
+    void toSchoolsPage() throws IOException {
         setScene("/GUI/Views/SchoolView.fxml");
     }
 
     @FXML
-    void toStuAssignPage(ActionEvent event) {
+    void toStuAssignPage() throws IOException {
         setScene("/GUI/Views/AssignmentView.fxml");
     }
 
     @FXML
-    public void toStudentsPage(ActionEvent event) throws Exception {
+    public void toStudentsPage() throws IOException {
         mainModel.changeRoleId(3);
         mainModel.changeRoleName(3);
         setScene("/GUI/Views/Students.fxml");
     }
 
     @FXML
-    void toTeachersPage(ActionEvent event) {
+    void toTeachersPage() throws IOException {
         mainModel.changeRoleId(2);
         mainModel.changeRoleName(2);
         setScene("/GUI/Views/Students.fxml");
     }
 
-    public void setScene(String pathOfView) {
-
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource(pathOfView));
-
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
+    public void setScene(String pathOfView) throws IOException {
+        Parent root;
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(pathOfView)));
         this.borderPane.setCenter(root);
     }
 

@@ -4,21 +4,13 @@ import BE.User;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,19 +19,9 @@ public class StudentsController implements Initializable {
     MainModel mainModel;
     MAdminStudentViewController menuController;
     User userToShow;
-    SceneSetter sceneSetter;
 
     @FXML
-    private Button btnCreate;
-
-    @FXML
-    private Button btnEdit;
-
-    @FXML
-    private Label labelNameView;
-
-    @FXML
-    private Label labelFirstName, labelUsername, labelLastName;
+    private Label labelFirstName, labelUsername, labelLastName, labelNameView;
 
     @FXML
     private TableColumn<User, String> tableColFname;
@@ -53,7 +35,6 @@ public class StudentsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        sceneSetter = new SceneSetter();
         try {
             mainModel = new MainModel();
             menuController = new MAdminStudentViewController();
@@ -72,14 +53,14 @@ public class StudentsController implements Initializable {
     }
 
     @FXML
-    void toCreateNewUser(ActionEvent event) throws IOException {
+    void toCreateNewUser() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/NewUserView.fxml"));
-        sceneSetter.setScene(loader);
+        SceneSetter.setScene(loader);
     }
 
     @FXML
-    void toDeleteCurUser(ActionEvent event) throws UserException {
+    void toDeleteCurUser() throws UserException {
         User userToDelete = tableViewUsers.getSelectionModel().getSelectedItem();
         //mainModel.removeUserFromSchool(userToDelete, mainModel.getSchoolById(mainModel.getCurrentSchoolId()));
         mainModel.deleteUser(userToDelete);
@@ -87,16 +68,16 @@ public class StudentsController implements Initializable {
     }
 
     @FXML
-    void toEditCurrentUser(ActionEvent event) throws IOException {
+    void toEditCurrentUser() throws IOException {
         userToShow = tableViewUsers.getSelectionModel().getSelectedItem();
         EditUserController editUserController = new EditUserController(userToShow);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditUserView.fxml"));
         loader.setController(editUserController);
-        sceneSetter.setScene(loader);
+        SceneSetter.setScene(loader);
     }
 
     @FXML
-    void toShowUser(MouseEvent event) {
+    void toShowUser() {
         userToShow = tableViewUsers.getSelectionModel().getSelectedItem();
         if (userToShow != null) {
         labelFirstName.setText(userToShow.getFirstName());

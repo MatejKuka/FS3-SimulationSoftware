@@ -13,7 +13,7 @@ public class MainModel {
 
     private static int idRole;
     private static int currentSchoolId;
-    public static User currrentUser;
+    public static User currentUser;
     public static Citizen chosenCitizenToFillUp;
     public static School clickedSchool;
     private static String nameRole;
@@ -108,11 +108,11 @@ public class MainModel {
     }
 
     public void setCurrentUser(User user) {
-        currrentUser = user;
+        currentUser = user;
     }
 
     public User getCurrentUser() {
-        return currrentUser;
+        return currentUser;
     }
 
     public void setCurrentSchoolId(User user) throws UserException {

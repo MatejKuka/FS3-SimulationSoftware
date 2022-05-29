@@ -35,7 +35,7 @@ public class EditProfileController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        user = MainModel.currrentUser;
+        user = MainModel.currentUser;
         initializeTextFields();
         setupInitialView();
 
@@ -59,7 +59,6 @@ public class EditProfileController implements Initializable {
             cleanBorderPanes();
             cleanNodes();
             setupTextFields();
-
             editBorderPane.setCenter(saveChangesButton);
             deleteBorderPane.setCenter(cancelChangesButton);
         });
@@ -73,7 +72,7 @@ public class EditProfileController implements Initializable {
         saveChangesButton.setOnAction(event -> {
             try {
                 model.updateUser(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText());
-                user = MainModel.currrentUser;
+                user = MainModel.currentUser;
             } catch (UserException e) {
                 e.printStackTrace();
             }

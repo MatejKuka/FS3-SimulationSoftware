@@ -348,7 +348,7 @@ public class FillingUPCaseController implements Initializable {
     @FXML
     void toHC26(ActionEvent event) throws UserException {
         setUpNodes(25);
-        setLabelName("Acute pain ");
+        setLabelName("Acute pain");
         setTypeOfCase(26);
     }
 

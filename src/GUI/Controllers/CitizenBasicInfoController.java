@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.Citizen;
 import BE.GeneralInfo;
+import BE.School;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
@@ -132,10 +133,11 @@ public class CitizenBasicInfoController implements Initializable {
         });
     }
 
-    public void setupLabels(Citizen citizen) {
+    public void setupLabels(Citizen citizen) throws UserException {
         firstNamePlaceholder.setText(citizen.getFirstName());
         lastNamePlaceholder.setText(citizen.getLastName());
-        schoolPlaceholder.setText(String.valueOf(citizen.getSchool()));
+        School school = mainModel.getSchoolById(citizen.getSchool());
+        schoolPlaceholder.setText(school.getName());
     }
 
     public void setupTextFields(Citizen citizen) {

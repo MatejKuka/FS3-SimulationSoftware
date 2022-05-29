@@ -53,10 +53,6 @@ public class MainModel {
         return students;
     }
 
-    public ObservableList<User> getAllUsers() throws UserException {
-        users.setAll(manager.getAllUsers());
-        return users;
-    }
 
     public ObservableList<User> getAllAdmins() throws UserException {
         admins.setAll(manager.getAllAdmins());
@@ -68,15 +64,12 @@ public class MainModel {
         return adminsBySchool;
     }
 
-
     public ObservableList<User> getAllTeacher() throws UserException {
         teachers.setAll(manager.getAllTeacherFromOneSchool(getCurrentSchoolId()));
         return teachers;
     }
 
-
     public ObservableList<User> getUsersByRole(int roleID) throws UserException {
-
         if (roleID == 1) userObservableList.setAll(getAllAdminsFromOneSchool());
         else if (roleID == 2) userObservableList.setAll(getAllTeacher());
         else if (roleID == 3) userObservableList.setAll(getAllStudents());
@@ -146,7 +139,6 @@ public class MainModel {
         return functionalityStates;
     }
 
-
     public User createStudent(String firstName, String lastName, String loginName, String password) throws UserException {
         User studentNew = manager.createStudent(firstName, lastName, loginName, password);
         addUserToSchool(studentNew, getSchoolById(getCurrentSchoolId()));
@@ -215,9 +207,11 @@ public class MainModel {
         citizensBySchool.add(citizenBla);
         return citizenBla;
     }
+
     public List<GeneralInfo> getAllGeneralInfo() throws UserException {
         return manager.getAllGeneralInfo();
     }
+
     public ObservableList<School> getAllSchools() throws UserException {
         schools.setAll(manager.getAllSchools());
         return schools;
@@ -250,6 +244,7 @@ public class MainModel {
     public School getSchoolById(int schoolId) throws UserException {
         return manager.getSchoolById(schoolId);
     }
+
     public void updateGeneralInfo(GeneralInfo generalInfo) throws UserException {
         manager.updateGeneralInfo(generalInfo);
     }

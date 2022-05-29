@@ -19,6 +19,7 @@ import java.io.IOException;
 
 public class LoginController {
 
+    private static User user;
     MainModel mainModel;
     String errorMessage = "Your username or password is wrong";
 
@@ -35,27 +36,23 @@ public class LoginController {
     private TextField textFieldUsername;
 
 
-
     public LoginController() throws IOException {
         mainModel = new MainModel();
     }
 
 
-
     public void toSubmitLogin(ActionEvent actionEvent) throws UserException {
-        User user= mainModel.compareLogins(textFieldUsername.getText(), textFieldPassword.getText());
-        if(user != null) {
+        user = mainModel.compareLogins(textFieldUsername.getText(), textFieldPassword.getText());
+        if (user != null) {
             if (user.getRoleID() == 1) {
                 mainModel.setCurrentUser(user);
                 mainModel.setCurrentSchoolId(user);
                 startAdminPage();
-            }
-            else if (user.getRoleID()== 2) {
+            } else if (user.getRoleID() == 2) {
                 mainModel.setCurrentUser(user);
                 mainModel.setCurrentSchoolId(user);
                 startTeacherPage();
-            }
-            else if (user.getRoleID()== 3) {
+            } else if (user.getRoleID() == 3) {
                 mainModel.setCurrentUser(user);
                 mainModel.setCurrentSchoolId(user);
                 startStudentPage();
@@ -67,13 +64,13 @@ public class LoginController {
     private void startStudentPage() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/MStudentMenuView.fxml"));
-        setScene(textFieldPassword,loader);
+        setScene(textFieldPassword, loader);
     }
 
     private void startTeacherPage() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/MTeacherStudentView.fxml"));
-        setScene(textFieldPassword,loader);
+        setScene(textFieldPassword, loader);
     }
 
     private void startAdminPage() {

@@ -142,7 +142,6 @@ public class CitizenGeneralInfoController implements Initializable {
         });
     }
 
-    //TODO -> setupSaveButton()
 
     private void setNameLabel(String newTitle) {
         nameLabel.setText(newTitle);

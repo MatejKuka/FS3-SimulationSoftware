@@ -67,7 +67,6 @@ public class StudentCitizenDAO {
 
 
                 Citizen citizen = new Citizen(id, fName, lName, school);
-                System.out.println(citizen);
                 allCitizens.add(citizen);
             }
         } catch (Exception e) {

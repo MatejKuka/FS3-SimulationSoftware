@@ -13,7 +13,7 @@ public class TestBLL {
     void testingCreateMethodsUser() throws IOException, UserException {
         FacadeBLL facadeBLL = new FacadeBLL();
 
-        User userTest1 = new Student(31, "Matej", "Kuka", "mt", "kuka", 3);
+        User userTest1 = new Student(34, "Matej", "Kuka", "mt", "kuka", 3);
 
         Assertions.assertEquals(userTest1, facadeBLL.createStudent("Matej", "Kuka", "mt", "kuka"));
     }

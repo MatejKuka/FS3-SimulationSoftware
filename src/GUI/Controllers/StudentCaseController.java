@@ -4,46 +4,28 @@ import BE.Citizen;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentCaseController implements Initializable {
     Citizen clickedCitizen;
     MainModel mainModel;
-    SceneSetter sceneSetter;
-
-    @FXML
-    private Button btnFillCase;
-
-    @FXML
-    private Button btnSeeMore;
-
-    @FXML
-    private Label labelLifeStory;
 
     @FXML
     private Label labelMessage;
 
     @FXML
-    private TableColumn<Citizen, String> tableColFName;
+    private TableColumn<Citizen, String> tableColFName,tableColLName;
 
     @FXML
     private TableColumn<Citizen, Integer> tableColId;
-
-    @FXML
-    private TableColumn<Citizen, String> tableColLName;
 
     @FXML
     private TableView<Citizen> tableViewCases;
@@ -52,7 +34,6 @@ public class StudentCaseController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             mainModel = new MainModel();
-            sceneSetter = new SceneSetter();
             setUpTableView();
         } catch (Exception | UserException e) {
             e.printStackTrace();
@@ -69,24 +50,17 @@ public class StudentCaseController implements Initializable {
 
 
     @FXML
-    void selectedCase(MouseEvent event) {
+    void selectedCase() {
         clickedCitizen = tableViewCases.getSelectionModel().getSelectedItem();
         mainModel.setChosenCitizenFillUp(clickedCitizen);
     }
 
     @FXML
-    void toFIllCase(ActionEvent event) {
-        /*FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/GUI/Views/NewUserView.fxml"));
-        sceneSetter.setScene(loader);*/
-    }
-
-    @FXML
-    void toSeeMore(ActionEvent event) {
+    void toSeeMore() {
         if (clickedCitizen != null) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/FillingUPCaseView.fxml"));
-        sceneSetter.setScene(loader);
+        SceneSetter.setScene(loader);
         labelMessage.setText(" ");
         } else labelMessage.setText("First you have to click in particular citizen");
     }

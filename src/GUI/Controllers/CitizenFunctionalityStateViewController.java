@@ -5,7 +5,6 @@ import BE.CitizensAssessment;
 import BE.FunctionalityState;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -66,7 +65,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
         int integerPlaceholder = 4;
         String stringPlaceholder = "Lorem ipsum";
-        int[] functionalityTypes = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] functionalityTypes = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
 
         if (functionalityStateList.size() != 0) {
             isFunctionalityStateCreated = true;
@@ -108,119 +107,116 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
 
-    public void handleSelfCare(ActionEvent event) {
+    public void handleSelfCare() {
         handleNewView("Body Care", 2);
     }
 
-    public void handleDrinking(ActionEvent event) {
+    public void handleDrinking() {
         handleNewView("Drinking", 4);
     }
 
-    public void handleEating(ActionEvent event) {
+    public void handleEating() {
         handleNewView("Eating", 6);
     }
 
-    public void handleFoodIntake(ActionEvent event) {
+    public void handleFoodIntake() {
         handleNewView("Food Intake", 5);
     }
 
-    public void handleWalking(ActionEvent event) {
+    public void handleWalking() {
         handleNewView("Walking", 20);
     }
 
-    public void handleBathroom(ActionEvent event) {
+    public void handleBathroom() {
         handleNewView("Bathroom", 8);
     }
 
-    public void handleBodyPosition(ActionEvent event) {
+    public void handleBodyPosition() {
         handleNewView("Body Position", 18);
     }
 
-    public void handleCommunication(ActionEvent event) {
+    public void handleCommunication() {
         handleNewView("Communication", 22);
     }
 
-    public void handleEmotionalFunctions(ActionEvent event) {
-        handleNewView("Emotional Functions", 26);
-    }
 
-    public void handleWash(ActionEvent event) {
+    public void handleWash() {
         handleNewView("Wash", 1);
     }
 
-    public void handleCareHealth(ActionEvent event) {
+    public void handleCareHealth() {
         handleNewView("Care of own health", 7);
     }
 
-    public void handleHousework(ActionEvent event) {
+    public void handleHousework() {
         handleNewView("Housework", 9);
     }
 
-    public void handleCook(ActionEvent event) {
+    public void handleCook() {
         handleNewView("Cook", 10);
     }
 
-    public void handleDailyRoutine(ActionEvent event) {
+    public void handleDailyRoutine() {
         handleNewView("Daily routine", 11);
     }
 
-    public void handleGoodsServices(ActionEvent event) {
+    public void handleGoodsServices() {
         handleNewView("Goods and services", 12);
     }
 
-    public void handleLiftCarry(ActionEvent event) {handleNewView("Lift and carry", 13);}
+    public void handleLiftCarry() {handleNewView("Lift and carry", 13);}
 
-    public void handleMoveAround(ActionEvent event) {
+    public void handleMoveAround() {
         handleNewView("Move around", 14);
     }
 
-    public void handleUsingTransport(ActionEvent event) {
+    public void handleUsingTransport() {
         handleNewView("Using transport", 15);
     }
 
-    public void handleEnvironment(ActionEvent event) {
+    public void handleEnvironment() {
         handleNewView("Moving in different environment", 16);
     }
 
-    public void handleMove(ActionEvent event) {
+    public void handleMove() {
         handleNewView("Move", 17);
     }
 
-    public void handleMusclesStrenght(ActionEvent event) {handleNewView("Muscles strenght", 19);}
+    public void handleMusclesStrenght() {handleNewView("Muscles strenght", 19);}
 
-    public void handleEndurance(ActionEvent event) {
+    public void handleEndurance() {
         handleNewView("Endurance", 21);
     }
 
-    public void handleEmotionalMemory(ActionEvent event) {
+    public void handleEmotionalMemory() {
         handleNewView("Memory", 23);
     }
 
-    public void handleOrientationAbility(ActionEvent event) {
+    public void handleOrientationAbility() {
         handleNewView("Orientation Ability", 24);
     }
 
-    public void handleCognitiveFunctions(ActionEvent event) {
+    public void handleCognitiveFunctions() {
         handleNewView("Cognitive functions", 25);
     }
 
-    public void handleEnergyAndfunctions(ActionEvent event) {
+    public void handleEnergyAndfunctions() {
         handleNewView("Energy and functions", 27);
     }
 
-    public void handleAcquireSkills(ActionEvent event) {
+    public void handleAcquireSkills() {
         handleNewView("Acquire skills", 28);
     }
 
-    public void handleProblemSolving(ActionEvent event) {
+    public void handleProblemSolving() {
         handleNewView("Problem solving", 29);
     }
 
-    public void handleHavePaidEmployment(ActionEvent event) {
+    public void handleHavePaidEmployment() {
         handleNewView("Have paid employment", 30);
     }
 
-    public void handleDressing (ActionEvent event) {
+    public void handleDressing () {
         handleNewView("Dressing", 3);
     }
 

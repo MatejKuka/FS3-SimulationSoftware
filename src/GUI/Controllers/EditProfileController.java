@@ -4,13 +4,17 @@ import BE.User;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -83,6 +87,21 @@ public class EditProfileController implements Initializable {
             setupLabels(firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), user.getRoleID(), passwordTextField.getText());
             cleanBorderPanes();
             setupInitBorderPanes(editButton, deleteButton);
+        });
+        deleteButton.setOnAction(event -> {
+            try {
+//                model.deleteUser(user);
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/GUI/Views/LoginView.fxml"));
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setTitle("Log in");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 

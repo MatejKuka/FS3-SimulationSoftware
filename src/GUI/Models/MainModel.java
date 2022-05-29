@@ -132,7 +132,7 @@ public class MainModel {
 
     public User createStudent(String firstName, String lastName, String loginName, String password) throws UserException {
         User studentNew = manager.createStudent(firstName, lastName, loginName, password);
-        addUserToSchool(studentNew, getSchoolById(getCurrentSchoolId()));
+        addUserToSchool(studentNew);
         students.add(studentNew);
         return studentNew;
     }
@@ -145,14 +145,14 @@ public class MainModel {
 
     public User createAdminInSchool(String firstName, String lastName, String loginName, String password) throws UserException {
         User userAdmin = manager.createAdmin(firstName, lastName, loginName, password);
-        addUserToSchool(userAdmin, getSchoolById(getCurrentSchoolId()));
+        addUserToSchool(userAdmin);
         adminsBySchool.add(userAdmin);
         return userAdmin;
     }
 
     public User createTeacher(String firstName, String lastName, String loginName, String password) throws UserException {
         User teacherNew = manager.createTeacher(firstName, lastName, loginName, password);
-        addUserToSchool(teacherNew, getSchoolById(getCurrentSchoolId()));
+        addUserToSchool(teacherNew);
         teachers.add(teacherNew);
         return teacherNew;
 

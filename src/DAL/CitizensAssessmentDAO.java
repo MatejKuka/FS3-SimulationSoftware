@@ -1,10 +1,8 @@
 package DAL;
 
 import BE.CitizensAssessment;
-import BE.HealthConditions;
 import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +21,7 @@ public class CitizensAssessmentDAO {
 
     public List<CitizensAssessment> getCitizenAssessment(int idCitizen) throws UserException {
         List<CitizensAssessment> citizensAssessmentList = new ArrayList<>();
-        CitizensAssessment citizensAssessment = null;
+        CitizensAssessment citizensAssessment;
         String query =  "SELECT * FROM Citizens_Assessment WHERE Citizen = ?";
 
         try (Connection connection = dbConnector.getConnection()){

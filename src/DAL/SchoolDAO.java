@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SchoolDAO {
-    DBConnector dbConnector;
+    private final DBConnector dbConnector;
 
     public SchoolDAO() throws IOException {
         dbConnector = DBConnector.getInstance();
@@ -60,8 +60,6 @@ public class SchoolDAO {
         return school;
     }
 
-    //when deleting school also delete Users, Fictive citizens connections with school,
-    //do we need also delete citizens GenInfo, HealthCon, CitizenAss and FunctionState??
     public void deleteSchool(School school) throws UserException {
         String querySchool = "DELETE FROM School WHERE Id = ?";
         String querySchoolUsers = "DELETE FROM Users_School WHERE School = ?";

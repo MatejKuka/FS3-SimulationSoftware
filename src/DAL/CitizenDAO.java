@@ -38,8 +38,7 @@ public class CitizenDAO {
         }
         return allCitizensFromOneSchool;
     }
-
-    //you can not change school and general info of the citizen
+    
     public void updateCitizen(Citizen citizen) throws UserException {
         String query = "UPDATE Citizen SET FName = ?, LName = ? WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()) {

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class FunctionalityStateDAO {
 
-    DBConnector dbConnector;
+    private final DBConnector dbConnector;
 
     public FunctionalityStateDAO() throws IOException {
         dbConnector = DBConnector.getInstance();

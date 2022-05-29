@@ -199,13 +199,13 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public void deleteUser(User user) throws UserException {
-        facadeDAL.deleteUser(user);
+    public void deleteUser(int userId) throws UserException {
+        facadeDAL.deleteUser(userId);
     }
 
     @Override
-    public void updateUser(User user) throws UserException {
-        facadeDAL.updateUser(user);
+    public void updateUser(int userID, String firstName, String lastName, String loginName, String password) throws UserException {
+        facadeDAL.updateUser(userID, firstName, lastName, loginName, password);
     }
 
     @Override

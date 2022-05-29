@@ -296,38 +296,38 @@ public class UserDAO {
         return student;
     }
 
-    public void deleteUser(User user) throws UserException {
+    public void deleteUser(int userId) throws UserException {
         String query = "DELETE FROM Users WHERE Id = ?";
         String queryUserSchool = "DELETE FROM Users_School WHERE Users = ?";
         String queryTeacherStudent = "DELETE FROM Teacher_Student WHERE Teacher = ? OR Student = ?";
 
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement2 = connection.prepareStatement(queryUserSchool);
-            preparedStatement2.setInt(1, user.getUserID());
+            preparedStatement2.setInt(1, userId);
             preparedStatement2.executeUpdate();
 
             PreparedStatement preparedStatement3 = connection.prepareStatement(queryTeacherStudent);
-            preparedStatement3.setInt(1, user.getUserID());
-            preparedStatement3.setInt(2, user.getUserID());
+            preparedStatement3.setInt(1, userId);
+            preparedStatement3.setInt(2, userId);
             preparedStatement3.executeUpdate();
 
             PreparedStatement preparedStatement1 = connection.prepareStatement(query);
-            preparedStatement1.setInt(1, user.getUserID());
+            preparedStatement1.setInt(1, userId);
             preparedStatement1.executeUpdate();
         } catch (Exception e) {
             throw new UserException("Not able to delete user", e);
         }
     }
 
-    public void updateUser(User user) throws UserException {
+    public void updateUser(int userID, String firstName, String lastName, String loginName, String password) throws UserException {
         String query = "UPDATE Users SET FName = ?, LName = ?, UserName = ?, UPassword = ? WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, user.getFirstName());
-            preparedStatement.setString(2, user.getLastName());
-            preparedStatement.setString(3, user.getLoginName());
-            preparedStatement.setString(4, user.getPassword());
-            preparedStatement.setInt(5, user.getUserID());
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, loginName);
+            preparedStatement.setString(4, password);
+            preparedStatement.setInt(5, userID);
             preparedStatement.executeUpdate();
         }  catch (Exception e) {
             throw new UserException("Not able to update user", e);

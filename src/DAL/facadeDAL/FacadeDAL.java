@@ -94,13 +94,13 @@ public class FacadeDAL implements IFacadeDAL{
     }
 
     @Override
-    public void deleteUser(User user) throws UserException {
-        userDAO.deleteUser(user);
+    public void deleteUser(int userId) throws UserException {
+        userDAO.deleteUser(userId);
     }
 
     @Override
-    public void updateUser(User user) throws UserException {
-        userDAO.updateUser(user);
+    public void updateUser(int userID, String firstName, String lastName, String loginName, String password) throws UserException {
+        userDAO.updateUser(userID, firstName, lastName, loginName, password);
     }
 
     @Override

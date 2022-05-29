@@ -45,7 +45,7 @@ public class CreateCitizenController implements Initializable {
         } else {
            Citizen citizenNew = mainModel.createCitizen(firstNameTextField.getText(), lastNameTextField.getText(), mainModel.getCurrentSchoolId());
             String initialStringHC = "empty";
-            for (int i = 0; i < 43; i++) {
+            for (int i = 1; i < 43; i++) {
                 mainModel.createHealthCondition(initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, i, citizenNew.getId());
            }
             // TODO Test this

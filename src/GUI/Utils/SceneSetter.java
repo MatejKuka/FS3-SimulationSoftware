@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SceneSetter {
-
     public static void setScene(FXMLLoader loader) {
         try {
             Parent root = loader.load();
@@ -18,6 +17,5 @@ public class SceneSetter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

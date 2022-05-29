@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -43,10 +42,6 @@
             <VBox prefHeight="400.0" prefWidth="327.0" HBox.hgrow="ALWAYS">
                <children>
                   <HBox spacing="45.0">
-                     <children>
-                        <TextField styleClass="custom-text-field" />
-                        <Button mnemonicParsing="false" styleClass="btn-action" text="Search" />
-                     </children>
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>

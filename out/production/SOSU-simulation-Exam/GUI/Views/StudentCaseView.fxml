@@ -61,13 +61,8 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="376.0" spacing="30.0">
+                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="376.0" spacing="30.0">
                      <children>
-                        <Button fx:id="btnFillCase" mnemonicParsing="false" onAction="#toFIllCase" styleClass="btn-action" text="Fill the case">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Button>
                         <Button fx:id="btnSeeMore" mnemonicParsing="false" onAction="#toSeeMore" styleClass="btn-action" text="See more">
                            <HBox.margin>
                               <Insets />

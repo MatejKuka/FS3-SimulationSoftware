@@ -14,55 +14,159 @@
     <children>
         <BorderPane layoutX="165.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" styleClass="bg-secondary" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <left>
-                <VBox prefHeight="594.0" prefWidth="184.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <Button mnemonicParsing="false" onAction="#handleSelfCare" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Self Care">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
+            <ScrollPane prefHeight="600.0" prefWidth="190.0" BorderPane.alignment="CENTER">
+               <content>
+                      <VBox prefHeight="1320.0" prefWidth="175.0">
+                          <children>
+                              <Button mnemonicParsing="false" onAction="#handleSelfCare" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Self Care">
+                                  <font>
+                                      <Font name="System Bold" size="18.0" />
+                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleDrinking" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Drinking">
+                                  <font>
+                                      <Font name="System Bold" size="18.0" />
+                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleEating" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Eating">
+                                  <font>
+                                      <Font name="System Bold" size="18.0" />
+                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleFoodIntake" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Food Intake">
+                                  <font>
+                                      <Font name="System Bold" size="18.0" />
+                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleWalking" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Walking">
+                                  <font>
+                                      <Font name="System Bold" size="18.0" />
+                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleBathroom" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Bathroom">
+                                  <font>
+                                      <Font name="System Bold" size="18.0" />
+                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleBodyPosition" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Body Position">
+                                  <font>
+                                      <Font name="System Bold" size="18.0" />
+                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleCommunication" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Communication">
+                                  <font>
+                                      <Font name="System Bold" size="18.0" />
+                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleWash" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Wash" textAlignment="CENTER" wrapText="true">
+                                  <font>
+                                      <Font name="System Bold" size="18.0" />
+                                  </font>
+                              </Button>
+                        <Button mnemonicParsing="false" onAction="#handleCareHealth" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Care of own health" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleDrinking" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Drinking">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
+                        <Button mnemonicParsing="false" onAction="#handleHousework" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Housework" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleEating" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Eating">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
+                        <Button mnemonicParsing="false" onAction="#handleCook" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Cook" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleFoodIntake" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Food Intake">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
+                        <Button mnemonicParsing="false" onAction="#handleDailyRoutine" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Daily routine" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleWalking" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Walking">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
+                        <Button mnemonicParsing="false" onAction="#handleGoodsServices" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Goods and services" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleBathroom" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Bathroom">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
+                        <Button mnemonicParsing="false" onAction="#handleLiftCarry" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Lift and carry" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleBodyPosition" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Body Position">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
+                        <Button mnemonicParsing="false" onAction="#handleMoveAround" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Move around" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleCommunication" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Communication">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
+                        <Button mnemonicParsing="false" onAction="#handleUsingTransport" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Transport" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleEmotionalFunctions" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Emotional Functions" textAlignment="CENTER" wrapText="true">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
+                        <Button mnemonicParsing="false" onAction="#handleEnvironment" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Environment" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Button>
-                    </children>
-                </VBox>
+                        <Button mnemonicParsing="false" onAction="#handleMusclesStrenght" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Muscles strength" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleMove" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Move" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleEndurance" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Endurance" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleEmotionalMemory" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Memory" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleOrientationAbility" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Orientation " textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleCognitiveFunctions" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Cognitive functions" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleEnergyAndfunctions" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Energy " textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleAcquireSkills" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Acquire skills" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleProblemSolving" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Problem solving" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleHavePaidEmployment" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Employment" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleDressing" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Dressing" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                          </children>
+                      </VBox>
+               </content>
+            </ScrollPane>
             </left>
          <center>
             <ScrollPane hbarPolicy="NEVER" prefHeight="548.0" prefWidth="596.0" styleClass="bg-secondary" BorderPane.alignment="CENTER">

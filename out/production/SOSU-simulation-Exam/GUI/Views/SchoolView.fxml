@@ -68,6 +68,7 @@
                         <Button mnemonicParsing="false" onAction="#toDeleteAdmin" prefHeight="34.0" prefWidth="110.0" styleClass="btn-action" text="Delete User" />
                      </children>
                   </HBox>
+                  <Button mnemonicParsing="false" onAction="#toAssignAdmin" prefHeight="34.0" prefWidth="144.0" styleClass="btn-action" text="Assign" />
                   <Label fx:id="labelMessage" text="Label" textFill="RED" />
                </children>
                <HBox.margin>

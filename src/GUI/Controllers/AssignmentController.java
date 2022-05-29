@@ -5,31 +5,20 @@ import BE.User;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AssignmentController implements Initializable {
     MainModel mainModel;
-    SceneSetter sceneSetter;
     Citizen citizenToShow;
     User clickedStudent;
-
-    @FXML
-    private Button btnOpenAnswers;
-
-    @FXML
-    private Button btnOpenCiitizenInfo;
 
     @FXML
     private TableColumn<Citizen, String> tableColCIFName;
@@ -42,9 +31,6 @@ public class AssignmentController implements Initializable {
 
     @FXML
     private TableColumn<User, String> tableColSTFirstName;
-
-    @FXML
-    private TableColumn<User, Integer> tableColSTID;
 
     @FXML
     private TableColumn<User, String> tableColSTLastName;
@@ -67,22 +53,22 @@ public class AssignmentController implements Initializable {
     }
 
     @FXML
-    void toOpenAnswers(ActionEvent event) {
+    void toOpenAnswers() {
 
         citizenToShow = tableViewCitizen.getSelectionModel().getSelectedItem();
         ViewAnswersController viewAnswersController = new ViewAnswersController(citizenToShow, clickedStudent);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/ViewAnswersView.fxml"));
         loader.setController(viewAnswersController);
-        sceneSetter.setScene(loader);
+        SceneSetter.setScene(loader);
     }
 
     @FXML
-    void toOpenCitizenInfo(ActionEvent event) {
+    void toOpenCitizenInfo() {
 
     }
 
     @FXML
-    void toShowStudentCitizens(MouseEvent event) throws UserException {
+    void toShowStudentCitizens() throws UserException {
         clickedStudent = tableViewStudents.getSelectionModel().getSelectedItem();
         tableColCitID.setCellValueFactory(new PropertyValueFactory<>("Id"));
         tableColCIFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));

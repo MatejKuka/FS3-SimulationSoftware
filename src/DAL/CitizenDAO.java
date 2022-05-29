@@ -61,6 +61,7 @@ public class CitizenDAO {
         String queryHealthConditions = "DELETE FROM Health_Condition_Answ WHERE Citizen = ?";
         String queryCitizenAssessment = "DELETE FROM Citizens_Assessment WHERE Citizen = ?";
         String queryFunctionalityState = "DELETE FROM Functionality_State_Answ WHERE Citizen = ?";
+        String queryStudentCitizen = "DELETE FROM Student_Citizen WHERE Citizen = ?";
 
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement1 = connection.prepareStatement(queryGeneralInfo);
@@ -79,6 +80,10 @@ public class CitizenDAO {
             preparedStatement4.setInt(1, citizen.getId());
             preparedStatement4.executeUpdate();
 
+            PreparedStatement preparedStatement5 = connection.prepareStatement(queryStudentCitizen);
+            preparedStatement5.setInt(1, citizen.getId());
+            preparedStatement5.executeUpdate();
+            
             PreparedStatement preparedStatement = connection.prepareStatement(queryCitizen);
             preparedStatement.setInt(1, citizen.getId());
             preparedStatement.executeUpdate();
@@ -134,6 +139,7 @@ public class CitizenDAO {
 
                 citizen = new Citizen(id, fName, lName, idOfSchool);
 
+                System.out.println(citizen);
             }
         } catch (Exception e) {
             throw new UserException("Not able to get citizen by ID", e);

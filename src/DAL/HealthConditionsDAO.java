@@ -74,12 +74,12 @@ public class HealthConditionsDAO {
         }
     }
 
-    public HealthConditions createHealthCondition(String SaveAs, //Relevant, potential, active
-                                                  String ProfessNote, // to je tá text area, ktorú vypĺňa študent
-                                                  String CurrAssess, // to je tá text area, ktorú vypĺňa študent
-                                                  String ExpectedLvl, //comboBox
-                                                  String FollUpDate, //date picker
-                                                  String ObservNote, // text area
+    public HealthConditions createHealthCondition(String SaveAs,
+                                                  String ProfessNote,
+                                                  String CurrAssess,
+                                                  String ExpectedLvl,
+                                                  String FollUpDate,
+                                                  String ObservNote,
                                                   int TypeOfCase,
                                                   int Citizen) throws UserException {
         HealthConditions healthConditions = null;

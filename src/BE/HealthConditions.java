@@ -11,7 +11,9 @@ public class HealthConditions {
     private int TypeOfCase;
     private int Citizen;
 
-    public HealthConditions(int id, String saveAs, String professNote, String currAssess, String expectedLvl, String follUpDate, String observNote, int typeOfCase, int citizen) {
+    public HealthConditions(int id, String saveAs, String professNote, String currAssess,
+                            String expectedLvl, String follUpDate, String observNote,
+                            int typeOfCase, int citizen) {
         this.id = id;
         SaveAs = saveAs;
         ProfessNote = professNote;

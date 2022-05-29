@@ -1,10 +1,9 @@
 package GUI.Controllers;
 
 import BE.Citizen;
-import BE.GeneralInfo;
+import BE.School;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -12,38 +11,24 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CitizenBasicInfoController implements Initializable {
-    private MainModel model;
-
     @FXML
     private BorderPane firstNameContainer, lastNameContainer, schoolContainer;
     @FXML
     private HBox buttonsContainer;
 
-    public CitizenBasicInfoController() throws IOException {
-        model = new MainModel();
-    }
-
     private final String placeholder = "----";
 
-    private Label firstNamePlaceholder = new Label(placeholder);
-    private Label lastNamePlaceholder = new Label(placeholder);
-    private Label schoolPlaceholder = new Label(placeholder);
+    private final Label firstNamePlaceholder = new Label(placeholder);
+    private final Label lastNamePlaceholder = new Label(placeholder);
+    private final Label schoolPlaceholder = new Label(placeholder);
 
-    private TextField firstNameTextField = new TextField();
-    private TextField lastNameTextField = new TextField();
-
-    private CitizensEditController citizensEditController;
-
-    public void setCitizensEditController(CitizensEditController citizensEditController) {
-        this.citizensEditController = citizensEditController;
-    }
+    private final TextField firstNameTextField = new TextField();
+    private final TextField lastNameTextField = new TextField();
 
     private Citizen citizen;
 
@@ -114,9 +99,7 @@ public class CitizenBasicInfoController implements Initializable {
         buttonsContainer.getChildren().add(saveButton);
         buttonsContainer.getChildren().add(cancelButton);
         buttonsContainer.setSpacing(30);
-        cancelButton.setOnAction(event -> {
-            setupInitialView();
-        });
+        cancelButton.setOnAction(event -> setupInitialView());
         saveButton.setOnAction(event -> {
             Citizen newCitizen = new Citizen(citizen.getId(), firstNameTextField.getText(), lastNameTextField.getText(), citizen.getSchool());
             try {
@@ -132,10 +115,11 @@ public class CitizenBasicInfoController implements Initializable {
         });
     }
 
-    public void setupLabels(Citizen citizen) {
+    public void setupLabels(Citizen citizen) throws UserException {
         firstNamePlaceholder.setText(citizen.getFirstName());
         lastNamePlaceholder.setText(citizen.getLastName());
-        schoolPlaceholder.setText(String.valueOf(citizen.getSchool()));
+        School school = mainModel.getSchoolById(citizen.getSchool());
+        schoolPlaceholder.setText(school.getName());
     }
 
     public void setupTextFields(Citizen citizen) {

@@ -4,13 +4,11 @@ import BE.Citizen;
 import BE.GeneralInfo;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -20,29 +18,20 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CitizenGeneralInfoController implements Initializable {
-
-    @FXML
-    private Button btnAssistDevSec;
-
-    @FXML
-    private Button btnDwelSec, btnEduJobSec, btnHabitsSec, btnHealtInfoSec, btnLifeStorySec, btnMasterySec, btnMotivationSec, btnNetworkSec, btnResourcesSec, btnRollerSec;
-
     @FXML
     private VBox mainView;
 
-    private Label nameLabel = new Label("Label");
-//    private Label descriptionLabel = new Label("---****--TOTO BY SOM UROBIL AKO LEN PLACEHOLDER ---***---");
-    private Label mainText = new Label(" ");
+    private final Label nameLabel = new Label("Label");
+    private final Label mainText = new Label(" ");
     private Button editButton;
-    private Button cancelButton = new Button("Cancel");
-    private Button saveButton = new Button("Save");
+    private final Button cancelButton = new Button("Cancel");
+    private final Button saveButton = new Button("Save");
     private TextArea textArea;
 
-    private BorderPane buttonPane = new BorderPane();
+    private final BorderPane buttonPane = new BorderPane();
     private GeneralInfo generalInfo;
     HBox hBox = new HBox();
     private boolean isCreated = false;
-    private Citizen citizen;
 
     public void getCitizen(Citizen citizen) throws UserException {
         mainModel.getAllGeneralInfo().forEach(generalInfo1 -> {
@@ -55,15 +44,9 @@ public class CitizenGeneralInfoController implements Initializable {
             String placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget magna nisl. Vivamus hendrerit justo pulvinar orci malesuada tincidunt. Sed vitae porttitor leo, eget pellentesque sapien. Mauris porttitor, orci vel convallis pellentesque, eros turpis ullamcorper nibh, eget eleifend lectus turpis fermentum lorem.";
             generalInfo = mainModel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getId());
         }
-        this.citizen = citizen;
     }
 
     private MainModel mainModel;
-    private CitizensEditController citizensEditController;
-
-    public void setCitizensEditController(CitizensEditController citizensEditController) {
-        this.citizensEditController = citizensEditController;
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,57 +63,57 @@ public class CitizenGeneralInfoController implements Initializable {
     }
 
     @FXML
-    void toAssistDevSec(ActionEvent event) throws Exception {
+    void toAssistDevSec() {
         setupViewChange("Assistive devices", generalInfo.getAssistiveDevices(), "assistiveDevices", "Equipment, products and technology such as used by the citizen in daily activities, incl. such as are customized or specially made for, implanted in,located on or near the person who apply them. (Incl. Regular objects and aids and technology for personal use).");
     }
 
     @FXML
-    void toDwelSec(ActionEvent event) throws Exception {
+    void toDwelSec() {
         setupViewChange("Interior of dwelling", generalInfo.getInteriorOfDwelling(), "dwelling", "A description of the physical environment of the home and environments that matter the citizen's everyday life and ability to function. ");
     }
 
     @FXML
-    void toEduJobSec(ActionEvent event) throws Exception {
+    void toEduJobSec() {
         setupViewChange("Education/Job", generalInfo.getEducationJob(), "educationJob", "Current or previous educational and / or professional background.Eg primary school, vocational education andHigher Education.");
     }
 
     @FXML
-    void toHabitSec(ActionEvent event) throws Exception {
+    void toHabitSec() {
         setupViewChange("Habits", generalInfo.getHabits(), "habits", " Regular behavior that the citizen has learned through constant repetition and execution completely or partially unconsciously.Habits are, for example, the circadian rhythm, the way of becoming accused of, contact with fellow human beings and relationships, way of looking at the world.");
     }
 
     @FXML
-    void toHealthInfoSec(ActionEvent event) throws Exception {
+    void toHealthInfoSec() {
         setupViewChange("Health Information", generalInfo.getHealthInfo(), "healthInfo", "Current or past illnesses and disability that matters the situation of the citizen.Health professional contacts:Employee or units within the healthcare system the citizen is affiliated with,eg ophthalmologist, dentist, podiatrist or department / outpatient clinic.");
     }
 
     @FXML
-    void toLifeStorySec(ActionEvent event) throws Exception {
+    void toLifeStorySec() {
         setupViewChange("Life Story", generalInfo.getLifeStory(), "lifeStory", "A description of the citizen's experience of significant events, interests and chores throughout life.\n");
     }
 
     @FXML
-    void toMasterySec(ActionEvent event) throws Exception {
+    void toMasterySec() {
         setupViewChange("Mastery", generalInfo.getMastery(), "mastery", "The conscious or unconscious of the citizen management of life / illness - both challenges and opportunities. ");
     }
 
     @FXML
-    void toMotivationSec(ActionEvent event) throws Exception {
+    void toMotivationSec() {
         setupViewChange("Motivation", generalInfo.getMotivation(), "motivation", " The driving force behind the citizen acting ona certain way or get started with / maintains a task / effort.");
     }
 
     @FXML
-    void toNetworkSec(ActionEvent event) throws Exception {
+    void toNetworkSec() {
         setupViewChange("Network", generalInfo.getNetwork(), "network", " People who are close to the citizen, and which provides practical and / or emotional support and care towards the citizen. Networking can be public or private.A public network consists of personal helpers, health professionals and others professionals primarily caregivers.Private network is family, relative,friends and acquaintances.");
     }
 
     @FXML
-    void toResourceSec(ActionEvent event) throws Exception {
+    void toResourceSec() {
         setupViewChange("Resources", generalInfo.getResources(), "resources", "The physical or mental forces that the citizen to a certain extent has to available and can take advantage of. Physical forces can for example be in the form of physical health and strength. Mental forces can, for example, be inform of mental health and strength,including thoughts and ways of behaving to situations and other people on.");
     }
 
     @FXML
-    void toRollerSec(ActionEvent event) throws Exception {
+    void toRollerSec() {
         setupViewChange("Roller", generalInfo.getRoller(), "roller", "The roles that are particularly important for the citizen in relation to family, work and community.");
     }
 
@@ -158,7 +141,7 @@ public class CitizenGeneralInfoController implements Initializable {
         buttonPane.getChildren().clear();
     }
 
-    private void setupViewChange(String label, String mainTextLabel, String updateView, String description) throws Exception {
+    private void setupViewChange(String label, String mainTextLabel, String updateView, String description) {
         clearMainView(description);
         textArea = new TextArea();
         textArea.getStyleClass().add("custom-textarea");
@@ -177,107 +160,95 @@ public class CitizenGeneralInfoController implements Initializable {
 
         saveButton.setOnAction(event -> {
             switch (updateView) {
-                case "mastery": {
+                case "mastery" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), textArea.getText(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "dwelling": {
+                case "dwelling" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), textArea.getText(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "assistiveDevices": {
+                case "assistiveDevices" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), textArea.getText(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "educationJob": {
+                case "educationJob" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), textArea.getText(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "habits": {
+                case "habits" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), textArea.getText(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "healthInfo": {
+                case "healthInfo" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), textArea.getText(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "lifeStory": {
+                case "lifeStory" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), textArea.getText(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "motivation": {
+                case "motivation" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), textArea.getText(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "network": {
+                case "network" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), textArea.getText(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "resources": {
+                case "resources" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), textArea.getText(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                case "roller": {
+                case "roller" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), this.generalInfo.getMastery(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), textArea.getText(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
                     try {
                         handleSaveButtonSave(generalInfo);
                     } catch (Exception | UserException e) {
                         e.printStackTrace();
                     }
-                    break;
                 }
-                default:
-                    System.out.println("error");
+                default -> System.out.println("error");
             }
             mainText.setText(textArea.getText());
             mainView.getChildren().set(2, mainText);
@@ -292,6 +263,7 @@ public class CitizenGeneralInfoController implements Initializable {
         mainModel.updateGeneralInfo(generalInfo);
         this.generalInfo = generalInfo;
     }
+
     private Label createLabel(String title) {
         return new Label(title);
     }

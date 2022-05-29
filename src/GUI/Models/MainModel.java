@@ -84,7 +84,6 @@ public class MainModel {
     }
 
     public void deleteUser(User user) throws UserException {
-        //removeUserFromSchool(user, getCurrentSchool());
         manager.deleteUser(user);
         userObservableList.remove(user);
     }
@@ -150,8 +149,7 @@ public class MainModel {
 
     public User createStudent(String firstName, String lastName, String loginName, String password) throws UserException {
         User studentNew = manager.createStudent(firstName, lastName, loginName, password);
-        addUserToSchool(studentNew, getSchoolById(getCurrentSchoolId())); // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
-
+        addUserToSchool(studentNew, getSchoolById(getCurrentSchoolId()));
         students.add(studentNew);
         return studentNew;
     }
@@ -160,7 +158,7 @@ public class MainModel {
         User adminNew = manager.createAdmin(firstName, lastName, loginName, password);
         admins.add(adminNew);
         return manager.createAdmin(firstName, lastName, loginName, password);
-    } // This Method creates an admin without any assigned school
+    }
 
     public User createAdminInSchool(String firstName, String lastName, String loginName, String password) throws UserException {
         User userAdmin = manager.createAdmin(firstName, lastName, loginName, password);
@@ -188,12 +186,12 @@ public class MainModel {
 
     public Citizen getCurrentCitizen() {
         return clickedCitizen;
-    } // TODO Matej - This needs to be fixed because the name is confussing
+    }
 
     public School setCurrentSchool(School school) {
         clickedSchool = school;
         return clickedSchool;
-    } // TODO Matej - This needs to be fixed because the name is confussing
+    }
 
     public School getCurrentSchool() {
         return clickedSchool;
@@ -243,11 +241,11 @@ public class MainModel {
 
     public void addUserToSchool(User user, School school) throws UserException {
         manager.addUserToSchool(user, getSchoolById(getCurrentSchoolId()));
-    } // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+    }
 
     public void removeUserFromSchool(User user, School school) throws UserException {
         manager.removeUserFromSchool(user, getSchoolById(getCurrentSchoolId()));
-    } // TODO Matej - needs to be changed to Id of school when Oliver change the methods in DAO
+    }
 
     public School getSchoolById(int schoolId) throws UserException {
         return manager.getSchoolById(schoolId);

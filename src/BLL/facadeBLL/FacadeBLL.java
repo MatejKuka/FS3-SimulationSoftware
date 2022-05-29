@@ -199,8 +199,8 @@ public class FacadeBLL implements IFacadeBLL {
     }
 
     @Override
-    public void deleteUser(int userId) throws UserException {
-        facadeDAL.deleteUser(userId);
+    public void deleteUser(User user) throws UserException {
+        facadeDAL.deleteUser(user);
     }
 
     @Override

@@ -22,7 +22,7 @@ public interface IFacadeDAL {
     User createAdmin(String firstName, String lastName, String loginName, String password) throws UserException;
     User createTeacher(String firstName, String lastName, String loginName, String password) throws UserException;
     User createStudent(String firstName, String lastName, String loginName, String password) throws UserException;
-    void deleteUser(int userId) throws UserException;
+    void deleteUser(User user) throws UserException;
     void updateUser(int userID, String firstName, String lastName, String loginName, String password) throws UserException;
 
     //SchoolDAO

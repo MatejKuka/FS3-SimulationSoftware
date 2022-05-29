@@ -19,9 +19,7 @@ public class CitizensEditController implements Initializable {
     private Citizen citizen;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
+    public void initialize(URL location, ResourceBundle resources) {}
 
     public void getCitizen(Citizen citizen) {
         this.citizen = citizen;

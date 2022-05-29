@@ -63,7 +63,7 @@
                                       <Font name="System Bold" size="18.0" />
                                   </font>
                               </Button>
-                        <Button mnemonicParsing="false" onAction="#handleCareHealth" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Care of own health" textAlignment="CENTER" wrapText="true">
+                        <Button minHeight="80.0" mnemonicParsing="false" onAction="#handleCareHealth" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Care of own health" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -83,7 +83,7 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleGoodsServices" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Goods and services" textAlignment="CENTER" wrapText="true">
+                        <Button minHeight="80.0" mnemonicParsing="false" onAction="#handleGoodsServices" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Goods and services" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -133,7 +133,7 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#handleCognitiveFunctions" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Cognitive functions" textAlignment="CENTER" wrapText="true">
+                        <Button minHeight="80.0" mnemonicParsing="false" onAction="#handleCognitiveFunctions" prefHeight="70.0" prefWidth="188.0" styleClass="btn-primary" text="Cognitive functions" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>

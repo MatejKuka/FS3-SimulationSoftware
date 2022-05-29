@@ -9,11 +9,19 @@ import java.io.IOException;
 import java.util.List;
 
 public class FacadeBLL implements IFacadeBLL {
+    private static FacadeBLL instance;
+
     FacadeDAL facadeDAL;
     LoginManager loginManager;
 
-    public FacadeBLL() throws IOException {
-        facadeDAL = new FacadeDAL();
+    public static FacadeBLL getInstance() throws IOException {
+        if (instance == null){
+            return instance = new FacadeBLL();
+        }
+        return instance;
+    }
+    private FacadeBLL() throws IOException {
+        facadeDAL = FacadeDAL.getInstance();
         loginManager = new LoginManager();
     }
 

@@ -9,7 +9,7 @@ import java.util.Properties;
 public class DBConnector {
 
     private static final String CONFIG_FILE_NAME = "src/LoginConfig.cfg";
-    private static DBConnector instance = null;
+    private static DBConnector instance;
 
     private final SQLServerDataSource dataSource;
 

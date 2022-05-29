@@ -11,7 +11,7 @@ public class LoginManager {
     FacadeDAL facadeDAL;
 
     public LoginManager() throws IOException {
-        facadeDAL = new FacadeDAL();
+        facadeDAL = FacadeDAL.getInstance();
     }
 
     public User compareLogins(String username, String password) throws UserException {

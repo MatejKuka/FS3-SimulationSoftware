@@ -30,7 +30,7 @@ public class MainModel {
 
 
     public MainModel() throws IOException {
-        manager = new FacadeBLL();
+        manager = FacadeBLL.getInstance();
         students = FXCollections.observableArrayList();
         admins = FXCollections.observableArrayList();
         adminsBySchool = FXCollections.observableArrayList();

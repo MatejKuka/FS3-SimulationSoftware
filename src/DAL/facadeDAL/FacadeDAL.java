@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class FacadeDAL implements IFacadeDAL{
+    private static FacadeDAL instance;
+
     UserDAO userDAO;
     CitizenDAO citizenDAO;
     UsersSchoolDAO usersSchoolDAO;
@@ -18,7 +20,14 @@ public class FacadeDAL implements IFacadeDAL{
     CitizensAssessmentDAO citizensAssessmentDAO;
     StudentCitizenDAO studentCitizenDAO;
 
-    public FacadeDAL() throws IOException {
+    public static FacadeDAL getInstance() throws IOException {
+        if (instance == null){
+            return instance = new FacadeDAL();
+        }
+        return instance;
+    }
+
+    private FacadeDAL() throws IOException {
         userDAO = new UserDAO();
         citizenDAO = new CitizenDAO();
         usersSchoolDAO = new UsersSchoolDAO();
@@ -29,7 +38,6 @@ public class FacadeDAL implements IFacadeDAL{
         citizensAssessmentDAO = new CitizensAssessmentDAO();
         studentCitizenDAO = new StudentCitizenDAO();
     }
-
 
     @Override
     public int returnUsersSchoolID(User user) throws UserException {

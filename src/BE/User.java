@@ -9,7 +9,7 @@ public abstract class User {
     private String lastName;
     private String loginName;
     private String password;
-    private int roleID;
+    private final int roleID;
 
     public User(int userID, String loginName, String password, int roleID) {
         this.loginName = loginName;
@@ -69,10 +69,6 @@ public abstract class User {
 
     public int getRoleID() {
         return roleID;
-    }
-
-    public void setRoleID(int roleID) {
-        this.roleID = roleID;
     }
 
     public String getFullName() {

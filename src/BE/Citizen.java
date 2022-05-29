@@ -12,20 +12,6 @@ public class Citizen {
         this.lastName = lastName;
         this.school = school;
     }
-//    String fName, String lName, int school, int generalInfo
-//    public Citizen(String firstName, String lastName, int school, int generalInfo) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.school = school;
-//        this.generalInfo = generalInfo;
-//    }
-
-    /*public Citizen(int id, String fName, String lName, int school) {
-        this.id = id;
-        this.fName = fName;
-        this.lName = lName;
-        this.school = school;
-    }*/
 
     public int getId() {
         return id;

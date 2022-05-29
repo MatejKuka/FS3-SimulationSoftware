@@ -111,7 +111,6 @@ public class UserDAO {
 //                int type = resultSet.getInt("Type_Of_User");
 
                 User admin = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.ADMIN);
-                System.out.println(admin);
                 allAdmins.add(admin);
             }
         } catch (Exception e) {
@@ -141,7 +140,6 @@ public class UserDAO {
 //                int type = resultSet.getInt("Type_Of_User");
 
                 User admin = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.ADMIN);
-                System.out.println(admin);
                 allAdmins.add(admin);
             }
         } catch (Exception e) {
@@ -288,7 +286,6 @@ public class UserDAO {
             }
             if (created != 0) {
                 student = userFactory.createUser(id, firstName, lastName, loginName, password, UserFactory.UserType.STUDENT);
-                System.out.println(student);
             }
         } catch (Exception e) {
             throw new UserException("Not able to create student", e);

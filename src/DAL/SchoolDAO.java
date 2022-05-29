@@ -28,7 +28,6 @@ public class SchoolDAO {
                 String name = rs.getString("SchName");
                 String city = rs.getString("City");
                 School school = new School(id, name, city);
-                System.out.println(school);
                 allSchools.add(school);
             }
         } catch (Exception e) {

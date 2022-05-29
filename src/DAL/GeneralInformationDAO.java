@@ -154,7 +154,6 @@ public class GeneralInformationDAO {
                 generalInfo = new GeneralInfo(id, mastery, motivation, resources, roller, habits,
                             educationJob, lifeStory, healthInfo, assistiveDevices,
                             interiorOfDwelling, network, citizenId);
-                System.out.println(generalInfo);
             }
         } catch (Exception e) {
             throw new UserException("Not able to get general info", e);

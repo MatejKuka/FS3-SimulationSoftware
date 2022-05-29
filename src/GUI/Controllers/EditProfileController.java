@@ -22,7 +22,6 @@ import java.util.ResourceBundle;
 public class EditProfileController implements Initializable {
     private MainModel model;
 
-
     @FXML
     private BorderPane editBorderPane, deleteBorderPane, firstNameBorderPane, lastNameBorderPane, usernameBorderPane, roleBorderPane, passwordBorderPane;
 

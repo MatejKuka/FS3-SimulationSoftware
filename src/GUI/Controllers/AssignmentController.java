@@ -8,6 +8,7 @@ import GUI.Utils.SceneSetter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -22,6 +23,9 @@ public class AssignmentController implements Initializable {
 
     @FXML
     private TableColumn<Citizen, String> tableColCIFName;
+
+    @FXML
+    private Label labelMessage;
 
     @FXML
     private TableColumn<Citizen, Integer> tableColCitID;
@@ -50,22 +54,25 @@ public class AssignmentController implements Initializable {
         } catch (IOException | UserException e) {
             e.printStackTrace();
         }
+        labelMessage.setText(" ");
     }
 
     @FXML
     void toOpenAnswers() {
-
         citizenToShow = tableViewCitizen.getSelectionModel().getSelectedItem();
-        ViewAnswersController viewAnswersController = new ViewAnswersController(citizenToShow, clickedStudent);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/ViewAnswersView.fxml"));
-        loader.setController(viewAnswersController);
-        SceneSetter.setScene(loader);
+        if(citizenToShow != null) {
+            ViewAnswersController viewAnswersController = new ViewAnswersController(citizenToShow, clickedStudent);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/ViewAnswersView.fxml"));
+            loader.setController(viewAnswersController);
+            SceneSetter.setScene(loader);
+        } else labelMessage.setText("You have to choose a citizen to open the answers");
     }
 
     @FXML
     void toOpenCitizenInfo() {
 
-    }
+        labelMessage.setText(" ");
+    }//TODO Matej
 
     @FXML
     void toShowStudentCitizens() throws UserException {

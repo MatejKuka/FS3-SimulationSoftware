@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="600.0" prefWidth="840.0" styleClass="bg-secondary" stylesheets="@../../resources/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="26.0" layoutY="20.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
          <children>
@@ -58,217 +58,217 @@
                      <content>
                         <VBox prefHeight="848.0" prefWidth="198.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#toHC1" prefHeight="32.0" prefWidth="198.0" text="personal care">
+                              <Button mnemonicParsing="false" onAction="#toHC1" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="personal care" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC2" prefHeight="32.0" prefWidth="198.0" text="daily activities">
+                              <Button mnemonicParsing="false" onAction="#toHC2" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="daily activities" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC3" prefHeight="32.0" prefWidth="198.0" text="mobility and movement">
+                              <Button minHeight="80.0" mnemonicParsing="false" onAction="#toHC3" styleClass="btn-primary" text="mobility and movement" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC4" prefHeight="32.0" prefWidth="198.0" text="fluid intake">
+                              <Button mnemonicParsing="false" onAction="#toHC4" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="fluid intake" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC5" prefHeight="32.0" prefWidth="198.0" text="food intake">
+                              <Button mnemonicParsing="false" onAction="#toHC5" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="food intake" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC6" prefHeight="32.0" prefWidth="198.0" text="Inappropriate weight change">
+                              <Button minHeight="80.0" mnemonicParsing="false" onAction="#toHC6" styleClass="btn-primary" text="Inappropriate weight change" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC7" prefHeight="32.0" prefWidth="198.0" text="Problems with obesity">
+                              <Button minHeight="80.0" mnemonicParsing="false" onAction="#toHC7" styleClass="btn-primary" text="Problems with obesity" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC8" prefHeight="32.0" prefWidth="198.0" text="Problems with underweight">
+                              <Button minHeight="80.0" mnemonicParsing="false" onAction="#toHC8" styleClass="btn-primary" text="Problems with underweight" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC9" prefHeight="32.0" prefWidth="198.0" text="surgical wounds">
+                              <Button mnemonicParsing="false" onAction="#toHC9" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="surgical wounds" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC10" prefHeight="32.0" prefWidth="198.0" text="diabetic ulcers">
+                              <Button mnemonicParsing="false" onAction="#toHC10" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="diabetic ulcers" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC11" prefHeight="32.0" prefWidth="198.0" text="cancerous lesions">
+                              <Button mnemonicParsing="false" onAction="#toHC11" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="cancerous lesions" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC12" prefHeight="32.0" prefWidth="198.0" text="pressure ulcers">
+                              <Button mnemonicParsing="false" onAction="#toHC12" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="pressure ulcers" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC13" prefHeight="32.0" prefWidth="198.0" text="arterial ulcer">
+                              <Button mnemonicParsing="false" onAction="#toHC13" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="arterial ulcer" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC14" prefHeight="32.0" prefWidth="198.0" text="venous ulcer">
+                              <Button mnemonicParsing="false" onAction="#toHC14" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="venous ulcer" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC15" prefHeight="32.0" prefWidth="198.0" text="mixed wounds">
+                              <Button mnemonicParsing="false" onAction="#toHC15" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="mixed wounds" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC16" prefHeight="32.0" prefWidth="198.0" text="trauma wounds">
+                              <Button mnemonicParsing="false" onAction="#toHC16" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="trauma wounds" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC17" prefHeight="32.0" prefWidth="198.0" text="Other skin and mucous membrane problems">
+                              <Button mnemonicParsing="false" onAction="#toHC17" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Other skin and mucous membrane problems" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC18" prefHeight="32.0" prefWidth="198.0" text="communication">
+                              <Button mnemonicParsing="false" onAction="#toHC18" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="communication" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC19" prefHeight="32.0" prefWidth="198.0" text="Problems with socializing">
+                              <Button mnemonicParsing="false" onAction="#toHC19" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Problems with socializing" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC20" prefHeight="32.0" prefWidth="198.0" text="Emotional problems">
+                              <Button mnemonicParsing="false" onAction="#toHC20" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Emotional problems" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC21" prefHeight="32.0" prefWidth="198.0" text="Problems with abuse">
+                              <Button mnemonicParsing="false" onAction="#toHC21" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Problems with abuse" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC22" prefHeight="32.0" prefWidth="198.0" text="Mental problems">
+                              <Button mnemonicParsing="false" onAction="#toHC22" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Mental problems" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC23" prefHeight="32.0" prefWidth="198.0" text="Problem with respiration">
+                              <Button mnemonicParsing="false" onAction="#toHC23" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Problem with respiration" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC24" prefHeight="32.0" prefWidth="198.0" text="Problem with circulation">
+                              <Button mnemonicParsing="false" onAction="#toHC24" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Problem with circulation" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC25" prefHeight="32.0" prefWidth="198.0" text="Problem with sexuality">
+                              <Button mnemonicParsing="false" onAction="#toHC25" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Problem with sexuality" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC26" prefHeight="32.0" prefWidth="198.0" text="Acute pain">
+                              <Button mnemonicParsing="false" onAction="#toHC26" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Acute pain" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC27" prefHeight="32.0" prefWidth="198.0" text="Periodic pain">
+                              <Button mnemonicParsing="false" onAction="#toHC27" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Periodic pain" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC28" prefHeight="32.0" prefWidth="198.0" text="Chronic pain">
+                              <Button mnemonicParsing="false" onAction="#toHC28" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Chronic pain" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC29" prefHeight="32.0" prefWidth="198.0" text="Problems with the sense of sight">
+                              <Button mnemonicParsing="false" onAction="#toHC29" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Problems with the sense of sight" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC30" prefHeight="32.0" prefWidth="198.0" text="Problems with the sense of smell">
+                              <Button mnemonicParsing="false" onAction="#toHC30" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Problems with the sense of smell" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC31" prefHeight="32.0" prefWidth="198.0" text="Hearing problems">
+                              <Button mnemonicParsing="false" onAction="#toHC31" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Hearing problems" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC32" prefHeight="32.0" prefWidth="198.0" text="sense of taste">
+                              <Button mnemonicParsing="false" onAction="#toHC32" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="sense of taste" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC33" prefHeight="32.0" prefWidth="198.0" text="sense of touch">
+                              <Button mnemonicParsing="false" onAction="#toHC33" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="sense of touch" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC34" prefHeight="32.0" prefWidth="198.0" text="Circadian rhythm problems">
+                              <Button mnemonicParsing="false" onAction="#toHC34" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Circadian rhythm problems" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC35" prefHeight="32.0" prefWidth="198.0" text="Sleep problems">
+                              <Button mnemonicParsing="false" onAction="#toHC35" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Sleep problems" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC36" prefHeight="32.0" prefWidth="198.0" text="Memory problems">
+                              <Button mnemonicParsing="false" onAction="#toHC36" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Memory problems" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC37" prefHeight="32.0" prefWidth="198.0" text="insight into treatment purposes">
+                              <Button mnemonicParsing="false" onAction="#toHC37" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="insight into treatment purposes" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC38" prefHeight="32.0" prefWidth="198.0" text="disease insight">
+                              <Button mnemonicParsing="false" onAction="#toHC38" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="disease insight" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC39" prefHeight="32.0" prefWidth="198.0" text="Problem with urination">
+                              <Button mnemonicParsing="false" onAction="#toHC39" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="Problem with urination" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC40" prefHeight="32.0" prefWidth="198.0" text="urinary incontinence">
+                              <Button mnemonicParsing="false" onAction="#toHC40" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="urinary incontinence" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC41" prefHeight="32.0" prefWidth="198.0" text="stool incontinence">
+                              <Button mnemonicParsing="false" onAction="#toHC41" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="stool incontinence" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC42" prefHeight="32.0" prefWidth="198.0" text="intestinal problems">
+                              <Button mnemonicParsing="false" onAction="#toHC42" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="intestinal problems" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#toHC43" prefHeight="32.0" prefWidth="198.0" text="fluid from drains">
+                              <Button mnemonicParsing="false" onAction="#toHC43" prefHeight="32.0" prefWidth="198.0" styleClass="btn-primary" text="fluid from drains" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -279,16 +279,16 @@
                   </ScrollPane>
                </left>
                <center>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="bg-secondary" BorderPane.alignment="CENTER">
                      <content>
-                        <VBox prefHeight="776.0" prefWidth="568.0">
+                        <VBox prefHeight="776.0" prefWidth="568.0" styleClass="bg-secondary">
                            <children>
-                              <Label fx:id="labelNameHC" prefHeight="43.0" prefWidth="518.0" text="nameOfTheHC">
+                              <Label fx:id="labelNameHC" styleClass="text-decorated" text="nameOfTheHC">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" />
+                                    <Insets bottom="20.0" />
                                  </VBox.margin>
                               </Label>
                               <Label fx:id="labelSaved" text="Label" />
@@ -338,6 +338,9 @@
                               </Label>
                               <Label fx:id="labelObsNotes" text="Label" />
                            </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
                         </VBox>
                      </content>
                   </ScrollPane>

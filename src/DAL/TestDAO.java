@@ -1,9 +1,12 @@
 package DAL;
 
 import BE.*;
+import BLL.exeptions.UserException;
+
+import java.io.IOException;
 
 public class TestDAO {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException, UserException {
 
         SchoolDAO schoolDAO = new SchoolDAO();
 
@@ -14,9 +17,9 @@ public class TestDAO {
 //        schoolDAO.deleteSchool(school);
 //        schoolDAO.getAllCustomers();
 
-//       UserDAO userDAO = new UserDAO();
+       UserDAO userDAO = new UserDAO();
 
-//        User user = new Student(7, "Lala", "Lochnes","UserName", "Pass", 3);
+        User user = new Student(19, "Lala", "Lochnes","UserName", "Pass", 3);
 
 //        userDAO.createStudent("Semenik", "Dvojhlavy", "UserName", "Pass");
 //        userDAO.updateUser(user);
@@ -24,7 +27,7 @@ public class TestDAO {
 //        userDAO.getAllAdmins();
 //        userDAO.getAllStudents();
 //        userDAO.getAllTeachers();
-//        userDAO.deleteUser(user);
+        userDAO.deleteUser(user);
 
         //After refactor////////////
 //        userDAO.getAllAdmins(1);

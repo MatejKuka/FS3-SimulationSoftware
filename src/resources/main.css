@@ -8,9 +8,18 @@
     -fx-background-radius: 0;
     -fx-font-size: 15pt;
 }
+.btn-error {
+    -fx-background-color: #EF3054;
+    -fx-text-fill: #F2F4F3;
+    -fx-background-radius: 0;
+    -fx-font-size: 15pt;
+}
+.btn-error:hover {
+    -fx-background-color: #EB123A;
+    -fx-cursor: hand;
+}
 .btn-primary:hover {
-    -fx-border-width: 0 2 0 0;
-    -fx-border-color: #e5f3eb;
+    -fx-background-color: #0E6E6B;
     -fx-cursor: hand;
 }
 

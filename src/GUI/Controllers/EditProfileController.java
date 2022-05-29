@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.User;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -46,12 +47,16 @@ public class EditProfileController implements Initializable {
     private void setupInitialView() {
         //Setup buttons we need
         Button editButton = new Button("Edit Profile");
+        editButton.getStyleClass().addAll("btn-action", "padding");
         Button saveChangesButton = new Button("Save Changes");
+        saveChangesButton.getStyleClass().addAll("btn-action", "padding");
         Button deleteButton = new Button("Delete Profile");
+        deleteButton.getStyleClass().addAll("btn-action-error", "padding");
         Button cancelChangesButton = new Button("Cancel");
+        cancelChangesButton.getStyleClass().addAll("btn-action-error", "padding");
 
         setupInitBorderPanes(editButton, deleteButton);
-        setupLabels();
+        setupLabels(user.getFirstName(), user.getLastName(), user.getLoginName(), user.getRoleID(), user.getPassword());
         //action listeners
         editButton.setOnAction(event -> {
             cleanBorderPanes();
@@ -64,15 +69,18 @@ public class EditProfileController implements Initializable {
 
         cancelChangesButton.setOnAction(event -> {
             cleanBorderPanes();
-            setupLabels();
+            setupLabels(user.getFirstName(), user.getLastName(), user.getLoginName(), user.getRoleID(), user.getPassword());
             setupInitBorderPanes(editButton, deleteButton);
         });
 
         saveChangesButton.setOnAction(event -> {
-            User newUser = new User(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText(), user.getRoleID());
-            model.updateUser();
-            //try {model.updateUser(user);} catch (Exception e) {e.printStackTrace();}
-            setupLabels();
+            try {
+                model.updateUser(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText());
+                user = MainModel.currrentUser;
+            } catch (UserException e) {
+                e.printStackTrace();
+            }
+            setupLabels(firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), user.getRoleID(), passwordTextField.getText());
             cleanBorderPanes();
             setupInitBorderPanes(editButton, deleteButton);
         });
@@ -103,13 +111,13 @@ public class EditProfileController implements Initializable {
         passwordBorderPane.setCenter(passwordTextField);
     }
 
-    private void setupLabels() {
+    private void setupLabels(String firstName, String lastName, String username, int roleId, String password) {
         cleanNodes();
-        Text firstNameLabel = new Text(user.getFirstName());
-        Text lastNameLabel = new Text(user.getLastName());
-        Text usernameLabel = new Text(user.getLoginName());
-        Text roleLabel = new Text(String.valueOf(user.getRoleID()));
-        Text passwordLabel = new Text(user.getPassword());
+        Text firstNameLabel = new Text(firstName);
+        Text lastNameLabel = new Text(lastName);
+        Text usernameLabel = new Text(username);
+        Text roleLabel = new Text(String.valueOf(roleId));
+        Text passwordLabel = new Text(password);
 
         firstNameBorderPane.setCenter(firstNameLabel);
         lastNameBorderPane.setCenter(lastNameLabel);
@@ -127,5 +135,10 @@ public class EditProfileController implements Initializable {
         usernameTextField.setText(user.getLoginName());
         passwordTextField = new TextField();
         passwordTextField.setText(user.getPassword());
+
+        firstNameTextField.getStyleClass().add("custom-text-field");
+        lastNameTextField.getStyleClass().add("custom-text-field");
+        usernameTextField.getStyleClass().add("custom-text-field");
+        passwordTextField.getStyleClass().add("custom-text-field");
     }
 }

@@ -14,6 +14,22 @@
     -fx-cursor: hand;
 }
 
+.btn-action-error {
+    -fx-background-color: #e5f3eb;
+    -fx-border-width: 2;
+    -fx-border-color: #EF3054;
+    -fx-text-fill: #EF3054;
+    -fx-background-radius: 0;
+    -fx-border-radius: 2px;
+    -fx-cursor: hand;
+}
+.btn-action-error:hover {
+    -fx-background-color: #EF3054;
+    -fx-text-fill: #F2F4F3;
+    -fx-background-radius: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+}
+
 .btn-action {
     -fx-background-color: #e5f3eb;
     -fx-border-width: 2;

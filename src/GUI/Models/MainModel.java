@@ -89,8 +89,8 @@ public class MainModel {
         userObservableList.remove(user);
     }
 
-    public void updateUser(User user) throws UserException {
-//        manager.updateUser(user);
+    public void updateUser(int id, String firstName, String lastName, String loginName, String password) throws UserException {
+        manager.updateUser(id, firstName, lastName, loginName, password);
     }
 
     public void changeRoleId(int number) {

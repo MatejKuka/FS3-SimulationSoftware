@@ -2,21 +2,18 @@ package DAL;
 
 import BE.Citizen;
 import BE.Student;
-import BE.Teacher;
 import BE.User;
 import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentCitizenDAO {
-    private DBConnector dbConnector;
+    private final DBConnector dbConnector;
 
     public StudentCitizenDAO() throws IOException {
         dbConnector = DBConnector.getInstance();

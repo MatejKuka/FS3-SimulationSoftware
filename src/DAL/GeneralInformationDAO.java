@@ -1,11 +1,8 @@
 package DAL;
 
 import BE.GeneralInfo;
-import BE.School;
 import BLL.exeptions.UserException;
 import DAL.Connector.DBConnector;
-import com.microsoft.sqlserver.jdbc.SQLServerException;
-
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;

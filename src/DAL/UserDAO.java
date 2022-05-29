@@ -4,8 +4,6 @@ import BE.*;
 import BLL.exeptions.UserException;
 import BLL.utils.UserFactory;
 import DAL.Connector.DBConnector;
-import com.microsoft.sqlserver.jdbc.SQLServerException;
-
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;

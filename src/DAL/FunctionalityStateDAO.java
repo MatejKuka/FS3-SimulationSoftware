@@ -22,7 +22,7 @@ public class FunctionalityStateDAO {
 
     public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws UserException {
         List<FunctionalityState> functionalityStateList = new ArrayList<>();
-        FunctionalityState functionalityState = null;
+        FunctionalityState functionalityState;
         String query =  "SELECT * FROM Functionality_State_Answ WHERE Citizen = ?";
 
         try (Connection connection = dbConnector.getConnection()){

@@ -38,7 +38,6 @@ public class CitizensEditController implements Initializable {
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenBasicInfoView.fxml"));
         Parent root = loader.load();
         CitizenBasicInfoController citizenBasicInfoController = loader.getController();
-        citizenBasicInfoController.setCitizensEditController(this);
         citizenBasicInfoController.getCitizen(citizen);
         borderPaneContent.setCenter(root);
     }

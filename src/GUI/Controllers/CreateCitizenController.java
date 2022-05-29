@@ -48,7 +48,6 @@ public class CreateCitizenController implements Initializable {
             for (int i = 1; i < 43; i++) {
                 mainModel.createHealthCondition(initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, initialStringHC, i, citizenNew.getId());
            }
-            // TODO Test this
             Stage stage = (Stage) saveButton.getScene().getWindow();
             stage.close();
         }

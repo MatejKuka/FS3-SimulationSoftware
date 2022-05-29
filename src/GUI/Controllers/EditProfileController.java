@@ -90,9 +90,13 @@ public class EditProfileController implements Initializable {
         });
         deleteButton.setOnAction(event -> {
             try {
-//                model.deleteUser(user);
-                Parent root;
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/LoginView.fxml"));
+                model.deleteUser(user);
+            } catch (UserException e) {
+                e.printStackTrace();
+            }
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/LoginView.fxml"));
+            try {
                 root = loader.load();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));

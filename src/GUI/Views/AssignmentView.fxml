@@ -10,20 +10,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.AssignmentController">
+<AnchorPane prefHeight="700.0" prefWidth="840.0" styleClass="bg-secondary" stylesheets="@../../resources/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.AssignmentController">
    <children>
       <HBox alignment="CENTER" layoutY="72.0" prefHeight="383.0" prefWidth="840.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
          <children>
-            <TableView fx:id="tableViewStudents" onMouseClicked="#toShowStudentCitizens" prefHeight="391.0" prefWidth="241.0">
+            <TableView fx:id="tableViewStudents" onMouseClicked="#toShowStudentCitizens" prefHeight="391.0" prefWidth="241.0" stylesheets="@../../resources/custom-tableview.css">
               <columns>
                 <TableColumn fx:id="tableColSTID" prefWidth="41.0" text="ID" />
                 <TableColumn fx:id="tableColSTFirstName" prefWidth="114.0" text="FirstName" />
                   <TableColumn fx:id="tableColSTLastName" prefWidth="84.0" text="lastName" />
               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
             <Pane prefHeight="391.0" prefWidth="89.0" />
-            <TableView fx:id="tableViewCitizen" prefHeight="391.0" prefWidth="243.0">
+            <TableView fx:id="tableViewCitizen" prefHeight="391.0" prefWidth="243.0" stylesheets="@../../resources/custom-tableview.css">
                <columns>
                   <TableColumn fx:id="tableColCitID" prefWidth="37.0" text="ID" />
                   <TableColumn fx:id="tableColCIFName" prefWidth="128.0" text="firstName" />
@@ -32,18 +34,21 @@
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="63.0" prefWidth="840.0">
          <children>
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="133.0" text="Students">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="133.0" styleClass="text-decorated" text="Students">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
             <Pane prefHeight="52.0" prefWidth="187.0" />
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="210.0" text="Student´s citizens">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="210.0" styleClass="text-decorated" text="Student´s citizens">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
@@ -52,9 +57,9 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="3.0" layoutY="488.0" prefHeight="52.0" prefWidth="840.0">
          <children>
-            <Button fx:id="btnOpenAnswers" mnemonicParsing="false" onAction="#toOpenAnswers" prefHeight="36.0" prefWidth="130.0" text="Open the answers" />
+            <Button fx:id="btnOpenAnswers" mnemonicParsing="false" onAction="#toOpenAnswers" prefHeight="36.0" prefWidth="130.0" styleClass="btn-action" text="Open the answers" />
             <Pane prefHeight="52.0" prefWidth="187.0" />
-            <Button fx:id="btnOpenCiitizenInfo" mnemonicParsing="false" onAction="#toOpenCitizenInfo" prefHeight="36.0" prefWidth="121.0" text="Open Citizen info" />
+            <Button fx:id="btnOpenCiitizenInfo" mnemonicParsing="false" onAction="#toOpenCitizenInfo" prefHeight="36.0" prefWidth="121.0" styleClass="btn-action" text="Open Citizen info" />
          </children>
       </HBox>
    </children>

@@ -8,13 +8,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * This is CASE
- */
-
 public class HealthConditionsDAO {
 
-    DBConnector dbConnector;
+    private final DBConnector dbConnector;
 
     public HealthConditionsDAO() throws IOException {
         dbConnector = DBConnector.getInstance();

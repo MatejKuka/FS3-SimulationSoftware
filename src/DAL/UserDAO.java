@@ -12,8 +12,8 @@ import java.util.List;
 public class UserDAO {
 
 
-    private DBConnector dbConnector;
-    UserFactory userFactory;
+    private final DBConnector dbConnector;
+    private final UserFactory userFactory;
 
     public UserDAO() throws IOException {
         dbConnector = DBConnector.getInstance();
@@ -53,9 +53,8 @@ public class UserDAO {
         return user;
     }
 
-    //TEST THIS
     public List<User> getAllUsers() throws UserException {
-        User user = null;
+        User user;
         List<User> allUsers = new ArrayList<>();
         try (Connection connection = dbConnector.getConnection()) {
             String query = "SELECT * FROM Users";
@@ -90,7 +89,7 @@ public class UserDAO {
 
     public List<User> getAllAdminsFromOneSchool(int schoolId) throws UserException {
         List<User> allAdmins = new ArrayList<>();
-        String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " + //u.Type_Of_User " +
+        String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +
                 "FROM Users u " +
                 "JOIN Users_School s ON s.Users = u.id " +
                 "WHERE u.Type_Of_User = 1 AND s.School = ?";
@@ -106,7 +105,6 @@ public class UserDAO {
                 String lName = resultSet.getString("LName");
                 String userName = resultSet.getString("UserName");
                 String password = resultSet.getString("UPassword");
-//                int type = resultSet.getInt("Type_Of_User");
 
                 User admin = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.ADMIN);
                 allAdmins.add(admin);
@@ -119,7 +117,7 @@ public class UserDAO {
 
     public List<User> getAllAdmins() throws UserException {
         List<User> allAdmins = new ArrayList<>();
-        String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +  //u.Type_Of_User" +
+        String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +
                 " FROM Users u " +
                 "JOIN Users_School s ON s.Users = u.id " +
                 "WHERE u.Type_Of_User = 1";
@@ -135,7 +133,7 @@ public class UserDAO {
                 String lName = resultSet.getString("LName");
                 String userName = resultSet.getString("UserName");
                 String password = resultSet.getString("UPassword");
-//                int type = resultSet.getInt("Type_Of_User");
+
 
                 User admin = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.ADMIN);
                 allAdmins.add(admin);
@@ -148,7 +146,7 @@ public class UserDAO {
 
     public List<User> getAllStudentsFromOneSchool(int schoolId) throws UserException {
         List<User> allStudents = new ArrayList<>();
-        String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +  //u.Type_Of_User" +
+        String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +
                 " FROM Users u " +
                 "JOIN Users_School s ON s.Users = u.id " +
                 "WHERE u.Type_Of_User = 3 AND s.School = ?";
@@ -164,7 +162,7 @@ public class UserDAO {
                 String lName = resultSet.getString("LName");
                 String userName = resultSet.getString("UserName");
                 String password = resultSet.getString("UPassword");
-//                int type = resultSet.getInt("Type_Of_User");
+
 
                 User student = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.STUDENT);
                 allStudents.add(student);
@@ -177,7 +175,7 @@ public class UserDAO {
 
     public List<User> getAllTeachersFromOneSchool(int schoolId) throws UserException {
         List<User> allTeachers = new ArrayList<>();
-        String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " + //, u.Type_Of_User" +
+        String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +
                 " FROM Users u " +
                 "JOIN Users_School s ON s.Users = u.id " +
                 "WHERE u.Type_Of_User = 2 AND s.School = ?";
@@ -193,7 +191,7 @@ public class UserDAO {
                 String lName = rs.getString("LName");
                 String userName = rs.getString("UserName");
                 String password = rs.getString("UPassword");
-//                int type = rs.getInt("Type_Of_User");
+
 
                 User teacher = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.TEACHER);
                 allTeachers.add(teacher);

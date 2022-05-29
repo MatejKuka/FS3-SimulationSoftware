@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GeneralInformationDAO {
-    DBConnector dbConnector;
+    private final DBConnector dbConnector;
 
     public GeneralInformationDAO() throws IOException {
         dbConnector = DBConnector.getInstance();

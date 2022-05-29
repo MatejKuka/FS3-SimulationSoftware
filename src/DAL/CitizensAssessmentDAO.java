@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CitizensAssessmentDAO {
 
-    DBConnector dbConnector;
+    private final DBConnector dbConnector;
 
     public CitizensAssessmentDAO() throws IOException {
         dbConnector = DBConnector.getInstance();

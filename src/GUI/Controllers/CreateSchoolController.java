@@ -3,12 +3,9 @@ package GUI.Controllers;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.fxml.Initializable;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,20 +17,13 @@ public class CreateSchoolController implements Initializable {
     MainModel mainModel;
 
     @FXML
-    private Button btnCancel;
-
-    @FXML
     private Button btnSave;
 
     @FXML
     private Label labelMessage;
 
     @FXML
-    private TextField txtFieldCity;
-
-    @FXML
-    private TextField txtFieldName;
-
+    private TextField txtFieldCity, txtFieldName;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,13 +36,13 @@ public class CreateSchoolController implements Initializable {
     }
 
     @FXML
-    void toCancelPage(ActionEvent event) {
+    void toCancelPage() {
         Stage stage = (Stage) btnSave.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    void toCreateNewSchool(ActionEvent event) throws UserException {
+    void toCreateNewSchool() throws UserException {
         if (!txtFieldName.getText().isEmpty() && !txtFieldCity.getText().isEmpty()){
             mainModel.createSchool(txtFieldName.getText(), txtFieldCity.getText());
             System.out.println("Created new school");

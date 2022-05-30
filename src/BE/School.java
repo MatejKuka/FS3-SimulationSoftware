@@ -1,19 +1,22 @@
 package BE;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class School {
     private int id;
-    private String name;
-    private String city;
+    private StringProperty name = new SimpleStringProperty();
+    private StringProperty city = new SimpleStringProperty();
 
     public School(int id, String name, String city) {
         this.id = id;
-        this.name = name;
-        this.city = city;
+        setName(name);
+        setCity(city);
     }
 
     public School(String name, String city) {
-        this.name = name;
-        this.city = city;
+        setName(name);
+        setCity(city);
     }
 
     public int getId() {
@@ -21,11 +24,19 @@ public class School {
     }
 
     public String getName() {
-        return name;
+        return name.get();
     }
 
     public String getCity() {
-        return city;
+        return city.get();
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public void setCity(String city) {
+        this.city.set(city);
     }
 
     @Override

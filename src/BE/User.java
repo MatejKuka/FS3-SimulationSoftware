@@ -1,29 +1,35 @@
 package BE;
 
-/**
- * when finish with testing this class needs to be abstract !!
- */
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public abstract class User {
     private int userID;
-    private String firstName;
-    private String lastName;
-    private String loginName;
-    private String password;
+    private StringProperty firstName = new SimpleStringProperty();
+    private StringProperty lastName = new SimpleStringProperty();
+    private StringProperty loginName = new SimpleStringProperty();
+    private StringProperty password = new SimpleStringProperty();
     private final int roleID;
 
     public User(int userID, String loginName, String password, int roleID) {
-        this.loginName = loginName;
-        this.password = password;
+        setLoginName(loginName);
+        setPassword(password);
+//        this.loginName = loginName;
+//        this.password = password;
         this.userID = userID;
         this.roleID = roleID;
     }
 
     public User(int userID, String firstName, String lastName, String loginName, String password, int roleID) {
         this.userID = userID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.loginName = loginName;
-        this.password = password;
+        setFirstName(firstName);
+        setLastName(lastName);
+        setLoginName(loginName);
+        setPassword(password);
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.loginName = loginName;
+//        this.password = password;
         this.roleID = roleID;
     }
 
@@ -36,35 +42,35 @@ public abstract class User {
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstName.get();
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName.set(firstName);
     }
 
     public String getLastName() {
-        return lastName;
+        return lastName.get();
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName.set(lastName);
     }
 
     public String getLoginName() {
-        return loginName;
+        return loginName.get();
     }
 
     public void setLoginName(String loginName) {
-        this.loginName = loginName;
+        this.loginName.set(loginName);
     }
 
     public String getPassword() {
-        return password;
+        return password.get();
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password.set(password);
     }
 
     public int getRoleID() {
@@ -74,6 +80,8 @@ public abstract class User {
     public String getFullName() {
         return firstName + " " + lastName;
     }
+
+
 
     @Override
     public String toString() {

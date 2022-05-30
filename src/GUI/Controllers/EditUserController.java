@@ -52,18 +52,17 @@ public class EditUserController implements Initializable {
         labelMessage.setText(" ");
     }
 
-
     @FXML
     void toCancelPage(ActionEvent event) {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
-
     }
 
     @FXML
     void toCreateNewUser(ActionEvent event) throws Exception, UserException {
         if (!txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
             mainModel.updateUser( user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
+            //TODO m
             Stage stage = (Stage) btnSave.getScene().getWindow();
             stage.close();
         } else labelMessage.setText("One of the input is empty");
@@ -75,6 +74,5 @@ public class EditUserController implements Initializable {
         txtFieldLName.setText(userToShow.getLastName());
         txtFieldUName.setText(userToShow.getLoginName());
     }
-
 
 }

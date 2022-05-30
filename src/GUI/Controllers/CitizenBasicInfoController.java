@@ -104,6 +104,7 @@ public class CitizenBasicInfoController implements Initializable {
             Citizen newCitizen = new Citizen(citizen.getId(), firstNameTextField.getText(), lastNameTextField.getText(), citizen.getSchool());
             try {
                 mainModel.updateCitizen(newCitizen);
+                //TODO m
             } catch (Exception | UserException e) {
                 e.printStackTrace();
             }

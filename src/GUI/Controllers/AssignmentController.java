@@ -69,12 +69,6 @@ public class AssignmentController implements Initializable {
     }
 
     @FXML
-    void toOpenCitizenInfo() {
-
-        labelMessage.setText(" ");
-    }//TODO Matej
-
-    @FXML
     void toShowStudentCitizens() throws UserException {
         clickedStudent = tableViewStudents.getSelectionModel().getSelectedItem();
         tableColCitID.setCellValueFactory(new PropertyValueFactory<>("Id"));

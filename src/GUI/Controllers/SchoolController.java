@@ -72,7 +72,6 @@ public class SchoolController implements Initializable {
     @FXML
     void toDeleteCurSchool() throws UserException {
         mainModel.deleteSchool(clickedSchool);
-        System.out.println("school is about to delete: " + clickedSchool);
     }
 
     @FXML

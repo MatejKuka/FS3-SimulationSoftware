@@ -1,6 +1,7 @@
 package GUI.Controllers;
 
 import BE.User;
+import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -60,11 +61,9 @@ public class EditUserController implements Initializable {
     }
 
     @FXML
-    void toCreateNewUser(ActionEvent event) throws Exception {
+    void toCreateNewUser(ActionEvent event) throws Exception, UserException {
         if (!txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
-//            User userCreated = new User(user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText(), user.getRoleID());
-//            mainModel.updateUser(userCreated);
-            System.out.println("User updated");
+            mainModel.updateUser( user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
             Stage stage = (Stage) btnSave.getScene().getWindow();
             stage.close();
         } else labelMessage.setText("One of the input is empty");

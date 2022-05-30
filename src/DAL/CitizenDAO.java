@@ -136,7 +136,6 @@ public class CitizenDAO {
 
                 citizen = new Citizen(id, fName, lName, idOfSchool);
 
-                System.out.println(citizen);
             }
         } catch (Exception e) {
             throw new UserException("Not able to get citizen by ID", e);

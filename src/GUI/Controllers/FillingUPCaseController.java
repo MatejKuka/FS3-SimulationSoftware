@@ -107,10 +107,8 @@ public class FillingUPCaseController implements Initializable {
                     getTypeOfCase(),
                     mainModel.getChosenCitizenFillUp().getId());
             mainModel.updateHealthConditions(healthConditionsUpdated);
-            System.out.println(healthConditionsUpdated);
             labelMessage.setText(" ");
         } else {
-            System.out.println("mistake");
             labelMessage.setText("One of the input is empty");
         }
     }

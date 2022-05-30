@@ -63,7 +63,6 @@ public class EditSchoolController implements Initializable {
         if (!txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty()) {
             School newSchool = new School(school.getId() , txtFieldFName.getText(), txtFieldLName.getText());
             mainModel.updateSchool(newSchool);
-            System.out.println("School updated" + newSchool);
 
             Stage stage = (Stage) btnCancel.getScene().getWindow();
             stage.close();

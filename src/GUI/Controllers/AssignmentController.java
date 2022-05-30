@@ -5,13 +5,18 @@ import BE.User;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +25,7 @@ public class AssignmentController implements Initializable {
     MainModel mainModel;
     Citizen citizenToShow;
     User clickedStudent;
+    SceneSetter sceneSetter;
 
     @FXML
     private TableColumn<Citizen, String> tableColCIFName;
@@ -50,6 +56,7 @@ public class AssignmentController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             mainModel = new MainModel();
+            sceneSetter = new SceneSetter();
             updateTableViewStudent();
         } catch (IOException | UserException e) {
             e.printStackTrace();
@@ -82,6 +89,19 @@ public class AssignmentController implements Initializable {
         tableColSTFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tableColSTLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tableViewStudents.getItems().setAll(mainModel.getAllStudents());
+    }
+
+    @FXML
+    void toSeeCitInfo(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/Views/CitizensInfoView.fxml"));
+        Parent root = loader.load();
+        CitizensInfoController citizensInfoController = loader.getController();
+        citizensInfoController.getCitizen(citizenToShow);
+        Stage stage = new Stage();
+        stage.setTitle("Editing citizen");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 

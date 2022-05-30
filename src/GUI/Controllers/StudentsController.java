@@ -62,7 +62,6 @@ public class StudentsController implements Initializable {
     @FXML
     void toDeleteCurUser() throws UserException {
         User userToDelete = tableViewUsers.getSelectionModel().getSelectedItem();
-        //mainModel.removeUserFromSchool(userToDelete, mainModel.getSchoolById(mainModel.getCurrentSchoolId()));
         mainModel.deleteUser(userToDelete);
         updateTableView();
     }

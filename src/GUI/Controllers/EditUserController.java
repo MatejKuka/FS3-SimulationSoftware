@@ -62,7 +62,10 @@ public class EditUserController implements Initializable {
     void toCreateNewUser(ActionEvent event) throws Exception, UserException {
         if (!txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
             mainModel.updateUser( user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
-            //TODO m
+            user.setPassword(txtFieldPass.getText());
+            user.setFirstName(txtFieldPass.getText());
+            user.setLastName(txtFieldLName.getText());
+            user.setLoginName(txtFieldUName.getText());
             Stage stage = (Stage) btnSave.getScene().getWindow();
             stage.close();
         } else labelMessage.setText("One of the input is empty");

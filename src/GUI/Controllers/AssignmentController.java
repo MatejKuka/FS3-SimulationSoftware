@@ -91,18 +91,5 @@ public class AssignmentController implements Initializable {
         tableViewStudents.getItems().setAll(mainModel.getAllStudents());
     }
 
-    @FXML
-    void toSeeCitInfo(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/GUI/Views/CitizensInfoView.fxml"));
-        Parent root = loader.load();
-        CitizensInfoController citizensInfoController = loader.getController();
-        citizensInfoController.getCitizen(citizenToShow);
-        Stage stage = new Stage();
-        stage.setTitle("Editing citizen");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
 
 }

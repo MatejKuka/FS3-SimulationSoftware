@@ -58,8 +58,6 @@
       <HBox alignment="CENTER" layoutX="3.0" layoutY="488.0" prefHeight="52.0" prefWidth="840.0">
          <children>
             <Button fx:id="btnOpenAnswers" mnemonicParsing="false" onAction="#toOpenAnswers" prefHeight="36.0" prefWidth="130.0" styleClass="btn-action" text="Open the answers" />
-            <Pane prefHeight="52.0" prefWidth="137.0" />
-            <Button fx:id="btnOpenAnswers1" mnemonicParsing="false" onAction="#toSeeCitInfo" prefHeight="36.0" prefWidth="130.0" styleClass="btn-action" text="See Citizen info" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="215.0" layoutY="540.0" prefHeight="52.0" prefWidth="416.0">

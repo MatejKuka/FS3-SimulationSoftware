@@ -18,7 +18,6 @@ import java.util.ResourceBundle;
 
 public class EditUserController implements Initializable {
 
-    MAdminStudentViewController menuController;
     MainModel mainModel;
     User user;
     StudentsController studentsController;
@@ -35,7 +34,7 @@ public class EditUserController implements Initializable {
     @FXML
     private Label labelMessage;
 
-    public EditUserController(User user) throws IOException {
+    public EditUserController(User user) {
         this.user = user;
     }
 
@@ -53,13 +52,13 @@ public class EditUserController implements Initializable {
     }
 
     @FXML
-    void toCancelPage(ActionEvent event) {
+    void toCancelPage() {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    void toCreateNewUser(ActionEvent event) throws Exception, UserException {
+    void toCreateNewUser() throws UserException {
         if (!txtFieldFName.getText().isEmpty() && !txtFieldLName.getText().isEmpty() && !txtFieldPass.getText().isEmpty() && !txtFieldUName.getText().isEmpty()) {
             mainModel.updateUser( user.getUserID(), txtFieldFName.getText(), txtFieldLName.getText(), txtFieldUName.getText(), txtFieldPass.getText());
             user.setPassword(txtFieldPass.getText());

@@ -83,7 +83,7 @@ public abstract class User {
 
 
 
-    @Override
+    /*@Override
     public String toString() {
         return "User{" +
                 "userID=" + userID +
@@ -93,5 +93,5 @@ public abstract class User {
                 ", password='" + password + '\'' +
                 ", roleID=" + roleID +
                 '}';
-    }
+    }*/
 }

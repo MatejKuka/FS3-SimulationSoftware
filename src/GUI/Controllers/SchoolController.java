@@ -90,9 +90,9 @@ public class SchoolController implements Initializable {
     }
 
     public void updateTableView() throws UserException {
+        tableViewSchools.getItems().setAll(mainModel.getAllSchools());
         tableColName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColCity.setCellValueFactory(new PropertyValueFactory<>("city"));
-        tableViewSchools.getItems().setAll(mainModel.getAllSchools());
     }
 
     public void updateTableView1() throws UserException {

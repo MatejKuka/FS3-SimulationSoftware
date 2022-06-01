@@ -24,12 +24,6 @@ public class HealthConditions {
         setExpectedLvl(expectedLvl);
         setFollUpDate(follUpDate);
         setObservNote(observNote);
-//        SaveAs = saveAs;
-//        ProfessNote = professNote;
-//        CurrAssess = currAssess;
-//        ExpectedLvl = expectedLvl;
-//        FollUpDate = follUpDate;
-//        ObservNote = observNote;
         TypeOfCase = typeOfCase;
         Citizen = citizen;
     }
@@ -60,10 +54,6 @@ public class HealthConditions {
 
     public String getObservNote() {
         return ObservNote.get();
-    }
-
-    public int getTypeOfCase() {
-        return TypeOfCase;
     }
 
     public int getCitizen() {

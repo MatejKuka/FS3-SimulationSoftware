@@ -14,8 +14,6 @@ public abstract class User {
     public User(int userID, String loginName, String password, int roleID) {
         setLoginName(loginName);
         setPassword(password);
-//        this.loginName = loginName;
-//        this.password = password;
         this.userID = userID;
         this.roleID = roleID;
     }
@@ -26,10 +24,6 @@ public abstract class User {
         setLastName(lastName);
         setLoginName(loginName);
         setPassword(password);
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.loginName = loginName;
-//        this.password = password;
         this.roleID = roleID;
     }
 
@@ -81,9 +75,7 @@ public abstract class User {
         return firstName + " " + lastName;
     }
 
-
-
-    /*@Override
+    @Override
     public String toString() {
         return "User{" +
                 "userID=" + userID +
@@ -93,5 +85,5 @@ public abstract class User {
                 ", password='" + password + '\'' +
                 ", roleID=" + roleID +
                 '}';
-    }*/
+    }
 }

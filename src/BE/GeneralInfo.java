@@ -15,7 +15,7 @@ public class GeneralInfo {
     private StringProperty healthInfo = new SimpleStringProperty();
     private StringProperty assistiveDevices = new SimpleStringProperty();
     private StringProperty interiorOfDwelling = new SimpleStringProperty();
-    private StringProperty network;
+    private StringProperty network = new SimpleStringProperty();
     private int citizen;
 
     public GeneralInfo(int id, String mastery, String motivation, String resources, String roller, String habits,

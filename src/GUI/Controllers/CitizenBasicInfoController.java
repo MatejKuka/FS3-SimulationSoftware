@@ -31,14 +31,6 @@ public class CitizenBasicInfoController implements Initializable {
     private final TextField lastNameTextField = new TextField();
 
     private Citizen citizen;
-
-    public void getCitizen(Citizen citizen) throws UserException {
-        Citizen citizen1 = mainModel.getCitizenById(citizen.getId());
-        this.citizen = citizen1;
-        setupLabels(citizen1);
-        setupTextFields(citizen1);
-    }
-
     private MainModel mainModel;
 
     @Override
@@ -52,6 +44,14 @@ public class CitizenBasicInfoController implements Initializable {
         setupInitialView();
     }
 
+    //Method, which gets citizen from other controllers
+    public void getCitizen(Citizen citizen) throws UserException {
+        Citizen citizen1 = mainModel.getCitizenById(citizen.getId());
+        this.citizen = citizen1;
+        setupLabels(citizen1);
+        setupTextFields(citizen1);
+    }
+    //
     private void setupInitialView() {
         clear();
         clearButtons();
@@ -71,12 +71,12 @@ public class CitizenBasicInfoController implements Initializable {
             setupButtons();
         });
     }
-
+    // Clears the values from both border page
     private void clear() {
         firstNameContainer.getChildren().clear();
         lastNameContainer.getChildren().clear();
     }
-
+    // Clears the buttons from the button container
     private void clearButtons() {
         buttonsContainer.getChildren().clear();
     }
@@ -99,7 +99,10 @@ public class CitizenBasicInfoController implements Initializable {
         buttonsContainer.getChildren().add(saveButton);
         buttonsContainer.getChildren().add(cancelButton);
         buttonsContainer.setSpacing(30);
+
+        // Button actions
         cancelButton.setOnAction(event -> setupInitialView());
+
         saveButton.setOnAction(event -> {
             Citizen newCitizen = new Citizen(citizen.getId(), firstNameTextField.getText(), lastNameTextField.getText(), citizen.getSchool());
             try {

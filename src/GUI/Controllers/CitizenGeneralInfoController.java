@@ -147,17 +147,23 @@ public class CitizenGeneralInfoController implements Initializable {
         buttonPane.getChildren().clear();
     }
 
+    // Function, which changes what is going to display after different button click.
+
     private void setupViewChange(String label, String mainTextLabel, String updateView, String description) {
         clearMainView(description);
+
         textArea = new TextArea();
+        editButton = new Button("Edit");
+
         textArea.getStyleClass().add("custom-textarea");
         textArea.setMinHeight(360);
-        editButton = new Button("Edit");
         editButton.getStyleClass().addAll("btn-action", "padding");
+
         buttonPane.setRight(editButton);
         setNameLabel(label);
 
         mainText.setText(mainTextLabel);
+
         editButton.setOnAction(evt -> {
             mainView.getChildren().set(2, textArea);
             buttonPane.getChildren().clear();
@@ -165,6 +171,7 @@ public class CitizenGeneralInfoController implements Initializable {
         });
 
         saveButton.setOnAction(event -> {
+            // Depending on which case we are in we are going to update the general info
             switch (updateView) {
                 case "mastery" -> {
                     GeneralInfo generalInfo = new GeneralInfo(this.generalInfo.getId(), textArea.getText(), this.generalInfo.getMotivation(), this.generalInfo.getResources(), this.generalInfo.getRoller(), this.generalInfo.getHabits(), this.generalInfo.getEducationJob(), this.generalInfo.getLifeStory(), this.generalInfo.getHealthInfo(), this.generalInfo.getAssistiveDevices(), this.generalInfo.getInteriorOfDwelling(), this.generalInfo.getNetwork(), this.generalInfo.getCitizen());
@@ -257,7 +264,9 @@ public class CitizenGeneralInfoController implements Initializable {
                 default -> System.out.println("error");
             }
             mainText.setText(textArea.getText());
+            // Setting main text to be in second position
             mainView.getChildren().set(2, mainText);
+
             buttonPane.getChildren().clear();
             buttonPane.setRight(editButton);
         });
@@ -265,11 +274,12 @@ public class CitizenGeneralInfoController implements Initializable {
         setupCancelButton(editButton);
     }
 
+    // Updating general info
     private void handleSaveButtonSave(GeneralInfo generalInfo) throws UserException {
         mainModel.updateGeneralInfo(generalInfo);
         this.generalInfo = generalInfo;
     }
-
+    // Helper method to make label creation more clear
     private Label createLabel(String title) {
         return new Label(title);
     }

@@ -70,6 +70,7 @@ public class MainModel {
         return teachers;
     }
 
+    // This method returns an observable list of Users depending of the roleID in the parameter
     public ObservableList<User> getUsersByRole(int roleID) throws UserException {
         if (roleID == 1) userObservableList.setAll(getAllAdminsFromOneSchool());
         else if (roleID == 2) userObservableList.setAll(getAllTeacher());
@@ -93,6 +94,7 @@ public class MainModel {
     public int getRoleId() {
         return idRole;
     }
+
 
     public void changeRoleName(int roleID) {
         if (roleID == 1) nameRole = "Admins";

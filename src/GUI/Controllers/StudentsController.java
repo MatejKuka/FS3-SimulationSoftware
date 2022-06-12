@@ -69,7 +69,7 @@ public class StudentsController implements Initializable {
         SceneSetter.setScene(loader);
     }
 
-    @FXML
+    @FXML  // This method is called when a user clicks on an item in a tableview
     void toShowUser() {
         userToShow = tableViewUsers.getSelectionModel().getSelectedItem();
         if (userToShow != null) {

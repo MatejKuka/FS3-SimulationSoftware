@@ -67,7 +67,7 @@ public class SchoolController implements Initializable {
         mainModel.deleteSchool(clickedSchool);
     }
 
-    @FXML
+    @FXML // This will show a new window with a controller which requires a citizen in parameters
     void toEditCurrentSchool() throws IOException {
         EditSchoolController editSchoolController = new EditSchoolController(mainModel.getCurrentSchool());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditSchoolView.fxml"));

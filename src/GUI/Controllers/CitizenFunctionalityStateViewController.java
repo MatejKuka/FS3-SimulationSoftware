@@ -65,9 +65,8 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
         int integerPlaceholder = 4;
         String stringPlaceholder = "Lorem ipsum";
+        String datePlaceholder = "18-9-2022";
 
-
-        //date place holder///////////////////////////
         int[] functionalityTypes = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
 
         if (functionalityStateList.size() != 0) {
@@ -86,7 +85,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         if (!isCitizenAssessmentCreated) {
             for (int functionalityType :
                     functionalityTypes) {
-                citizensAssessmentList.add(mainModel.createCitizensAssessments(stringPlaceholder, stringPlaceholder, stringPlaceholder, stringPlaceholder, stringPlaceholder, functionalityType, citizen.getId()));
+                citizensAssessmentList.add(mainModel.createCitizensAssessments(stringPlaceholder, stringPlaceholder, stringPlaceholder, datePlaceholder, stringPlaceholder, functionalityType, citizen.getId()));
             }
         }
     }

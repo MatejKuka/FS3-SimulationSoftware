@@ -47,8 +47,10 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     private final Label citizenWishesData = new Label(placeholder);
     private final Label followUpDateData = new Label(placeholder);
     private final Label observationalNotes = new Label(placeholder);
-    private MainModel mainModel;
 
+    private MainModel mainModel;
+    private FunctionalityState functionalityStateData;
+    private CitizensAssessment citizensAssessmentData;
 
     private Button editButton, saveButton, cancelButton;
     List<FunctionalityState> functionalityStateList;
@@ -60,15 +62,19 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     public void getCitizen(Citizen citizen) throws UserException {
         this.citizen = citizen;
+
         functionalityStateList = mainModel.getFunctionalityStateById(citizen.getId());
         citizensAssessmentList = mainModel.getCitizenAssessmentsById(citizen.getId());
 
+        // placeholder values
         int integerPlaceholder = 4;
         String stringPlaceholder = "Lorem ipsum";
         String datePlaceholder = "18-9-2022";
 
+        // creating array for looping and then creating placeholders
         int[] functionalityTypes = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
 
+        // checking if the functionality state or assessment list exists
         if (functionalityStateList.size() != 0) {
             isFunctionalityStateCreated = true;
         }
@@ -76,6 +82,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
             isCitizenAssessmentCreated = false;
         }
 
+        // if it doesn't exist then we create placeholders for all the cases
         if (!isFunctionalityStateCreated) {
             for (int functionalityType :
                     functionalityTypes) {
@@ -92,15 +99,18 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Styling
         wishesTextarea.getStyleClass().add("custom-textarea");
         professionalArea.getStyleClass().add("custom-textarea");
         observationalArea.getStyleClass().add("custom-textarea");
-        editButton = new Button("Edit");
         editButton.getStyleClass().addAll("btn-action", "padding");
-        saveButton = new Button("Save");
         saveButton.getStyleClass().addAll("btn-action", "padding");
-        cancelButton = new Button("Cancel");
         cancelButton.getStyleClass().addAll("btn-action", "padding");
+        // Creating buttons
+        editButton = new Button("Edit");
+        saveButton = new Button("Save");
+        cancelButton = new Button("Cancel");
+
         try {
             mainModel = new MainModel();
         } catch (IOException e) {
@@ -108,7 +118,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         }
     }
 
-
+    // Button click handlers
     public void handleSelfCare() {
         handleNewView("Body Care", 2);
     }
@@ -140,7 +150,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     public void handleCommunication() {
         handleNewView("Communication", 22);
     }
-
 
     public void handleWash() {
         handleNewView("Wash", 1);
@@ -222,10 +231,9 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         handleNewView("Dressing", 3);
     }
 
-    private FunctionalityState functionalityStateData;
-    private CitizensAssessment citizensAssessmentData;
-
+    // Function that is responsible for displaying the content after different cases button is clicked
     public void handleNewView(String labelName, int functionalityType) {
+        // we filter through all functionality states in clicked user and check for specific case using filter and parameter functionality type
         List<FunctionalityState> filteredFunctionalityStateList = functionalityStateList.stream().filter(functionalityState1 -> functionalityState1.getFunctionalityType() == functionalityType).collect(Collectors.toList());
         functionalityStateData = filteredFunctionalityStateList.get(0);
 
@@ -233,8 +241,10 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         citizensAssessmentData = filteredCitizensAssessmentList.get(0);
 
         label.setText(labelName);
+
         setInitView();
 
+        // Setting content
         currentLevelData.setText(String.valueOf(functionalityStateData.getCurrLvl()));
         expectedLevelData.setText(String.valueOf(functionalityStateData.getExpectedLvl()));
         professionalNoteData.setText(functionalityStateData.getProfessNote());
@@ -246,6 +256,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         followUpDateData.setText(citizensAssessmentData.getFollUpDate());
         observationalNotes.setText(citizensAssessmentData.getObservNote());
 
+        // Button actions
         editButton.setOnAction(evt -> setupEditFields());
 
         cancelButton.setOnAction(evt -> {

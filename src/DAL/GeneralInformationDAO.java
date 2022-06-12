@@ -15,6 +15,7 @@ public class GeneralInformationDAO {
         dbConnector = DBConnector.getInstance();
     }
 
+    //create 1 section of general info
     public GeneralInfo createGeneralInfo(String mastery,
                                         String motivation,
                                         String resources,
@@ -63,6 +64,7 @@ public class GeneralInformationDAO {
         return generalInfo;
     }
 
+    //update 1 section of functionality state
     public void updateGeneralInfo(GeneralInfo generalInfo) throws UserException {
         String query =  "UPDATE General_Information SET Mastery = ?, Motivation = ?, Ressources = ?, Roller = ?, " +
                         "Habits = ?, EducationJob = ?, LifeStory = ?, HealthInfo = ?, AssistiveDevices = ?," +
@@ -88,6 +90,7 @@ public class GeneralInformationDAO {
         }
     }
 
+    //returns list of all 11 sections (questions) of general info of particular citizen
     public List<GeneralInfo> getAllGeneralInfo() throws UserException {
         List<GeneralInfo> generalInfoArrayList = new ArrayList<>();
         String query = "SELECT * FROM General_Information";
@@ -122,6 +125,7 @@ public class GeneralInformationDAO {
         return generalInfoArrayList;
     }
 
+    //get 1 section of functionality state
     public GeneralInfo getGeneralInfo(int idGeneralInfo) throws UserException {
         GeneralInfo generalInfo = null;
         String query =  "SELECT * FROM General_Information WHERE Id = ?";

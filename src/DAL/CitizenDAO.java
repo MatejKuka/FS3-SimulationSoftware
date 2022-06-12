@@ -51,7 +51,8 @@ public class CitizenDAO {
             throw new UserException("Not able to update citizen", e);
         }
     }
-    
+
+    //delete citizen with all connections
     public void deleteCitizen(Citizen citizen) throws UserException {
         String queryCitizen = "DELETE FROM Citizen WHERE Id = ?";
         String queryGeneralInfo = "DELETE FROM General_Information WHERE Citizen = ?";

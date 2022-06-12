@@ -20,6 +20,7 @@ public class FunctionalityStateDAO {
         dbConnector = DBConnector.getInstance();
     }
 
+    //returns list of all 30 sections (questions) of functionality state of particular citizen
     public List<FunctionalityState> getCitizenFunctionalityState(int idCitizen) throws UserException {
         List<FunctionalityState> functionalityStateList = new ArrayList<>();
         FunctionalityState functionalityState;
@@ -51,7 +52,7 @@ public class FunctionalityStateDAO {
         return functionalityStateList;
     }
 
-
+    //update 1 section of functionality state
     public void updateFunctionalityState(FunctionalityState functionalityState) throws UserException {
         String query =  "UPDATE Functionality_State_Answ SET CurrLvl = ?, ExpectedLvl = ?, ProfessNote = ?, SaveAs = ? WHERE Id = ?";
         try (Connection connection = dbConnector.getConnection()){
@@ -68,6 +69,7 @@ public class FunctionalityStateDAO {
         }
     }
 
+    //create 1 section of functionality state
     public FunctionalityState createFunctionalityState(int currLvl,
                                                        int expectedLvl,
                                                        String professNote,

@@ -115,14 +115,15 @@ public class UserDAO {
         return allAdmins;
     }
 
-    //////////////////////////////
-    /////////////////////////////
     public List<User> getAllAdmins() throws UserException {
         List<User> allAdmins = new ArrayList<>();
-        String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +
-                " FROM Users u " +
-                "JOIN Users_School s ON s.Users = u.id " +
-                "WHERE u.Type_Of_User = 1";
+        String query =  "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +
+                        "FROM Users u " +
+                        "WHERE u.Type_Of_User = 1 AND u.Id NOT IN " +
+                        "(" +
+                            "SELECT us.Users " +
+                            "FROM Users_School us " +
+                        ")";
 
         try (Connection connection = dbConnector.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -138,6 +139,7 @@ public class UserDAO {
 
 
                 User admin = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.ADMIN);
+                System.out.println(admin);
                 allAdmins.add(admin);
             }
         } catch (Exception e) {

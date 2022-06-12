@@ -6,7 +6,7 @@ import BE.Teacher;
 import BE.User;
 
 public class UserFactory {
-    public enum UserType{
+    public enum UserType {
         ADMIN(1),
         TEACHER(2),
         STUDENT(3);

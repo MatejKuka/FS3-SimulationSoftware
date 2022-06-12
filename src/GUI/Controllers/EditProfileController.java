@@ -2,6 +2,7 @@ package GUI.Controllers;
 
 import BE.User;
 import BLL.exeptions.UserException;
+import BLL.utils.UserFactory;
 import GUI.Models.MainModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,10 +28,11 @@ public class EditProfileController implements Initializable {
 
     private User user;
     private TextField firstNameTextField, lastNameTextField, usernameTextField, passwordTextField;
-
+    private UserFactory userFactory;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            userFactory = new UserFactory();
             model = new MainModel();
         } catch (IOException e) {
             e.printStackTrace();
@@ -76,6 +78,9 @@ public class EditProfileController implements Initializable {
             try {
                 user = MainModel.currentUser;
                 model.updateUser(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText());
+
+                User newUser = userFactory.createUser(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText(), getEnum(user.getRoleID()));
+                model.setCurrentUser(newUser);
             } catch (UserException e) {
                 e.printStackTrace();
             }
@@ -162,4 +167,14 @@ public class EditProfileController implements Initializable {
         usernameTextField.getStyleClass().add("custom-text-field");
         passwordTextField.getStyleClass().add("custom-text-field");
     }
+    private UserFactory.UserType getEnum(int roleId) {
+        if (roleId == 1) {
+            return UserFactory.UserType.ADMIN;
+        }
+        if (roleId == 2) {
+            return UserFactory.UserType.TEACHER;
+        }
+        else return UserFactory.UserType.STUDENT;
+    }
+
 }

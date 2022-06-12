@@ -33,6 +33,10 @@ public class CitizenGeneralInfoController implements Initializable {
     private final HBox hBox = new HBox();
     private boolean isCreated = false;
 
+
+    // Function, which is passed to get the clicked citizen
+    // checking if general info is created if yes then set the general info to be the one that has been found, if it hasn't been found we create
+    // new general info with placeholder values
     public void getCitizen(Citizen citizen) throws UserException {
         mainModel.getAllGeneralInfo().forEach(generalInfo1 -> {
             if (citizen.getId() == generalInfo1.getCitizen()) {
@@ -55,6 +59,7 @@ public class CitizenGeneralInfoController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // styling to the buttons and button container
         cancelButton.getStyleClass().addAll("btn-action", "padding");
         saveButton.getStyleClass().addAll("btn-action", "padding");
         hBox.setSpacing(20);
@@ -62,6 +67,7 @@ public class CitizenGeneralInfoController implements Initializable {
         hBox.getChildren().add(saveButton);
     }
 
+    //setting view depending on which button has been clicked
     @FXML
     void toAssistDevSec() {
         setupViewChange("Assistive devices", generalInfo.getAssistiveDevices(), "assistiveDevices", "Equipment, products and technology such as used by the citizen in daily activities, incl. such as are customized or specially made for, implanted in,located on or near the person who apply them. (Incl. Regular objects and aids and technology for personal use).");

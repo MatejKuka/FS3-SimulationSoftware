@@ -19,6 +19,7 @@ public class CitizensAssessmentDAO {
         dbConnector = DBConnector.getInstance();
     }
 
+    //returns list of all 30 sections (questions) of citizen assessment of particular citizen
     public List<CitizensAssessment> getCitizenAssessment(int idCitizen) throws UserException {
         List<CitizensAssessment> citizensAssessmentList = new ArrayList<>();
         CitizensAssessment citizensAssessment;
@@ -49,6 +50,7 @@ public class CitizensAssessmentDAO {
         return citizensAssessmentList;
     }
 
+    //update 1 section of citizen assessment
     public void updateCitizenAssessment(CitizensAssessment citizensAssessment) throws UserException {
         String query =  "UPDATE Citizens_Assessment SET Performance = ?, Importance = ?, CitizWishes = ?, FollUpDate = ?, " +
                         "ObservNote = ?  WHERE Id = ?";
@@ -67,6 +69,7 @@ public class CitizensAssessmentDAO {
         }
     }
 
+    //create 1 section of citizen assessment
     public CitizensAssessment createCitizensAssessment(String performance,
                                                        String importance,
                                                        String citizWishes,

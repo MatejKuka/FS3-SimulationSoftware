@@ -16,6 +16,7 @@ public class HealthConditionsDAO {
         dbConnector = DBConnector.getInstance();
     }
 
+    //get 42 sections of health condition (case) of particular citizen
     public List<HealthConditions> getHealthCondition(int idCitizen) throws UserException {
         List<HealthConditions> healthConditionsList = new ArrayList<>();
         HealthConditions healthConditions;
@@ -49,6 +50,7 @@ public class HealthConditionsDAO {
         return healthConditionsList;
     }
 
+    //update 1 section of health condition (case)
     public void updateHealthConditions(HealthConditions healthConditions) throws UserException {
         String query =  "UPDATE Health_Condition_Answ SET SaveAs = ?, ProfessNote = ?, CurrAssess = ?, ExpectedLvl = ?, " +
                         "FollUpDate = ?, ObservNote = ? WHERE Id = ?";
@@ -68,6 +70,7 @@ public class HealthConditionsDAO {
         }
     }
 
+    //create 1 section of health condition (case)
     public HealthConditions createHealthCondition(String SaveAs,
                                                   String ProfessNote,
                                                   String CurrAssess,

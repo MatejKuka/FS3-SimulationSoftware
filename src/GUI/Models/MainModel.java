@@ -11,12 +11,14 @@ import java.util.List;
 
 public class MainModel {
 
+    //when user log in static instant variables are set based on DB info about user
     private static int idRole;
     private static int currentSchoolId;
     public static User currentUser;
     public static Citizen chosenCitizenToFillUp;
     public static School clickedSchool;
     private static String nameRole;
+
     ObservableList<User> students;
     ObservableList<User> teachers;
     ObservableList<User> admins;
@@ -25,12 +27,14 @@ public class MainModel {
     ObservableList<School> schools;
     ObservableList<FunctionalityState> functionalityStates;
     ObservableList<Citizen> citizensBySchool;
-    FacadeBLL manager;
     ObservableList<User> userObservableList;
 
+    FacadeBLL manager;
 
     public MainModel() throws IOException {
+        //singleton
         manager = FacadeBLL.getInstance();
+
         students = FXCollections.observableArrayList();
         admins = FXCollections.observableArrayList();
         adminsBySchool = FXCollections.observableArrayList();
@@ -40,7 +44,6 @@ public class MainModel {
         citizensBySchool = FXCollections.observableArrayList();
         functionalityStates = FXCollections.observableArrayList();
         userObservableList = FXCollections.observableArrayList();
-
     }
 
     public User compareLogins(String username, String password) throws UserException {

@@ -17,12 +17,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CitizensController implements Initializable {
-    MainModel mainModel;
-    MAdminStudentViewController adminStudentViewController;
+    private final MainModel mainModel;
 
     public CitizensController() throws IOException {
         mainModel = new MainModel();
-        adminStudentViewController = new MAdminStudentViewController();
     }
 
     @FXML
@@ -54,7 +52,6 @@ public class CitizensController implements Initializable {
         tableColumnFName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tableViewCitizens.getItems().setAll(mainModel.getAllCitizenFromOneSchool(mainModel.getCurrentSchoolId()));
-        System.out.println(mainModel.getCurrentSchoolId());
     }
 
     private void setupTableView() {

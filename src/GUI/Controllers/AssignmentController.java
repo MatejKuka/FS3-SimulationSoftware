@@ -5,17 +5,13 @@ import BE.User;
 import BLL.exeptions.UserException;
 import GUI.Models.MainModel;
 import GUI.Utils.SceneSetter;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -72,7 +68,7 @@ public class AssignmentController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/ViewAnswersView.fxml"));
             loader.setController(viewAnswersController);
             SceneSetter.setScene(loader);
-        } else labelMessage.setText("You have to choose a citizen to open the answers");
+        }else labelMessage.setText("You have to choose a citizen to open the answers");
     }
 
     @FXML

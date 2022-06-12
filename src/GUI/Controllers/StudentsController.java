@@ -16,28 +16,22 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentsController implements Initializable {
-    MainModel mainModel;
-    MAdminStudentViewController menuController;
-    User userToShow;
+    private MainModel mainModel;
+    private User userToShow;
 
     @FXML
     private Label labelFirstName, labelUsername, labelLastName, labelNameView;
 
     @FXML
-    private TableColumn<User, String> tableColFname;
-
-    @FXML
-    private TableColumn<User, String> tableColLname;
+    private TableColumn<User, String> tableColFname, tableColLname;
 
     @FXML
     private TableView<User> tableViewUsers;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             mainModel = new MainModel();
-            menuController = new MAdminStudentViewController();
             updateTableView();
         } catch (Exception | UserException e) {
             e.printStackTrace();
@@ -67,7 +61,7 @@ public class StudentsController implements Initializable {
     }
 
     @FXML
-    void toEditCurrentUser() throws IOException {
+    void toEditCurrentUser() {
         userToShow = tableViewUsers.getSelectionModel().getSelectedItem();
         EditUserController editUserController = new EditUserController(userToShow);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditUserView.fxml"));
@@ -84,5 +78,4 @@ public class StudentsController implements Initializable {
         labelUsername.setText(userToShow.getLoginName());
         }
     }
-
 }

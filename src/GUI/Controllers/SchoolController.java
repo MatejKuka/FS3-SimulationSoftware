@@ -18,18 +18,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SchoolController implements Initializable {
-    MainModel mainModel;
-    School clickedSchool;
-    User chosenUser;
+    private final MainModel mainModel;
+    private School clickedSchool;
+    private User chosenUser;
 
     @FXML
     private Label labelMessage;
 
     @FXML
-    private TableColumn<School, String> tableColCity;
-
-    @FXML
-    private TableColumn<School, String> tableColName;
+    private TableColumn<School, String> tableColCity, tableColName;
 
     @FXML
     private TableView<User> tableView;
@@ -38,11 +35,7 @@ public class SchoolController implements Initializable {
     private TableColumn<User, Integer> tableColID;
 
     @FXML
-    private TableColumn<User, String> tableColLogName;
-
-    @FXML
-    private TableColumn<User, String> tableColFirstName;
-
+    private TableColumn<User, String> tableColLogName, tableColFirstName;
 
     @FXML
     private TableView<School> tableViewSchools;
@@ -76,7 +69,6 @@ public class SchoolController implements Initializable {
 
     @FXML
     void toEditCurrentSchool() throws IOException {
-
         EditSchoolController editSchoolController = new EditSchoolController(mainModel.getCurrentSchool());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Views/EditSchoolView.fxml"));
         loader.setController(editSchoolController);

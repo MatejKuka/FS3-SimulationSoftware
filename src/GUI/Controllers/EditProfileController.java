@@ -71,8 +71,8 @@ public class EditProfileController implements Initializable {
 
         saveChangesButton.setOnAction(event -> {
             try {
-                model.updateUser(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText());
                 user = MainModel.currentUser;
+                model.updateUser(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText());
             } catch (UserException e) {
                 e.printStackTrace();
             }

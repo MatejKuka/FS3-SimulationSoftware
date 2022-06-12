@@ -115,6 +115,8 @@ public class UserDAO {
         return allAdmins;
     }
 
+    //////////////////////////////
+    /////////////////////////////
     public List<User> getAllAdmins() throws UserException {
         List<User> allAdmins = new ArrayList<>();
         String query = "SELECT u.Id, u.FName, u.LName, u.UserName, u.UPassword " +

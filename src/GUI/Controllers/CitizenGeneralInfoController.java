@@ -30,7 +30,7 @@ public class CitizenGeneralInfoController implements Initializable {
 
     private final BorderPane buttonPane = new BorderPane();
     private GeneralInfo generalInfo;
-    HBox hBox = new HBox();
+    private final HBox hBox = new HBox();
     private boolean isCreated = false;
 
     public void getCitizen(Citizen citizen) throws UserException {

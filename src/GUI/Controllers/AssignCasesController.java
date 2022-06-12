@@ -60,7 +60,6 @@ public class AssignCasesController implements Initializable {
     void toAssignCitizen() throws UserException {
         if (clickedUser != null && clickedCitizen != null) {
             mainModel.addCitizenToStudent(clickedUser, clickedCitizen);
-            System.out.println(clickedUser + " user got assinged " + clickedCitizen);
         } else labelMessage.setText("Something went wrong!");
     }
 

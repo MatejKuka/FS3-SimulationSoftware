@@ -266,9 +266,11 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         });
 
         saveButton.setOnAction(evt -> {
+
             String formattedDate = datePicker.getValue().format(DateTimeFormatter.ofPattern("dd-M-yyyy"));
             FunctionalityState newFunctionalityState = new FunctionalityState(functionalityStateData.getId(), Integer.parseInt(currentBox.getValue()), Integer.parseInt(expectedBox.getValue()), professionalArea.getText(), saveAsComboBox.getValue(), functionalityType, citizen.getId());
             CitizensAssessment newCitizensAssessment = new CitizensAssessment(citizensAssessmentData.getId(), performanceBox.getValue(), importanceBox.getValue(), wishesTextarea.getText(), formattedDate, observationalArea.getText(), functionalityType, citizen.getId());
+            // Updating functionality state and citizen assessment, updating ui as well
             try {
                 mainModel.updateFunctionalityState(newFunctionalityState);
                 mainModel.updateCitizensAssessment(newCitizensAssessment);
@@ -294,38 +296,40 @@ public class CitizenFunctionalityStateViewController implements Initializable {
     }
 
     private void setupEditFields() {
+        // Styling
         importanceBox.getStyleClass().add("custom-combobox");
         currentBox.getStyleClass().add("custom-combobox");
         expectedBox.getStyleClass().add("custom-combobox");
         saveAsComboBox.getStyleClass().add("custom-combobox");
         performanceBox.getStyleClass().add("custom-combobox");
+        observationalArea.setMaxWidth(400);
+        observationalArea.setMinHeight(150);
+        professionalArea.setMaxWidth(400);
+        professionalArea.setMinHeight(200);
 
-
+        // Setting values
         importanceBox.getItems().setAll("does not experience limitations", "experiencing limitations");
         performanceBox.getItems().setAll("performs yourself", "performs semi yourself", "do not performs yourself", "not applicable");
         currentBox.getItems().setAll("0", "1", "2", "3", "4", "9");
         relevantBox.getItems().setAll("bad", "normal", "good");
         expectedBox.getItems().setAll("0", "1", "2", "3", "4", "9");
         saveAsComboBox.getItems().setAll("Save as active", "Save as potential", "Save as not relevant");
-        observationalArea.setMaxWidth(400);
-        observationalArea.setMinHeight(150);
-        professionalArea.setMaxWidth(400);
-        professionalArea.setMinHeight(200);
-
         currentBox.setValue(String.valueOf(functionalityStateData.getCurrLvl()));
         expectedBox.setValue(String.valueOf(functionalityStateData.getExpectedLvl()));
         professionalArea.setText(functionalityStateData.getProfessNote());
         saveAsComboBox.setValue(functionalityStateData.getSaveAs());
-
         performanceBox.setValue(citizensAssessmentData.getPerformance());
         importanceBox.setValue(citizensAssessmentData.getImportance());
         wishesTextarea.setText(citizensAssessmentData.getCitizWishes());
         datePicker.setEditable(false);
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-M-yyyy");
         LocalDate localDate = LocalDate.parse(citizensAssessmentData.getFollUpDate(), formatter);
+
         datePicker.setValue(localDate);
         observationalArea.setText(citizensAssessmentData.getObservNote());
 
+        // Setting components inside HBoxes
         container1.getChildren().set(1, currentBox);
         container2.getChildren().set(1, expectedBox);
         container6.getChildren().set(1, performanceBox);
@@ -336,6 +340,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         container3.getChildren().set(1, professionalArea);
         container4.getChildren().set(1, saveAsComboBox);
 
+        // Setting buttons
         clearButtons();
 
         container12.getChildren().add(saveButton);
@@ -391,6 +396,7 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         clearButtons();
     }
 
+    // Shows the labels version of view
     private void setInitView() {
         clearMainView();
         container1.getChildren().add(createLabel("Current level:"));

@@ -53,7 +53,7 @@ public class CitizensController implements Initializable {
         tableColumnLName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tableViewCitizens.getItems().setAll(mainModel.getAllCitizenFromOneSchool(mainModel.getCurrentSchoolId()));
     }
-
+    // Function that sets user to be the one you click, manipulating state of buttons
     private void setupTableView() {
         tableViewCitizens.setRowFactory(tv -> {
             TableRow<Citizen> row = new TableRow<>();
@@ -67,12 +67,12 @@ public class CitizensController implements Initializable {
             return row;
         });
     }
-
+    // button actions
     public void handleEditButton() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizensEditView.fxml"));
         Parent root = loader.load();
-
+        // Passing citizen to CitizenEditView
         CitizensEditController citizensEditController = loader.getController();
         citizensEditController.getCitizen(citizen);
 

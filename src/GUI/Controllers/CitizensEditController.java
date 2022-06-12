@@ -29,8 +29,10 @@ public class CitizensEditController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenBasicInfoView.fxml"));
         Parent root = loader.load();
+        // Passing citizen down to the controller
         CitizenBasicInfoController citizenBasicInfoController = loader.getController();
         citizenBasicInfoController.getCitizen(citizen);
+
         borderPaneContent.setCenter(root);
     }
 
@@ -38,8 +40,10 @@ public class CitizensEditController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenGeneralInfoView.fxml"));
         Parent root = loader.load();
+        // Passing citizen down to the controller
         CitizenGeneralInfoController citizenBasicInfoController = loader.getController();
         citizenBasicInfoController.getCitizen(citizen);
+
         borderPaneContent.setCenter(root);
     }
 
@@ -47,8 +51,10 @@ public class CitizensEditController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/GUI/Views/CitizenFunctionalityStateView.fxml"));
         Parent root = loader.load();
+        // Passing citizen down to the controller
         CitizenFunctionalityStateViewController citizenFunctionalityStateViewController = loader.getController();
         citizenFunctionalityStateViewController.getCitizen(citizen);
+
         borderPaneContent.setCenter(root);
     }
 }

@@ -53,12 +53,14 @@ public class EditProfileController implements Initializable {
         cancelChangesButton.getStyleClass().addAll("btn-action-error", "padding");
 
         setupInitBorderPanes(editButton, deleteButton);
+
         setupLabels(user.getFirstName(), user.getLastName(), user.getLoginName(), user.getRoleID(), user.getPassword());
         //action listeners
         editButton.setOnAction(event -> {
             cleanBorderPanes();
             cleanNodes();
             setupTextFields();
+
             editBorderPane.setCenter(saveChangesButton);
             deleteBorderPane.setCenter(cancelChangesButton);
         });
@@ -70,16 +72,19 @@ public class EditProfileController implements Initializable {
         });
 
         saveChangesButton.setOnAction(event -> {
+            // we get the static instance of user from main model then we update or catch errors
             try {
                 user = MainModel.currentUser;
                 model.updateUser(user.getUserID(), firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), passwordTextField.getText());
             } catch (UserException e) {
                 e.printStackTrace();
             }
+            // returning to initial ui state
             setupLabels(firstNameTextField.getText(), lastNameTextField.getText(), usernameTextField.getText(), user.getRoleID(), passwordTextField.getText());
             cleanBorderPanes();
             setupInitBorderPanes(editButton, deleteButton);
         });
+        //deleting user and redirecting to log in view
         deleteButton.setOnAction(event -> {
             try {
                 model.deleteUser(user);
@@ -101,6 +106,7 @@ public class EditProfileController implements Initializable {
         });
     }
 
+    // Setting up initial state of buttons located under labels
     private void setupInitBorderPanes(Node editButton, Node deleteButton) {
         editBorderPane.setCenter(editButton);
         deleteBorderPane.setCenter(deleteButton);
@@ -111,21 +117,21 @@ public class EditProfileController implements Initializable {
         editBorderPane.getChildren().clear();
         deleteBorderPane.getChildren().clear();
     }
-
+    // Clear border panes that contain info about user
     private void cleanNodes() {
         firstNameBorderPane.getChildren().clear();
         lastNameBorderPane.getChildren().clear();
         usernameBorderPane.getChildren().clear();
         passwordBorderPane.getChildren().clear();
     }
-
+    // Setting text-fields after edit button is hit
     private void setupTextFields() {
         firstNameBorderPane.setCenter(firstNameTextField);
         lastNameBorderPane.setCenter(lastNameTextField);
         usernameBorderPane.setCenter(usernameTextField);
         passwordBorderPane.setCenter(passwordTextField);
     }
-
+    // First we clean all border panes then we create labels, and finally we set them to be in center of border panes
     private void setupLabels(String firstName, String lastName, String username, int roleId, String password) {
         cleanNodes();
         Text firstNameLabel = new Text(firstName);
@@ -140,7 +146,7 @@ public class EditProfileController implements Initializable {
         roleBorderPane.setCenter(roleLabel);
         passwordBorderPane.setCenter(passwordLabel);
     }
-
+    // creating text fields and assigning css.
     private void initializeTextFields() {
         firstNameTextField = new TextField();
         firstNameTextField.setText(user.getFirstName());

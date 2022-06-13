@@ -19,6 +19,7 @@ public class StudentCitizenDAO {
         dbConnector = DBConnector.getInstance();
     }
 
+    /////////////////////
     public void addCitizenToStudent(Student student, Citizen citizen) throws UserException {
         String query = "INSERT INTO Student_Citizen VALUES (?,?)";
         try (Connection connection = dbConnector.getConnection()) {
@@ -30,7 +31,6 @@ public class StudentCitizenDAO {
             throw new UserException("Not able to add citizen to student", e);
         }
     }
-
 
     public void removeCitizenFromStudent(User student, Citizen citizen) throws UserException {
         String query = "DELETE FROM Student_Citizen WHERE Citizen = ? AND Student = ?";

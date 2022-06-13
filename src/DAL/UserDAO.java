@@ -139,7 +139,6 @@ public class UserDAO {
 
 
                 User admin = userFactory.createUser(id, fName, lName, userName, password, UserFactory.UserType.ADMIN);
-                System.out.println(admin);
                 allAdmins.add(admin);
             }
         } catch (Exception e) {

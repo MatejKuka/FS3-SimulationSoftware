@@ -56,6 +56,7 @@ public class FacadeBLL implements IFacadeBLL {
         return facadeDAL.getAllCitizenFromOneSchool(schoolId);
     }
 
+    ///////////////////////////
     @Override
     public void addCitizenToStudent(Student student, Citizen citizen) throws UserException {
         facadeDAL.addCitizenToStudent(student, citizen);

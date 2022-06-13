@@ -218,6 +218,7 @@ public class MainModel {
         manager.updateGeneralInfo(generalInfo);
     }
 
+    /////////////////////
     public void addCitizenToStudent(Student student, Citizen citizen) throws UserException {
         manager.addCitizenToStudent(student, citizen);
     }

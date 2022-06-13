@@ -74,7 +74,7 @@ public class AssignCasesController implements Initializable {
     @FXML
     void handleClickedStudent() {
         clickedUser = (Student) tableViewStudents.getSelectionModel().getSelectedItem();
-        labelStudentName.setText(clickedUser.getFullName());
+        labelStudentName.setText(clickedUser.getLastName());
     }
 
     void setUpTableViewStudent() throws UserException {
@@ -82,11 +82,11 @@ public class AssignCasesController implements Initializable {
         tcLNameStudent.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tableViewStudents.getItems().setAll(mainModel.getAllStudents());
     }
+
     void setUpTableViewCases() throws UserException {
         tcIdCitizen.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcFNameCitizen.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tcLNameCitizen.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tableViewCitizen.getItems().setAll(mainModel.getAllCitizenFromOneSchool(mainModel.getCurrentSchoolId()));
     }
-
 }

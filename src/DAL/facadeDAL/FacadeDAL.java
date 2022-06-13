@@ -224,15 +224,18 @@ public class FacadeDAL implements IFacadeDAL{
         return citizenDAO.getCitizenById(citizenId);
     }
 
-
+    /////////////////////////
+    @Override
     public void addCitizenToStudent(Student student, Citizen citizen) throws UserException{
         studentCitizenDAO.addCitizenToStudent(student, citizen);
     }
 
+    @Override
     public void removeCitizenFromStudent(User student, Citizen citizen) throws UserException{
         studentCitizenDAO.removeCitizenFromStudent(student, citizen);
     }
 
+    @Override
     public List<Citizen> getStudentCitizens(int studentId) throws UserException{
         return studentCitizenDAO.getStudentCitizens(studentId);
     }

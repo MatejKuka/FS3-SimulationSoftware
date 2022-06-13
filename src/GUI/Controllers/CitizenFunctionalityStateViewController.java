@@ -99,6 +99,10 @@ public class CitizenFunctionalityStateViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Creating buttons
+        editButton = new Button("Edit");
+        saveButton = new Button("Save");
+        cancelButton = new Button("Cancel");
         // Styling
         wishesTextarea.getStyleClass().add("custom-textarea");
         professionalArea.getStyleClass().add("custom-textarea");
@@ -106,10 +110,6 @@ public class CitizenFunctionalityStateViewController implements Initializable {
         editButton.getStyleClass().addAll("btn-action", "padding");
         saveButton.getStyleClass().addAll("btn-action", "padding");
         cancelButton.getStyleClass().addAll("btn-action", "padding");
-        // Creating buttons
-        editButton = new Button("Edit");
-        saveButton = new Button("Save");
-        cancelButton = new Button("Cancel");
 
         try {
             mainModel = new MainModel();

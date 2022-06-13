@@ -49,13 +49,13 @@ public class StudentCaseController implements Initializable {
     }
 
 
-    @FXML
+    @FXML // This method is called when a user clicks on an item in a tableview
     void selectedCase() {
         clickedCitizen = tableViewCases.getSelectionModel().getSelectedItem();
         mainModel.setChosenCitizenFillUp(clickedCitizen);
     }
 
-    @FXML
+    @FXML  // This will show a new window
     void toSeeMore() {
         if (clickedCitizen != null) {
         FXMLLoader loader = new FXMLLoader();

@@ -61,6 +61,7 @@ public class ViewAnswersController implements Initializable {
                 "Problems with fluid from drains");
     }
 
+    // This method sets up labels of a health condition defined by an ID in the parameter
     private void setUpNodes(int idTypeHC) throws UserException {
         healthConditions = mainModel.getHealthCondition(citizenToShow.getId()).get(idTypeHC);
         labelCurrAss.setText(healthConditions.getCurrAssess());
@@ -70,7 +71,6 @@ public class ViewAnswersController implements Initializable {
         labelObsNotes.setText(healthConditions.getObservNote());
         labelProffNote.setText(healthConditions.getProfessNote());
         labelSaved.setText(healthConditions.getSaveAs());
-
     }
 
     @FXML
